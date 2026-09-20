@@ -315,7 +315,6 @@
     <string name="help_platform_android">Android phones and tablets: this app</string>
     <string name="help_platform_desktop">Windows, Linux and Mac: Relay for desktop</string>
     <string name="help_platform_apple">iPhone and iPad: Relay for iOS (in the works)</string>
-    <string name="help_platform_web">Anything else: open Relay Web in a browser</string>
     <string name="help_step2_title">Join the same Wi-Fi</string>
     <string name="help_step2_body">Your home Wi-Fi, or your phone’s hotspot. No internet needed: Relay talks directly between devices.</string>
     <string name="help_step3_title">Tap the device and check the shapes</string>

@@ -39,12 +39,58 @@ you approve can reach each other.
 | Device | Where |
 | --- | --- |
 | Android 10+ | Google Play, or the APK on the [releases page](../../releases) |
-| Windows 10/11 | [Releases](../../releases) — unzip and run `Relay.exe` |
+| Windows 10/11 | [Releases](../../releases) |
 | Linux | [Releases](../../releases) — `.deb` and `.rpm` |
 | iPhone, iPad, Mac | In the works |
 
-The desktop builds are not code-signed, so Windows may say the app is unrecognised.
-Choose **More info → Run anyway**, or build it yourself with the instructions below.
+## Installing on a computer
+
+The desktop builds are **not code-signed**. A signing certificate costs a few hundred
+dollars a year and Relay sells nothing, so Windows and some Linux tools will say the app
+comes from an unknown publisher. Nothing about Relay is hidden: the whole source is in
+this repository, and you can build it yourself instead of trusting a download.
+
+### Windows 10 and 11
+
+1. Download the Windows zip from the [releases page](../../releases).
+2. Right-click the zip, choose **Properties**, tick **Unblock**, then **OK**. Windows marks
+   everything from the internet; unblocking once here saves warnings later.
+3. Extract it somewhere permanent, for example a `Relay` folder inside your user folder.
+4. Run `Relay.exe`. If **Windows protected your PC** appears, choose **More info**, then
+   **Run anyway**.
+5. If Windows says **Smart App Control blocked this app**, that feature allows signed apps
+   only. You can either turn Smart App Control off in Windows Security, under
+   *App & browser control* — a system-wide decision worth thinking about — or build Relay
+   from source with the instructions below.
+6. On first launch, Windows Firewall asks about network access. Tick **Private networks**
+   and allow it, otherwise your phone cannot reach the computer.
+
+Relay then sits in the system tray. Closing the window keeps it running; **Quit** in the
+tray menu stops it. Turn on **Start Relay when I sign in** in Settings to have it ready
+after every restart.
+
+### Linux
+
+Install the package for your distribution, then launch Relay from the applications menu:
+
+```bash
+sudo dpkg -i relay_1.0.0_amd64.deb    # Debian, Ubuntu, Mint
+sudo rpm -i relay-1.0.0.x86_64.rpm    # Fedora, openSUSE
+```
+
+If your firewall is strict, allow TCP port 47800 and UDP port 47801 on the local network.
+
+### Checking a download
+
+Each release lists SHA-256 checksums. Compare one before running the app:
+
+```powershell
+Get-FileHash .\Relay-1.0.0-windows-x64.zip -Algorithm SHA256
+```
+
+```bash
+sha256sum Relay-1.0.0-windows-x64.zip
+```
 
 ## Building from source
 
