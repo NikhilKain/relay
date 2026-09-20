@@ -38,10 +38,11 @@ you approve can reach each other.
 
 | Device | Where |
 | --- | --- |
-| Android 10+ | Google Play, or the APK on the [releases page](../../releases) |
-| Windows 10/11 | [Releases](../../releases) |
+| Android 10+ | [Google Play](https://play.google.com/store/apps/details?id=com.vythera.relay) |
+| Windows 10/11 | [Releases](../../releases) — installer or portable zip |
 | Linux | [Releases](../../releases) — `.deb` and `.rpm` |
-| iPhone, iPad, Mac | In the works |
+| macOS 12+, Apple Silicon | [Releases](../../releases) — `.dmg` |
+| iPhone and iPad | In the works |
 
 ## Installing on a computer
 
@@ -52,18 +53,36 @@ this repository, and you can build it yourself instead of trusting a download.
 
 ### Windows 10 and 11
 
+There are two downloads. `Relay-1.0.0.exe` is an installer: it puts Relay in Program
+Files, adds a Start menu entry and lets you pick the folder. The zip is the same app with
+nothing installed — unpack it anywhere and run it, which is the better choice on a
+computer you do not administer. Either way Windows will warn about the publisher, because
+neither is code-signed.
+
+**The installer**
+
+1. Download `Relay-1.0.0.exe` from the [releases page](../../releases).
+2. Run it. At **Windows protected your PC**, choose **More info**, then **Run anyway**.
+3. Follow the installer. It offers a Start menu shortcut and an install folder.
+
+**The portable zip**
+
 1. Download the Windows zip from the [releases page](../../releases).
 2. Right-click the zip, choose **Properties**, tick **Unblock**, then **OK**. Windows marks
    everything from the internet; unblocking once here saves warnings later.
 3. Extract it somewhere permanent, for example a `Relay` folder inside your user folder.
 4. Run `Relay.exe`. If **Windows protected your PC** appears, choose **More info**, then
    **Run anyway**.
-5. If Windows says **Smart App Control blocked this app**, that feature allows signed apps
-   only. You can either turn Smart App Control off in Windows Security, under
-   *App & browser control* — a system-wide decision worth thinking about — or build Relay
-   from source with the instructions below.
-6. On first launch, Windows Firewall asks about network access. Tick **Private networks**
-   and allow it, otherwise your phone cannot reach the computer.
+
+**Either way**
+
+If Windows says **Smart App Control blocked this app**, that feature allows signed apps
+only. You can either turn Smart App Control off in Windows Security, under *App & browser
+control* — a system-wide decision worth thinking about — or build Relay from source with
+the instructions below.
+
+On first launch, Windows Firewall asks about network access. Tick **Private networks** and
+allow it, otherwise your phone cannot reach the computer.
 
 Relay then sits in the system tray. Closing the window keeps it running; **Quit** in the
 tray menu stops it. Turn on **Start Relay when I sign in** in Settings to have it ready
@@ -71,14 +90,59 @@ after every restart.
 
 ### Linux
 
-Install the package for your distribution, then launch Relay from the applications menu:
+Download the package for your distribution from the [releases page](../../releases), then
+install it:
 
 ```bash
-sudo dpkg -i relay_1.0.0_amd64.deb    # Debian, Ubuntu, Mint
-sudo rpm -i relay-1.0.0.x86_64.rpm    # Fedora, openSUSE
+sudo dpkg -i relay_1.0.0_amd64.deb      # Debian, Ubuntu, Mint, Pop!_OS
+sudo apt-get install -f                 # if dpkg reports missing dependencies
+
+sudo rpm -i relay-1.0.0.x86_64.rpm      # Fedora, openSUSE, RHEL
 ```
 
-If your firewall is strict, allow TCP port 47800 and UDP port 47801 on the local network.
+Relay then appears in your applications menu and sits in the system tray. On GNOME, tray
+icons need the AppIndicator extension; without it, launch Relay again to bring its window
+back.
+
+The packages are not signed, so your package manager may say the publisher is unknown. If
+your firewall is strict, allow Relay on the local network:
+
+```bash
+sudo ufw allow from 192.168.0.0/16 to any port 47800 proto tcp
+sudo ufw allow from 192.168.0.0/16 to any port 47801 proto udp
+```
+
+### macOS
+
+The `.dmg` is built for **Apple Silicon** (M1 and later). There is no Intel build yet.
+
+1. Download `Relay-1.0.0.dmg` from the [releases page](../../releases), open it, and drag
+   **Relay** into Applications.
+2. macOS will most likely refuse to open it and say *"Relay is damaged and can't be
+   opened"*. Nothing is damaged: that is the message Gatekeeper uses for an app that was
+   downloaded and is neither signed nor notarised. Clear the quarantine flag once:
+
+   ```bash
+   xattr -dr com.apple.quarantine /Applications/Relay.app
+   ```
+
+3. Open Relay normally. If macOS still objects, go to System Settings › Privacy &
+   Security, scroll to the message about Relay and choose **Open Anyway**.
+4. On macOS 15 and later, allow Relay to find devices on the local network when asked.
+   Without it the app runs but never sees your phone.
+
+Relay then lives in the menu bar. Closing the window keeps it running; **Quit** in the
+menu-bar menu stops it.
+
+### Android
+
+Install Relay from [Google Play](https://play.google.com/store/apps/details?id=com.vythera.relay).
+The Android app is published there only: Play checks every build and keeps it updated, so
+there is no APK to sideload.
+
+On first open Relay asks for two things — permission to show notifications, and to keep
+running in the background. Both decide whether your other devices can reach the phone while
+the app is not on screen.
 
 ### Checking a download
 
