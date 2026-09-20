@@ -189,7 +189,7 @@ fun HelpScreen(
 /** Where each app comes from. Kept in one place so a new home only changes here. */
 object RelayLinks {
     const val PLAY_STORE = "https://play.google.com/store/apps/details?id=com.vythera.relay"
-    const val DESKTOP_RELEASES = "https://github.com/vythera/relay/releases"
+    const val DESKTOP_RELEASES = "https://github.com/NikhilKain/relay/releases"
 }
 
 /** The three ways two devices meet. Each has its own four steps. */
