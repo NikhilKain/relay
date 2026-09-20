@@ -18,16 +18,22 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          # Windows gets both: the zip for people who would rather not install anything,
+          # and the installer for people who would.
           - os: windows-latest
-            task: createDistributable
+            tasks: ':desktop:createDistributable :desktop:packageExe'
             artifact: Relay-windows-x64
-            path: desktop/build/compose/binaries/main/app
+            path: |
+              desktop/build/compose/binaries/main/app
+              desktop/build/compose/binaries/main/exe
           - os: ubuntu-latest
-            task: packageDeb
-            artifact: Relay-linux-deb
-            path: desktop/build/compose/binaries/main/deb
+            tasks: ':desktop:packageDeb :desktop:packageRpm'
+            artifact: Relay-linux
+            path: |
+              desktop/build/compose/binaries/main/deb
+              desktop/build/compose/binaries/main/rpm
           - os: macos-latest
-            task: packageDmg
+            tasks: ':desktop:packageDmg'
             artifact: Relay-macos
             path: desktop/build/compose/binaries/main/dmg
     runs-on: ${{ matrix.os }}
@@ -38,8 +44,28 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: gradle/actions/setup-gradle@v4
+      # jpackage builds the .exe with WiX 3, and the runner image no longer always
+      # carries it. WiX 4 and 5 are not a substitute: jpackage only speaks to 3.
+      - name: WiX 3 for the Windows installer
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          if (Get-Command candle.exe -ErrorAction SilentlyContinue) {
+            Write-Host "WiX already present"
+          } else {
+            $zip = "$env:RUNNER_TEMP\wix.zip"
+            $dir = "$env:RUNNER_TEMP\wix"
+            Invoke-WebRequest -Uri "https://github.com/wixtoolset/wix3/releases/download/wix3141rtm/wix314-binaries.zip" -OutFile $zip
+            Expand-Archive -Path $zip -DestinationPath $dir
+            Add-Content -Path $env:GITHUB_PATH -Value $dir
+            Write-Host "WiX unpacked to $dir"
+          }
+      # rpmbuild is not in the Ubuntu runner image, and jpackage shells out to it.
+      - name: rpmbuild for the Linux package
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y rpm
       - name: Build ${{ matrix.artifact }}
-        run: ./gradlew :desktop:${{ matrix.task }}
+        run: ./gradlew ${{ matrix.tasks }}
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
