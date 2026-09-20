@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The device identity lives in no_backup and is never restored: a restored install is a
+     new device and pairs again, so two phones can never share one identity. Trusted
+     devices are excluded for the same reason. -->
+<full-backup-content>
+    <exclude domain="database" path="relay.db" />
+    <exclude domain="database" path="relay.db-shm" />
+    <exclude domain="database" path="relay.db-wal" />
+</full-backup-content>

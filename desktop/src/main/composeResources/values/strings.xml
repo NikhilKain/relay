@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Relay</string>
+
+    <string name="nav_devices">Devices</string>
+    <string name="nav_inbox">Inbox</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_help">Help</string>
+    <string name="action_send">Send</string>
+
+    <string name="home_title">Your devices</string>
+    <string name="home_nearby">%1$d nearby</string>
+    <string name="home_looking">Looking for your devices</string>
+    <string name="home_new">New nearby</string>
+    <string name="home_tap_to_connect">Click to connect</string>
+    <string name="home_empty_title">Nothing nearby</string>
+    <string name="home_empty_body">Open Relay on your phone, on the same Wi-Fi. It shows up here by itself.</string>
+    <string name="home_empty_action">How to connect</string>
+    <string name="home_pick">Pick a device</string>
+
+    <string name="device_drop_title">Drop files here</string>
+    <string name="device_drop_body">Photos, documents, whole folders. They go straight to %1$s.</string>
+    <string name="device_drop_release">Release to send to %1$s</string>
+    <string name="device_choose_files">Choose files</string>
+    <string name="device_folder">Folder</string>
+    <string name="device_folder_hint">Keeps its structure</string>
+    <string name="device_clipboard">Clipboard</string>
+    <string name="device_clipboard_hint">Send what you copied</string>
+    <string name="device_text">Text</string>
+    <string name="device_text_hint">Type a note</string>
+    <string name="device_continue">Continue</string>
+    <string name="device_continue_hint">Open a link on %1$s</string>
+    <string name="device_recent">With this device</string>
+    <string name="device_nothing_yet">Nothing sent yet</string>
+    <string name="device_auto_accept">Always allow transfers from %1$s</string>
+    <string name="device_forget">Forget this device</string>
+    <string name="device_connect">Connect</string>
+    <string name="device_connect_body">Connect once to send things to %1$s. You’ll check that both screens show the same shapes.</string>
+    <string name="device_away_body">%1$s is away. What you send now arrives when it’s back.</string>
+    <string name="device_incompatible">Update Relay on %1$s to connect.</string>
+
+    <string name="compose_text_title">Send text to %1$s</string>
+    <string name="compose_link_title">Open a link on %1$s</string>
+    <string name="compose_text_hint">Type something</string>
+    <string name="compose_link_hint">Paste a link</string>
+    <string name="compose_send">Send</string>
+    <string name="compose_open">Open there</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="pair_incoming_title">%1$s wants to connect</string>
+    <string name="pair_incoming_body">Check that %1$s shows the same shapes. Only continue if it belongs to you.</string>
+    <string name="pair_trust">Trust device</string>
+    <string name="pair_not_now">Not now</string>
+    <string name="pair_always_allow">Always allow transfers from this device</string>
+    <string name="pair_outgoing_connecting">Connecting to %1$s</string>
+    <string name="pair_outgoing_title">Confirm on %1$s</string>
+    <string name="pair_outgoing_body">Make sure %1$s shows these same shapes, then accept there.</string>
+    <string name="pair_mismatch">Shapes don’t match</string>
+    <string name="pair_done_title">%1$s is connected</string>
+    <string name="pair_done_body">From now on it just works. No codes next time.</string>
+    <string name="pair_failed_title">Not connected</string>
+    <string name="pair_failed_body">%1$s didn’t connect. Make sure Relay is open on it and both are on the same Wi-Fi.</string>
+    <string name="ok">OK</string>
+
+    <string name="offer_title">%1$s wants to send</string>
+    <string name="offer_receive">Receive</string>
+    <string name="offer_decline">Decline</string>
+
+    <string name="failure_generic">%1$s: that didn’t go through. Try again.</string>
+    <string name="failure_away">%1$s is away. It will be sent when it’s back.</string>
+    <string name="failure_lost">Connection lost. We’ll continue when %1$s is back.</string>
+    <string name="failure_damaged">The file arrived damaged, so it wasn’t kept. Try again.</string>
+    <string name="failure_space">Not enough space on %1$s.</string>
+    <string name="failure_declined">%1$s declined.</string>
+    <string name="failure_you_declined">Declined</string>
+    <string name="failure_cancelled">Cancelled</string>
+    <string name="speed">%1$s/s</string>
+    <string name="remaining_seconds">%1$d seconds remaining</string>
+    <string name="remaining_minutes">%1$d min remaining</string>
+    <string name="almost_done">Almost done</string>
+
+    <string name="inbox_title">Inbox</string>
+    <string name="inbox_subtitle">Everything your devices sent to this computer</string>
+    <string name="inbox_empty_title">Nothing here yet</string>
+    <string name="inbox_empty_body">Files, links and notes your devices send here are kept in this list.</string>
+    <string name="inbox_open">Open</string>
+    <string name="inbox_show">Show in folder</string>
+    <string name="inbox_copy">Copy</string>
+    <string name="inbox_remove">Remove</string>
+    <string name="this_computer">This computer</string>
+    <string name="just_now">Just now</string>
+    <string name="minutes_ago">%1$d min</string>
+    <string name="hours_ago">%1$d h</string>
+    <string name="days_ago">%1$d d</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_device">This computer</string>
+    <string name="settings_rename">Rename</string>
+    <string name="settings_save">Save</string>
+    <string name="settings_save_to">Save received files to</string>
+    <string name="settings_choose_folder">Choose folder</string>
+    <string name="settings_use_default">Use Downloads/Relay</string>
+    <string name="settings_clipboard">Universal clipboard</string>
+    <string name="settings_clipboard_body">Copy on one device, paste on another: text, images and files, with your trusted devices on the same Wi-Fi.</string>
+    <string name="settings_start">Start Relay when I sign in</string>
+    <string name="settings_start_body">Relay waits in the tray, so your phone can always reach this computer.</string>
+    <string name="settings_start_unavailable">Available in the installed app.</string>
+    <string name="settings_about">About</string>
+    <string name="settings_about_body">Relay %1$s · Protocol v1. Connections are encrypted between your devices. No account, no cloud, no tracking.</string>
+
+    <string name="help_title">Connect your devices</string>
+    <string name="help_subtitle">A few steps, once. After that they find each other by themselves.</string>
+    <string name="help_step1_title">Install Relay on each device</string>
+    <string name="help_step1_body">Android: Relay for Android. Windows, Linux and Mac: this app. iPhone and iPad: in the works.</string>
+    <string name="help_step2_title">Join the same Wi-Fi</string>
+    <string name="help_step2_body">Home Wi-Fi or your phone’s hotspot. No internet needed: devices talk to each other directly.</string>
+    <string name="help_step3_title">Click the device and check the shapes</string>
+    <string name="help_step3_body">It appears under New nearby. Make sure both screens show the same three shapes, and choose Trust on the other device. Only once.</string>
+    <string name="help_firewall_title">Windows asked about the firewall?</string>
+    <string name="help_firewall_body">Choose Allow on private networks. That lets your phone reach this computer on your Wi-Fi. If you missed it: Windows Security › Firewall › Allow an app through the firewall › tick Relay.</string>
+    <string name="help_clipboard_title">Copy here, paste there</string>
+    <string name="help_clipboard_body">Anything you copy here, text, a screenshot or files, is ready to paste on your phone. Files copied on your phone arrive on this clipboard.</string>
+
+    <string name="help_get_title">Get Relay on your other devices</string>
+    <string name="help_get_android">Android phone or tablet</string>
+    <string name="help_get_android_where">Relay on Google Play</string>
+    <string name="help_get_desktop">Windows and Linux</string>
+    <string name="help_get_desktop_where">Download from GitHub</string>
+    <string name="help_get_apple">iPhone, iPad and Mac</string>
+    <string name="help_get_apple_where">In the works</string>
+
+    <string name="help_guide_title">Step by step</string>
+    <string name="help_guide_pick">Which two devices?</string>
+    <string name="help_guide_phone_pc">Phone and PC</string>
+    <string name="help_guide_two_phones">Two phones</string>
+    <string name="help_guide_two_pcs">Two PCs</string>
+
+    <string name="help_pc_1_title">Install both apps</string>
+    <string name="help_pc_1_body">Relay for desktop on this computer, and Relay for Android on the phone from Google Play.</string>
+    <string name="help_pc_2_title">Same Wi-Fi</string>
+    <string name="help_pc_2_body">Put the computer and the phone on the same network. If Windows asks about the firewall, choose Allow on private networks.</string>
+    <string name="help_pc_3_title">Connect once</string>
+    <string name="help_pc_3_body">The phone appears here under New nearby. Click it, check that both screens show the same three shapes, and tap Trust on the phone.</string>
+    <string name="help_pc_4_title">That is it</string>
+    <string name="help_pc_4_body">Copy on one, paste on the other. Drag a file to the drop shelf on the left edge of this screen and drop it on the phone, or share to this computer from the phone.</string>
+
+    <string name="help_phones_1_title">Install Relay on both phones</string>
+    <string name="help_phones_1_body">Both phones need the app from Google Play. Either one can start the connection.</string>
+    <string name="help_phones_2_title">Same Wi-Fi, or a hotspot</string>
+    <string name="help_phones_2_body">Join both phones to the same Wi-Fi. No Wi-Fi around? Turn on one phone’s hotspot and connect the other to it; no internet needed.</string>
+    <string name="help_phones_3_title">Connect once</string>
+    <string name="help_phones_3_body">On either phone, tap the other under New nearby. Check that both screens show the same three shapes, then tap Trust on the second phone.</string>
+    <string name="help_phones_4_title">That is it</string>
+    <string name="help_phones_4_body">Share photos and files between them from any app, and hold the two phones back to back to swap contact cards.</string>
+
+    <string name="help_pcs_1_title">Install Relay for desktop on both</string>
+    <string name="help_pcs_1_body">Download it from GitHub for Windows or Linux and run it on each computer. It sits in the system tray.</string>
+    <string name="help_pcs_2_title">Same network</string>
+    <string name="help_pcs_2_body">Both computers on the same Wi-Fi or the same wired network. Allow Relay through the firewall on private networks.</string>
+    <string name="help_pcs_3_title">Connect once</string>
+    <string name="help_pcs_3_body">On one computer, click the other under New nearby. Check that both screens show the same three shapes, then choose Trust on the second computer.</string>
+    <string name="help_pcs_4_title">That is it</string>
+    <string name="help_pcs_4_body">Copy on one computer and paste on the other, or drag files onto the drop shelf at the left edge of the screen.</string>
+
+    <string name="settings_ecosystem">Ecosystem</string>
+    <string name="settings_ecosystem_title">Your devices work as one</string>
+    <string name="settings_ecosystem_body">Anything your trusted devices send or drop here arrives straight away, with no Accept button, and is ready to paste.</string>
+    <string name="settings_shelf_title">Drop shelf</string>
+    <string name="settings_shelf_body">A slim tab on the left edge of the screen. Drag any file or text onto it, then drop it on a device.</string>
+
+    <string name="shelf_title">Drop on a device</string>
+    <string name="shelf_click_title">Send to</string>
+    <string name="shelf_ready">Drop to send</string>
+    <string name="shelf_click">Click to choose files</string>
+    <string name="shelf_away">Away</string>
+    <string name="shelf_sent">Sent</string>
+    <string name="shelf_empty">Pair a device to drop files on it.</string>
+    <string name="help_ecosystem_title">Drag and drop to your phone</string>
+    <string name="help_ecosystem_body">Drag a file to the left edge of the screen. The drop shelf opens with your devices: drop it on your phone and it arrives there, ready to paste. Trusted devices never ask you to accept.</string>
+
+    <string name="tray_open">Open Relay</string>
+    <string name="tray_send_file">Send file to %1$s…</string>
+    <string name="tray_send_clipboard">Send clipboard</string>
+    <string name="tray_quit">Quit Relay</string>
+    <string name="tray_clipboard_sent">Clipboard sent to %1$d device(s)</string>
+    <string name="tray_nothing_to_send">Nothing to send. Copy some text and keep a trusted device nearby.</string>
+    <string name="already_running">Relay is already running. Look for it in the system tray.</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relay's contact exchange AID. "other" category: no payment routing involved. -->
+<host-apdu-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/contact_nfc_service"
+    android:requireDeviceUnlock="true">
+    <aid-group android:category="other" android:description="@string/contact_nfc_service">
+        <aid-filter android:name="F052454C415901" />
+    </aid-group>
+</host-apdu-service>

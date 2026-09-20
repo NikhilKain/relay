@@ -1,0 +1,68 @@
+# Builds Relay for every platform and attaches the results to a draft release.
+#
+# Linux and macOS packages can only be produced on those systems, which is why this runs
+# on three runners; the Android build runs alongside them on Linux.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            task: createDistributable
+            artifact: Relay-windows-x64
+            path: desktop/build/compose/binaries/main/app
+          - os: ubuntu-latest
+            task: packageDeb
+            artifact: Relay-linux-deb
+            path: desktop/build/compose/binaries/main/deb
+          - os: macos-latest
+            task: packageDmg
+            artifact: Relay-macos
+            path: desktop/build/compose/binaries/main/dmg
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build ${{ matrix.artifact }}
+        run: ./gradlew :desktop:${{ matrix.task }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.path }}
+
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Tests
+        run: ./gradlew test :app:testDebugUnitTest
+      # The upload key never leaves the maintainer's machine: CI produces an unsigned
+      # bundle, which is signed locally before it goes to Google Play.
+      - name: Build release bundle
+        run: ./gradlew :app:bundleRelease :app:assembleRelease
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Relay-android
+          path: |
+            app/build/outputs/bundle/release/*.aab
+            app/build/outputs/apk/release/*.apk

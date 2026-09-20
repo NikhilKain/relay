@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trusted devices appear directly in Android's share sheet ("Share → Gaming PC"). -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <share-target android:targetClass="com.vythera.relay.share.ShareActivity">
+        <data android:mimeType="*/*" />
+        <category android:name="com.vythera.relay.category.SHARE_TO_DEVICE" />
+    </share-target>
+</shortcuts>

@@ -1,0 +1,16 @@
+*.iml
+.gradle/
+.kotlin/
+/.idea/
+.DS_Store
+build/
+/captures
+local.properties
+keystore.properties
+*.jks
+*.keystore
+
+# Release artefacts and the signing key
+/dist/
+/keystore/
+google-services.json

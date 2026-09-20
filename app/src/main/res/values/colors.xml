@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="relay_surface">#FFFFF8F6</color>
+    <color name="relay_icon_background">#FFFFDBCB</color>
+    <color name="relay_origin">#FF9F4200</color>
+    <color name="relay_destination">#FF006972</color>
+    <color name="relay_handoff">#FFF2762E</color>
+</resources>
