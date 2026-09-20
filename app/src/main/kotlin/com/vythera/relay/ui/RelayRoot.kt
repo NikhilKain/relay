@@ -385,6 +385,7 @@ fun RelayRoot(controller: RelayController) {
                                 onCopyCommand = { controller.copyToClipboard(controller.instantClipboard.grantCommand()) },
                                 onAddWidget = { requestRelayWidget(context) },
                                 onAnalytics = { scope.launch { controller.setAnalytics(it) } },
+                                onRetryInstant = { controller.instantClipboard.retry() },
                             ),
                             contentPadding = contentPadding,
                             horizontalMargin = margin,

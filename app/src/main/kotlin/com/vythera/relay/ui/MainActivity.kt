@@ -130,10 +130,8 @@ class MainActivity : ComponentActivity() {
         // to notice something copied while Relay was in the background.
         val controller = relay.controllerState.value ?: return
         controller.onLocalClipboardChanged()
-        // Regaining focus is also the moment the log-access prompt was answered, so the
-        // watcher gets another go at reading the system log.
-        val settings = controller.settings.value
-        if (settings.ecosystem && settings.instantClipboard) controller.instantClipboard.start()
+        // The watcher itself is started in onResume: asking again on every focus change
+        // would put the log-access prompt on screen each time.
     }
 
     override fun onPause() {

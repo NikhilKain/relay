@@ -214,6 +214,7 @@ class EcosystemSettings(
     val onCopyCommand: () -> Unit,
     val onAddWidget: () -> Unit,
     val onAnalytics: (Boolean) -> Unit,
+    val onRetryInstant: () -> Unit,
 )
 
 /**
@@ -271,8 +272,13 @@ private fun EcosystemSection(settings: RelaySettings, ecosystem: EcosystemSettin
                     Text(stringResource(R.string.settings_instant_allow))
                 }
             }
-            InstantClipboard.Status.WaitingForApproval ->
+            InstantClipboard.Status.WaitingForApproval -> {
                 Step(stringResource(R.string.settings_instant_waiting), stringResource(R.string.settings_instant_waiting_body))
+                Spacer(Modifier.height(12.dp))
+                Button(onClick = ecosystem.onRetryInstant, shapes = ButtonDefaults.shapes(RelayShapes.Pill, RelayShapes.ExtraSmall)) {
+                    Text(stringResource(R.string.settings_instant_retry))
+                }
+            }
             InstantClipboard.Status.Active ->
                 Text(stringResource(R.string.settings_instant_active), style = MaterialTheme.typography.titleSmall, color = colors.primary)
             InstantClipboard.Status.Off -> Unit

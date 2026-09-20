@@ -191,6 +191,7 @@
     <string name="settings_instant_allow">Allow</string>
     <string name="settings_instant_waiting">Almost there</string>
     <string name="settings_instant_waiting_body">When Android asks whether Relay may access device logs, choose Allow. Relay only looks for the moment you copy something. Android asks again each time Relay starts.</string>
+    <string name="settings_instant_retry">Try again</string>
     <string name="settings_instant_active">On · what you copy is ready on your other devices</string>
     <string name="settings_clipboard">Clipboard</string>
     <string name="settings_clipboard_body">Copy on one device, paste on another: text, photos, videos, any file. Works with your trusted devices on the same Wi-Fi. What other devices copy always arrives here; to send from this phone, turn on Instant clipboard above, or use the Quick Settings tile or the button in Relay’s notification.</string>

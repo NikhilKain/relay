@@ -71,15 +71,23 @@ class InstantClipboard(
         enabled = true
         refreshStatus()
         if (!hasLogAccess || !hasOverlay) return
-        // A reader that started before the user allowed log access only ever sees this
-        // app's own lines, so it is replaced rather than left running blind.
-        if (reader?.isAlive == true) {
-            if (_status.value == Status.Active) return
-            logcat?.destroy()
-            reader = null
-        }
+        // One request at a time: Android shows the log-access prompt once per reader, so
+        // a reader that is already waiting for an answer is left alone. Only a reader that
+        // has actually stopped is replaced.
+        if (reader?.isAlive == true) return
         main.post { runCatching { clipboard.addPrimaryClipChangedListener(listener) } }
         reader = Thread(::watchLog, "relay-instant-clipboard").apply { isDaemon = true; start() }
+    }
+
+    /**
+     * Starts over: a reader that Android refused stays refused, so the only way back is a
+     * fresh one. Asked for by the user, so the prompt never appears out of nowhere.
+     */
+    fun retry() {
+        logcat?.destroy()
+        reader = null
+        _status.value = Status.WaitingForApproval
+        start()
     }
 
     fun stop() {
