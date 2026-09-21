@@ -57,6 +57,9 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            // Ship the native symbols with the bundle so Play can make sense of the
+            // crashes and ANRs that come out of the libraries Compose brings with it.
+            ndk { debugSymbolLevel = "FULL" }
         }
     }
 
@@ -72,6 +75,11 @@ android {
 
     defaultConfig {
         buildConfigField("boolean", "ANALYTICS_AVAILABLE", firebaseConfigured.toString())
+        // Instant clipboard needs READ_LOGS and an overlay window, which Google Play
+        // reviews harshly and which only a person with adb can grant anyway. It is off in
+        // the store build; a build for GitHub can flip this to true and restore the two
+        // permissions in the manifest.
+        buildConfigField("boolean", "INSTANT_CLIPBOARD", "false")
     }
 
     packaging {
@@ -107,6 +115,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.zxing.core)
+    // Glance pulls an old fragment; the newer one is what registerForActivityResult needs.
+    implementation(libs.androidx.fragment)
     implementation(libs.androidx.glance.appwidget)
     implementation(libs.androidx.glance.material3)
     if (firebaseConfigured) {

@@ -88,6 +88,7 @@ class DesktopRelay {
         log = { DesktopLog.write("relay: $it") },
     )
     private val clipboard = DesktopClipboard(node, scope, File(DesktopPaths.cache, "clipboard-out").apply { mkdirs() }) { DesktopLog.write(it) }
+    private val analytics = DesktopAnalytics(scope, clientId = { settings.value.analyticsClientId }, log = { DesktopLog.write(it) })
 
     val devices: StateFlow<List<RelayDevice>> = node.devices
     val transfers: StateFlow<List<TransferSnapshot>> = node.transfers
@@ -107,6 +108,7 @@ class DesktopRelay {
         node.start()
         clipboard.enabled = settings.value.clipboard == DesktopClipboardMode.AUTOMATIC
         applyEcosystem(settings.value.ecosystem)
+        analytics.enabled = settings.value.analytics
         clipboard.start()
         scope.launch { node.events.collect(::onEvent) }
     }
@@ -200,6 +202,17 @@ class DesktopRelay {
 
     fun setDropShelf(enabled: Boolean) = updateSettings { it.copy(dropShelf = enabled) }
 
+    /** Statistics are opt-in; turning them off forgets the installation id as well. */
+    fun setAnalytics(enabled: Boolean) {
+        updateSettings {
+            it.copy(
+                analytics = enabled,
+                analyticsClientId = if (enabled) it.analyticsClientId.ifBlank { DesktopAnalytics.newClientId() } else "",
+            )
+        }
+        analytics.enabled = enabled
+    }
+
     fun setStartWithComputer(enabled: Boolean) {
         if (Autostart.set(enabled)) updateSettings { it.copy(startWithComputer = enabled) }
     }
@@ -254,6 +267,7 @@ class DesktopRelay {
             // Trust is the whole security model, so every change to it is written down.
             is NodeEvent.DevicePaired -> {
                 val device = node.trustedDevices.value[event.deviceId]
+                analytics.log(DesktopAnalytics.Event.DevicePaired, device?.platform?.name?.lowercase())
                 DesktopLog.write("pairing: now trusting ${device?.name ?: event.deviceId.value} (${event.deviceId.value}, key ${device?.fingerprint?.take(16)})")
             }
             is NodeEvent.DeviceForgotten ->
@@ -274,6 +288,10 @@ class DesktopRelay {
             is TransferStatus.Cancelled -> "cancelled"
             else -> "failed"
         }
+        analytics.log(
+            if (outcome == "completed") DesktopAnalytics.Event.TransferCompleted else DesktopAnalytics.Event.TransferFailed,
+            categoryOf(transfer),
+        )
         val detail = transfer.storedFiles.singleOrNull()?.location ?: transfer.storedFiles.firstOrNull()?.location?.let { File(it).parent }
         _history.update { list ->
             (listOf(

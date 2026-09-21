@@ -360,10 +360,7 @@ fun RelayRoot(controller: RelayController) {
                             onShareContact = { navController.navigate(ContactRoute) },
                             onAllowBackground = {
                                 runCatching {
-                                    context.startActivity(
-                                        android.content.Intent(android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
-                                            .setData(android.net.Uri.parse("package:${context.packageName}")),
-                                    )
+                                    context.startActivity(com.vythera.relay.ui.setup.batterySettingsIntent(context))
                                 }
                             },
                             saveFolderName = settings.saveFolder?.let { controller.saveFolderName(it) ?: "…" },

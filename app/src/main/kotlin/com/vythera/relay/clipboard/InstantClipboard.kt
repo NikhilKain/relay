@@ -10,6 +10,7 @@ import android.os.Looper
 import android.os.Process
 import android.provider.Settings
 import android.util.Log
+import com.vythera.relay.BuildConfig
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
@@ -57,17 +58,21 @@ class InstantClipboard(
     private var focusView: View? = null
     private var pending = false
 
+    /** Off in the Google Play build: see BuildConfig.INSTANT_CLIPBOARD. */
+    val isSupported: Boolean get() = BuildConfig.INSTANT_CLIPBOARD
+
     val hasLogAccess: Boolean
-        get() = context.checkSelfPermission(Manifest.permission.READ_LOGS) == PackageManager.PERMISSION_GRANTED
+        get() = isSupported && context.checkSelfPermission(Manifest.permission.READ_LOGS) == PackageManager.PERMISSION_GRANTED
 
     val hasOverlay: Boolean
-        get() = Settings.canDrawOverlays(context)
+        get() = isSupported && Settings.canDrawOverlays(context)
 
     /**
      * Starts watching, if everything is in place. Call it while Relay is on screen: on
      * Android 13+ the log-access prompt can only appear for the app in front.
      */
     fun start() {
+        if (!isSupported) return
         enabled = true
         refreshStatus()
         if (!hasLogAccess || !hasOverlay) return
@@ -181,7 +186,10 @@ class InstantClipboard(
     /** The one command that grants log access, for the setup screen. */
     fun grantCommand(): String = "adb shell pm grant ${context.packageName} android.permission.READ_LOGS"
 
-    private companion object {
-        const val TAG = "Relay"
+    companion object {
+        private const val TAG = "Relay"
+
+        /** The same flag, for screens deciding whether to offer the feature at all. */
+        val isSupportedHere: Boolean get() = BuildConfig.INSTANT_CLIPBOARD
     }
 }

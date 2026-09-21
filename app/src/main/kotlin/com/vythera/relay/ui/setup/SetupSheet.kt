@@ -4,7 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
+
 import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
@@ -46,8 +46,13 @@ fun pendingSetupSteps(context: Context): List<SetupStep> = buildList {
     if (power?.isIgnoringBatteryOptimizations(context.packageName) != true) add(SetupStep.Battery)
 }
 
+/**
+ * Opens Android.s own list of apps and their battery setting. The direct "allow this app"
+ * dialog needs a permission Google Play grants to a short list of app types, so Relay takes
+ * the user to the setting instead of asking for that permission.
+ */
 fun batterySettingsIntent(context: Context): Intent =
-    Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).setData(Uri.parse("package:${context.packageName}"))
+    Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
 
 /**
  * "Two things and Relay is ready." Shown when the app opens with something missing,

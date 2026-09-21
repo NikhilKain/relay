@@ -110,6 +110,10 @@ data class DesktopSettings(
     val ecosystem: Boolean = true,
     /** The drop shelf at the screen edge that files can be dragged onto. */
     val dropShelf: Boolean = true,
+    /** Optional, anonymous usage statistics. Off unless the user turns it on. */
+    val analytics: Boolean = false,
+    /** A random id for this installation, made when statistics are first turned on. */
+    val analyticsClientId: String = "",
 )
 
 /** Settings as a small JSON file next to the identity. Written atomically. */

@@ -15,15 +15,14 @@
     <!-- Start again after a reboot, so devices keep finding each other without opening Relay. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- Lets Relay ask once to be excluded from battery optimisation, which some phones need to keep it reachable. -->
-    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <!-- Tap phones together to swap contact cards. Optional: Relay works without NFC. -->
     <uses-permission android:name="android.permission.NFC" />
+    <!-- Firebase Analytics brings advertising identifiers with it. Relay shows no ads and
+         profiles nobody, so they are dropped from the merged manifest. -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" tools:node="remove" />
 
-    <!-- Instant clipboard (optional, set up by the user): see a copy happen while Relay is in
-         the background, then take focus for an instant with a one-pixel window to read it.
-         READ_LOGS can only be granted with adb; Relay reads nothing but ClipboardService errors. -->
-    <uses-permission android:name="android.permission.READ_LOGS" tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-feature android:name="android.hardware.nfc" android:required="false" />
     <uses-feature android:name="android.hardware.nfc.hce" android:required="false" />
 
@@ -134,6 +133,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/clipboard_paths" />
         </provider>
+        <!-- No advertising identifiers, no ad personalisation, ever. -->
+        <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false" />
+        <meta-data android:name="google_analytics_ssaid_collection_enabled" android:value="false" />
+
         <!-- Home-screen widget: trusted devices, one tap from sending. -->
         <receiver
             android:name=".widget.RelayWidgetReceiver"

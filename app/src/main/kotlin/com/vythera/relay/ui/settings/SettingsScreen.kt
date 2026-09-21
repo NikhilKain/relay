@@ -244,6 +244,8 @@ private fun EcosystemSection(settings: RelaySettings, ecosystem: EcosystemSettin
         }
     }
 
+    if (!InstantClipboard.isSupportedHere) return
+
     Spacer(Modifier.height(8.dp))
     Group {
         SwitchRow(stringResource(R.string.settings_instant_title), stringResource(R.string.settings_instant_body), settings.instantClipboard, ecosystem.onInstantClipboard)

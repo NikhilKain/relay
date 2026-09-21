@@ -212,6 +212,11 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
             }
         }
 
+        RelaySectionHeader(stringResource(Res.string.settings_privacy), Modifier.padding(top = RelaySpacing.xxl))
+        Group {
+            SwitchRow(stringResource(Res.string.settings_analytics_title), stringResource(Res.string.settings_analytics_body), settings.analytics, relay::setAnalytics)
+        }
+
         RelaySectionHeader(stringResource(Res.string.settings_about), Modifier.padding(top = RelaySpacing.xxl))
         Group {
             Row(verticalAlignment = Alignment.CenterVertically) {

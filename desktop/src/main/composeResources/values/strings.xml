@@ -106,7 +106,7 @@
     <string name="settings_start_body">Relay waits in the tray, so your phone can always reach this computer.</string>
     <string name="settings_start_unavailable">Available in the installed app.</string>
     <string name="settings_about">About</string>
-    <string name="settings_about_body">Relay %1$s · Protocol v1. Connections are encrypted between your devices. No account, no cloud, no tracking.</string>
+    <string name="settings_about_body">Relay %1$s · Protocol v1. Connections are encrypted between your devices. No account, no cloud; statistics are off unless you turn them on.</string>
 
     <string name="help_title">Connect your devices</string>
     <string name="help_subtitle">A few steps, once. After that they find each other by themselves.</string>
@@ -165,6 +165,9 @@
     <string name="settings_ecosystem">Ecosystem</string>
     <string name="settings_ecosystem_title">Your devices work as one</string>
     <string name="settings_ecosystem_body">Anything your trusted devices send or drop here arrives straight away, with no Accept button, and is ready to paste.</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_analytics_title">Help improve Relay</string>
+    <string name="settings_analytics_body">Sends anonymous counts of things like “a transfer finished”, never file names, text or who your devices are. Off by default.</string>
     <string name="settings_shelf_title">Drop shelf</string>
     <string name="settings_shelf_body">A slim tab on the left edge of the screen. Drag any file or text onto it, then drop it on a device.</string>
 

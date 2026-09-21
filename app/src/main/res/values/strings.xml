@@ -7,7 +7,7 @@
     <string name="onboarding_1_title">Your devices.\nTogether.</string>
     <string name="onboarding_1_body">Send files, links and text instantly between your phone, tablet and computer.</string>
     <string name="onboarding_2_title">Private by design.</string>
-    <string name="onboarding_2_body">Everything travels encrypted, directly between devices you trust. No account, no cloud, no tracking.</string>
+    <string name="onboarding_2_body">Everything travels encrypted, directly between devices you trust. No account, no cloud, and nothing is collected unless you switch it on.</string>
     <string name="onboarding_3_title">Name this device</string>
     <string name="onboarding_3_body">This is how your other devices will see it.</string>
     <string name="onboarding_next">Next</string>
