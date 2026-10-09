@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relay — your devices, together</title>
+<meta name="description" content="Files, clipboard and links between your phone and your computer, over your own Wi-Fi. No account, no cloud.">
+<link rel="icon" href="images/icon.png">
+<meta property="og:title" content="Relay — your devices, together">
+<meta property="og:description" content="Files, clipboard and links between your phone and your computer. No account, no cloud.">
+<meta property="og:image" content="images/banner.png">
+<style>
+  :root{
+    --bg:#1A0E07; --surface:#241510; --surface-2:#2E1C15; --line:#3B2419;
+    --text:#F6E3D8; --muted:#C8A894; --primary:#FFB692; --on-primary:#5A2400; --teal:#73D5E2;
+    --radius:28px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--text);
+    font:16px/1.6 "Segoe UI",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+  header{padding:26px 0;display:flex;align-items:center;gap:12px}
+  header img{width:34px;height:34px;border-radius:9px}
+  header b{font-size:19px;letter-spacing:-.3px}
+  header nav{margin-left:auto;display:flex;gap:22px;align-items:center}
+  header nav a{color:var(--muted);text-decoration:none;font-size:15px}
+  header nav a:hover{color:var(--text)}
+
+  .hero{padding:44px 0 20px;text-align:center}
+  h1{font-size:clamp(38px,7vw,68px);line-height:1.04;margin:0 0 18px;letter-spacing:-2px;color:var(--primary)}
+  .lede{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:620px;margin:0 auto 32px}
+  .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+  .chip{background:var(--surface-2);color:var(--muted);border-radius:999px;padding:8px 18px;font-size:14px}
+
+  .downloads{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;
+    background:var(--primary);color:var(--on-primary);font-weight:600;font-size:16px;
+    padding:16px 30px;border-radius:999px;text-decoration:none;transition:transform .15s ease,filter .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn.secondary{background:var(--surface-2);color:var(--text)}
+  .btn small{display:block;font-weight:400;font-size:12px;opacity:.75}
+  .hint{margin-top:16px;font-size:14px;color:var(--muted)}
+  .hint a{color:var(--teal)}
+  .hint code{background:var(--surface-2);border-radius:6px;padding:2px 6px;font-size:13px;white-space:nowrap}
+
+  section{padding:56px 0;border-top:1px solid var(--line);margin-top:56px}
+  h2{font-size:clamp(26px,4vw,36px);margin:0 0 10px;letter-spacing:-1px}
+  .sub{color:var(--muted);margin:0 0 30px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{background:var(--surface);border-radius:var(--radius);padding:26px}
+  .card h3{margin:0 0 8px;font-size:18px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+
+  .shots{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px}
+  .shots img{height:420px;border-radius:22px;border:1px solid var(--line)}
+  .desktop-shot{width:100%;border-radius:var(--radius);border:1px solid var(--line);margin-top:8px}
+
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  ol.steps li{background:var(--surface);border-radius:20px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+  ol.steps li::before{
+    counter-increment:s;content:counter(s);flex:none;
+    width:32px;height:32px;border-radius:50%;background:var(--primary);color:var(--on-primary);
+    display:grid;place-items:center;font-weight:700;font-size:15px;
+  }
+  ol.steps p{margin:0;color:var(--muted);font-size:15px}
+  ol.steps strong{display:block;color:var(--text);font-weight:600;margin-bottom:2px}
+
+  footer{padding:44px 0 60px;color:var(--muted);font-size:14px;text-align:center;border-top:1px solid var(--line);margin-top:56px}
+  footer a{color:var(--teal);text-decoration:none}
+  @media (max-width:640px){ .shots img{height:330px} .btn{width:100%;justify-content:center} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="images/icon.png" alt="">
+    <b>Relay</b>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#install">Install</a>
+      <a id="support-top" href="#" target="_blank" rel="noopener">Support</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Your devices, together.</h1>
+    <p class="lede">Files, photos, links and the clipboard move straight between your phone and your computer over your own Wi-Fi. No account. No cloud. Nothing in the middle.</p>
+    <div class="chips">
+      <span class="chip">No account</span>
+      <span class="chip">No cloud</span>
+      <span class="chip">Encrypted device to device</span>
+      <span class="chip">Free and open source</span>
+    </div>
+
+    <div class="downloads" id="downloads">
+      <a class="btn" id="primary-download" href="#install">Download<small>Choose your platform</small></a>
+      <a class="btn secondary" id="support-btn" href="#" target="_blank" rel="noopener">Support<small>Questions and help</small></a>
+    </div>
+    <p class="hint" id="platform-hint"></p>
+  </div>
+
+  <section id="how">
+    <h2>What it does</h2>
+    <p class="sub">The things you would expect two of your own devices to do for each other.</p>
+    <div class="grid">
+      <div class="card"><h3>Universal clipboard</h3><p>Copy on one device, paste on another: text, images and whole files, in both directions.</p></div>
+      <div class="card"><h3>Send anything</h3><p>Photos, documents, folders, notes and links, from the app or straight from any share sheet.</p></div>
+      <div class="card"><h3>Drag and drop to your phone</h3><p>On your computer, drag a file to the shelf at the edge of the screen and drop it on a device.</p></div>
+      <div class="card"><h3>Your devices work as one</h3><p>Once paired, nothing asks you to accept. What arrives is ready to open or paste.</p></div>
+      <div class="card"><h3>Home screen widget</h3><p>Your devices on the Android home screen. Tap one, pick a file, sent.</p></div>
+      <div class="card"><h3>Private by design</h3><p>Connections are encrypted with TLS between your devices. Pairing is confirmed by matching shapes on both screens.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>On your phone</h2>
+    <p class="sub">And on your computer, with the same design.</p>
+    <div class="shots">
+      <img src="images/phone-devices.png" alt="Relay devices screen">
+      <img src="images/phone-send.png" alt="Sending from Relay">
+      <img src="images/phone-help.png" alt="Relay help screen">
+    </div>
+    <img class="desktop-shot" src="images/windows.png" alt="Relay on Windows">
+  </section>
+
+  <section id="install">
+    <h2>Get Relay</h2>
+    <p class="sub">Install it on two devices, put them on the same Wi-Fi, and connect them once.</p>
+    <div class="downloads" style="justify-content:flex-start">
+      <a class="btn" id="dl-exe" href="#">Windows<small>Installer, 64-bit</small></a>
+      <a class="btn secondary" id="dl-windows" href="#">Windows<small>Portable zip</small></a>
+      <a class="btn" id="dl-dmg" href="#">macOS<small>Apple Silicon</small></a>
+      <a class="btn" id="dl-deb" href="#">Linux<small>.deb package</small></a>
+      <a class="btn secondary" id="dl-rpm" href="#">Linux<small>.rpm package</small></a>
+      <a class="btn secondary" id="dl-play" href="https://play.google.com/store/apps/details?id=com.vythera.relay" target="_blank" rel="noopener">Android<small>Google Play</small></a>
+    </div>
+
+    <p class="hint">The computer builds are not code-signed, so Windows may warn that the publisher is unknown: choose <b>More info</b>, then <b>Run anyway</b>. On a Mac, macOS may say Relay is damaged — it isn't, that is what it calls an unsigned app. Run <code>xattr -dr com.apple.quarantine /Applications/Relay.app</code> once and it opens normally. <a id="source-link" href="#" target="_blank" rel="noopener">Everything is on GitHub</a> if you would rather build it yourself.</p>
+
+    <ol class="steps" style="margin-top:34px">
+      <li><p><strong>Install Relay on both devices</strong>Android from Google Play; Windows, macOS or Linux from the buttons above.</p></li>
+      <li><p><strong>Join the same Wi-Fi</strong>Or a phone hotspot with the other device connected to it. No internet needed.</p></li>
+      <li><p><strong>Connect once</strong>Pick the device, check that both screens show the same three shapes, and confirm. That is the last time it asks.</p></li>
+    </ol>
+  </section>
+
+  <footer>
+    <p>Relay is free and open source under the Apache 2.0 licence.</p>
+    <p><a id="footer-github" href="#" target="_blank" rel="noopener">GitHub</a> · <a id="footer-support" href="#" target="_blank" rel="noopener">Support</a> · <a href="privacy.html">Privacy</a></p>
+  </footer>
+
+</div>
+
+<script>
+  // Everything that points somewhere lives here, so a new channel or a new release is a
+  // one-line change.
+  var REPO = "NikhilKain/relay";
+  var SUPPORT_URL = "https://t.me/YOUR_CHANNEL";      // <-- your Telegram channel goes here
+  var FILES = {
+    exe: "Relay-1.0.0.exe",
+    windows: "Relay-1.0.0-windows-x64.zip",
+    dmg: "Relay-1.0.0.dmg",
+    deb: "relay_1.0.0-1_amd64.deb",
+    rpm: "relay-1.0.0-1.x86_64.rpm"
+  };
+
+  var PLAY = "https://play.google.com/store/apps/details?id=com.vythera.relay";
+  function latest(name) {
+    return "https://github.com/" + REPO + "/releases/latest/download/" + name;
+  }
+
+  document.getElementById("dl-exe").href = latest(FILES.exe);
+  document.getElementById("dl-windows").href = latest(FILES.windows);
+  document.getElementById("dl-dmg").href = latest(FILES.dmg);
+  document.getElementById("dl-deb").href = latest(FILES.deb);
+  document.getElementById("dl-rpm").href = latest(FILES.rpm);
+  document.getElementById("source-link").href = "https://github.com/" + REPO;
+  document.getElementById("footer-github").href = "https://github.com/" + REPO;
+  ["support-btn", "support-top", "footer-support"].forEach(function (id) {
+    document.getElementById(id).href = SUPPORT_URL;
+  });
+
+  // The big button offers what this device can actually run.
+  var ua = navigator.userAgent;
+  var hero = document.getElementById("primary-download");
+  var hint = document.getElementById("platform-hint");
+
+  if (/Android/i.test(ua)) {
+    hero.href = PLAY;
+    hero.innerHTML = 'Get it on Google Play<small>Android 10 and later</small>';
+    hint.textContent = "On a computer? This page offers the Windows and Linux builds too.";
+  } else if (/iPhone|iPad|iPod/i.test(ua)) {
+    hero.href = "#install";
+    hero.innerHTML = 'iPhone and iPad<small>In the works</small>';
+    hint.textContent = "Relay for iOS is not out yet. Android, Windows, macOS and Linux are ready today.";
+  } else if (/Linux/i.test(ua)) {
+    hero.href = latest(FILES.deb);
+    hero.innerHTML = 'Download for Linux<small>.deb, 64-bit</small>';
+    hint.textContent = "On Fedora or openSUSE? The .rpm is below.";
+  } else if (/Mac/i.test(ua)) {
+    hero.href = latest(FILES.dmg);
+    hero.innerHTML = 'Download for macOS<small>Apple Silicon</small>';
+    hint.textContent = "Drag Relay to Applications. It is not signed, so run xattr -dr com.apple.quarantine /Applications/Relay.app once.";
+  } else {
+    hero.href = latest(FILES.exe);
+    hero.innerHTML = 'Download for Windows<small>Installer, 64-bit</small>';
+    hint.textContent = "Prefer to install nothing? The portable zip is below: unpack it anywhere and run Relay.exe.";
+  }
+</script>
+</body>
+</html>
