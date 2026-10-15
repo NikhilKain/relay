@@ -11,7 +11,7 @@
 | Device | Where |
 | --- | --- |
 | Android 10+ | [Google Play](https://play.google.com/store/apps/details?id=com.vythera.relay) |
-| Windows 10/11 | [Releases](../../releases/latest) — `Relay-x.y.z.exe` installer, or the portable zip |
+| Windows 10/11 | [Releases](../../releases/latest) — `Relay-1.0.2.exe` installer, or the portable zip |
 | macOS 12+, Apple Silicon | [Releases](../../releases/latest) — `.dmg` |
 | Linux | [Releases](../../releases/latest) — `.deb` and `.rpm` |
 | iPhone and iPad | In the works |
@@ -23,7 +23,7 @@ unknown.
 
 ### Windows
 
-Use the **installer** (`Relay-x.y.z.exe`). Run it; at **Windows protected your PC**,
+Use the **installer** (`Relay-1.0.2.exe`). Run it; at **Windows protected your PC**,
 choose **More info**, then **Run anyway**. Relay then starts with your computer if you
 turn that on in Settings, and lives in the system tray.
 
@@ -52,8 +52,8 @@ On macOS 15 and later, allow Relay to find devices on the local network when ask
 ### Linux
 
 ```bash
-sudo dpkg -i relay_x.y.z-1_amd64.deb      # Debian, Ubuntu, Mint, Pop!_OS
-sudo rpm -i relay-x.y.z-1.x86_64.rpm      # Fedora, openSUSE, RHEL
+sudo dpkg -i relay_1.0.2-1_amd64.deb      # Debian, Ubuntu, Mint, Pop!_OS
+sudo rpm -i relay-1.0.2-1.x86_64.rpm      # Fedora, openSUSE, RHEL
 ```
 
 ## Connecting two devices
@@ -67,3 +67,38 @@ sudo rpm -i relay-x.y.z-1.x86_64.rpm      # Fedora, openSUSE, RHEL
 
 Relay sends everything directly between your devices, encrypted with TLS. Nothing goes
 through a server. See the [privacy policy](https://nikhilkain.github.io/relay-site/privacy.html).
+
+## Building the desktop app
+
+This repository holds the source of Relay for Windows, Linux and macOS, and the engine it
+shares with the Android app. The Android app itself is published on Google Play only and
+is not part of this repository.
+
+Requires JDK 17 or later. The shared design library also targets Android, so Gradle needs
+an Android SDK to configure the build (`ANDROID_HOME`); nothing Android is built.
+
+```bash
+./gradlew :desktop:run                  # run the app
+./gradlew :core:node:test               # the engine's tests
+./gradlew :desktop:createDistributable  # a portable app
+./gradlew :desktop:packageExe           # Windows installer (needs WiX 3)
+./gradlew :desktop:packageDeb           # .deb; packageRpm for .rpm (Linux only)
+./gradlew :desktop:packageDmg           # .dmg (macOS only)
+```
+
+| Module | What lives there |
+| --- | --- |
+| `core:protocol` | The Relay protocol: messages, framing, versions |
+| `core:security` | Identities, certificates, pairing codes |
+| `core:discovery` | Finding devices on the local network |
+| `core:transfer` | The transfer engine: chunks, resume, checksums |
+| `core:node` | The engine that ties those together, and the device tools |
+| `core:designsystem` | Relay's Material 3 Expressive design system |
+| `desktop` | The Windows, Linux and macOS app |
+
+Builds made from source offer no usage statistics; the analytics key is not part of the
+source.
+
+## Licence
+
+Apache License 2.0. See [LICENSE](LICENSE).

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="relay_presence_connected">Connected</string>
+    <string name="relay_presence_nearby">Nearby</string>
+    <string name="relay_presence_offline">Away</string>
+    <string name="relay_trusted">Trusted</string>
+    <string name="relay_send_something">Send something</string>
+
+    <string name="relay_transfer_sending_to">Sending to %1$s</string>
+    <string name="relay_transfer_receiving_from">From %1$s</string>
+    <string name="relay_transfer_waiting">Waiting for %1$s to accept</string>
+    <string name="relay_transfer_paused">Paused</string>
+    <string name="relay_transfer_sent">Sent</string>
+    <string name="relay_transfer_received">Received</string>
+    <string name="relay_transfer_pause">Pause</string>
+    <string name="relay_transfer_resume">Resume</string>
+    <string name="relay_transfer_cancel">Cancel</string>
+    <string name="relay_transfer_retry">Try again</string>
+    <string name="relay_transfer_open">Open</string>
+    <string name="relay_transfer_progress_description">%1$d percent</string>
+    <string name="relay_transfer_expand">Show transfer</string>
+
+    <string name="relay_pairing_code_description">Pairing code %1$s</string>
+</resources>
