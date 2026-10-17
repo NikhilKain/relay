@@ -22,7 +22,7 @@ provides=('relay')
 conflicts=('relay')
 options=('!strip' '!debug')
 source=("${url}/releases/download/v${pkgver}/relay_${pkgver}-1_amd64.deb")
-sha256sums=('ca95930e3bd14bb55cb427f751aa33bd3d3b0a6e5538e9f01f0cbcd14a23efe8')
+sha256sums=('376e998d0702f7897340f691dd19a81e8bf725738968917a2dc71a5e45cfb2fa')
 
 package() {
   bsdtar -xf data.tar.* -C "${pkgdir}"
