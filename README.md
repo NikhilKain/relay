@@ -7,9 +7,13 @@
 <p align="center">Your devices, together. Files, clipboard and links between your phone and your computer, over your own Wi-Fi. No account, no cloud.</p>
 
 <p align="center">
+  <a href="https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE"><img src="site/images/buy-me-a-coffee.svg" alt="Buy me a coffee" width="300"></a>
+  <br>
+  <sub>Relay is free and made by one developer. A coffee helps bring it to iPhone.</sub>
+</p>
+
+<p align="center">
   <a href="https://t.me/vythera_apps"><img src="site/images/telegram.png" alt="" width="18" height="18"> <b>Join us on Telegram</b></a> for news, help and feature requests
-  &nbsp;·&nbsp;
-  <a href="https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE">☕ <b>Buy me a coffee</b></a> to help bring Relay to iPhone
 </p>
 
 <p align="center">
@@ -34,6 +38,10 @@ Relay is free, with no ads and no account, and it is made by one developer. The 
 missing is an iPhone and iPad version, and I don't have an iOS device to build and test it
 on. If Relay saves you time, [buying me a coffee](https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE)
 helps me get one, and keeps Relay free for everyone.
+
+<p align="center">
+  <a href="https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE"><img src="site/images/buy-me-a-coffee.svg" alt="Buy me a coffee" width="300"></a>
+</p>
 
 ## Installing on a computer
 
