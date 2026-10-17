@@ -7,12 +7,6 @@
 <p align="center">Your devices, together. Files, clipboard and links between your phone and your computer, over your own Wi-Fi. No account, no cloud.</p>
 
 <p align="center">
-  <a href="https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE"><img src="site/images/buy-me-a-coffee.svg" alt="Buy me a coffee" width="300"></a>
-  <br>
-  <sub>Relay is free and made by one developer. A coffee helps bring it to iPhone.</sub>
-</p>
-
-<p align="center">
   <a href="https://t.me/vythera_apps"><img src="site/images/telegram.png" alt="" width="18" height="18"> <b>Join us on Telegram</b></a> for news, help and feature requests
 </p>
 
