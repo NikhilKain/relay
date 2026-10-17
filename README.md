@@ -6,14 +6,24 @@
 
 <p align="center">Your devices, together. Files, clipboard and links between your phone and your computer, over your own Wi-Fi. No account, no cloud.</p>
 
+<p align="center">
+  <a href="https://t.me/vythera_apps"><img src="site/images/telegram.png" alt="" width="18" height="18"> <b>Join us on Telegram</b></a> for news, help and feature requests
+</p>
+
+<p align="center">
+  <img src="site/images/windows.png" alt="Relay on a computer" width="640">
+</p>
+
+The desktop app looks and works the same on Windows, Linux and macOS.
+
 ## Download
 
 | Device | Where |
 | --- | --- |
 | Android 10+ | [Google Play](https://play.google.com/store/apps/details?id=com.vythera.relay) |
-| Windows 10/11 | [Releases](../../releases/latest) — `Relay-1.0.2.exe` installer, or the portable zip |
+| Windows 10/11 | [Releases](../../releases/latest) — `Relay-1.0.3.exe` installer, or the portable zip |
 | macOS 12+, Apple Silicon | [Releases](../../releases/latest) — `.dmg` |
-| Linux | [Releases](../../releases/latest) — `.deb` and `.rpm` |
+| Linux | [Releases](../../releases/latest) — `.deb` and `.rpm`; Arch and Manjaro [below](#arch-and-manjaro) |
 | iPhone and iPad | In the works |
 
 ## Installing on a computer
@@ -23,7 +33,7 @@ unknown.
 
 ### Windows
 
-Use the **installer** (`Relay-1.0.2.exe`). Run it; at **Windows protected your PC**,
+Use the **installer** (`Relay-1.0.3.exe`). Run it; at **Windows protected your PC**,
 choose **More info**, then **Run anyway**. Relay then starts with your computer if you
 turn that on in Settings, and lives in the system tray.
 
@@ -36,6 +46,19 @@ apps. It can be turned off in Windows Security, under *App & browser control*.
 
 On first launch, allow Relay through Windows Firewall on **Private networks**, otherwise
 your phone cannot reach the computer.
+
+**If your antivirus flags Relay.** Some antivirus products treat unsigned programs with
+suspicion, and before 1.0.3 Relay also used PowerShell for media keys and keep-awake,
+which made it look worse. 1.0.3 no longer uses PowerShell. To check that your copy is
+genuine, compare its SHA-256 with `SHA256SUMS.txt` on the release page:
+
+```powershell
+Get-FileHash .\Relay-1.0.3.exe
+```
+
+**Send with Relay.** Right-click any file or folder in File Explorer and choose *Send
+with Relay* (on Windows 11, under *Show more options*), then pick one or more devices.
+It can be turned off in Relay's Settings.
 
 ### macOS
 
@@ -52,9 +75,23 @@ On macOS 15 and later, allow Relay to find devices on the local network when ask
 ### Linux
 
 ```bash
-sudo dpkg -i relay_1.0.2-1_amd64.deb      # Debian, Ubuntu, Mint, Pop!_OS
-sudo rpm -i relay-1.0.2-1.x86_64.rpm      # Fedora, openSUSE, RHEL
+sudo dpkg -i relay_1.0.3-1_amd64.deb      # Debian, Ubuntu, Mint, Pop!_OS
+sudo rpm -i relay-1.0.3-1.x86_64.rpm      # Fedora, openSUSE, RHEL
 ```
+
+#### Arch and Manjaro
+
+A `PKGBUILD` that turns the official `.deb` into an Arch package lives in
+[`packaging/arch`](packaging/arch). Download it into an empty folder and build:
+
+```bash
+mkdir relay && cd relay
+curl -LO https://raw.githubusercontent.com/NikhilKain/relay/main/packaging/arch/PKGBUILD
+makepkg -si
+```
+
+Right-click files in **Dolphin** or **Files (Nautilus)** and choose *Send with Relay*
+to send them to your devices.
 
 ## Connecting two devices
 

@@ -21,6 +21,7 @@ import com.vythera.relay.desktop.ui.DesktopNavigation
 import com.vythera.relay.desktop.ui.DropShelf
 import com.vythera.relay.desktop.ui.Section
 import com.vythera.relay.desktop.ui.RelayMarkPainter
+import com.vythera.relay.desktop.ui.SendPicker
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import java.awt.FileDialog
@@ -37,18 +38,40 @@ import kotlin.system.exitProcess
  * `--minimized` starts in the tray only, which is how sign-in autostart launches it.
  */
 fun main(args: Array<String>) {
+    // "Send with Relay" in a file manager: everything after --send is a path.
+    val toSend = args.dropWhile { it != "--send" }.drop(1).map(::File).filter { it.exists() }
     val lock = acquireSingleInstanceLock() ?: run {
-        // Relay is already running: ask that copy to come forward instead of starting a
-        // second one, which is what someone expects from clicking the icon again.
-        if (!askRunningInstanceToShow()) {
+        // Relay is already running: hand it the files, or ask it to come forward instead
+        // of starting a second copy, which is what someone expects from clicking again.
+        if (toSend.isNotEmpty()) {
+            // Explorer starts one Relay per selected file, all at once, while the first may
+            // still be starting; keep knocking for a while rather than giving up.
+            askRunningInstance(sendRequest(toSend), patienceMillis = 20_000)
+        } else if (!askRunningInstance("show\n", patienceMillis = 1_500)) {
             JOptionPane.showMessageDialog(null, "Relay is already running. Look for it in the system tray.", "Relay", JOptionPane.INFORMATION_MESSAGE)
         }
         exitProcess(0)
     }
     DesktopLog.installCrashHandler()
     DesktopLog.write("relay: starting")
-    val relay = DesktopRelay().apply { start() }
-    val startHidden = "--minimized" in args
+    // Anything that stops Relay starting would otherwise surface only as the launcher's
+    // bare "Failed to launch JVM". Say what happened, and where the details are.
+    val relay = try {
+        DesktopRelay().apply { start() }
+    } catch (error: Throwable) {
+        DesktopLog.write("relay: could not start", error)
+        JOptionPane.showMessageDialog(
+            null,
+            "Relay could not start: ${error.message ?: error.javaClass.simpleName}\n\n" +
+                "Details are in ${File(DesktopPaths.data, "relay.log").path}.\n" +
+                "If this keeps happening, please send that file to ${com.vythera.relay.desktop.ui.RelayLinks.FEEDBACK_EMAIL}.",
+            "Relay",
+            JOptionPane.ERROR_MESSAGE,
+        )
+        exitProcess(1)
+    }
+    SendInbox.add(toSend)
+    val startHidden = "--minimized" in args || toSend.isNotEmpty()
 
     application {
         var windowVisible by remember { mutableStateOf(!startHidden) }
@@ -75,7 +98,11 @@ fun main(args: Array<String>) {
         }
 
         LaunchedEffect(Unit) {
-            listenForShowRequests { windowVisible = true }
+            listenForOtherCopies(onShow = { windowVisible = true }, onSend = SendInbox::add)
+        }
+        val waiting by SendInbox.files.collectAsState()
+        if (waiting.isNotEmpty()) {
+            SendPicker(relay, waiting, onClose = SendInbox::clear)
         }
 
         fun quit() {
@@ -150,31 +177,66 @@ private fun acquireSingleInstanceLock(): FileLock? = runCatching {
 
 /**
  * A loopback line between copies of Relay, bound to this machine only. The running copy
- * listens; a second launch says "show" and steps aside.
+ * listens; a second launch says "show", or "send" followed by one path per line and a
+ * blank line, and steps aside. A send only opens the device picker: nothing leaves the
+ * computer until someone chooses devices and presses Send.
  */
 private const val SHOW_PORT = 47802
 
-private fun askRunningInstanceToShow(): Boolean = runCatching {
-    java.net.Socket().use { socket ->
-        socket.connect(java.net.InetSocketAddress(java.net.InetAddress.getLoopbackAddress(), SHOW_PORT), 1500)
-        socket.getOutputStream().write("show\n".toByteArray())
-        socket.getOutputStream().flush()
+private fun sendRequest(files: List<File>) = "send\n" + files.joinToString("") { it.absolutePath + "\n" } + "\n"
+
+private fun askRunningInstance(message: String, patienceMillis: Long): Boolean {
+    val deadline = System.currentTimeMillis() + patienceMillis
+    while (true) {
+        val sent = runCatching {
+            java.net.Socket().use { socket ->
+                socket.connect(java.net.InetSocketAddress(java.net.InetAddress.getLoopbackAddress(), SHOW_PORT), 1500)
+                socket.getOutputStream().write(message.toByteArray(Charsets.UTF_8))
+                socket.getOutputStream().flush()
+            }
+        }.isSuccess
+        if (sent || System.currentTimeMillis() > deadline) return sent
+        Thread.sleep(300)
     }
-    true
-}.getOrDefault(false)
+}
 
 /** Listens for those messages for as long as Relay runs. */
-private fun listenForShowRequests(onShow: () -> Unit) {
+private fun listenForOtherCopies(onShow: () -> Unit, onSend: (List<File>) -> Unit) {
     Thread {
         runCatching {
-            java.net.ServerSocket(SHOW_PORT, 4, java.net.InetAddress.getLoopbackAddress()).use { server ->
+            java.net.ServerSocket(SHOW_PORT, 16, java.net.InetAddress.getLoopbackAddress()).use { server ->
                 while (true) {
-                    server.accept().use { client ->
-                        val line = client.getInputStream().bufferedReader().readLine()
-                        if (line?.trim() == "show") onShow()
+                    runCatching {
+                        server.accept().use { client ->
+                            client.soTimeout = 3_000
+                            val reader = client.getInputStream().bufferedReader(Charsets.UTF_8)
+                            when (reader.readLine()?.trim()) {
+                                "show" -> onShow()
+                                "send" -> onSend(
+                                    generateSequence { reader.readLine() }.takeWhile { it.isNotEmpty() }.take(MAX_SEND_PATHS)
+                                        .map(::File).filter { it.exists() }.toList(),
+                                )
+                            }
+                        }
                     }
                 }
             }
         }.onFailure { DesktopLog.write("relay: show channel closed", it) }
     }.apply { isDaemon = true; name = "relay-show-listener" }.start()
+}
+
+private const val MAX_SEND_PATHS = 10_000
+
+/** Files waiting for the user to pick devices. Several requests in a row add up. */
+private object SendInbox {
+    private val _files = kotlinx.coroutines.flow.MutableStateFlow<List<File>>(emptyList())
+    val files: kotlinx.coroutines.flow.StateFlow<List<File>> = _files
+
+    fun add(more: List<File>) {
+        if (more.isNotEmpty()) _files.value = (_files.value + more).distinctBy { it.absolutePath }
+    }
+
+    fun clear() {
+        _files.value = emptyList()
+    }
 }

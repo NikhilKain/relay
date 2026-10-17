@@ -1,6 +1,6 @@
 package com.vythera.relay.designsystem.component
 
-import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.QrCodeScanner
@@ -8,8 +8,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
+import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Canvas
+import androidx.compose.ui.graphics.FilterQuality
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -47,14 +50,12 @@ fun ConnectionQrCard(
                     // A white quiet zone round the code: scanners need it, and it keeps the
                     // code readable on a dark theme.
                     Surface(color = Color.White, shape = RelayShapes.Small) {
-                        Canvas(Modifier.padding(16.dp).size(qrSize)) {
-                            val cell = size.minDimension / matrix.size
-                            matrix.forEachIndexed { y, row ->
-                                row.forEachIndexed { x, black ->
-                                    if (black) drawRect(Color.Black, Offset(x * cell, y * cell), Size(cell + 0.5f, cell + 0.5f))
-                                }
-                            }
-                        }
+                        // Painted once into a bitmap with one pixel per module, then scaled up
+                        // without smoothing. Drawn as a rectangle per module instead, the
+                        // code cost more than a thousand draw calls on every frame it was on
+                        // screen, and made opening Settings stutter.
+                        val code = remember(matrix) { qrBitmap(matrix) }
+                        Image(code, contentDescription = null, filterQuality = FilterQuality.None, modifier = Modifier.padding(16.dp).size(qrSize))
                     }
                 } else {
                     Box(Modifier.size(qrSize + 32.dp), contentAlignment = Alignment.Center) {
@@ -72,4 +73,18 @@ fun ConnectionQrCard(
             }
         }
     }
+}
+
+/** The code as a black-on-white bitmap, one pixel per module. */
+private fun qrBitmap(matrix: List<List<Boolean>>): ImageBitmap {
+    val size = matrix.size
+    val bitmap = ImageBitmap(size, size)
+    val canvas = Canvas(bitmap)
+    val white = Paint().apply { color = Color.White }
+    val black = Paint().apply { color = Color.Black }
+    canvas.drawRect(0f, 0f, size.toFloat(), size.toFloat(), white)
+    matrix.forEachIndexed { y, row ->
+        row.forEachIndexed { x, dark -> if (dark) canvas.drawRect(x.toFloat(), y.toFloat(), x + 1f, y + 1f, black) }
+    }
+    return bitmap
 }

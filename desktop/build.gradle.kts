@@ -40,6 +40,9 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     // Swing dispatcher for Dispatchers.Main on desktop.
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:${libs.versions.coroutines.get()}")
+    // Windows battery, media keys, screen lock and keep-awake, called directly rather than
+    // through PowerShell, which antivirus treats as suspicious.
+    implementation("net.java.dev.jna:jna:5.17.0")
 
     testImplementation(libs.kotlin.test)
     testImplementation(libs.junit)
@@ -71,7 +74,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Msi, TargetFormat.Exe, TargetFormat.Deb, TargetFormat.Rpm, TargetFormat.Dmg)
             packageName = "Relay"
-            packageVersion = "1.0.2"
+            packageVersion = "1.0.3"
             description = "Your devices, together. Files, clipboard and links between phone and computer."
             vendor = "Vythera"
             // Only the parts of the Java runtime Relay actually uses, which roughly halves

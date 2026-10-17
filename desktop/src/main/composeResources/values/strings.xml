@@ -223,4 +223,22 @@
     <string name="tray_clipboard_sent">Clipboard sent to %1$d device(s)</string>
     <string name="tray_nothing_to_send">Nothing to send. Copy some text and keep a trusted device nearby.</string>
     <string name="already_running">Relay is already running. Look for it in the system tray.</string>
+
+    <!-- "Send with Relay" from the file manager -->
+    <string name="settings_menu_title">Send with Relay from your files</string>
+    <string name="settings_menu_body_windows">Right-click any file or folder in File Explorer and choose Send with Relay. On Windows 11 it is under Show more options.</string>
+    <string name="settings_menu_body_linux">Right-click any file or folder in Dolphin or Files and choose Send with Relay.</string>
+    <plurals name="send_picker_title">
+        <item quantity="one">Send %1$d file</item>
+        <item quantity="other">Send %1$d files</item>
+    </plurals>
+    <string name="send_picker_devices">To</string>
+    <string name="send_picker_none">No paired devices yet. Open Relay and pair one first.</string>
+    <string name="send_picker_away">Not nearby</string>
+    <string name="send_picker_cancel">Cancel</string>
+    <string name="send_picker_send">Send</string>
+
+    <!-- Support channel -->
+    <string name="settings_telegram_title">Join us on Telegram</string>
+    <string name="settings_telegram_body">News, help and ideas for Relay, from the people who make it.</string>
 </resources>

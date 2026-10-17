@@ -125,7 +125,17 @@ class DesktopRelay {
         analytics.enabled = settings.value.analytics
         clipboard.start()
         scope.launch { node.events.collect(::onEvent) }
+        // Re-applied every start, so the entry follows Relay if it is reinstalled elsewhere.
+        scope.launch(Dispatchers.IO) { FileManagerMenu.apply(settings.value.fileManagerMenu) }
     }
+
+    fun setFileManagerMenu(enabled: Boolean) {
+        updateSettings { it.copy(fileManagerMenu = enabled) }
+        scope.launch(Dispatchers.IO) { FileManagerMenu.apply(enabled) }
+    }
+
+    /** The same files to each chosen device: one transfer per device. */
+    fun sendFiles(to: Collection<DeviceId>, files: List<File>) = to.forEach { sendFiles(it, files) }
 
     fun stop() {
         toolPlatform.close()
@@ -360,7 +370,7 @@ class DesktopRelay {
     companion object {
         // Keep in step with packageVersion in desktop/build.gradle.kts: this is what About
         // shows and what paired devices are told.
-        const val VERSION = "1.0.2"
+        const val VERSION = "1.0.3"
         private const val MAX_HISTORY = 200
 
         fun isLink(text: String) = Regex("""^https?://\S+$""", RegexOption.IGNORE_CASE).matches(text.trim())

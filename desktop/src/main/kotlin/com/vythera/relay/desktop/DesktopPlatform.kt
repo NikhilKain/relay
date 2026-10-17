@@ -110,6 +110,8 @@ data class DesktopSettings(
     val ecosystem: Boolean = true,
     /** The drop shelf at the screen edge that files can be dragged onto. */
     val dropShelf: Boolean = true,
+    /** "Send with Relay" in the file manager's right-click menu. */
+    val fileManagerMenu: Boolean = true,
     /** Optional, anonymous usage statistics. Off unless the user turns it on. */
     val analytics: Boolean = false,
     /** A random id for this installation, made when statistics are first turned on. */
@@ -177,21 +179,36 @@ object Autostart {
     /** Registering a launcher that is about to be deleted would start nothing next time. */
     val isAvailable: Boolean get() = Installation.isLasting
 
+    /** Whether the OS will start Relay at sign-in, whichever copy registered it. */
+    fun isRegistered(): Boolean = runCatching {
+        when (DesktopPaths.platform) {
+            Platform.WINDOWS -> ProcessBuilder("reg", "query", RUN_KEY, "/v", "Relay")
+                .redirectOutput(ProcessBuilder.Redirect.DISCARD).redirectError(ProcessBuilder.Redirect.DISCARD)
+                .start().waitFor() == 0
+            Platform.MACOS -> launchAgent.isFile
+            else -> autostartEntry.isFile
+        }
+    }.getOrDefault(false)
+
+    private const val RUN_KEY = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+    private val launchAgent get() = File(System.getProperty("user.home"), "Library/LaunchAgents/com.vythera.relay.plist")
+    private val autostartEntry get() = File(System.getenv("XDG_CONFIG_HOME") ?: "${System.getProperty("user.home")}/.config", "autostart/relay.desktop")
+
     fun set(enabled: Boolean): Boolean = runCatching {
-        val exe = Installation.launcher?.path ?: return false
-        if (enabled && !Installation.isLasting) return false
+        // Turning it off needs no launcher: it only removes what an earlier copy added.
+        val exe = Installation.launcher?.path.orEmpty()
+        if (enabled && (exe.isEmpty() || !Installation.isLasting)) return false
         when (DesktopPaths.platform) {
             Platform.WINDOWS -> {
-                val key = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
                 val command = if (enabled) {
-                    listOf("reg", "add", key, "/v", "Relay", "/t", "REG_SZ", "/d", "\"$exe\" --minimized", "/f")
+                    listOf("reg", "add", RUN_KEY, "/v", "Relay", "/t", "REG_SZ", "/d", "\"$exe\" --minimized", "/f")
                 } else {
-                    listOf("reg", "delete", key, "/v", "Relay", "/f")
+                    listOf("reg", "delete", RUN_KEY, "/v", "Relay", "/f")
                 }
                 ProcessBuilder(command).redirectErrorStream(true).start().waitFor() == 0 || !enabled
             }
             Platform.MACOS -> {
-                val plist = File(System.getProperty("user.home"), "Library/LaunchAgents/com.vythera.relay.plist")
+                val plist = launchAgent
                 if (enabled) {
                     plist.parentFile.mkdirs()
                     plist.writeText(
@@ -211,7 +228,7 @@ object Autostart {
                 true
             }
             else -> {
-                val entry = File(System.getenv("XDG_CONFIG_HOME") ?: "${System.getProperty("user.home")}/.config", "autostart/relay.desktop")
+                val entry = autostartEntry
                 if (enabled) {
                     entry.parentFile.mkdirs()
                     entry.writeText("[Desktop Entry]\nType=Application\nName=Relay\nExec=\"$exe\" --minimized\nX-GNOME-Autostart-enabled=true\n")

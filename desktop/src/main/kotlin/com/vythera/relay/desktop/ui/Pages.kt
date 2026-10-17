@@ -185,6 +185,20 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
         Group {
             SwitchRow(stringResource(Res.string.settings_shelf_title), stringResource(Res.string.settings_shelf_body), settings.dropShelf, relay::setDropShelf)
         }
+        if (com.vythera.relay.desktop.FileManagerMenu.isAvailable) {
+            Spacer(Modifier.height(8.dp))
+            Group {
+                SwitchRow(
+                    stringResource(Res.string.settings_menu_title),
+                    stringResource(
+                        if (com.vythera.relay.desktop.DesktopPaths.platform == com.vythera.relay.protocol.Platform.WINDOWS) Res.string.settings_menu_body_windows
+                        else Res.string.settings_menu_body_linux,
+                    ),
+                    settings.fileManagerMenu,
+                    relay::setFileManagerMenu,
+                )
+            }
+        }
 
         RelaySectionHeader(stringResource(Res.string.settings_clipboard), Modifier.padding(top = RelaySpacing.xxl))
         Group {
@@ -216,7 +230,16 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
                     )
                 }
                 Spacer(Modifier.width(16.dp))
-                Switch(checked = settings.startWithComputer, enabled = Autostart.isAvailable, onCheckedChange = relay::setStartWithComputer)
+                // What the OS will really do at sign-in, which can differ from the setting:
+                // a copy installed earlier may have registered itself. Turning it off must
+                // work from any copy, even one that could not turn it on.
+                var changes by remember { mutableStateOf(0) }
+                val registered = remember(settings.startWithComputer, changes) { Autostart.isRegistered() }
+                Switch(
+                    checked = registered,
+                    enabled = Autostart.isAvailable || registered,
+                    onCheckedChange = { relay.setStartWithComputer(it); changes++ },
+                )
             }
         }
 
@@ -229,6 +252,8 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
         }
 
         RelaySectionHeader(stringResource(Res.string.settings_spread), Modifier.padding(top = RelaySpacing.xxl))
+        TelegramButton()
+        Spacer(Modifier.height(8.dp))
         Group {
             val shareMessage = stringResource(Res.string.settings_share_message, RelayLinks.WEBSITE)
             var copied by remember { mutableStateOf(false) }
@@ -257,6 +282,30 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
                 RelayMark(size = 40.dp, contentDescription = null)
                 Spacer(Modifier.width(16.dp))
                 Text(stringResource(Res.string.settings_about_body, DesktopRelay.VERSION), style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
+            }
+        }
+    }
+}
+
+/** The way into the Telegram channel: news, help, and a place to ask for features. */
+@Composable
+private fun TelegramButton() {
+    Surface(
+        onClick = { Outreach.telegram() },
+        shape = RelayShapes.Small,
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Row(Modifier.padding(horizontal = 20.dp, vertical = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+            androidx.compose.foundation.Image(
+                org.jetbrains.compose.resources.painterResource(Res.drawable.ic_telegram),
+                contentDescription = null,
+                modifier = Modifier.size(40.dp),
+            )
+            Spacer(Modifier.width(16.dp))
+            Column(Modifier.weight(1f)) {
+                Text(stringResource(Res.string.settings_telegram_title), style = MaterialTheme.typography.titleMedium)
+                Text(stringResource(Res.string.settings_telegram_body), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
     }
@@ -375,6 +424,8 @@ object RelayLinks {
     /** Every platform on one page: the link worth passing to a friend. */
     const val WEBSITE = "https://nikhilkain.github.io/relay-site/"
     const val FEEDBACK_EMAIL = "narzo9990@gmail.com"
+    /** Support and news channel. */
+    const val TELEGRAM = "https://t.me/vythera_apps"
 }
 
 /** Settings rows that leave the app: telling a friend, rating, writing to us. */
@@ -384,6 +435,8 @@ private object Outreach {
     }
 
     fun rate() = browse(RelayLinks.PLAY_STORE)
+
+    fun telegram() = browse(RelayLinks.TELEGRAM)
 
     fun feedback(version: String) {
         val os = "${System.getProperty("os.name")} ${System.getProperty("os.version")}"

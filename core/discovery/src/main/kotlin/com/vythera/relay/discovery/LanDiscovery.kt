@@ -14,7 +14,6 @@ import java.net.InetSocketAddress
 import java.net.MulticastSocket
 import java.net.NetworkInterface
 import java.net.SocketException
-import java.net.StandardSocketOptions
 
 /**
  * Finds Relay devices on the local network with UDP announcements.
@@ -55,7 +54,10 @@ class LanDiscovery(
             reuseAddress = true
             bind(InetSocketAddress(discoveryPort))
             broadcast = true
-            setOption(StandardSocketOptions.IP_MULTICAST_LOOP, false)
+            // Don't hear our own announcements. setOption(IP_MULTICAST_LOOP) would say this
+            // more plainly, but Android only has it from 13 and Relay runs on 10.
+            @Suppress("DEPRECATION")
+            loopbackMode = true
             joinGroupOnUsableInterfaces()
         }
         this.socket = socket

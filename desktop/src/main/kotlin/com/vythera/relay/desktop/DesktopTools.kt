@@ -108,7 +108,7 @@ class DesktopTools(private val relay: DesktopRelay) : ToolPlatform {
                 result("Command started")
             }
             "lock.now" -> {
-                if (windows) runProcess(listOf("rundll32.exe", "user32.dll,LockWorkStation")) else runProcess(listOf("loginctl", "lock-session"))
+                if (windows) WindowsNative.lockScreen() else runProcess(listOf("loginctl", "lock-session"))
                 result("Lock requested")
             }
             "input.move" -> {
@@ -146,7 +146,7 @@ class DesktopTools(private val relay: DesktopRelay) : ToolPlatform {
                 if (windows) {
                     val key = when (action) { "playpause" -> 179; "next" -> 176; "previous" -> 177; "stop" -> 178; "up" -> 175; "down" -> 174; "mute" -> 173; else -> error("Unknown action") }
                     require((request.action == "media.control") == (key >= 176))
-                    runProcess(DesktopNative.powershell("Add-Type -TypeDefinition 'using System.Runtime.InteropServices; public class RelayKeys { [DllImport(\"user32.dll\")] public static extern void keybd_event(byte k, byte s, uint f, System.UIntPtr e); }'; [RelayKeys]::keybd_event($key,0,0,[System.UIntPtr]::Zero); [RelayKeys]::keybd_event($key,0,2,[System.UIntPtr]::Zero)"))
+                    WindowsNative.tapKey(key)
                 } else if (request.action == "media.control") {
                     val player = args["player"].orEmpty()
                     val target = if (player.isBlank()) emptyList() else {
@@ -165,7 +165,6 @@ class DesktopTools(private val relay: DesktopRelay) : ToolPlatform {
     private fun executable(name: String) = System.getenv("PATH").orEmpty().split(File.pathSeparator).any { File(it, name).canExecute() }
     private fun runProcess(args: List<String>) {
         val process = ProcessBuilder(args).redirectOutput(ProcessBuilder.Redirect.DISCARD).redirectError(ProcessBuilder.Redirect.DISCARD).start()
-        // Windows PowerShell alone takes about three seconds to start; leave room for a cold one.
         try { check(process.waitFor(10, TimeUnit.SECONDS) && process.exitValue() == 0) } finally { if (process.isAlive) process.destroyForcibly() }
     }
 }
