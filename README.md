@@ -8,6 +8,8 @@
 
 <p align="center">
   <a href="https://t.me/vythera_apps"><img src="site/images/telegram.png" alt="" width="18" height="18"> <b>Join us on Telegram</b></a> for news, help and feature requests
+  &nbsp;·&nbsp;
+  <a href="https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE">☕ <b>Buy me a coffee</b></a> to help bring Relay to iPhone
 </p>
 
 <p align="center">
@@ -24,7 +26,14 @@ The desktop app looks and works the same on Windows, Linux and macOS.
 | Windows 10/11 | [Releases](../../releases/latest) — `Relay-1.0.3.exe` installer, or the portable zip |
 | macOS 12+, Apple Silicon | [Releases](../../releases/latest) — `.dmg` |
 | Linux | [Releases](../../releases/latest) — `.deb` and `.rpm`; Arch and Manjaro [below](#arch-and-manjaro) |
-| iPhone and iPad | In the works |
+| iPhone and iPad | In the works: [help make it happen](#support-relay) |
+
+## Support Relay
+
+Relay is free, with no ads and no account, and it is made by one developer. The one thing
+missing is an iPhone and iPad version, and I don't have an iOS device to build and test it
+on. If Relay saves you time, [buying me a coffee](https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE)
+helps me get one, and keeps Relay free for everyone.
 
 ## Installing on a computer
 

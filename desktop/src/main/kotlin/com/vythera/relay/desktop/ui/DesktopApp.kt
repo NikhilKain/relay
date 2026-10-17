@@ -126,6 +126,8 @@ fun DesktopApp(relay: DesktopRelay, navigation: DesktopNavigation, window: Frame
                     val motion = LocalRelayMotion.current
                     Column(Modifier.weight(1f).fillMaxHeight()) {
                     if (Installation.isTemporary) InstallBanner(Modifier.padding(start = 24.dp, end = 24.dp, top = 24.dp))
+                    val update by relay.updates.available.collectAsState()
+                    update?.let { UpdateBanner(it, Modifier.padding(start = 24.dp, end = 24.dp, top = 24.dp)) }
                     AnimatedContent(
                         targetState = navigation.section,
                         transitionSpec = {

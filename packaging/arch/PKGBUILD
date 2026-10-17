@@ -1,0 +1,37 @@
+# Relay for Arch Linux, Manjaro and other Arch-based systems.
+#
+# Repackages the official .deb from the GitHub release, so what you install is the same
+# build everyone else gets. To install:
+#   makepkg -si
+# Maintainer: Vythera <narzo9990@gmail.com>
+
+pkgname=relay-bin
+pkgver=1.0.3
+pkgrel=1
+pkgdesc="Files, clipboard and links between your phone and your computer, over your own Wi-Fi"
+arch=('x86_64')
+url="https://github.com/NikhilKain/relay"
+license=('Apache-2.0')
+# Relay brings its own Java runtime; these are the system libraries that runtime uses.
+depends=('alsa-lib' 'fontconfig' 'freetype2' 'glibc' 'libx11' 'libxext' 'libxi' 'libxrender' 'libxtst' 'zlib')
+optdepends=(
+  'playerctl: media controls from your phone'
+  'libpulse: volume control from your phone (pactl)'
+)
+provides=('relay')
+conflicts=('relay')
+options=('!strip' '!debug')
+source=("${url}/releases/download/v${pkgver}/relay_${pkgver}-1_amd64.deb")
+sha256sums=('ca95930e3bd14bb55cb427f751aa33bd3d3b0a6e5538e9f01f0cbcd14a23efe8')
+
+package() {
+  bsdtar -xf data.tar.* -C "${pkgdir}"
+
+  # The .deb registers its menu entry from a post-install script; do it the Arch way.
+  install -Dm644 "${pkgdir}/opt/relay/lib/relay-Relay.desktop" "${pkgdir}/usr/share/applications/relay.desktop"
+  install -Dm644 "${pkgdir}/opt/relay/lib/Relay.png" "${pkgdir}/usr/share/pixmaps/relay.png"
+  sed -i 's|^Icon=.*|Icon=relay|' "${pkgdir}/usr/share/applications/relay.desktop"
+
+  install -dm755 "${pkgdir}/usr/bin"
+  ln -s /opt/relay/bin/Relay "${pkgdir}/usr/bin/relay"
+}

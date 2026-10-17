@@ -96,6 +96,12 @@ fun main(args: Array<String>) {
         LaunchedEffect(Unit) {
             relay.notices.collect { trayState.sendNotification(Notification(it.title, it.message)) }
         }
+        // Once per new version, so a Relay that lives in the tray still hears about it.
+        val update by relay.updates.available.collectAsState()
+        val updateMessage = update?.let { stringResource(Res.string.update_banner_title, it.version) }
+        LaunchedEffect(update?.version) {
+            if (updateMessage != null) trayState.sendNotification(Notification("Relay", updateMessage))
+        }
 
         LaunchedEffect(Unit) {
             listenForOtherCopies(onShow = { windowVisible = true }, onSend = SendInbox::add)

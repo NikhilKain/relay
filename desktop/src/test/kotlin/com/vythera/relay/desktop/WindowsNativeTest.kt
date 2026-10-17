@@ -19,3 +19,22 @@ class WindowsNativeTest {
         WindowsNative.releaseAwake()
     }
 }
+
+/** Writes and reads back a throwaway key, so it runs only on Windows. */
+class WindowsRegistryTest {
+    private val key = "Software\\Relay-test-${System.nanoTime()}"
+
+    @Before fun onWindows() = assumeTrue(System.getProperty("os.name").startsWith("Windows"))
+
+    @org.junit.After fun cleanUp() {
+        WindowsRegistry.deleteKey(key)
+    }
+
+    @Test fun `quotes and spaces reach the registry intact`() {
+        val command = "\"C:\\Program Files\\Relay\\Relay.exe\" --send \"%1\""
+        assertTrue(WindowsRegistry.setStrings(key, mapOf(null to command, "MUIVerb" to "Send with Relay")))
+        val output = ProcessBuilder("reg", "query", "HKCU\\$key").start().inputStream.bufferedReader().readText()
+        assertTrue(command in output, output)
+        assertTrue(WindowsRegistry.hasValue(key, "MUIVerb"))
+    }
+}

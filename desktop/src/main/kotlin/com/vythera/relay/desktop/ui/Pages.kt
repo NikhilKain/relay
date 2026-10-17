@@ -284,6 +284,10 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
                 Text(stringResource(Res.string.settings_about_body, DesktopRelay.VERSION), style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant)
             }
         }
+        Spacer(Modifier.height(8.dp))
+        Group {
+            SwitchRow(stringResource(Res.string.settings_updates_title), stringResource(Res.string.settings_updates_body), settings.checkForUpdates, relay::setCheckForUpdates)
+        }
     }
 }
 

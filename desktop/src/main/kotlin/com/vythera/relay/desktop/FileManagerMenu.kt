@@ -30,23 +30,18 @@ object FileManagerMenu {
     private fun windows(enabled: Boolean, exe: String) {
         // Files (*) and folders (Directory) each get their own verb.
         for (kind in listOf("*", "Directory")) {
-            val key = "HKCU\\Software\\Classes\\$kind\\shell\\RelaySend"
+            val key = "Software\\Classes\\$kind\\shell\\RelaySend"
             if (enabled) {
-                reg("add", key, "/v", "MUIVerb", "/d", "Send with Relay", "/f")
-                reg("add", key, "/v", "Icon", "/d", "\"$exe\"", "/f")
-                // Explorer otherwise hides verbs once more than 15 items are selected.
-                reg("add", key, "/v", "MultiSelectModel", "/d", "Player", "/f")
-                reg("add", "$key\\command", "/ve", "/d", "\"$exe\" --send \"%1\"", "/f")
+                WindowsRegistry.setStrings(
+                    key,
+                    // Explorer otherwise hides verbs once more than 15 items are selected.
+                    mapOf("MUIVerb" to "Send with Relay", "Icon" to "\"$exe\"", "MultiSelectModel" to "Player"),
+                )
+                WindowsRegistry.setStrings("$key\\command", mapOf(null to "\"$exe\" --send \"%1\""))
             } else {
-                reg("delete", key, "/f")
+                WindowsRegistry.deleteKey(key)
             }
         }
-    }
-
-    private fun reg(vararg args: String) {
-        ProcessBuilder(listOf("reg") + args)
-            .redirectOutput(ProcessBuilder.Redirect.DISCARD).redirectError(ProcessBuilder.Redirect.DISCARD)
-            .start().waitFor()
     }
 
     private fun linux(enabled: Boolean, exe: String) {

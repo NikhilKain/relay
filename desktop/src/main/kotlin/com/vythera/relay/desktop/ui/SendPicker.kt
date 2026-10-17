@@ -17,6 +17,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -55,6 +56,15 @@ fun SendPicker(relay: DesktopRelay, files: List<File>, onClose: () -> Unit) {
         title = "Relay",
         state = rememberDialogState(position = WindowPosition(Alignment.Center), size = DpSize(440.dp, 520.dp)),
     ) {
+        // Opened from a file manager, it would otherwise appear behind that window. Windows
+        // will not let an app simply take the focus, but a window briefly on top is shown.
+        LaunchedEffect(Unit) {
+            window.isAlwaysOnTop = true
+            window.toFront()
+            window.requestFocus()
+            kotlinx.coroutines.delay(400)
+            window.isAlwaysOnTop = false
+        }
         RelayTheme(colorSource = RelayColorSource.Ember) {
             Surface(color = MaterialTheme.colorScheme.surface, modifier = Modifier.fillMaxSize()) {
                 Column(Modifier.padding(24.dp)) {

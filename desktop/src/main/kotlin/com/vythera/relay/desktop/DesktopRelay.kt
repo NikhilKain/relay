@@ -90,6 +90,7 @@ class DesktopRelay {
     )
     private val clipboard = DesktopClipboard(node, scope, File(DesktopPaths.cache, "clipboard-out").apply { mkdirs() }) { DesktopLog.write(it) }
     private val analytics = DesktopAnalytics(scope, clientId = { settings.value.analyticsClientId }, log = { DesktopLog.write(it) })
+    val updates = DesktopUpdates(VERSION, log = { DesktopLog.write(it) })
     val analyticsAvailable: Boolean get() = analytics.isAvailable
 
     val devices: StateFlow<List<RelayDevice>> = node.devices
@@ -127,6 +128,12 @@ class DesktopRelay {
         scope.launch { node.events.collect(::onEvent) }
         // Re-applied every start, so the entry follows Relay if it is reinstalled elsewhere.
         scope.launch(Dispatchers.IO) { FileManagerMenu.apply(settings.value.fileManagerMenu) }
+        updates.start(scope, settings.value.checkForUpdates)
+    }
+
+    fun setCheckForUpdates(enabled: Boolean) {
+        updateSettings { it.copy(checkForUpdates = enabled) }
+        updates.start(scope, enabled)
     }
 
     fun setFileManagerMenu(enabled: Boolean) {

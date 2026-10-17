@@ -238,6 +238,13 @@
     <string name="send_picker_cancel">Cancel</string>
     <string name="send_picker_send">Send</string>
 
+    <!-- Updates -->
+    <string name="settings_updates_title">Check for updates</string>
+    <string name="settings_updates_body">Once a day, Relay asks GitHub, where it is published, whether a newer version is out. Nothing about you or your devices is sent.</string>
+    <string name="update_banner_title">Relay %1$s is available</string>
+    <string name="update_banner_body">Download it and install it over this one. Your devices and settings stay as they are.</string>
+    <string name="update_banner_action">Get the update</string>
+
     <!-- Support channel -->
     <string name="settings_telegram_title">Join us on Telegram</string>
     <string name="settings_telegram_body">News, help and ideas for Relay, from the people who make it.</string>

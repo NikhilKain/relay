@@ -50,3 +50,22 @@ fun InstallBanner(modifier: Modifier = Modifier) {
         }
     }
 }
+
+/** A newer Relay is out: says so at the top of the window, with the way to get it. */
+@Composable
+fun UpdateBanner(update: com.vythera.relay.desktop.DesktopUpdates.Available, modifier: Modifier = Modifier) {
+    val colors = MaterialTheme.colorScheme
+    Surface(color = colors.primaryContainer, contentColor = colors.onPrimaryContainer, shape = RelayShapes.Action, modifier = modifier.fillMaxWidth()) {
+        Row(Modifier.padding(horizontal = 24.dp, vertical = 18.dp), verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f)) {
+                Text(stringResource(Res.string.update_banner_title, update.version), style = MaterialTheme.typography.titleMedium)
+                Text(stringResource(Res.string.update_banner_body), style = MaterialTheme.typography.bodyMedium)
+            }
+            Spacer(Modifier.width(20.dp))
+            Button(
+                onClick = { runCatching { java.awt.Desktop.getDesktop().browse(java.net.URI(update.page)) } },
+                shapes = ButtonDefaults.shapes(RelayShapes.Pill, RelayShapes.ExtraSmall),
+            ) { Text(stringResource(Res.string.update_banner_action)) }
+        }
+    }
+}

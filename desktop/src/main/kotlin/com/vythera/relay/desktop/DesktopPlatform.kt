@@ -112,6 +112,8 @@ data class DesktopSettings(
     val dropShelf: Boolean = true,
     /** "Send with Relay" in the file manager's right-click menu. */
     val fileManagerMenu: Boolean = true,
+    /** Look on GitHub once a day for a newer Relay. */
+    val checkForUpdates: Boolean = true,
     /** Optional, anonymous usage statistics. Off unless the user turns it on. */
     val analytics: Boolean = false,
     /** A random id for this installation, made when statistics are first turned on. */
@@ -182,15 +184,13 @@ object Autostart {
     /** Whether the OS will start Relay at sign-in, whichever copy registered it. */
     fun isRegistered(): Boolean = runCatching {
         when (DesktopPaths.platform) {
-            Platform.WINDOWS -> ProcessBuilder("reg", "query", RUN_KEY, "/v", "Relay")
-                .redirectOutput(ProcessBuilder.Redirect.DISCARD).redirectError(ProcessBuilder.Redirect.DISCARD)
-                .start().waitFor() == 0
+            Platform.WINDOWS -> WindowsRegistry.hasValue(RUN_KEY, "Relay")
             Platform.MACOS -> launchAgent.isFile
             else -> autostartEntry.isFile
         }
     }.getOrDefault(false)
 
-    private const val RUN_KEY = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+    private const val RUN_KEY = "Software\\Microsoft\\Windows\\CurrentVersion\\Run"
     private val launchAgent get() = File(System.getProperty("user.home"), "Library/LaunchAgents/com.vythera.relay.plist")
     private val autostartEntry get() = File(System.getenv("XDG_CONFIG_HOME") ?: "${System.getProperty("user.home")}/.config", "autostart/relay.desktop")
 
@@ -200,12 +200,8 @@ object Autostart {
         if (enabled && (exe.isEmpty() || !Installation.isLasting)) return false
         when (DesktopPaths.platform) {
             Platform.WINDOWS -> {
-                val command = if (enabled) {
-                    listOf("reg", "add", RUN_KEY, "/v", "Relay", "/t", "REG_SZ", "/d", "\"$exe\" --minimized", "/f")
-                } else {
-                    listOf("reg", "delete", RUN_KEY, "/v", "Relay", "/f")
-                }
-                ProcessBuilder(command).redirectErrorStream(true).start().waitFor() == 0 || !enabled
+                if (enabled) WindowsRegistry.setStrings(RUN_KEY, mapOf("Relay" to "\"$exe\" --minimized"))
+                else WindowsRegistry.deleteValue(RUN_KEY, "Relay") || !isRegistered()
             }
             Platform.MACOS -> {
                 val plist = launchAgent
@@ -239,4 +235,44 @@ object Autostart {
             }
         }
     }.getOrDefault(false)
+}
+
+/**
+ * Writes per-user registry values through a .reg file and `reg import`.
+ *
+ * Passing them to `reg add` as arguments does not work: Java does not escape double quotes
+ * inside arguments on Windows, and a command such as `"C:\Program Files\Relay\Relay.exe"
+ * --send "%1"` reached the registry mangled or not at all. A file carries it intact.
+ */
+internal object WindowsRegistry {
+    /** Sets string [values] under [key] (an HKCU path); a null name is the key's default value. */
+    fun setStrings(key: String, values: Map<String?, String>): Boolean {
+        val body = buildString {
+            append("Windows Registry Editor Version 5.00\r\n\r\n")
+            append("[HKEY_CURRENT_USER\\").append(key).append("]\r\n")
+            values.forEach { (name, value) ->
+                append(if (name == null) "@" else "\"${escape(name)}\"").append("=\"").append(escape(value)).append("\"\r\n")
+            }
+        }
+        val file = File.createTempFile("relay-", ".reg", DesktopPaths.cache.apply { mkdirs() })
+        return try {
+            // Version 5 files are UTF-16 with a byte order mark.
+            file.writeBytes(byteArrayOf(0xFF.toByte(), 0xFE.toByte()) + body.toByteArray(Charsets.UTF_16LE))
+            run("reg", "import", file.path)
+        } finally {
+            file.delete()
+        }
+    }
+
+    fun deleteKey(key: String): Boolean = run("reg", "delete", "HKCU\\$key", "/f")
+
+    fun deleteValue(key: String, name: String): Boolean = run("reg", "delete", "HKCU\\$key", "/v", name, "/f")
+
+    fun hasValue(key: String, name: String): Boolean = run("reg", "query", "HKCU\\$key", "/v", name)
+
+    private fun escape(text: String) = text.replace("\\", "\\\\").replace("\"", "\\\"")
+
+    private fun run(vararg command: String): Boolean =
+        ProcessBuilder(*command).redirectOutput(ProcessBuilder.Redirect.DISCARD).redirectError(ProcessBuilder.Redirect.DISCARD)
+            .start().waitFor() == 0
 }

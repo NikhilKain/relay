@@ -45,6 +45,7 @@
   .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
   .btn.secondary{background:var(--surface-2);color:var(--text)}
   .btn small{display:block;font-weight:400;font-size:12px;opacity:.75}
+  .btn .coffee{flex:none}
   .hint{margin-top:16px;font-size:14px;color:var(--muted)}
   .hint a{color:var(--teal)}
   .hint code{background:var(--surface-2);border-radius:6px;padding:2px 6px;font-size:13px;white-space:nowrap}
@@ -96,12 +97,13 @@
       <span class="chip">No account</span>
       <span class="chip">No cloud</span>
       <span class="chip">Encrypted device to device</span>
-      <span class="chip">Free and open source</span>
+      <span class="chip">Free, no ads</span>
     </div>
 
     <div class="downloads" id="downloads">
       <a class="btn" id="primary-download" href="#install">Download<small>Choose your platform</small></a>
-      <a class="btn secondary" id="support-btn" href="#" target="_blank" rel="noopener">Support<small>Questions and help</small></a>
+      <a class="btn secondary" id="support-btn" href="https://t.me/vythera_apps" target="_blank" rel="noopener"><img src="images/telegram.png" alt="" width="24" height="24"><span>Telegram<small>News and help</small></span></a>
+      <a class="btn secondary coffee-btn" href="https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE" target="_blank" rel="noopener"><svg class="coffee" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/></svg><span>Buy me a coffee<small>Help bring Relay to iPhone</small></span></a>
     </div>
     <p class="hint" id="platform-hint"></p>
   </div>
@@ -110,7 +112,8 @@
     <h2>What it does</h2>
     <p class="sub">The things you would expect two of your own devices to do for each other.</p>
     <div class="grid">
-      <div class="card"><h3>Universal clipboard</h3><p>Copy on one device, paste on another: text, images and whole files, in both directions.</p></div>
+      <div class="card"><h3>Universal clipboard</h3><p>Copy on your computer, paste on your phone: text, images and whole files. From your phone, one tap on the Quick Settings tile sends what you copied, or select any text and choose Relay.</p></div>
+      <div class="card"><h3>Send with Relay</h3><p>Right-click files in File Explorer, Dolphin or Files and send them to one device, or to all of them at once.</p></div>
       <div class="card"><h3>Send anything</h3><p>Photos, documents, folders, notes and links, from the app or straight from any share sheet.</p></div>
       <div class="card"><h3>Drag and drop to your phone</h3><p>On your computer, drag a file to the shelf at the edge of the screen and drop it on a device.</p></div>
       <div class="card"><h3>Your devices work as one</h3><p>Once paired, nothing asks you to accept. What arrives is ready to open or paste.</p></div>
@@ -130,6 +133,12 @@
     <img class="desktop-shot" src="images/windows.png" alt="Relay on Windows">
   </section>
 
+  <section id="support">
+    <h2>Help bring Relay to iPhone</h2>
+    <p class="sub">Relay is free, with no ads and no account, and it is made by one developer. The one thing missing is an iPhone and iPad version, and I don't have an iOS device to build and test it on. If Relay saves you time, buying me a coffee helps me get one, and keeps Relay free for everyone.</p>
+    <a class="btn" href="https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE" target="_blank" rel="noopener"><svg class="coffee" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/></svg><span>Buy me a coffee<small>Secure checkout with Polar</small></span></a>
+  </section>
+
   <section id="install">
     <h2>Get Relay</h2>
     <p class="sub">Install it on two devices, put them on the same Wi-Fi, and connect them once.</p>
@@ -142,7 +151,7 @@
       <a class="btn secondary" id="dl-play" href="https://play.google.com/store/apps/details?id=com.vythera.relay" target="_blank" rel="noopener">Android<small>Google Play</small></a>
     </div>
 
-    <p class="hint">The computer builds are not code-signed, so Windows may warn that the publisher is unknown: choose <b>More info</b>, then <b>Run anyway</b>. On a Mac, macOS may say Relay is damaged — it isn't, that is what it calls an unsigned app. Run <code>xattr -dr com.apple.quarantine /Applications/Relay.app</code> once and it opens normally. <a id="source-link" href="#" target="_blank" rel="noopener">Everything is on GitHub</a> if you would rather build it yourself.</p>
+    <p class="hint">The computer builds are not code-signed, so Windows may warn that the publisher is unknown: choose <b>More info</b>, then <b>Run anyway</b>. On a Mac, macOS may say Relay is damaged — it isn't, that is what it calls an unsigned app. Run <code>xattr -dr com.apple.quarantine /Applications/Relay.app</code> once and it opens normally. The <a id="source-link" href="#" target="_blank" rel="noopener">computer app's source is on GitHub</a> if you would rather build it yourself. On Arch or Manjaro, the README has a PKGBUILD.</p>
 
     <ol class="steps" style="margin-top:34px">
       <li><p><strong>Install Relay on both devices</strong>Android from Google Play; Windows, macOS or Linux from the buttons above.</p></li>
@@ -152,7 +161,7 @@
   </section>
 
   <footer>
-    <p>Relay is free and open source under the Apache 2.0 licence.</p>
+    <p>Relay is free. The computer app and the engine it shares with Android are open source under the Apache 2.0 licence; the Android app is on Google Play.</p>
     <p><a id="footer-github" href="#" target="_blank" rel="noopener">GitHub</a> · <a id="footer-support" href="#" target="_blank" rel="noopener">Support</a> · <a href="privacy.html">Privacy</a></p>
   </footer>
 
@@ -162,13 +171,13 @@
   // Everything that points somewhere lives here, so a new channel or a new release is a
   // one-line change.
   var REPO = "NikhilKain/relay";
-  var SUPPORT_URL = "https://t.me/YOUR_CHANNEL";      // <-- your Telegram channel goes here
+  var SUPPORT_URL = "https://t.me/vythera_apps";
   var FILES = {
-    exe: "Relay-1.0.2.exe",
-    windows: "Relay-1.0.2-windows-x64.zip",
-    dmg: "Relay-1.0.2.dmg",
-    deb: "relay_1.0.2-1_amd64.deb",
-    rpm: "relay-1.0.2-1.x86_64.rpm"
+    exe: "Relay-1.0.3.exe",
+    windows: "Relay-1.0.3-windows-x64.zip",
+    dmg: "Relay-1.0.3.dmg",
+    deb: "relay_1.0.3-1_amd64.deb",
+    rpm: "relay-1.0.3-1.x86_64.rpm"
   };
 
   var PLAY = "https://play.google.com/store/apps/details?id=com.vythera.relay";
@@ -199,7 +208,7 @@
   } else if (/iPhone|iPad|iPod/i.test(ua)) {
     hero.href = "#install";
     hero.innerHTML = 'iPhone and iPad<small>In the works</small>';
-    hint.textContent = "Relay for iOS is not out yet. Android, Windows, macOS and Linux are ready today.";
+    hint.innerHTML = 'Relay for iOS is not out yet: I need an iOS device to build it on. You can <a href="#support">help make it happen</a>. Android, Windows, macOS and Linux are ready today.';
   } else if (/Linux/i.test(ua)) {
     hero.href = latest(FILES.deb);
     hero.innerHTML = 'Download for Linux<small>.deb, 64-bit</small>';
