@@ -272,4 +272,9 @@
     <string name="tools_folder_failed">无法选择该文件夹</string>
     <string name="tools_command_saved">已保存命令</string>
     <string name="tools_command_failed">无法保存命令</string>
+
+    <string name="support_title">支持 Relay</string>
+    <string name="support_body">Relay 是一个独立项目，由一个人开发和维护。它免费，没有广告、没有账号、没有追踪，而且会一直如此。如果 Relay 帮你节省了时间，一次性的 Supporter 支持能让它继续下去，并帮助它登上 iPhone。</string>
+    <string name="support_button">成为 Supporter · 5 美元</string>
+    <string name="support_footnote">在浏览器中通过 Polar 一次性付款。所有功能对所有人始终免费。</string>
 </resources>

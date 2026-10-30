@@ -277,4 +277,9 @@
     <string name="tools_folder_failed">تعذّر اختيار هذا المجلد</string>
     <string name="tools_command_saved">تم حفظ الأمر</string>
     <string name="tools_command_failed">تعذّر حفظ الأمر</string>
+
+    <string name="support_title">ادعم Relay</string>
+    <string name="support_body">Relay مشروع مستقل يبنيه ويعتني به شخص واحد. إنه مجاني، بلا إعلانات ولا حسابات ولا تتبع، وسيبقى كذلك. إن كان Relay يوفّر وقتك، فإن دفعة Supporter لمرة واحدة تبقيه حيًا وتساعد في وصوله إلى iPhone.</string>
+    <string name="support_button">كن Supporter · ‏5 $</string>
+    <string name="support_footnote">دفعة لمرة واحدة عبر Polar في متصفحك. تبقى كل الميزات مجانية للجميع.</string>
 </resources>

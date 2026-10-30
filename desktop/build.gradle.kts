@@ -74,7 +74,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Msi, TargetFormat.Exe, TargetFormat.Deb, TargetFormat.Rpm, TargetFormat.Dmg)
             packageName = "Relay"
-            packageVersion = "1.0.4"
+            packageVersion = "1.0.5"
             description = "Your devices, together. Files, clipboard and links between phone and computer."
             vendor = "Vythera"
             // Only the parts of the Java runtime Relay actually uses, which roughly halves

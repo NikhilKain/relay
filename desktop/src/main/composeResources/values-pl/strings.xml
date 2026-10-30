@@ -275,4 +275,9 @@
     <string name="tools_folder_failed">Nie udało się wybrać tego folderu</string>
     <string name="tools_command_saved">Zapisano polecenie</string>
     <string name="tools_command_failed">Nie udało się zapisać polecenia</string>
+
+    <string name="support_title">Wesprzyj Relay</string>
+    <string name="support_body">Relay to niezależny projekt, tworzony i utrzymywany przez jedną osobę. Jest darmowy, bez reklam, kont i śledzenia, i tak zostanie. Jeśli Relay oszczędza Ci czas, jednorazowa wpłata Supporter pozwala go rozwijać i pomaga przenieść go na iPhone’a.</string>
+    <string name="support_button">Zostań Supporterem · 5 USD</string>
+    <string name="support_footnote">Jednorazowa płatność przez Polar, w przeglądarce. Wszystkie funkcje pozostają darmowe dla wszystkich.</string>
 </resources>

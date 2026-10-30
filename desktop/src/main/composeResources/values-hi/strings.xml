@@ -273,4 +273,9 @@
     <string name="tools_folder_failed">वह फ़ोल्डर नहीं चुना जा सका</string>
     <string name="tools_command_saved">कमांड सेव हुआ</string>
     <string name="tools_command_failed">कमांड सेव नहीं हो सका</string>
+
+    <string name="support_title">Relay का साथ दें</string>
+    <string name="support_body">Relay एक इंडी प्रोजेक्ट है, जिसे एक ही व्यक्ति बनाता और सँभालता है। यह मुफ़्त है, बिना विज्ञापन, बिना अकाउंट और बिना ट्रैकिंग के, और ऐसा ही रहेगा। अगर Relay आपका समय बचाता है, तो एक बार का Supporter भुगतान इसे चलते रहने में मदद करता है और इसे iPhone तक लाने में भी।</string>
+    <string name="support_button">Supporter बनें · $5</string>
+    <string name="support_footnote">आपके ब्राउज़र में Polar से एक बार का भुगतान। हर फ़ीचर सबके लिए मुफ़्त रहता है।</string>
 </resources>

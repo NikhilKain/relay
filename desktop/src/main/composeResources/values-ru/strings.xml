@@ -275,4 +275,9 @@
     <string name="tools_folder_failed">Не удалось выбрать эту папку</string>
     <string name="tools_command_saved">Команда сохранена</string>
     <string name="tools_command_failed">Не удалось сохранить команду</string>
+
+    <string name="support_title">Поддержать Relay</string>
+    <string name="support_body">Relay — независимый проект, который создаёт и развивает один человек. Он бесплатный, без рекламы, аккаунтов и слежки, и таким останется. Если Relay экономит вам время, разовый платёж Supporter помогает ему жить и выйти на iPhone.</string>
+    <string name="support_button">Стать Supporter · 5 $</string>
+    <string name="support_footnote">Разовый платёж через Polar в браузере. Все функции остаются бесплатными для всех.</string>
 </resources>

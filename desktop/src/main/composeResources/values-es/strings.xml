@@ -274,4 +274,9 @@
     <string name="tools_folder_failed">No se pudo seleccionar esa carpeta</string>
     <string name="tools_command_saved">Comando guardado</string>
     <string name="tools_command_failed">No se pudo guardar el comando</string>
+
+    <string name="support_title">Apoya Relay</string>
+    <string name="support_body">Relay es un proyecto independiente, creado y mantenido por una sola persona. Es gratis, sin anuncios, sin cuentas y sin rastreo, y seguirá así. Si Relay te ahorra tiempo, un pago único de Supporter lo mantiene vivo y ayuda a llevarlo al iPhone.</string>
+    <string name="support_button">Hazte Supporter · 5 $</string>
+    <string name="support_footnote">Un pago único a través de Polar, en tu navegador. Todas las funciones siguen siendo gratis para todos.</string>
 </resources>

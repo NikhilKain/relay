@@ -435,7 +435,7 @@ class DesktopRelay {
     companion object {
         // Keep in step with packageVersion in desktop/build.gradle.kts: this is what About
         // shows and what paired devices are told.
-        const val VERSION = "1.0.4"
+        const val VERSION = "1.0.5"
         private const val MAX_HISTORY = 200
 
         fun isLink(text: String) = Regex("""^https?://\S+$""", RegexOption.IGNORE_CASE).matches(text.trim())

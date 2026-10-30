@@ -20,8 +20,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.rounded.Favorite
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ButtonGroupDefaults
 import androidx.compose.material3.ToggleButton
@@ -315,6 +317,8 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
         }
 
         RelaySectionHeader(stringResource(Res.string.settings_spread), Modifier.padding(top = RelaySpacing.xxl))
+        SupportCard()
+        Spacer(Modifier.height(8.dp))
         TelegramButton()
         Spacer(Modifier.height(8.dp))
         Group {
@@ -350,6 +354,29 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
         Spacer(Modifier.height(8.dp))
         Group {
             SwitchRow(stringResource(Res.string.settings_updates_title), stringResource(Res.string.settings_updates_body), settings.checkForUpdates, relay::setCheckForUpdates)
+        }
+    }
+}
+
+/**
+ * The ask, made once and plainly: Relay is one person's work, free without ads or
+ * tracking. The payment happens on Polar in the browser; it buys thanks, never a feature.
+ */
+@Composable
+private fun SupportCard() {
+    val colors = MaterialTheme.colorScheme
+    Surface(shape = RelayShapes.Small, color = colors.primaryContainer, contentColor = colors.onPrimaryContainer, modifier = Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(24.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(androidx.compose.material.icons.Icons.Rounded.Favorite, contentDescription = null, modifier = Modifier.size(28.dp))
+                Spacer(Modifier.width(12.dp))
+                Text(stringResource(Res.string.support_title), style = MaterialTheme.typography.titleLargeEmphasized)
+            }
+            Text(stringResource(Res.string.support_body), style = MaterialTheme.typography.bodyLarge)
+            Button(onClick = { Outreach.support() }, shapes = ButtonDefaults.shapes(RelayShapes.Pill, RelayShapes.ExtraSmall)) {
+                Text(stringResource(Res.string.support_button))
+            }
+            Text(stringResource(Res.string.support_footnote), style = MaterialTheme.typography.bodySmall)
         }
     }
 }
@@ -493,6 +520,8 @@ object RelayLinks {
     const val FEEDBACK_EMAIL = "narzo9990@gmail.com"
     /** Support and news channel. */
     const val TELEGRAM = "https://t.me/vythera_apps"
+    /** The one-time Supporter payment, checked out on Polar. */
+    const val SUPPORT = "https://buy.polar.sh/polar_cl_9FTHFMbmf680aHGH7j3rq6Ii7XsgDFOgLD0Ah3osilE"
 }
 
 /** Settings rows that leave the app: telling a friend, rating, writing to us. */
@@ -504,6 +533,8 @@ private object Outreach {
     fun rate() = browse(RelayLinks.PLAY_STORE)
 
     fun telegram() = browse(RelayLinks.TELEGRAM)
+
+    fun support() = browse(RelayLinks.SUPPORT)
 
     fun feedback(version: String) {
         val os = "${System.getProperty("os.name")} ${System.getProperty("os.version")}"
