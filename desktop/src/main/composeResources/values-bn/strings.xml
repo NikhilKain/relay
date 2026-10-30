@@ -276,6 +276,6 @@
 
     <string name="support_title">Relay-কে সমর্থন করুন</string>
     <string name="support_body">Relay একটি ইন্ডি প্রজেক্ট, যা একজন মানুষ বানান ও দেখাশোনা করেন। এটি বিনামূল্যে, বিজ্ঞাপন, অ্যাকাউন্ট বা ট্র্যাকিং ছাড়াই, এবং তেমনই থাকবে। Relay যদি আপনার সময় বাঁচায়, একবারের Supporter পেমেন্ট এটিকে চালু রাখে এবং iPhone-এ আনতে সাহায্য করে।</string>
-    <string name="support_button">Supporter হোন · $5</string>
-    <string name="support_footnote">আপনার ব্রাউজারে Polar-এর মাধ্যমে একবারের পেমেন্ট। সব ফিচার সবার জন্য বিনামূল্যে থাকে।</string>
+    <string name="support_button">Supporter হোন</string>
+    <string name="support_footnote">আপনার ব্রাউজারে Polar-এর মাধ্যমে একবারের পেমেন্ট। যত খুশি দিন; সব ফিচার সবার জন্য বিনামূল্যে থাকে।</string>
 </resources>

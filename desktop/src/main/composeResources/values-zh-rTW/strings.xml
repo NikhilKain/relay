@@ -275,6 +275,6 @@
 
     <string name="support_title">支持 Relay</string>
     <string name="support_body">Relay 是一個獨立專案，由一個人開發和維護。它免費，沒有廣告、沒有帳號、沒有追蹤，而且會一直如此。如果 Relay 幫你節省了時間，一次性的 Supporter 支持能讓它持續下去，並幫助它登上 iPhone。</string>
-    <string name="support_button">成為 Supporter · 5 美元</string>
-    <string name="support_footnote">在瀏覽器中透過 Polar 一次性付款。所有功能對所有人始終免費。</string>
+    <string name="support_button">成為 Supporter</string>
+    <string name="support_footnote">在瀏覽器中透過 Polar 一次性付款，金額隨意。所有功能對所有人始終免費。</string>
 </resources>

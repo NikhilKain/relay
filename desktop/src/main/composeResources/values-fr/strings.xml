@@ -277,6 +277,6 @@
 
     <string name="support_title">Soutenir Relay</string>
     <string name="support_body">Relay est un projet indépendant, créé et entretenu par une seule personne. Il est gratuit, sans publicité, sans compte et sans pistage, et le restera. Si Relay vous fait gagner du temps, un paiement unique Supporter le fait vivre et aide à l’amener sur iPhone.</string>
-    <string name="support_button">Devenir Supporter · 5 $</string>
-    <string name="support_footnote">Un paiement unique via Polar, dans votre navigateur. Toutes les fonctions restent gratuites pour tous.</string>
+    <string name="support_button">Devenir Supporter</string>
+    <string name="support_footnote">Un paiement unique via Polar, dans votre navigateur. Payez ce que vous voulez ; toutes les fonctions restent gratuites pour tous.</string>
 </resources>

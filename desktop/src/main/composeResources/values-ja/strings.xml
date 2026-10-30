@@ -275,6 +275,6 @@
 
     <string name="support_title">Relay を応援</string>
     <string name="support_body">Relay は、ひとりで開発・運営しているインディープロジェクトです。無料で、広告もアカウントもトラッキングもなく、これからも変わりません。Relay が役に立っているなら、1 回限りの Supporter 支援が開発を支え、iPhone 版への後押しになります。</string>
-    <string name="support_button">Supporter になる · $5</string>
-    <string name="support_footnote">ブラウザーで Polar から 1 回限りのお支払い。すべての機能はこれからも全員無料です。</string>
+    <string name="support_button">Supporter になる</string>
+    <string name="support_footnote">ブラウザーで Polar から 1 回限りのお支払い。金額は自由です。すべての機能はこれからも全員無料です。</string>
 </resources>

@@ -276,6 +276,6 @@
 
     <string name="support_title">Relay’i destekle</string>
     <string name="support_body">Relay, tek bir kişinin geliştirip sürdürdüğü bağımsız bir proje. Ücretsiz; reklam, hesap ve takip yok, ve hep böyle kalacak. Relay sana zaman kazandırıyorsa, tek seferlik Supporter ödemesi onu yaşatır ve iPhone’a gelmesine yardım eder.</string>
-    <string name="support_button">Supporter ol · 5 $</string>
-    <string name="support_footnote">Tarayıcında Polar üzerinden tek seferlik ödeme. Tüm özellikler herkes için ücretsiz kalır.</string>
+    <string name="support_button">Supporter ol</string>
+    <string name="support_footnote">Tarayıcında Polar üzerinden tek seferlik ödeme. İstediğin kadar öde; tüm özellikler herkes için ücretsiz kalır.</string>
 </resources>

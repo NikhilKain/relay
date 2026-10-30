@@ -284,6 +284,6 @@
 
     <string name="support_title">Support Relay</string>
     <string name="support_body">Relay is an indie project, built and looked after by one person. It’s free, with no ads, no accounts and no tracking, and it will stay that way. If Relay saves you time, a one-time Supporter payment keeps it alive and helps bring it to iPhone.</string>
-    <string name="support_button">Become a Supporter · $5</string>
-    <string name="support_footnote">A one-time payment through Polar, in your browser. Every feature stays free for everyone.</string>
+    <string name="support_button">Become a Supporter</string>
+    <string name="support_footnote">A one-time payment through Polar, in your browser. Pay what you like; every feature stays free for everyone.</string>
 </resources>
