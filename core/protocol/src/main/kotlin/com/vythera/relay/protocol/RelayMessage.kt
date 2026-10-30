@@ -242,7 +242,10 @@ enum class TransferKind(val wireName: String) {
     APP("app"),
 
     /** Files copied on one device and meant for the other device's clipboard, not its inbox. */
-    CLIPBOARD("clipboard");
+    CLIPBOARD("clipboard"),
+
+    /** New photos and videos backed up automatically. Older versions take it as FILES. */
+    BACKUP("backup");
 
     object Serializer : LenientEnumSerializer<TransferKind>("TransferKind", entries.toTypedArray(), FILES, { it.wireName })
 }

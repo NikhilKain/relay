@@ -79,6 +79,8 @@ class RelayNode(
     private val clock: () -> Long = System::currentTimeMillis,
     private val idleTimeoutMillis: Long = DEFAULT_IDLE_TIMEOUT_MILLIS,
     private val log: (String) -> Unit = {},
+    /** Where one device's files go when they should not go to [storage]; null for the usual place. */
+    private val storageForDevice: (DeviceId) -> IncomingStorage? = { null },
 ) {
     private val scope = CoroutineScope(parentScope.coroutineContext + SupervisorJob(parentScope.coroutineContext[Job]) + Dispatchers.Default)
     private val tls = RelayTls(identity)
@@ -163,7 +165,9 @@ class RelayNode(
 
     private val transfersCoordinator = TransferCoordinator(
         scope = scope,
-        storageFor = { kind -> if (kind == TransferKind.CLIPBOARD && clipboardStorage != null) clipboardStorage else storage },
+        storageFor = { peer, kind ->
+            if (kind == TransferKind.CLIPBOARD && clipboardStorage != null) clipboardStorage else storageForDevice(peer) ?: storage
+        },
         acceptsClipboard = { clipboardStorage != null && clipboardSyncEnabled },
         acceptsTrustedWithoutAsking = { ecosystemEnabled },
         trustStore = trustStore,

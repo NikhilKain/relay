@@ -87,7 +87,19 @@ class DesktopRelay {
         parentScope = scope,
         clipboardStorage = DirectoryStorage(File(DesktopPaths.cache, "clipboard")),
         log = { DesktopLog.write("relay: $it") },
+        storageForDevice = { device -> settings.value.deviceFolders[device.value]?.let(::deviceStorage) },
     )
+
+    /** One storage per chosen folder, kept so partial files survive between transfers. */
+    private val deviceStorages = java.util.concurrent.ConcurrentHashMap<String, DirectoryStorage>()
+    private fun deviceStorage(path: String): DirectoryStorage? =
+        File(path).takeIf { it.isDirectory || it.mkdirs() }?.let { deviceStorages.getOrPut(path) { DirectoryStorage(it) } }
+
+    /** Files from [device] go to [folder] instead of the usual one; null to undo. */
+    fun setDeviceFolder(device: DeviceId, folder: File?) = updateSettings { current ->
+        val folders = current.deviceFolders - device.value
+        current.copy(deviceFolders = if (folder == null) folders else folders + (device.value to folder.absolutePath))
+    }
     private val clipboard = DesktopClipboard(node, scope, File(DesktopPaths.cache, "clipboard-out").apply { mkdirs() }) { DesktopLog.write(it) }
     private val analytics = DesktopAnalytics(scope, clientId = { settings.value.analyticsClientId }, log = { DesktopLog.write(it) })
     val updates = DesktopUpdates(VERSION, log = { DesktopLog.write(it) })
@@ -157,15 +169,22 @@ class DesktopRelay {
     fun sendFiles(to: DeviceId, files: List<File>) {
         val regular = files.filter { it.isFile }
         val folders = files.filter { it.isDirectory }
-        if (regular.isNotEmpty()) node.sendFiles(to, regular.map(::LocalFile), kindOf(regular))
+        if (regular.isNotEmpty()) {
+            val id = node.sendFiles(to, regular.map(::LocalFile), kindOf(regular))
+            // One file is shown selected in its folder; several, by their folder.
+            sentFrom[id] = (regular.singleOrNull() ?: regular.first().parentFile ?: regular.first()).absolutePath
+        }
         folders.forEach { folder ->
             val contents = folder.walkTopDown().filter { it.isFile }.map { file ->
                 val relative = file.parentFile.relativeTo(folder.parentFile).invariantSeparatorsPath
                 LocalFile(file, relative)
             }.toList()
-            if (contents.isNotEmpty()) node.sendFiles(to, contents, TransferKind.FOLDER)
+            if (contents.isNotEmpty()) sentFrom[node.sendFiles(to, contents, TransferKind.FOLDER)] = folder.absolutePath
         }
     }
+
+    /** Transfer id to where its files were sent from, until the transfer is recorded. */
+    private val sentFrom = java.util.concurrent.ConcurrentHashMap<String, String>()
 
     suspend fun sendText(to: DeviceId, text: String): SendResult {
         val result = node.sendText(to, text)
@@ -256,14 +275,44 @@ class DesktopRelay {
         runCatching { Desktop.getDesktop().open(file) }
     }
 
-    fun reveal(file: File) {
+    /**
+     * Shows [file] in the file manager, selected in its folder. A folder that holds several
+     * received or sent files ([openFolder]) is opened instead, to show them all.
+     */
+    fun reveal(file: File, openFolder: Boolean = false) {
         runCatching {
-            if (DesktopPaths.platform == com.vythera.relay.protocol.Platform.WINDOWS) {
-                ProcessBuilder("explorer.exe", "/select,", file.absolutePath).start()
-            } else {
-                Desktop.getDesktop().open(file.parentFile ?: file)
+            if (openFolder && file.isDirectory) {
+                Desktop.getDesktop().open(file)
+                return@runCatching
+            }
+            when (DesktopPaths.platform) {
+                com.vythera.relay.protocol.Platform.WINDOWS -> ProcessBuilder("explorer.exe", "/select,", file.absolutePath).start()
+                com.vythera.relay.protocol.Platform.MACOS -> ProcessBuilder("open", "-R", file.absolutePath).start()
+                else -> {
+                    // The freedesktop file-manager interface selects the file in Dolphin,
+                    // Files, Nemo and others; without it, open the folder.
+                    val shown = runCatching {
+                        ProcessBuilder(
+                            "dbus-send", "--session", "--print-reply", "--dest=org.freedesktop.FileManager1",
+                            "/org/freedesktop/FileManager1", "org.freedesktop.FileManager1.ShowItems",
+                            "array:string:${file.toURI()}", "string:",
+                        ).redirectOutput(ProcessBuilder.Redirect.DISCARD).redirectError(ProcessBuilder.Redirect.DISCARD)
+                            .start().waitFor(3, java.util.concurrent.TimeUnit.SECONDS)
+                    }.getOrDefault(false)
+                    if (!shown) Desktop.getDesktop().open(file.parentFile ?: file)
+                }
             }
         }
+    }
+
+    /** Where a history entry's files are, if they are still there. */
+    fun locationOf(entry: HistoryEntry): File? =
+        entry.detail?.takeIf { entry.category !in setOf("text", "link", "clipboard") }?.let(::File)?.takeIf { it.exists() }
+
+    /** Shows a history entry's files: the one file selected, or the folder of several. */
+    fun revealEntry(entry: HistoryEntry) {
+        val location = locationOf(entry) ?: return
+        reveal(location, openFolder = location.isDirectory && entry.category != "folder")
     }
 
     fun copy(text: String) {
@@ -303,8 +352,10 @@ class DesktopRelay {
                 analytics.log(DesktopAnalytics.Event.DevicePaired, device?.platform?.name?.lowercase())
                 DesktopLog.write("pairing: now trusting ${device?.name ?: event.deviceId.value} (${event.deviceId.value}, key ${device?.fingerprint?.take(16)})")
             }
-            is NodeEvent.DeviceForgotten ->
+            is NodeEvent.DeviceForgotten -> {
                 DesktopLog.write("pairing: forgot ${event.deviceId.value}${if (event.byPeer) " (the other device asked)" else ""}")
+                setDeviceFolder(event.deviceId, null)
+            }
             is NodeEvent.TransferOffered -> _notices.tryEmit(
                 DesktopNotice("${name(event.transfer.peerId)} wants to send", summary(event.transfer.items)),
             )
@@ -325,7 +376,11 @@ class DesktopRelay {
             if (outcome == "completed") DesktopAnalytics.Event.TransferCompleted else DesktopAnalytics.Event.TransferFailed,
             categoryOf(transfer),
         )
-        val detail = transfer.storedFiles.singleOrNull()?.location ?: transfer.storedFiles.firstOrNull()?.location?.let { File(it).parent }
+        val detail = if (incoming) {
+            transfer.storedFiles.singleOrNull()?.location ?: transfer.storedFiles.firstOrNull()?.location?.let { File(it).parent }
+        } else {
+            sentFrom.remove(transfer.id)
+        }
         _history.update { list ->
             (listOf(
                 HistoryEntry(transfer.id, incoming, transfer.peerId.value, name(transfer.peerId), summary(transfer.items), categoryOf(transfer), detail, System.currentTimeMillis(), outcome),
@@ -333,7 +388,10 @@ class DesktopRelay {
         }
         saveHistory()
         if (incoming && transfer.status == TransferStatus.Completed) {
-            _notices.tryEmit(DesktopNotice("From ${name(transfer.peerId)}", "${summary(transfer.items)} saved to ${inboxFolder().name}"))
+            // The folder they really went to: a device can have its own.
+            val folder = transfer.storedFiles.firstOrNull()?.location?.let { File(it).parentFile?.name } ?: inboxFolder().name
+            val message = if (transfer.kind == TransferKind.BACKUP) "${summary(transfer.items)} backed up to $folder" else "${summary(transfer.items)} saved to $folder"
+            _notices.tryEmit(DesktopNotice("From ${name(transfer.peerId)}", message))
         }
     }
 
@@ -377,7 +435,7 @@ class DesktopRelay {
     companion object {
         // Keep in step with packageVersion in desktop/build.gradle.kts: this is what About
         // shows and what paired devices are told.
-        const val VERSION = "1.0.3"
+        const val VERSION = "1.0.4"
         private const val MAX_HISTORY = 200
 
         fun isLink(text: String) = Regex("""^https?://\S+$""", RegexOption.IGNORE_CASE).matches(text.trim())
@@ -390,6 +448,8 @@ class DesktopRelay {
         }
 
         private fun categoryOf(transfer: TransferSnapshot): String = when {
+            // Backups arrive in a "Photo backup" folder, but they are photos all the same.
+            transfer.kind == TransferKind.BACKUP -> if (transfer.items.all { it.mimeType.startsWith("video/") }) "videos" else "photos"
             transfer.kind == TransferKind.FOLDER || transfer.items.any { it.relativePath.isNotEmpty() } -> "folder"
             transfer.items.all { it.mimeType.startsWith("video/") } -> "videos"
             transfer.items.all { it.mimeType.startsWith("image/") || it.mimeType.startsWith("video/") } -> "photos"

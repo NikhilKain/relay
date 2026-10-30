@@ -5,6 +5,8 @@ import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
+import androidx.compose.ui.text.intl.Locale
 
 /** Where colours come from. */
 enum class RelayColorSource {
@@ -31,13 +33,14 @@ fun RelayTheme(
     val colorScheme = (if (colorSource == RelayColorSource.Dynamic) platformDynamicColorScheme(darkTheme) else null)
         ?: if (darkTheme) RelayEmberDark else RelayEmberLight
     val relayMotion = motion ?: rememberSystemRelayMotion()
+    val language = Locale.current.language
 
     CompositionLocalProvider(LocalRelayMotion provides relayMotion) {
         MaterialExpressiveTheme(
             colorScheme = colorScheme,
             motionScheme = relayMotion.scheme,
             shapes = RelayMaterialShapes,
-            typography = RelayTypography,
+            typography = remember(language) { relayTypography(language) },
             content = content,
         )
     }

@@ -2,6 +2,7 @@ package com.vythera.relay.node
 
 import com.vythera.relay.protocol.Capability
 import com.vythera.relay.protocol.DeviceId
+import com.vythera.relay.protocol.Platform
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -25,6 +26,7 @@ class RemoteToolsMonitor(
     val status = _status.asStateFlow()
     private val notifications = mutableMapOf<DeviceId, NotificationChanges>()
     private val battery = mutableMapOf<DeviceId, LowBatteryWarning>()
+    private val calls = mutableMapOf<DeviceId, IncomingCallAlert>()
 
     fun setMirroring(peer: DeviceId, enabled: Boolean) = synchronized(preferences) {
         if (node.devices.value.none { it.id == peer && it.isTrusted }) return@synchronized
@@ -53,8 +55,13 @@ class RemoteToolsMonitor(
                 _status.update { it.filterKeys(ids::contains) }
                 notifications.keys.retainAll(ids.intersect(_mirroring.value))
                 battery.keys.retainAll(ids)
+                calls.keys.retainAll(ids)
                 // Trackers are created on this coroutine; each child owns one peer's tracker.
-                peers.forEach { battery.getOrPut(it.id) { LowBatteryWarning() }; if (it.id in _mirroring.value) notifications.getOrPut(it.id) { NotificationChanges() } }
+                peers.forEach {
+                    battery.getOrPut(it.id) { LowBatteryWarning() }
+                    if (it.platform == Platform.ANDROID) calls.getOrPut(it.id) { IncomingCallAlert() }
+                    if (it.id in _mirroring.value) notifications.getOrPut(it.id) { NotificationChanges() }
+                }
                 coroutineScope {
                     peers.forEach { peer -> launch {
                         slots.withPermit {
@@ -67,6 +74,14 @@ class RemoteToolsMonitor(
                                     if (battery[peer.id]?.update(level, raw.contains("Charging", ignoreCase = true) || raw.contains("Plugged in", ignoreCase = true)) == true)
                                         notice("${peer.name}: low battery", "$level% remaining")
                                 } else _status.update { it - peer.id }
+                                // A phone that lets this device see its call state says when it
+                                // rings. One that does not just answers "not allowed", quietly.
+                                calls[peer.id]?.let { alert ->
+                                    val reply = node.requestTool(peer.id, "calls.status")
+                                    val state = reply.values["Call"].takeIf { reply.success }
+                                    if (alert.update(state) && node.devices.value.any { it.id == peer.id && it.isTrusted })
+                                        notice("${peer.name}: incoming call", "Your phone is ringing")
+                                }
                                 if (peer.id in _mirroring.value) {
                                     val reply = node.requestTool(peer.id, "notifications.list")
                                     if (reply.success && peer.id in _mirroring.value && node.devices.value.any { it.id == peer.id && it.isTrusted }) {

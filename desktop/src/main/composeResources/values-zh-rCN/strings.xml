@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_devices">设备</string>
+    <string name="nav_inbox">收件箱</string>
+    <string name="nav_settings">设置</string>
+    <string name="nav_help">帮助</string>
+    <string name="action_send">发送</string>
+
+    <string name="home_title">你的设备</string>
+    <string name="home_nearby">附近 %1$d 台</string>
+    <string name="home_looking">正在查找你的设备</string>
+    <string name="home_new">附近的新设备</string>
+    <string name="home_tap_to_connect">点击即可连接</string>
+    <string name="home_empty_title">附近没有设备</string>
+    <string name="home_empty_body">在手机上打开 Relay，并连接同一个 Wi-Fi。它会自动出现在这里。</string>
+    <string name="home_empty_action">如何连接</string>
+    <string name="home_pick">选择设备</string>
+    <string name="home_add_device">添加设备</string>
+
+    <string name="qr_title">连接新设备</string>
+    <string name="qr_body">在手机上打开 Relay，点按扫描按钮并对准这个二维码。两台设备需要连接同一个 Wi-Fi。</string>
+    <string name="qr_caption">%1$s · 自动刷新</string>
+    <string name="qr_read_image">从图片读取二维码</string>
+    <string name="qr_change_network">使用其他网络</string>
+    <string name="qr_network_title">哪个网络？</string>
+    <string name="qr_network_body">这台电脑连接了多个网络。请选择手机所在的网络。</string>
+    <string name="qr_no_network">这台电脑没有连接网络。连接 Wi-Fi 后二维码会显示在这里。</string>
+    <string name="qr_reading">正在读取二维码…</string>
+    <string name="qr_unreadable">这张图片中没有 Relay 二维码。请使用五分钟内生成的二维码的清晰图片。</string>
+    <string name="qr_confirm_title">要连接这台设备吗？</string>
+    <string name="qr_confirm_body">Relay 会先连接，然后在信任之前要求两台设备显示相同的图形。</string>
+    <string name="qr_connecting">正在连接…</string>
+    <string name="qr_connected">已连接。确认两台设备上的图形一致即可完成。</string>
+    <string name="qr_failed">无法连接。请确认两台设备连接同一个 Wi-Fi，然后换一个新二维码再试。</string>
+
+    <string name="device_drop_title">把文件拖到这里</string>
+    <string name="device_drop_body">照片、文档、整个文件夹，都会直接发到 %1$s。</string>
+    <string name="device_drop_release">松开即可发送到 %1$s</string>
+    <string name="device_choose_files">选择文件</string>
+    <string name="device_folder">文件夹</string>
+    <string name="device_folder_hint">保留原有结构</string>
+    <string name="device_clipboard">剪贴板</string>
+    <string name="device_clipboard_hint">发送你复制的内容</string>
+    <string name="device_text">文字</string>
+    <string name="device_text_hint">写一段笔记</string>
+    <string name="device_continue">接续</string>
+    <string name="device_continue_hint">在 %1$s 上打开链接</string>
+    <string name="device_recent">与此设备的往来</string>
+    <string name="device_nothing_yet">还没有发送任何内容</string>
+    <string name="device_auto_accept">始终允许来自 %1$s 的传输</string>
+    <string name="device_forget">忘记此设备</string>
+    <string name="device_connect">连接</string>
+    <string name="device_connect_body">连接一次即可向 %1$s 发送内容。你需要确认两个屏幕显示相同的图形。</string>
+    <string name="device_away_body">%1$s 不在附近。现在发送的内容会在它回来后送达。</string>
+    <string name="device_incompatible">请更新 %1$s 上的 Relay 后再连接。</string>
+
+    <string name="compose_text_title">发送文字到 %1$s</string>
+    <string name="compose_link_title">在 %1$s 上打开链接</string>
+    <string name="compose_text_hint">输入内容</string>
+    <string name="compose_link_hint">粘贴链接</string>
+    <string name="compose_send">发送</string>
+    <string name="compose_open">在那边打开</string>
+    <string name="cancel">取消</string>
+
+    <string name="pair_incoming_title">%1$s 想要连接</string>
+    <string name="pair_incoming_body">请确认 %1$s 显示相同的图形。只有当它属于你时才继续。</string>
+    <string name="pair_trust">信任此设备</string>
+    <string name="pair_not_now">以后再说</string>
+    <string name="pair_always_allow">始终允许来自此设备的传输</string>
+    <string name="pair_outgoing_connecting">正在连接 %1$s</string>
+    <string name="pair_outgoing_title">请在 %1$s 上确认</string>
+    <string name="pair_outgoing_body">确认 %1$s 显示这些相同的图形，然后在那边接受。</string>
+    <string name="pair_mismatch">图形不一致</string>
+    <string name="pair_done_title">%1$s 已连接</string>
+    <string name="pair_done_body">从现在起会自动工作，下次不需要代码。</string>
+    <string name="pair_failed_title">未连接</string>
+    <string name="pair_failed_body">%1$s 没有连接。请确认它已打开 Relay，并且两台设备连接同一个 Wi-Fi。</string>
+    <string name="ok">好</string>
+
+    <string name="offer_title">%1$s 想要发送内容</string>
+    <string name="offer_receive">接收</string>
+    <string name="offer_decline">拒绝</string>
+
+    <string name="failure_generic">%1$s：没有成功。请重试。</string>
+    <string name="failure_away">%1$s 不在附近。它回来后会发送。</string>
+    <string name="failure_lost">连接已断开。%1$s 回来后会继续。</string>
+    <string name="failure_damaged">文件在传输中损坏，因此没有保留。请重试。</string>
+    <string name="failure_space">%1$s 上的空间不足。</string>
+    <string name="failure_declined">%1$s 拒绝了。</string>
+    <string name="failure_you_declined">已拒绝</string>
+    <string name="failure_cancelled">已取消</string>
+    <string name="remaining_seconds">剩余 %1$d 秒</string>
+    <string name="remaining_minutes">剩余 %1$d 分钟</string>
+    <string name="almost_done">即将完成</string>
+
+    <string name="inbox_title">收件箱</string>
+    <string name="inbox_subtitle">你的设备发送到这台电脑的所有内容</string>
+    <string name="inbox_empty_title">这里还没有内容</string>
+    <string name="inbox_empty_body">你的设备发送到这里的文件、链接和笔记都会保存在这个列表中。</string>
+    <string name="inbox_open">打开</string>
+    <string name="inbox_show">在文件夹中显示</string>
+    <string name="inbox_copy">复制</string>
+    <string name="inbox_remove">移除</string>
+    <string name="this_computer">这台电脑</string>
+    <string name="just_now">刚刚</string>
+    <string name="minutes_ago">%1$d 分钟</string>
+    <string name="hours_ago">%1$d 小时</string>
+    <string name="days_ago">%1$d 天</string>
+
+    <string name="settings_title">设置</string>
+    <string name="settings_device">这台电脑</string>
+    <string name="settings_rename">重命名</string>
+    <string name="settings_save">保存</string>
+    <string name="settings_save_to">收到的文件保存到</string>
+    <string name="settings_choose_folder">选择文件夹</string>
+    <string name="settings_use_default">使用 下载/Relay</string>
+    <string name="settings_clipboard">通用剪贴板</string>
+    <string name="settings_clipboard_body">在一台设备上复制，在另一台上粘贴：文字、图片和文件，适用于同一 Wi-Fi 中的受信任设备。</string>
+    <string name="settings_start">登录时启动 Relay</string>
+    <string name="settings_start_body">Relay 在系统托盘中等待，让你的手机随时都能连到这台电脑。</string>
+    <string name="settings_start_unavailable">在已安装的应用中可用。</string>
+    <string name="settings_start_temporary">请先安装 Relay。这个副本是从临时文件夹运行的，没有可以长期启动的程序。</string>
+
+    <string name="install_banner_title">Relay 正从临时文件夹运行</string>
+    <string name="install_banner_body">它是从 zip 内部打开的，因此 Windows 把它解压到了稍后会清理的位置。安装 Relay 才能保留它、随电脑启动，并与你的设备保持连接。</string>
+    <string name="install_banner_body_mac">它正从磁盘映像运行，推出后就会消失。将 Relay 拖到“应用程序”中即可保留它并在登录时启动。</string>
+    <string name="install_banner_action">获取安装程序</string>
+    <string name="install_banner_action_mac">如何安装</string>
+
+    <string name="settings_spread">Relay 与你</string>
+    <string name="settings_share_title">分享 Relay</string>
+    <string name="settings_share_body">复制链接发给朋友</string>
+    <string name="settings_share_copied">已复制。粘贴到消息中即可</string>
+    <string name="settings_share_message">我用 Relay 在手机和电脑之间传文件和剪贴板。无需账号，不经过云端。Android、Windows、Mac 和 Linux 均免费：%1$s</string>
+    <string name="settings_rate_title">给 Relay 评分</string>
+    <string name="settings_rate_body">在 Google Play 上。这能帮助更多人找到它</string>
+    <string name="settings_feedback_title">发送反馈</string>
+    <string name="settings_feedback_body">想法、问题，什么都行：%1$s</string>
+    <string name="settings_about">关于</string>
+    <string name="settings_about_body">Relay %1$s · 协议 v1。设备之间的连接经过加密。无需账号，没有云端；除非你开启，否则不收集统计信息。</string>
+
+    <string name="help_title">连接你的设备</string>
+    <string name="help_subtitle">只需几步，一次完成。之后它们会自动找到彼此。</string>
+    <string name="help_step1_title">在每台设备上安装 Relay</string>
+    <string name="help_step1_body">Android：Google Play 上的 Relay。Windows、Mac 和 Linux：本应用。iPhone 和 iPad：开发中。</string>
+    <string name="help_step2_title">连接同一个 Wi-Fi</string>
+    <string name="help_step2_body">家里的 Wi-Fi，或手机热点。不需要互联网：设备之间直接通信。</string>
+    <string name="help_step3_title">点击设备并核对图形</string>
+    <string name="help_step3_body">它会出现在“附近的新设备”中。确认两个屏幕显示相同的三个图形，然后在另一台设备上选择信任。只需一次。</string>
+    <string name="help_firewall_title">Windows 询问了防火墙？</string>
+    <string name="help_firewall_body">选择在专用网络上允许。这样手机就能通过 Wi-Fi 连到这台电脑。如果错过了：Windows 安全中心 › 防火墙 › 允许应用通过防火墙 › 勾选 Relay。</string>
+    <string name="help_clipboard_title">这里复制，那里粘贴</string>
+    <string name="help_clipboard_body">在这里复制的任何内容，文字、截图或文件，都可以直接在手机上粘贴。在手机上复制的文件会出现在这个剪贴板中。</string>
+
+    <string name="help_get_title">在其他设备上安装 Relay</string>
+    <string name="help_get_android">Android 手机或平板</string>
+    <string name="help_get_android_where">Google Play 上的 Relay</string>
+    <string name="help_get_desktop">Windows、Mac 和 Linux</string>
+    <string name="help_get_desktop_where">从 GitHub 下载</string>
+    <string name="help_get_apple">iPhone 和 iPad</string>
+    <string name="help_get_apple_where">开发中</string>
+
+    <string name="help_guide_title">分步说明</string>
+    <string name="help_guide_pick">哪两台设备？</string>
+    <string name="help_guide_phone_pc">手机和电脑</string>
+    <string name="help_guide_two_phones">两部手机</string>
+    <string name="help_guide_two_pcs">两台电脑</string>
+
+    <string name="help_pc_1_title">安装两个应用</string>
+    <string name="help_pc_1_body">这台电脑上安装 Relay 桌面版，手机上从 Google Play 安装 Relay Android 版。</string>
+    <string name="help_pc_2_title">同一个 Wi-Fi</string>
+    <string name="help_pc_2_body">让电脑和手机连接同一个网络。如果 Windows 询问防火墙，请选择在专用网络上允许。</string>
+    <string name="help_pc_3_title">连接一次</string>
+    <string name="help_pc_3_body">手机会出现在这里的“附近的新设备”中。点击它，确认两个屏幕显示相同的三个图形，然后在手机上点按信任。</string>
+    <string name="help_pc_4_title">就是这样</string>
+    <string name="help_pc_4_body">在一台上复制，在另一台上粘贴。把文件拖到屏幕左边缘的投放架上，放到手机上；或者从手机分享到这台电脑。</string>
+
+    <string name="help_phones_1_title">在两部手机上安装 Relay</string>
+    <string name="help_phones_1_body">两部手机都需要 Google Play 上的应用。任何一部都可以发起连接。</string>
+    <string name="help_phones_2_title">同一个 Wi-Fi 或热点</string>
+    <string name="help_phones_2_body">让两部手机连接同一个 Wi-Fi。附近没有 Wi-Fi？打开一部手机的热点，让另一部连上；不需要互联网。</string>
+    <string name="help_phones_3_title">连接一次</string>
+    <string name="help_phones_3_body">在任一部手机上，点按“附近的新设备”中的另一部。确认两个屏幕显示相同的三个图形，然后在第二部手机上点按信任。</string>
+    <string name="help_phones_4_title">就是这样</string>
+    <string name="help_phones_4_body">从任何应用在两部手机之间分享照片和文件；把两部手机背靠背即可交换名片。</string>
+
+    <string name="help_pcs_1_title">在两台电脑上安装 Relay 桌面版</string>
+    <string name="help_pcs_1_body">从 GitHub 下载 Windows 或 Linux 版，在每台电脑上运行。它会常驻在系统托盘中。</string>
+    <string name="help_pcs_2_title">同一个网络</string>
+    <string name="help_pcs_2_body">两台电脑连接同一个 Wi-Fi 或同一个有线网络。在专用网络上允许 Relay 通过防火墙。</string>
+    <string name="help_pcs_3_title">连接一次</string>
+    <string name="help_pcs_3_body">在一台电脑上，点击“附近的新设备”中的另一台。确认两个屏幕显示相同的三个图形，然后在第二台电脑上选择信任。</string>
+    <string name="help_pcs_4_title">就是这样</string>
+    <string name="help_pcs_4_body">在一台电脑上复制，在另一台上粘贴；或者把文件拖到屏幕左边缘的投放架上。</string>
+
+    <string name="settings_ecosystem">生态系统</string>
+    <string name="settings_ecosystem_title">你的设备浑然一体</string>
+    <string name="settings_ecosystem_body">受信任设备发送或投放到这里的任何内容都会立即送达，无需点击接受，并且可以直接粘贴。</string>
+    <string name="settings_privacy">隐私</string>
+    <string name="settings_analytics_title">帮助改进 Relay</string>
+    <string name="settings_analytics_body">发送“完成了一次传输”之类的匿名计数，绝不发送文件名、文字或你的设备身份。默认关闭。</string>
+    <string name="settings_shelf_title">投放架</string>
+    <string name="settings_shelf_body">屏幕左边缘的一个细长标签。把任何文件或文字拖到上面，再放到某台设备上。</string>
+
+    <string name="shelf_title">放到设备上</string>
+    <string name="shelf_click_title">发送到</string>
+    <string name="shelf_ready">松开即可发送</string>
+    <string name="shelf_click">点击选择文件</string>
+    <string name="shelf_away">不在附近</string>
+    <string name="shelf_sent">已发送</string>
+    <string name="shelf_empty">配对一台设备后即可向它投放文件。</string>
+    <string name="help_ecosystem_title">拖放到手机</string>
+    <string name="help_ecosystem_body">把文件拖到屏幕左边缘，投放架会显示你的设备：放到手机上，它就会送达，可以直接粘贴。受信任的设备从不要求确认。</string>
+
+    <string name="tray_open">打开 Relay</string>
+    <string name="tray_add_device">添加设备…</string>
+    <string name="tray_send_file">发送文件到 %1$s…</string>
+    <string name="tray_send_clipboard">发送剪贴板</string>
+    <string name="tray_quit">退出 Relay</string>
+    <string name="tray_clipboard_sent">剪贴板已发送到 %1$d 台设备</string>
+    <string name="tray_nothing_to_send">没有可发送的内容。复制一些文字，并让受信任的设备保持在附近。</string>
+    <string name="already_running">Relay 已在运行。请在系统托盘中查找。</string>
+
+    <string name="settings_menu_title">从文件管理器用 Relay 发送</string>
+    <string name="settings_menu_body_windows">在文件资源管理器中右键点击任意文件或文件夹，选择“用 Relay 发送”。在 Windows 11 上，它位于“显示更多选项”中。</string>
+    <string name="settings_menu_body_linux">在 Dolphin 或“文件”中右键点击任意文件或文件夹，选择“用 Relay 发送”。</string>
+    <plurals name="send_picker_title">
+        <item quantity="other">发送 %1$d 个文件</item>
+    </plurals>
+    <string name="send_picker_devices">发送到</string>
+    <string name="send_picker_none">还没有配对的设备。请打开 Relay 先配对一台。</string>
+    <string name="send_picker_away">不在附近</string>
+    <string name="send_picker_cancel">取消</string>
+    <string name="send_picker_send">发送</string>
+
+    <string name="settings_updates_title">检查更新</string>
+    <string name="settings_updates_body">Relay 每天会询问一次发布它的 GitHub，是否有新版本。不会发送任何关于你或你设备的信息。</string>
+    <string name="update_banner_title">Relay %1$s 已推出</string>
+    <string name="update_banner_body">下载后直接覆盖安装即可。你的设备和设置都会保留。</string>
+    <string name="update_banner_action">获取更新</string>
+
+    <string name="settings_telegram_title">在 Telegram 上加入我们</string>
+    <string name="settings_telegram_body">来自 Relay 开发者的消息、帮助和想法。</string>
+
+    <string name="inbox_search">搜索名称、设备和文字</string>
+    <string name="inbox_kind_all">全部</string>
+    <string name="inbox_kind_photos">照片和视频</string>
+    <string name="inbox_kind_files">文件</string>
+    <string name="inbox_kind_links">链接</string>
+    <string name="inbox_kind_text">文字</string>
+    <string name="inbox_from_device">来自 %1$s</string>
+    <string name="inbox_no_match_title">没有匹配的结果</string>
+    <string name="inbox_no_match_body">试试其他关键词，或清除筛选条件。</string>
+
+    <string name="device_folder_title">此设备的文件保存到</string>
+    <string name="device_folder_usual">Relay 默认文件夹</string>
+    <string name="device_folder_choose">选择文件夹</string>
+    <string name="device_folder_reset">使用默认文件夹</string>
+
+    <string name="tools_mirror">在这里显示新通知</string>
+    <string name="tools_mirror_hint">请在手机上开启通知访问权限。现有通知不会显示；新的或有变化的通知会出现在这里。</string>
+    <string name="tools_shared_folder">共享文件夹：%1$s</string>
+    <string name="tools_choose_folder">选择共享文件夹</string>
+    <string name="tools_edit_command">添加或移除命令</string>
+    <string name="tools_commands">命令：%1$s</string>
+    <string name="tools_commands_none">无</string>
+    <string name="tools_command_title">这台电脑上的命令</string>
+    <string name="tools_command_body">只有保存在这里的命令才能由获得允许的已配对设备运行。将命令留空即可移除其名称。</string>
+    <string name="tools_command_name">名称</string>
+    <string name="tools_command_shell">Shell 命令</string>
+    <string name="tools_folder_set">已选择共享文件夹</string>
+    <string name="tools_folder_failed">无法选择该文件夹</string>
+    <string name="tools_command_saved">已保存命令</string>
+    <string name="tools_command_failed">无法保存命令</string>
+</resources>

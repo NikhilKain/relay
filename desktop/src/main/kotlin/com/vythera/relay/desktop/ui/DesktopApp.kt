@@ -115,6 +115,11 @@ fun DesktopApp(relay: DesktopRelay, navigation: DesktopNavigation, window: Frame
         tools = { id, reachable -> DesktopToolsPanel(relay, id, reachable, ::chooseFolder) },
         addDevice = { navigation.addingDevice = true },
         connectPane = { DesktopConnectionQr(relay.node) },
+        locationAction = { entry -> relay.locationOf(entry)?.let { { relay.revealEntry(entry) } } },
+        openAction = { entry -> relay.locationOf(entry)?.takeIf { it.isFile }?.let { file -> { relay.open(file) } } },
+        saveFolder = { id -> settings.deviceFolders[id.value] },
+        chooseSaveFolder = { id -> chooseFolder()?.let { relay.setDeviceFolder(id, it) } },
+        resetSaveFolder = { id -> relay.setDeviceFolder(id, null) },
     )
 
     RelayTheme(colorSource = RelayColorSource.Ember) {

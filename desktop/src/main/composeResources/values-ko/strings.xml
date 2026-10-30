@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_devices">기기</string>
+    <string name="nav_inbox">받은 항목</string>
+    <string name="nav_settings">설정</string>
+    <string name="nav_help">도움말</string>
+    <string name="action_send">보내기</string>
+
+    <string name="home_title">내 기기</string>
+    <string name="home_nearby">근처 %1$d대</string>
+    <string name="home_looking">기기를 찾는 중</string>
+    <string name="home_new">근처의 새 기기</string>
+    <string name="home_tap_to_connect">클릭하여 연결</string>
+    <string name="home_empty_title">근처에 기기가 없습니다</string>
+    <string name="home_empty_body">같은 Wi-Fi에서 휴대폰의 Relay를 여세요. 여기에 자동으로 표시됩니다.</string>
+    <string name="home_empty_action">연결 방법</string>
+    <string name="home_pick">기기 선택</string>
+    <string name="home_add_device">기기 추가</string>
+
+    <string name="qr_title">새 기기 연결</string>
+    <string name="qr_body">휴대폰에서 Relay를 열고 스캔 버튼을 탭한 다음 이 코드를 비추세요. 두 기기가 같은 Wi-Fi에 있어야 합니다.</string>
+    <string name="qr_caption">%1$s · 자동으로 새로 고침</string>
+    <string name="qr_read_image">이미지에서 QR 읽기</string>
+    <string name="qr_change_network">다른 네트워크 사용</string>
+    <string name="qr_network_title">어떤 네트워크인가요?</string>
+    <string name="qr_network_body">이 컴퓨터는 여러 네트워크에 연결되어 있습니다. 휴대폰이 있는 네트워크를 선택하세요.</string>
+    <string name="qr_no_network">이 컴퓨터는 네트워크에 연결되어 있지 않습니다. Wi-Fi에 연결하면 코드가 여기에 표시됩니다.</string>
+    <string name="qr_reading">QR 읽는 중…</string>
+    <string name="qr_unreadable">이 이미지에 Relay QR이 없습니다. 만든 지 5분이 안 된 코드의 선명한 사진을 사용하세요.</string>
+    <string name="qr_confirm_title">이 기기에 연결할까요?</string>
+    <string name="qr_confirm_body">Relay가 연결한 다음, 신뢰하기 전에 두 기기에 같은 도형을 표시하도록 요청합니다.</string>
+    <string name="qr_connecting">연결하는 중…</string>
+    <string name="qr_connected">연결되었습니다. 완료하려면 두 기기의 도형이 일치하는지 확인하세요.</string>
+    <string name="qr_failed">연결할 수 없습니다. 두 기기가 같은 Wi-Fi에 있는지 확인한 다음 새 코드로 시도하세요.</string>
+
+    <string name="device_drop_title">여기에 파일 놓기</string>
+    <string name="device_drop_body">사진, 문서, 폴더 통째로. %1$s(으)로 바로 갑니다.</string>
+    <string name="device_drop_release">놓으면 %1$s(으)로 보냅니다</string>
+    <string name="device_choose_files">파일 선택</string>
+    <string name="device_folder">폴더</string>
+    <string name="device_folder_hint">구조 그대로</string>
+    <string name="device_clipboard">클립보드</string>
+    <string name="device_clipboard_hint">복사한 항목 보내기</string>
+    <string name="device_text">텍스트</string>
+    <string name="device_text_hint">메모 입력</string>
+    <string name="device_continue">이어서 보기</string>
+    <string name="device_continue_hint">%1$s에서 링크 열기</string>
+    <string name="device_recent">이 기기와 주고받은 항목</string>
+    <string name="device_nothing_yet">아직 보낸 항목이 없습니다</string>
+    <string name="device_auto_accept">%1$s의 전송을 항상 허용</string>
+    <string name="device_forget">이 기기 삭제</string>
+    <string name="device_connect">연결</string>
+    <string name="device_connect_body">%1$s에 보내려면 한 번만 연결하세요. 두 화면에 같은 도형이 보이는지 확인합니다.</string>
+    <string name="device_away_body">%1$s이(가) 멀리 있습니다. 지금 보내면 돌아왔을 때 도착합니다.</string>
+    <string name="device_incompatible">연결하려면 %1$s의 Relay를 업데이트하세요.</string>
+
+    <string name="compose_text_title">%1$s에 텍스트 보내기</string>
+    <string name="compose_link_title">%1$s에서 링크 열기</string>
+    <string name="compose_text_hint">입력하세요</string>
+    <string name="compose_link_hint">링크 붙여넣기</string>
+    <string name="compose_send">보내기</string>
+    <string name="compose_open">거기서 열기</string>
+    <string name="cancel">취소</string>
+
+    <string name="pair_incoming_title">%1$s이(가) 연결하려고 합니다</string>
+    <string name="pair_incoming_body">%1$s에 같은 도형이 보이는지 확인하세요. 내 기기인 경우에만 계속하세요.</string>
+    <string name="pair_trust">기기 신뢰</string>
+    <string name="pair_not_now">나중에</string>
+    <string name="pair_always_allow">이 기기의 전송을 항상 허용</string>
+    <string name="pair_outgoing_connecting">%1$s에 연결하는 중</string>
+    <string name="pair_outgoing_title">%1$s에서 확인하세요</string>
+    <string name="pair_outgoing_body">%1$s에 같은 도형이 보이는지 확인한 다음 그 기기에서 수락하세요.</string>
+    <string name="pair_mismatch">도형이 일치하지 않음</string>
+    <string name="pair_done_title">%1$s 연결됨</string>
+    <string name="pair_done_body">이제부터 알아서 작동합니다. 다음에는 코드가 필요 없습니다.</string>
+    <string name="pair_failed_title">연결되지 않음</string>
+    <string name="pair_failed_body">%1$s이(가) 연결되지 않았습니다. Relay가 열려 있고 두 기기가 같은 Wi-Fi에 있는지 확인하세요.</string>
+    <string name="ok">확인</string>
+
+    <string name="offer_title">%1$s이(가) 무언가를 보내려고 합니다</string>
+    <string name="offer_receive">받기</string>
+    <string name="offer_decline">거절</string>
+
+    <string name="failure_generic">%1$s: 완료되지 않았습니다. 다시 시도하세요.</string>
+    <string name="failure_away">%1$s이(가) 멀리 있습니다. 돌아오면 보냅니다.</string>
+    <string name="failure_lost">연결이 끊어졌습니다. %1$s이(가) 돌아오면 계속합니다.</string>
+    <string name="failure_damaged">파일이 손상된 채 도착해 저장하지 않았습니다. 다시 시도하세요.</string>
+    <string name="failure_space">%1$s의 저장 공간이 부족합니다.</string>
+    <string name="failure_declined">%1$s이(가) 거절했습니다.</string>
+    <string name="failure_you_declined">거절함</string>
+    <string name="failure_cancelled">취소됨</string>
+    <string name="remaining_seconds">%1$d초 남음</string>
+    <string name="remaining_minutes">%1$d분 남음</string>
+    <string name="almost_done">거의 완료</string>
+
+    <string name="inbox_title">받은 항목</string>
+    <string name="inbox_subtitle">내 기기들이 이 컴퓨터로 보낸 모든 것</string>
+    <string name="inbox_empty_title">아직 아무것도 없습니다</string>
+    <string name="inbox_empty_body">기기에서 이곳으로 보낸 파일, 링크, 메모가 이 목록에 보관됩니다.</string>
+    <string name="inbox_open">열기</string>
+    <string name="inbox_show">폴더에서 보기</string>
+    <string name="inbox_copy">복사</string>
+    <string name="inbox_remove">제거</string>
+    <string name="this_computer">이 컴퓨터</string>
+    <string name="just_now">방금</string>
+    <string name="minutes_ago">%1$d분</string>
+    <string name="hours_ago">%1$d시간</string>
+    <string name="days_ago">%1$d일</string>
+
+    <string name="settings_title">설정</string>
+    <string name="settings_device">이 컴퓨터</string>
+    <string name="settings_rename">이름 변경</string>
+    <string name="settings_save">저장</string>
+    <string name="settings_save_to">받은 파일 저장 위치</string>
+    <string name="settings_choose_folder">폴더 선택</string>
+    <string name="settings_use_default">다운로드/Relay 사용</string>
+    <string name="settings_clipboard">유니버설 클립보드</string>
+    <string name="settings_clipboard_body">한 기기에서 복사하고 다른 기기에서 붙여넣기: 텍스트, 이미지, 파일을 같은 Wi-Fi의 신뢰하는 기기와 함께.</string>
+    <string name="settings_start">로그인할 때 Relay 시작</string>
+    <string name="settings_start_body">Relay가 시스템 트레이에서 대기하므로 휴대폰이 언제든 이 컴퓨터에 연결할 수 있습니다.</string>
+    <string name="settings_start_unavailable">설치된 앱에서 사용할 수 있습니다.</string>
+    <string name="settings_start_temporary">먼저 Relay를 설치하세요. 이 사본은 임시 폴더에서 실행되므로 자동으로 시작할 대상이 없습니다.</string>
+
+    <string name="install_banner_title">Relay가 임시 폴더에서 실행 중입니다</string>
+    <string name="install_banner_body">zip 안에서 열었기 때문에 Windows가 나중에 정리하는 곳에 압축을 풀었습니다. 계속 사용하고, 컴퓨터와 함께 시작하고, 기기와 연결을 유지하려면 Relay를 설치하세요.</string>
+    <string name="install_banner_body_mac">디스크 이미지에서 실행 중이며 꺼내면 사라집니다. 계속 사용하고 로그인할 때 시작하려면 Relay를 응용 프로그램으로 끌어 놓으세요.</string>
+    <string name="install_banner_action">설치 프로그램 받기</string>
+    <string name="install_banner_action_mac">설치 방법</string>
+
+    <string name="settings_spread">Relay와 나</string>
+    <string name="settings_share_title">Relay 공유</string>
+    <string name="settings_share_body">친구에게 줄 링크 복사</string>
+    <string name="settings_share_copied">복사했습니다. 메시지에 붙여넣으세요</string>
+    <string name="settings_share_message">휴대폰과 컴퓨터 사이에서 파일과 클립보드를 옮길 때 Relay를 써요. 계정도 없고 클라우드도 거치지 않아요. Android, Windows, Mac, Linux 무료: %1$s</string>
+    <string name="settings_rate_title">Relay 평가하기</string>
+    <string name="settings_rate_body">Google Play에서. 다른 사람들이 찾는 데 도움이 됩니다</string>
+    <string name="settings_feedback_title">의견 보내기</string>
+    <string name="settings_feedback_body">아이디어, 문제, 무엇이든: %1$s</string>
+    <string name="settings_about">정보</string>
+    <string name="settings_about_body">Relay %1$s · 프로토콜 v1. 기기 간 연결은 암호화됩니다. 계정도 클라우드도 없으며, 통계는 직접 켜지 않으면 꺼져 있습니다.</string>
+
+    <string name="help_title">기기 연결하기</string>
+    <string name="help_subtitle">몇 단계만 한 번. 그다음에는 알아서 서로를 찾습니다.</string>
+    <string name="help_step1_title">각 기기에 Relay 설치</string>
+    <string name="help_step1_body">Android: Google Play의 Relay. Windows, Mac, Linux: 이 앱. iPhone 및 iPad: 준비 중.</string>
+    <string name="help_step2_title">같은 Wi-Fi에 연결</string>
+    <string name="help_step2_body">집 Wi-Fi 또는 휴대폰 핫스팟. 인터넷은 필요 없습니다. 기기끼리 직접 통신합니다.</string>
+    <string name="help_step3_title">기기를 클릭하고 도형 확인</string>
+    <string name="help_step3_body">근처의 새 기기에 나타납니다. 두 화면에 같은 도형 세 개가 보이는지 확인하고 다른 기기에서 신뢰를 선택하세요. 한 번만 하면 됩니다.</string>
+    <string name="help_firewall_title">Windows가 방화벽에 대해 물었나요?</string>
+    <string name="help_firewall_body">개인 네트워크에서 허용을 선택하세요. 그래야 휴대폰이 Wi-Fi로 이 컴퓨터에 연결할 수 있습니다. 놓쳤다면: Windows 보안 › 방화벽 › 방화벽을 통해 앱 허용 › Relay 선택.</string>
+    <string name="help_clipboard_title">여기서 복사, 저기서 붙여넣기</string>
+    <string name="help_clipboard_body">여기서 복사한 텍스트, 스크린샷, 파일은 휴대폰에서 바로 붙여넣을 수 있습니다. 휴대폰에서 복사한 파일은 이 클립보드로 옵니다.</string>
+
+    <string name="help_get_title">다른 기기에도 Relay 설치</string>
+    <string name="help_get_android">Android 휴대폰 또는 태블릿</string>
+    <string name="help_get_android_where">Google Play의 Relay</string>
+    <string name="help_get_desktop">Windows, Mac 및 Linux</string>
+    <string name="help_get_desktop_where">GitHub에서 다운로드</string>
+    <string name="help_get_apple">iPhone 및 iPad</string>
+    <string name="help_get_apple_where">준비 중</string>
+
+    <string name="help_guide_title">단계별 안내</string>
+    <string name="help_guide_pick">어떤 두 기기인가요?</string>
+    <string name="help_guide_phone_pc">휴대폰과 PC</string>
+    <string name="help_guide_two_phones">휴대폰 두 대</string>
+    <string name="help_guide_two_pcs">PC 두 대</string>
+
+    <string name="help_pc_1_title">두 앱 모두 설치</string>
+    <string name="help_pc_1_body">이 컴퓨터에는 데스크톱용 Relay, 휴대폰에는 Google Play의 Android용 Relay.</string>
+    <string name="help_pc_2_title">같은 Wi-Fi</string>
+    <string name="help_pc_2_body">컴퓨터와 휴대폰을 같은 네트워크에 연결하세요. Windows에서 방화벽을 물으면 개인 네트워크에서 허용을 선택하세요.</string>
+    <string name="help_pc_3_title">한 번 연결</string>
+    <string name="help_pc_3_body">휴대폰이 여기의 근처의 새 기기에 나타납니다. 클릭하고 두 화면에 같은 도형 세 개가 보이는지 확인한 다음, 휴대폰에서 신뢰를 탭하세요.</string>
+    <string name="help_pc_4_title">끝났습니다</string>
+    <string name="help_pc_4_body">한쪽에서 복사하고 다른 쪽에서 붙여넣으세요. 파일을 이 화면 왼쪽 가장자리의 드롭 선반으로 끌어 휴대폰 위에 놓거나, 휴대폰에서 이 컴퓨터로 공유하세요.</string>
+
+    <string name="help_phones_1_title">두 휴대폰 모두에 Relay 설치</string>
+    <string name="help_phones_1_body">두 휴대폰 모두 Google Play의 앱이 필요합니다. 어느 쪽이든 연결을 시작할 수 있습니다.</string>
+    <string name="help_phones_2_title">같은 Wi-Fi 또는 핫스팟</string>
+    <string name="help_phones_2_body">두 휴대폰을 같은 Wi-Fi에 연결하세요. Wi-Fi가 없나요? 한쪽 휴대폰의 핫스팟을 켜고 다른 쪽을 연결하세요. 인터넷은 필요 없습니다.</string>
+    <string name="help_phones_3_title">한 번 연결</string>
+    <string name="help_phones_3_body">어느 휴대폰에서든 근처의 새 기기에서 다른 휴대폰을 탭하세요. 두 화면에 같은 도형 세 개가 보이는지 확인한 다음, 두 번째 휴대폰에서 신뢰를 탭하세요.</string>
+    <string name="help_phones_4_title">끝났습니다</string>
+    <string name="help_phones_4_body">어떤 앱에서든 서로 사진과 파일을 공유하고, 두 휴대폰의 뒷면을 맞대면 명함을 교환할 수 있습니다.</string>
+
+    <string name="help_pcs_1_title">두 컴퓨터 모두에 데스크톱용 Relay 설치</string>
+    <string name="help_pcs_1_body">GitHub에서 Windows 또는 Linux용을 내려받아 각 컴퓨터에서 실행하세요. 시스템 트레이에 상주합니다.</string>
+    <string name="help_pcs_2_title">같은 네트워크</string>
+    <string name="help_pcs_2_body">두 컴퓨터를 같은 Wi-Fi 또는 같은 유선 네트워크에 연결하세요. 개인 네트워크에서 방화벽을 통해 Relay를 허용하세요.</string>
+    <string name="help_pcs_3_title">한 번 연결</string>
+    <string name="help_pcs_3_body">한 컴퓨터에서 근처의 새 기기에 있는 다른 컴퓨터를 클릭하세요. 두 화면에 같은 도형 세 개가 보이는지 확인한 다음, 두 번째 컴퓨터에서 신뢰를 선택하세요.</string>
+    <string name="help_pcs_4_title">끝났습니다</string>
+    <string name="help_pcs_4_body">한 컴퓨터에서 복사하고 다른 컴퓨터에서 붙여넣거나, 파일을 화면 왼쪽 가장자리의 드롭 선반으로 끌어 놓으세요.</string>
+
+    <string name="settings_ecosystem">에코시스템</string>
+    <string name="settings_ecosystem_title">기기들이 하나처럼 작동</string>
+    <string name="settings_ecosystem_body">신뢰하는 기기가 이곳으로 보내거나 놓은 항목은 수락 버튼 없이 바로 도착하고 바로 붙여넣을 수 있습니다.</string>
+    <string name="settings_privacy">개인정보 보호</string>
+    <string name="settings_analytics_title">Relay 개선에 참여</string>
+    <string name="settings_analytics_body">“전송 완료” 같은 항목의 익명 집계만 보내며, 파일 이름, 텍스트, 기기 정보는 절대 보내지 않습니다. 기본적으로 꺼져 있습니다.</string>
+    <string name="settings_shelf_title">드롭 선반</string>
+    <string name="settings_shelf_body">화면 왼쪽 가장자리의 얇은 탭입니다. 파일이나 텍스트를 끌어다 놓은 다음 기기 위에 놓으세요.</string>
+
+    <string name="shelf_title">기기 위에 놓기</string>
+    <string name="shelf_click_title">보낼 기기</string>
+    <string name="shelf_ready">놓으면 보냅니다</string>
+    <string name="shelf_click">클릭하여 파일 선택</string>
+    <string name="shelf_away">멀리 있음</string>
+    <string name="shelf_sent">보냄</string>
+    <string name="shelf_empty">파일을 놓으려면 기기를 페어링하세요.</string>
+    <string name="help_ecosystem_title">휴대폰으로 끌어서 놓기</string>
+    <string name="help_ecosystem_body">파일을 화면 왼쪽 가장자리로 끌어 오세요. 기기 목록이 있는 드롭 선반이 열립니다. 휴대폰 위에 놓으면 그곳에 도착해 바로 붙여넣을 수 있습니다. 신뢰하는 기기는 수락을 요구하지 않습니다.</string>
+
+    <string name="tray_open">Relay 열기</string>
+    <string name="tray_add_device">기기 추가…</string>
+    <string name="tray_send_file">%1$s에 파일 보내기…</string>
+    <string name="tray_send_clipboard">클립보드 보내기</string>
+    <string name="tray_quit">Relay 종료</string>
+    <string name="tray_clipboard_sent">클립보드를 기기 %1$d대에 보냈습니다</string>
+    <string name="tray_nothing_to_send">보낼 항목이 없습니다. 텍스트를 복사하고 신뢰하는 기기를 가까이 두세요.</string>
+    <string name="already_running">Relay가 이미 실행 중입니다. 시스템 트레이에서 찾아보세요.</string>
+
+    <string name="settings_menu_title">파일에서 Relay로 보내기</string>
+    <string name="settings_menu_body_windows">파일 탐색기에서 파일이나 폴더를 마우스 오른쪽 버튼으로 클릭하고 Relay로 보내기를 선택하세요. Windows 11에서는 추가 옵션 표시 안에 있습니다.</string>
+    <string name="settings_menu_body_linux">Dolphin 또는 파일에서 파일이나 폴더를 마우스 오른쪽 버튼으로 클릭하고 Relay로 보내기를 선택하세요.</string>
+    <plurals name="send_picker_title">
+        <item quantity="other">파일 %1$d개 보내기</item>
+    </plurals>
+    <string name="send_picker_devices">받는 기기</string>
+    <string name="send_picker_none">아직 페어링된 기기가 없습니다. Relay를 열고 먼저 기기를 페어링하세요.</string>
+    <string name="send_picker_away">근처에 없음</string>
+    <string name="send_picker_cancel">취소</string>
+    <string name="send_picker_send">보내기</string>
+
+    <string name="settings_updates_title">업데이트 확인</string>
+    <string name="settings_updates_body">Relay는 하루에 한 번, 배포처인 GitHub에 새 버전이 있는지 묻습니다. 나나 내 기기에 관한 정보는 보내지 않습니다.</string>
+    <string name="update_banner_title">Relay %1$s 사용 가능</string>
+    <string name="update_banner_body">내려받아 지금 버전 위에 설치하세요. 기기와 설정은 그대로 유지됩니다.</string>
+    <string name="update_banner_action">업데이트 받기</string>
+
+    <string name="settings_telegram_title">Telegram에서 함께해요</string>
+    <string name="settings_telegram_body">Relay 개발자가 전하는 소식, 도움말, 아이디어.</string>
+
+    <string name="inbox_search">이름, 기기, 텍스트 검색</string>
+    <string name="inbox_kind_all">전체</string>
+    <string name="inbox_kind_photos">사진 및 동영상</string>
+    <string name="inbox_kind_files">파일</string>
+    <string name="inbox_kind_links">링크</string>
+    <string name="inbox_kind_text">텍스트</string>
+    <string name="inbox_from_device">보낸 기기: %1$s</string>
+    <string name="inbox_no_match_title">일치하는 항목 없음</string>
+    <string name="inbox_no_match_body">다른 단어로 검색하거나 필터를 지우세요.</string>
+
+    <string name="device_folder_title">이 기기의 파일 저장 위치</string>
+    <string name="device_folder_usual">기본 Relay 폴더</string>
+    <string name="device_folder_choose">폴더 선택</string>
+    <string name="device_folder_reset">기본 폴더 사용</string>
+
+    <string name="tools_mirror">새 알림을 여기에 표시</string>
+    <string name="tools_mirror_hint">휴대폰에서 알림 접근을 켜세요. 기존 알림은 표시되지 않고, 새로 오거나 바뀐 알림이 여기에 나타납니다.</string>
+    <string name="tools_shared_folder">공유 폴더: %1$s</string>
+    <string name="tools_choose_folder">공유 폴더 선택</string>
+    <string name="tools_edit_command">명령 추가 또는 제거</string>
+    <string name="tools_commands">명령: %1$s</string>
+    <string name="tools_commands_none">없음</string>
+    <string name="tools_command_title">이 컴퓨터의 명령</string>
+    <string name="tools_command_body">허용된 페어링 기기는 여기에 저장된 명령만 실행할 수 있습니다. 이름을 지우려면 명령을 비워 두세요.</string>
+    <string name="tools_command_name">이름</string>
+    <string name="tools_command_shell">셸 명령</string>
+    <string name="tools_folder_set">공유 폴더를 선택했습니다</string>
+    <string name="tools_folder_failed">그 폴더를 선택할 수 없습니다</string>
+    <string name="tools_command_saved">명령을 저장했습니다</string>
+    <string name="tools_command_failed">명령을 저장할 수 없습니다</string>
+</resources>

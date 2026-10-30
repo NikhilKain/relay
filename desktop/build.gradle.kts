@@ -74,12 +74,12 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Msi, TargetFormat.Exe, TargetFormat.Deb, TargetFormat.Rpm, TargetFormat.Dmg)
             packageName = "Relay"
-            packageVersion = "1.0.3"
+            packageVersion = "1.0.4"
             description = "Your devices, together. Files, clipboard and links between phone and computer."
             vendor = "Vythera"
             // Only the parts of the Java runtime Relay actually uses, which roughly halves
             // the download. Detected with :desktop:suggestRuntimeModules.
-            modules("java.instrument", "java.naming", "java.sql", "jdk.unsupported", "jdk.crypto.ec")
+            modules("java.instrument", "java.naming", "java.sql", "jdk.unsupported", "jdk.crypto.ec", "jdk.accessibility")
 
             windows {
                 menuGroup = "Relay"

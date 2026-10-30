@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_devices">デバイス</string>
+    <string name="nav_inbox">受信箱</string>
+    <string name="nav_settings">設定</string>
+    <string name="nav_help">ヘルプ</string>
+    <string name="action_send">送信</string>
+
+    <string name="home_title">あなたのデバイス</string>
+    <string name="home_nearby">近くに %1$d 台</string>
+    <string name="home_looking">デバイスを探しています</string>
+    <string name="home_new">近くの新しいデバイス</string>
+    <string name="home_tap_to_connect">クリックして接続</string>
+    <string name="home_empty_title">近くに何もありません</string>
+    <string name="home_empty_body">同じ Wi-Fi でスマートフォンの Relay を開いてください。ここに自動で表示されます。</string>
+    <string name="home_empty_action">接続方法</string>
+    <string name="home_pick">デバイスを選択</string>
+    <string name="home_add_device">デバイスを追加</string>
+
+    <string name="qr_title">新しいデバイスを接続</string>
+    <string name="qr_body">スマートフォンで Relay を開き、スキャンボタンをタップしてこのコードに向けてください。両方のデバイスが同じ Wi-Fi にある必要があります。</string>
+    <string name="qr_caption">%1$s · 自動で更新されます</string>
+    <string name="qr_read_image">画像から QR を読み取る</string>
+    <string name="qr_change_network">別のネットワークを使う</string>
+    <string name="qr_network_title">どのネットワーク？</string>
+    <string name="qr_network_body">このコンピューターは複数のネットワークに接続しています。スマートフォンがあるネットワークを選んでください。</string>
+    <string name="qr_no_network">このコンピューターはネットワークに接続していません。Wi-Fi に接続するとここにコードが表示されます。</string>
+    <string name="qr_reading">QR を読み取っています…</string>
+    <string name="qr_unreadable">この画像に Relay の QR はありません。作成から 5 分以内のコードの鮮明な画像を使ってください。</string>
+    <string name="qr_confirm_title">このデバイスに接続しますか？</string>
+    <string name="qr_confirm_body">Relay は接続したあと、信頼する前に両方のデバイスに同じ図形を表示するよう求めます。</string>
+    <string name="qr_connecting">接続しています…</string>
+    <string name="qr_connected">接続しました。完了するには、両方のデバイスで図形が一致することを確認してください。</string>
+    <string name="qr_failed">接続できませんでした。両方のデバイスが同じ Wi-Fi にあることを確認し、新しいコードで試してください。</string>
+
+    <string name="device_drop_title">ここにファイルをドロップ</string>
+    <string name="device_drop_body">写真、書類、フォルダーごと。%1$s に直接届きます。</string>
+    <string name="device_drop_release">離すと %1$s に送信</string>
+    <string name="device_choose_files">ファイルを選択</string>
+    <string name="device_folder">フォルダー</string>
+    <string name="device_folder_hint">構成を保ったまま</string>
+    <string name="device_clipboard">クリップボード</string>
+    <string name="device_clipboard_hint">コピーした内容を送信</string>
+    <string name="device_text">テキスト</string>
+    <string name="device_text_hint">メモを入力</string>
+    <string name="device_continue">続きを開く</string>
+    <string name="device_continue_hint">%1$s でリンクを開く</string>
+    <string name="device_recent">このデバイスとのやり取り</string>
+    <string name="device_nothing_yet">まだ何も送信していません</string>
+    <string name="device_auto_accept">%1$s からの転送を常に許可</string>
+    <string name="device_forget">このデバイスを削除</string>
+    <string name="device_connect">接続</string>
+    <string name="device_connect_body">%1$s に送るには一度だけ接続してください。両方の画面に同じ図形が表示されることを確認します。</string>
+    <string name="device_away_body">%1$s は近くにありません。今送ったものは戻ってきたときに届きます。</string>
+    <string name="device_incompatible">接続するには %1$s の Relay を更新してください。</string>
+
+    <string name="compose_text_title">%1$s にテキストを送信</string>
+    <string name="compose_link_title">%1$s でリンクを開く</string>
+    <string name="compose_text_hint">入力してください</string>
+    <string name="compose_link_hint">リンクを貼り付け</string>
+    <string name="compose_send">送信</string>
+    <string name="compose_open">向こうで開く</string>
+    <string name="cancel">キャンセル</string>
+
+    <string name="pair_incoming_title">%1$s が接続を求めています</string>
+    <string name="pair_incoming_body">%1$s に同じ図形が表示されていることを確認してください。自分のデバイスの場合のみ続行してください。</string>
+    <string name="pair_trust">デバイスを信頼</string>
+    <string name="pair_not_now">後で</string>
+    <string name="pair_always_allow">このデバイスからの転送を常に許可</string>
+    <string name="pair_outgoing_connecting">%1$s に接続しています</string>
+    <string name="pair_outgoing_title">%1$s で確認してください</string>
+    <string name="pair_outgoing_body">%1$s に同じ図形が表示されていることを確認し、向こうで承認してください。</string>
+    <string name="pair_mismatch">図形が一致しません</string>
+    <string name="pair_done_title">%1$s に接続しました</string>
+    <string name="pair_done_body">これからは自動で動きます。次回からコードは不要です。</string>
+    <string name="pair_failed_title">接続されていません</string>
+    <string name="pair_failed_body">%1$s は接続しませんでした。Relay が開いていて、両方が同じ Wi-Fi にあることを確認してください。</string>
+    <string name="ok">OK</string>
+
+    <string name="offer_title">%1$s が送信しようとしています</string>
+    <string name="offer_receive">受け取る</string>
+    <string name="offer_decline">拒否</string>
+
+    <string name="failure_generic">%1$s: うまくいきませんでした。もう一度お試しください。</string>
+    <string name="failure_away">%1$s は近くにありません。戻ってきたら送信します。</string>
+    <string name="failure_lost">接続が切れました。%1$s が戻ったら再開します。</string>
+    <string name="failure_damaged">ファイルが破損して届いたため、保存しませんでした。もう一度お試しください。</string>
+    <string name="failure_space">%1$s の空き容量が足りません。</string>
+    <string name="failure_declined">%1$s が拒否しました。</string>
+    <string name="failure_you_declined">拒否しました</string>
+    <string name="failure_cancelled">キャンセルしました</string>
+    <string name="remaining_seconds">残り %1$d 秒</string>
+    <string name="remaining_minutes">残り %1$d 分</string>
+    <string name="almost_done">まもなく完了</string>
+
+    <string name="inbox_title">受信箱</string>
+    <string name="inbox_subtitle">デバイスからこのコンピューターに届いたすべて</string>
+    <string name="inbox_empty_title">まだ何もありません</string>
+    <string name="inbox_empty_body">デバイスから届いたファイル、リンク、メモはこの一覧に保存されます。</string>
+    <string name="inbox_open">開く</string>
+    <string name="inbox_show">フォルダーに表示</string>
+    <string name="inbox_copy">コピー</string>
+    <string name="inbox_remove">削除</string>
+    <string name="this_computer">このコンピューター</string>
+    <string name="just_now">たった今</string>
+    <string name="minutes_ago">%1$d 分</string>
+    <string name="hours_ago">%1$d 時間</string>
+    <string name="days_ago">%1$d 日</string>
+
+    <string name="settings_title">設定</string>
+    <string name="settings_device">このコンピューター</string>
+    <string name="settings_rename">名前を変更</string>
+    <string name="settings_save">保存</string>
+    <string name="settings_save_to">受信ファイルの保存先</string>
+    <string name="settings_choose_folder">フォルダーを選択</string>
+    <string name="settings_use_default">ダウンロード/Relay を使う</string>
+    <string name="settings_clipboard">ユニバーサルクリップボード</string>
+    <string name="settings_clipboard_body">あるデバイスでコピーして別のデバイスで貼り付け。テキスト、画像、ファイルを、同じ Wi-Fi の信頼済みデバイス間で。</string>
+    <string name="settings_start">サインイン時に Relay を起動</string>
+    <string name="settings_start_body">Relay はシステムトレイで待機するので、スマートフォンからいつでもこのコンピューターに届きます。</string>
+    <string name="settings_start_unavailable">インストール版のアプリで利用できます。</string>
+    <string name="settings_start_temporary">先に Relay をインストールしてください。このコピーは一時フォルダーから実行されているため、自動起動できるものがありません。</string>
+
+    <string name="install_banner_title">Relay は一時フォルダーから実行されています</string>
+    <string name="install_banner_body">zip の中から開かれたため、Windows が後で削除する場所に展開されました。Relay をインストールすると、残しておけて、コンピューターと一緒に起動し、デバイスとつながったままになります。</string>
+    <string name="install_banner_body_mac">ディスクイメージから実行されており、取り出すと消えます。Relay をアプリケーションにドラッグすると、残しておけてログイン時に起動します。</string>
+    <string name="install_banner_action">インストーラーを入手</string>
+    <string name="install_banner_action_mac">インストール方法</string>
+
+    <string name="settings_spread">Relay とあなた</string>
+    <string name="settings_share_title">Relay を共有</string>
+    <string name="settings_share_body">友だちに渡すリンクをコピー</string>
+    <string name="settings_share_copied">コピーしました。メッセージに貼り付けてください</string>
+    <string name="settings_share_message">スマホとパソコンの間でファイルやクリップボードをやり取りするのに Relay を使っています。アカウント不要で、クラウドを通りません。Android、Windows、Mac、Linux で無料: %1$s</string>
+    <string name="settings_rate_title">Relay を評価</string>
+    <string name="settings_rate_body">Google Play で。ほかの人が見つけやすくなります</string>
+    <string name="settings_feedback_title">フィードバックを送信</string>
+    <string name="settings_feedback_body">アイデア、問題、なんでも: %1$s</string>
+    <string name="settings_about">情報</string>
+    <string name="settings_about_body">Relay %1$s · プロトコル v1。デバイス間の接続は暗号化されています。アカウントもクラウドもなし。統計はオンにしない限りオフです。</string>
+
+    <string name="help_title">デバイスを接続</string>
+    <string name="help_subtitle">数ステップを一度だけ。その後は自動でお互いを見つけます。</string>
+    <string name="help_step1_title">各デバイスに Relay をインストール</string>
+    <string name="help_step1_body">Android: Google Play の Relay。Windows、Mac、Linux: このアプリ。iPhone と iPad: 開発中。</string>
+    <string name="help_step2_title">同じ Wi-Fi に接続</string>
+    <string name="help_step2_body">自宅の Wi-Fi か、スマートフォンのテザリング。インターネットは不要です。デバイス同士が直接通信します。</string>
+    <string name="help_step3_title">デバイスをクリックして図形を確認</string>
+    <string name="help_step3_body">近くの新しいデバイスに表示されます。両方の画面に同じ 3 つの図形があることを確認し、相手のデバイスで信頼を選んでください。一度だけです。</string>
+    <string name="help_firewall_title">Windows がファイアウォールについて尋ねましたか？</string>
+    <string name="help_firewall_body">プライベートネットワークで許可を選んでください。これで Wi-Fi 経由でスマートフォンからこのコンピューターに届きます。見逃した場合: Windows セキュリティ › ファイアウォール › ファイアウォール経由のアプリを許可 › Relay にチェック。</string>
+    <string name="help_clipboard_title">ここでコピー、向こうで貼り付け</string>
+    <string name="help_clipboard_body">ここでコピーしたもの、テキスト、スクリーンショット、ファイルはスマートフォンで貼り付けられます。スマートフォンでコピーしたファイルはこのクリップボードに届きます。</string>
+
+    <string name="help_get_title">ほかのデバイスにも Relay を</string>
+    <string name="help_get_android">Android スマートフォン・タブレット</string>
+    <string name="help_get_android_where">Google Play の Relay</string>
+    <string name="help_get_desktop">Windows、Mac、Linux</string>
+    <string name="help_get_desktop_where">GitHub からダウンロード</string>
+    <string name="help_get_apple">iPhone と iPad</string>
+    <string name="help_get_apple_where">開発中</string>
+
+    <string name="help_guide_title">ステップごとの手順</string>
+    <string name="help_guide_pick">どの 2 台ですか？</string>
+    <string name="help_guide_phone_pc">スマホと PC</string>
+    <string name="help_guide_two_phones">スマホ 2 台</string>
+    <string name="help_guide_two_pcs">PC 2 台</string>
+
+    <string name="help_pc_1_title">両方のアプリをインストール</string>
+    <string name="help_pc_1_body">このコンピューターにはデスクトップ版 Relay、スマートフォンには Google Play から Android 版 Relay。</string>
+    <string name="help_pc_2_title">同じ Wi-Fi</string>
+    <string name="help_pc_2_body">コンピューターとスマートフォンを同じネットワークに。Windows がファイアウォールについて尋ねたら、プライベートネットワークで許可を選んでください。</string>
+    <string name="help_pc_3_title">一度だけ接続</string>
+    <string name="help_pc_3_body">スマートフォンがここの近くの新しいデバイスに表示されます。クリックして、両方の画面に同じ 3 つの図形があることを確認し、スマートフォンで信頼をタップしてください。</string>
+    <string name="help_pc_4_title">これで完了</string>
+    <string name="help_pc_4_body">片方でコピーしてもう片方で貼り付け。ファイルを画面左端のドロップシェルフにドラッグしてスマートフォンの上にドロップするか、スマートフォンからこのコンピューターに共有してください。</string>
+
+    <string name="help_phones_1_title">両方のスマホに Relay をインストール</string>
+    <string name="help_phones_1_body">両方のスマートフォンに Google Play のアプリが必要です。どちらからでも接続を始められます。</string>
+    <string name="help_phones_2_title">同じ Wi-Fi かテザリング</string>
+    <string name="help_phones_2_body">両方を同じ Wi-Fi に接続してください。Wi-Fi がない場合は、片方のテザリングをオンにしてもう片方を接続します。インターネットは不要です。</string>
+    <string name="help_phones_3_title">一度だけ接続</string>
+    <string name="help_phones_3_body">どちらかのスマートフォンで、近くの新しいデバイスにあるもう一方をタップ。両方の画面に同じ 3 つの図形があることを確認し、2 台目で信頼をタップしてください。</string>
+    <string name="help_phones_4_title">これで完了</string>
+    <string name="help_phones_4_body">どのアプリからでも写真やファイルを共有でき、2 台を背中合わせにすると連絡先カードを交換できます。</string>
+
+    <string name="help_pcs_1_title">両方にデスクトップ版 Relay をインストール</string>
+    <string name="help_pcs_1_body">GitHub から Windows 版か Linux 版をダウンロードし、それぞれのコンピューターで実行します。システムトレイに常駐します。</string>
+    <string name="help_pcs_2_title">同じネットワーク</string>
+    <string name="help_pcs_2_body">両方のコンピューターを同じ Wi-Fi か同じ有線ネットワークに。プライベートネットワークで Relay をファイアウォールに許可してください。</string>
+    <string name="help_pcs_3_title">一度だけ接続</string>
+    <string name="help_pcs_3_body">片方のコンピューターで、近くの新しいデバイスにあるもう一方をクリック。両方の画面に同じ 3 つの図形があることを確認し、2 台目で信頼を選んでください。</string>
+    <string name="help_pcs_4_title">これで完了</string>
+    <string name="help_pcs_4_body">片方でコピーしてもう片方で貼り付けるか、ファイルを画面左端のドロップシェルフにドラッグしてください。</string>
+
+    <string name="settings_ecosystem">エコシステム</string>
+    <string name="settings_ecosystem_title">デバイスがひとつになる</string>
+    <string name="settings_ecosystem_body">信頼済みデバイスがここに送ったりドロップしたりしたものは、承認ボタンなしですぐに届き、そのまま貼り付けられます。</string>
+    <string name="settings_privacy">プライバシー</string>
+    <string name="settings_analytics_title">Relay の改善に協力</string>
+    <string name="settings_analytics_body">「転送が完了した」などの匿名の件数を送信します。ファイル名、テキスト、デバイスの情報は決して送りません。初期設定はオフです。</string>
+    <string name="settings_shelf_title">ドロップシェルフ</string>
+    <string name="settings_shelf_body">画面左端の細いタブ。ファイルやテキストをそこにドラッグし、デバイスの上にドロップします。</string>
+
+    <string name="shelf_title">デバイスにドロップ</string>
+    <string name="shelf_click_title">送信先</string>
+    <string name="shelf_ready">ドロップして送信</string>
+    <string name="shelf_click">クリックしてファイルを選択</string>
+    <string name="shelf_away">近くにありません</string>
+    <string name="shelf_sent">送信済み</string>
+    <string name="shelf_empty">ファイルをドロップするにはデバイスをペアリングしてください。</string>
+    <string name="help_ecosystem_title">スマホにドラッグ＆ドロップ</string>
+    <string name="help_ecosystem_body">ファイルを画面の左端にドラッグすると、デバイスの並んだドロップシェルフが開きます。スマートフォンの上にドロップすれば届き、そのまま貼り付けられます。信頼済みデバイスは承認を求めません。</string>
+
+    <string name="tray_open">Relay を開く</string>
+    <string name="tray_add_device">デバイスを追加…</string>
+    <string name="tray_send_file">%1$s にファイルを送信…</string>
+    <string name="tray_send_clipboard">クリップボードを送信</string>
+    <string name="tray_quit">Relay を終了</string>
+    <string name="tray_clipboard_sent">クリップボードを %1$d 台に送信しました</string>
+    <string name="tray_nothing_to_send">送信するものがありません。テキストをコピーし、信頼済みデバイスを近くに置いてください。</string>
+    <string name="already_running">Relay はすでに実行中です。システムトレイを確認してください。</string>
+
+    <string name="settings_menu_title">ファイルから Relay で送信</string>
+    <string name="settings_menu_body_windows">エクスプローラーでファイルやフォルダーを右クリックし、Relay で送信を選びます。Windows 11 では「その他のオプションを確認」の中にあります。</string>
+    <string name="settings_menu_body_linux">Dolphin またはファイルでファイルやフォルダーを右クリックし、Relay で送信を選びます。</string>
+    <plurals name="send_picker_title">
+        <item quantity="other">%1$d 件のファイルを送信</item>
+    </plurals>
+    <string name="send_picker_devices">送信先</string>
+    <string name="send_picker_none">ペアリング済みのデバイスがありません。Relay を開いて先にペアリングしてください。</string>
+    <string name="send_picker_away">近くにありません</string>
+    <string name="send_picker_cancel">キャンセル</string>
+    <string name="send_picker_send">送信</string>
+
+    <string name="settings_updates_title">アップデートを確認</string>
+    <string name="settings_updates_body">1 日に 1 回、Relay は公開先の GitHub に新しいバージョンがあるか問い合わせます。あなたやデバイスについての情報は送信されません。</string>
+    <string name="update_banner_title">Relay %1$s が利用可能です</string>
+    <string name="update_banner_body">ダウンロードして、このバージョンに上書きインストールしてください。デバイスと設定はそのまま残ります。</string>
+    <string name="update_banner_action">アップデートを入手</string>
+
+    <string name="settings_telegram_title">Telegram に参加</string>
+    <string name="settings_telegram_body">Relay の開発者からのお知らせ、ヘルプ、アイデア。</string>
+
+    <string name="inbox_search">名前、デバイス、テキストを検索</string>
+    <string name="inbox_kind_all">すべて</string>
+    <string name="inbox_kind_photos">写真と動画</string>
+    <string name="inbox_kind_files">ファイル</string>
+    <string name="inbox_kind_links">リンク</string>
+    <string name="inbox_kind_text">テキスト</string>
+    <string name="inbox_from_device">%1$s から</string>
+    <string name="inbox_no_match_title">一致するものがありません</string>
+    <string name="inbox_no_match_body">別の言葉を試すか、フィルターを解除してください。</string>
+
+    <string name="device_folder_title">このデバイスからのファイルの保存先</string>
+    <string name="device_folder_usual">いつもの Relay フォルダー</string>
+    <string name="device_folder_choose">フォルダーを選択</string>
+    <string name="device_folder_reset">いつものフォルダーを使う</string>
+
+    <string name="tools_mirror">新しい通知をここに表示</string>
+    <string name="tools_mirror_hint">スマートフォンで通知へのアクセスを有効にしてください。既存の通知は表示されず、新しい通知や変更された通知がここに表示されます。</string>
+    <string name="tools_shared_folder">共有フォルダー: %1$s</string>
+    <string name="tools_choose_folder">共有フォルダーを選択</string>
+    <string name="tools_edit_command">コマンドを追加・削除</string>
+    <string name="tools_commands">コマンド: %1$s</string>
+    <string name="tools_commands_none">なし</string>
+    <string name="tools_command_title">このコンピューターのコマンド</string>
+    <string name="tools_command_body">許可されたペアリング済みデバイスが実行できるのは、ここに保存したコマンドだけです。名前を削除するにはコマンドを空にしてください。</string>
+    <string name="tools_command_name">名前</string>
+    <string name="tools_command_shell">シェルコマンド</string>
+    <string name="tools_folder_set">共有フォルダーを選択しました</string>
+    <string name="tools_folder_failed">そのフォルダーを選択できませんでした</string>
+    <string name="tools_command_saved">コマンドを保存しました</string>
+    <string name="tools_command_failed">コマンドを保存できませんでした</string>
+</resources>

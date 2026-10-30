@@ -24,6 +24,7 @@ import androidx.compose.material.icons.automirrored.rounded.OpenInNew
 import androidx.compose.material.icons.automirrored.rounded.TextSnippet
 import androidx.compose.material.icons.rounded.ContentPaste
 import androidx.compose.material.icons.rounded.Folder
+import androidx.compose.material.icons.rounded.FolderOpen
 import androidx.compose.material.icons.rounded.Link
 import androidx.compose.material.icons.rounded.UploadFile
 import androidx.compose.material3.Icon
@@ -93,6 +94,14 @@ class DeviceActions(
     val addDevice: () -> Unit = {},
     /** This computer's connection code, shown whenever no device is open. */
     val connectPane: @Composable () -> Unit = {},
+    /** Shows where a history entry's files are, or null when there is nothing to show. */
+    val locationAction: (HistoryEntry) -> (() -> Unit)? = { null },
+    /** Opens a history entry's file, or null when there is none to open. */
+    val openAction: (HistoryEntry) -> (() -> Unit)? = { null },
+    /** This device's own save folder, or null for the usual one. */
+    val saveFolder: (DeviceId) -> String? = { null },
+    val chooseSaveFolder: (DeviceId) -> Unit = {},
+    val resetSaveFolder: (DeviceId) -> Unit = {},
 )
 
 /**
@@ -235,7 +244,7 @@ private fun DeviceDetail(device: DeviceView, history: List<HistoryEntry>, localN
                 if (history.isEmpty()) {
                     Text(stringResource(Res.string.device_nothing_yet), style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
                 } else {
-                    HistoryGroup(history.take(6), localName)
+                    HistoryGroup(history.take(6), localName, actions.locationAction, actions.openAction)
                 }
 
                 Spacer(Modifier.height(RelaySpacing.section))
@@ -243,6 +252,20 @@ private fun DeviceDetail(device: DeviceView, history: List<HistoryEntry>, localN
                     Row(Modifier.padding(horizontal = 20.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
                         Text(stringResource(Res.string.device_auto_accept, device.name), style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
                         Switch(checked = device.autoAccept, onCheckedChange = { actions.setAutoAccept(device.id, it) })
+                    }
+                }
+                Spacer(Modifier.height(8.dp))
+                Surface(shape = RelayShapes.Small, color = colors.surfaceContainerLow, modifier = Modifier.fillMaxWidth()) {
+                    val folder = actions.saveFolder(device.id)
+                    Row(Modifier.padding(horizontal = 20.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1f)) {
+                            Text(stringResource(Res.string.device_folder_title), style = MaterialTheme.typography.titleMedium)
+                            Text(folder ?: stringResource(Res.string.device_folder_usual), style = MaterialTheme.typography.bodyMedium, color = colors.onSurfaceVariant, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                        }
+                        if (folder != null) {
+                            TextButton(onClick = { actions.resetSaveFolder(device.id) }) { Text(stringResource(Res.string.device_folder_reset)) }
+                        }
+                        androidx.compose.material3.FilledTonalButton(onClick = { actions.chooseSaveFolder(device.id) }) { Text(stringResource(Res.string.device_folder_choose)) }
                     }
                 }
                 TextButton(onClick = { actions.forget(device.id) }, modifier = Modifier.padding(top = 8.dp)) {
@@ -326,10 +349,33 @@ private fun DropZone(device: DeviceView, onFiles: (List<File>) -> Unit, onChoose
 }
 
 @Composable
-fun HistoryGroup(entries: List<HistoryEntry>, localName: String) {
+fun HistoryGroup(
+    entries: List<HistoryEntry>,
+    localName: String,
+    locationAction: (HistoryEntry) -> (() -> Unit)? = { null },
+    openAction: (HistoryEntry) -> (() -> Unit)? = { null },
+) {
     Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
         entries.forEachIndexed { index, entry ->
+            val show = locationAction(entry)
+            val open = openAction(entry)
             RelayActivityItem(
+                // Clicking a sent or received file shows it in its folder.
+                onClick = show,
+                actions = if (show == null && open == null) null else {
+                    {
+                        if (open != null) {
+                            androidx.compose.material3.IconButton(onClick = open) {
+                                androidx.compose.material3.Icon(Icons.AutoMirrored.Rounded.OpenInNew, stringResource(Res.string.inbox_open))
+                            }
+                        }
+                        if (show != null) {
+                            androidx.compose.material3.IconButton(onClick = show) {
+                                androidx.compose.material3.Icon(Icons.Rounded.FolderOpen, stringResource(Res.string.inbox_show))
+                            }
+                        }
+                    }
+                },
                 title = entry.title,
                 fromName = if (entry.incoming) entry.peerName else localName,
                 toName = if (entry.incoming) localName else entry.peerName,

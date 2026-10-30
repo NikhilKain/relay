@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_devices">الأجهزة</string>
+    <string name="nav_inbox">الوارد</string>
+    <string name="nav_settings">الإعدادات</string>
+    <string name="nav_help">المساعدة</string>
+    <string name="action_send">إرسال</string>
+
+    <string name="home_title">أجهزتك</string>
+    <string name="home_nearby">%1$d بالقرب منك</string>
+    <string name="home_looking">جارٍ البحث عن أجهزتك</string>
+    <string name="home_new">أجهزة جديدة قريبة</string>
+    <string name="home_tap_to_connect">انقر للاتصال</string>
+    <string name="home_empty_title">لا شيء بالقرب</string>
+    <string name="home_empty_body">افتح Relay على هاتفك، على شبكة Wi-Fi نفسها. سيظهر هنا تلقائيًا.</string>
+    <string name="home_empty_action">طريقة الاتصال</string>
+    <string name="home_pick">اختر جهازًا</string>
+    <string name="home_add_device">إضافة جهاز</string>
+
+    <string name="qr_title">ربط جهاز جديد</string>
+    <string name="qr_body">على هاتفك، افتح Relay وانقر زر المسح ثم وجّهه إلى هذا الرمز. يجب أن يكون الجهازان على شبكة Wi-Fi نفسها.</string>
+    <string name="qr_caption">%1$s · يتجدد تلقائيًا</string>
+    <string name="qr_read_image">قراءة رمز QR من صورة</string>
+    <string name="qr_change_network">استخدام شبكة أخرى</string>
+    <string name="qr_network_title">أي شبكة؟</string>
+    <string name="qr_network_body">هذا الكمبيوتر متصل بأكثر من شبكة. اختر الشبكة التي عليها هاتفك.</string>
+    <string name="qr_no_network">هذا الكمبيوتر غير متصل بأي شبكة. اتصل بشبكة Wi-Fi وسيظهر الرمز هنا.</string>
+    <string name="qr_reading">جارٍ قراءة رمز QR…</string>
+    <string name="qr_unreadable">لا يوجد رمز QR خاص بـ Relay في هذه الصورة. استخدم صورة واضحة لرمز عمره أقل من خمس دقائق.</string>
+    <string name="qr_confirm_title">الاتصال بهذا الجهاز؟</string>
+    <string name="qr_confirm_body">سيتصل Relay، ثم يطلب من الجهازين عرض الأشكال نفسها قبل الوثوق بهما.</string>
+    <string name="qr_connecting">جارٍ الاتصال…</string>
+    <string name="qr_connected">تم الاتصال. تأكد من تطابق الأشكال على الجهازين للإنهاء.</string>
+    <string name="qr_failed">تعذّر الاتصال. تأكد أن الجهازين على شبكة Wi-Fi نفسها، ثم جرّب رمزًا جديدًا.</string>
+
+    <string name="device_drop_title">أفلت الملفات هنا</string>
+    <string name="device_drop_body">صور ومستندات ومجلدات كاملة. تذهب مباشرة إلى %1$s.</string>
+    <string name="device_drop_release">أفلت للإرسال إلى %1$s</string>
+    <string name="device_choose_files">اختيار ملفات</string>
+    <string name="device_folder">مجلد</string>
+    <string name="device_folder_hint">يحافظ على بنيته</string>
+    <string name="device_clipboard">الحافظة</string>
+    <string name="device_clipboard_hint">أرسل ما نسخته</string>
+    <string name="device_text">نص</string>
+    <string name="device_text_hint">اكتب ملاحظة</string>
+    <string name="device_continue">متابعة</string>
+    <string name="device_continue_hint">فتح رابط على %1$s</string>
+    <string name="device_recent">مع هذا الجهاز</string>
+    <string name="device_nothing_yet">لم يُرسل شيء بعد</string>
+    <string name="device_auto_accept">السماح دائمًا بعمليات النقل من %1$s</string>
+    <string name="device_forget">نسيان هذا الجهاز</string>
+    <string name="device_connect">اتصال</string>
+    <string name="device_connect_body">اتصل مرة واحدة لإرسال الأشياء إلى %1$s. ستتحقق من أن الشاشتين تعرضان الأشكال نفسها.</string>
+    <string name="device_away_body">%1$s ليس قريبًا. ما ترسله الآن سيصل عند عودته.</string>
+    <string name="device_incompatible">حدّث Relay على %1$s للاتصال.</string>
+
+    <string name="compose_text_title">إرسال نص إلى %1$s</string>
+    <string name="compose_link_title">فتح رابط على %1$s</string>
+    <string name="compose_text_hint">اكتب شيئًا</string>
+    <string name="compose_link_hint">الصق رابطًا</string>
+    <string name="compose_send">إرسال</string>
+    <string name="compose_open">افتح هناك</string>
+    <string name="cancel">إلغاء</string>
+
+    <string name="pair_incoming_title">%1$s يريد الاتصال</string>
+    <string name="pair_incoming_body">تأكد أن %1$s يعرض الأشكال نفسها. لا تتابع إلا إذا كان جهازك.</string>
+    <string name="pair_trust">الوثوق بالجهاز</string>
+    <string name="pair_not_now">ليس الآن</string>
+    <string name="pair_always_allow">السماح دائمًا بعمليات النقل من هذا الجهاز</string>
+    <string name="pair_outgoing_connecting">جارٍ الاتصال بـ %1$s</string>
+    <string name="pair_outgoing_title">أكّد على %1$s</string>
+    <string name="pair_outgoing_body">تأكد أن %1$s يعرض هذه الأشكال نفسها، ثم اقبل هناك.</string>
+    <string name="pair_mismatch">الأشكال غير متطابقة</string>
+    <string name="pair_done_title">%1$s متصل</string>
+    <string name="pair_done_body">من الآن يعمل تلقائيًا. لا رموز في المرة القادمة.</string>
+    <string name="pair_failed_title">لم يتم الاتصال</string>
+    <string name="pair_failed_body">لم يتصل %1$s. تأكد أن Relay مفتوح عليه وأن الجهازين على شبكة Wi-Fi نفسها.</string>
+    <string name="ok">حسنًا</string>
+
+    <string name="offer_title">%1$s يريد إرسال شيء</string>
+    <string name="offer_receive">استلام</string>
+    <string name="offer_decline">رفض</string>
+
+    <string name="failure_generic">%1$s: لم ينجح ذلك. حاول مرة أخرى.</string>
+    <string name="failure_away">%1$s ليس قريبًا. سيُرسل عند عودته.</string>
+    <string name="failure_lost">انقطع الاتصال. سنتابع عند عودة %1$s.</string>
+    <string name="failure_damaged">وصل الملف تالفًا، لذلك لم يُحفظ. حاول مرة أخرى.</string>
+    <string name="failure_space">لا توجد مساحة كافية على %1$s.</string>
+    <string name="failure_declined">رفض %1$s.</string>
+    <string name="failure_you_declined">مرفوض</string>
+    <string name="failure_cancelled">أُلغي</string>
+    <string name="remaining_seconds">متبقٍ %1$d ثانية</string>
+    <string name="remaining_minutes">متبقٍ %1$d دقيقة</string>
+    <string name="almost_done">على وشك الانتهاء</string>
+
+    <string name="inbox_title">الوارد</string>
+    <string name="inbox_subtitle">كل ما أرسلته أجهزتك إلى هذا الكمبيوتر</string>
+    <string name="inbox_empty_title">لا شيء هنا بعد</string>
+    <string name="inbox_empty_body">الملفات والروابط والملاحظات التي ترسلها أجهزتك إلى هنا تُحفظ في هذه القائمة.</string>
+    <string name="inbox_open">فتح</string>
+    <string name="inbox_show">إظهار في المجلد</string>
+    <string name="inbox_copy">نسخ</string>
+    <string name="inbox_remove">إزالة</string>
+    <string name="this_computer">هذا الكمبيوتر</string>
+    <string name="just_now">الآن</string>
+    <string name="minutes_ago">%1$d د</string>
+    <string name="hours_ago">%1$d س</string>
+    <string name="days_ago">%1$d ي</string>
+
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_device">هذا الكمبيوتر</string>
+    <string name="settings_rename">إعادة التسمية</string>
+    <string name="settings_save">حفظ</string>
+    <string name="settings_save_to">حفظ الملفات المستلمة في</string>
+    <string name="settings_choose_folder">اختيار مجلد</string>
+    <string name="settings_use_default">استخدام Downloads/Relay</string>
+    <string name="settings_clipboard">الحافظة الشاملة</string>
+    <string name="settings_clipboard_body">انسخ على جهاز والصق على آخر: نصوص وصور وملفات، مع أجهزتك الموثوقة على شبكة Wi-Fi نفسها.</string>
+    <string name="settings_start">تشغيل Relay عند تسجيل الدخول</string>
+    <string name="settings_start_body">ينتظر Relay في علبة النظام، حتى يتمكن هاتفك دائمًا من الوصول إلى هذا الكمبيوتر.</string>
+    <string name="settings_start_unavailable">متاح في التطبيق المثبّت.</string>
+    <string name="settings_start_temporary">ثبّت Relay أولًا. هذه النسخة تعمل من مجلد مؤقت، لذا لا يوجد شيء دائم لتشغيله.</string>
+
+    <string name="install_banner_title">Relay يعمل من مجلد مؤقت</string>
+    <string name="install_banner_body">فُتح من داخل ملف zip، لذلك فكّه Windows في مكان ينظفه لاحقًا. ثبّت Relay للاحتفاظ به وتشغيله مع الكمبيوتر والبقاء متصلًا بأجهزتك.</string>
+    <string name="install_banner_body_mac">يعمل من صورة القرص التي تختفي عند إخراجها. اسحب Relay إلى التطبيقات للاحتفاظ به وتشغيله عند تسجيل الدخول.</string>
+    <string name="install_banner_action">تنزيل المثبّت</string>
+    <string name="install_banner_action_mac">طريقة التثبيت</string>
+
+    <string name="settings_spread">Relay وأنت</string>
+    <string name="settings_share_title">مشاركة Relay</string>
+    <string name="settings_share_body">انسخ رابطًا لتعطيه لصديق</string>
+    <string name="settings_share_copied">تم النسخ. الصقه في رسالة</string>
+    <string name="settings_share_message">أستخدم Relay لنقل الملفات والحافظة بين هاتفي والكمبيوتر. بلا حساب، ولا شيء يمر عبر السحابة. مجاني لأندرويد وويندوز وماك ولينكس: %1$s</string>
+    <string name="settings_rate_title">قيّم Relay</string>
+    <string name="settings_rate_body">على Google Play. يساعد ذلك الآخرين في العثور عليه</string>
+    <string name="settings_feedback_title">إرسال ملاحظات</string>
+    <string name="settings_feedback_body">أفكار، مشكلات، أي شيء: %1$s</string>
+    <string name="settings_about">حول</string>
+    <string name="settings_about_body">Relay %1$s · البروتوكول v1. الاتصالات بين أجهزتك مشفّرة. بلا حساب وبلا سحابة؛ الإحصاءات متوقفة ما لم تفعّلها.</string>
+
+    <string name="help_title">اربط أجهزتك</string>
+    <string name="help_subtitle">خطوات قليلة، مرة واحدة. بعدها تجد الأجهزة بعضها تلقائيًا.</string>
+    <string name="help_step1_title">ثبّت Relay على كل جهاز</string>
+    <string name="help_step1_body">أندرويد: Relay من Google Play. ويندوز وماك ولينكس: هذا التطبيق. iPhone وiPad: قيد التطوير.</string>
+    <string name="help_step2_title">انضم إلى شبكة Wi-Fi نفسها</string>
+    <string name="help_step2_body">شبكة Wi-Fi المنزلية أو نقطة اتصال هاتفك. لا حاجة للإنترنت: الأجهزة تتواصل مباشرة.</string>
+    <string name="help_step3_title">انقر الجهاز وتحقق من الأشكال</string>
+    <string name="help_step3_body">يظهر ضمن أجهزة جديدة قريبة. تأكد أن الشاشتين تعرضان الأشكال الثلاثة نفسها، واختر الوثوق على الجهاز الآخر. مرة واحدة فقط.</string>
+    <string name="help_firewall_title">سألك Windows عن جدار الحماية؟</string>
+    <string name="help_firewall_body">اختر السماح على الشبكات الخاصة. هكذا يصل هاتفك إلى هذا الكمبيوتر عبر Wi-Fi. إن فاتك ذلك: أمن Windows › جدار الحماية › السماح لتطبيق عبر جدار الحماية › حدّد Relay.</string>
+    <string name="help_clipboard_title">انسخ هنا، الصق هناك</string>
+    <string name="help_clipboard_body">كل ما تنسخه هنا، نصًا أو لقطة شاشة أو ملفات، جاهز للصق على هاتفك. الملفات المنسوخة على الهاتف تصل إلى هذه الحافظة.</string>
+
+    <string name="help_get_title">احصل على Relay على أجهزتك الأخرى</string>
+    <string name="help_get_android">هاتف أو جهاز لوحي بنظام أندرويد</string>
+    <string name="help_get_android_where">Relay على Google Play</string>
+    <string name="help_get_desktop">ويندوز وماك ولينكس</string>
+    <string name="help_get_desktop_where">التنزيل من GitHub</string>
+    <string name="help_get_apple">iPhone وiPad</string>
+    <string name="help_get_apple_where">قيد التطوير</string>
+
+    <string name="help_guide_title">خطوة بخطوة</string>
+    <string name="help_guide_pick">أي جهازين؟</string>
+    <string name="help_guide_phone_pc">هاتف وكمبيوتر</string>
+    <string name="help_guide_two_phones">هاتفان</string>
+    <string name="help_guide_two_pcs">كمبيوتران</string>
+
+    <string name="help_pc_1_title">ثبّت التطبيقين</string>
+    <string name="help_pc_1_body">Relay لسطح المكتب على هذا الكمبيوتر، وRelay لأندرويد على الهاتف من Google Play.</string>
+    <string name="help_pc_2_title">شبكة Wi-Fi نفسها</string>
+    <string name="help_pc_2_body">ضع الكمبيوتر والهاتف على الشبكة نفسها. إذا سأل Windows عن جدار الحماية، اختر السماح على الشبكات الخاصة.</string>
+    <string name="help_pc_3_title">اتصل مرة واحدة</string>
+    <string name="help_pc_3_body">يظهر الهاتف هنا ضمن أجهزة جديدة قريبة. انقره، وتحقق أن الشاشتين تعرضان الأشكال الثلاثة نفسها، ثم انقر الوثوق على الهاتف.</string>
+    <string name="help_pc_4_title">هذا كل شيء</string>
+    <string name="help_pc_4_body">انسخ على أحدهما والصق على الآخر. اسحب ملفًا إلى رف الإفلات على الحافة اليسرى للشاشة وأفلته على الهاتف، أو شارك إلى هذا الكمبيوتر من الهاتف.</string>
+
+    <string name="help_phones_1_title">ثبّت Relay على الهاتفين</string>
+    <string name="help_phones_1_body">يحتاج الهاتفان إلى التطبيق من Google Play. يمكن لأي منهما بدء الاتصال.</string>
+    <string name="help_phones_2_title">شبكة Wi-Fi نفسها أو نقطة اتصال</string>
+    <string name="help_phones_2_body">صِل الهاتفين بشبكة Wi-Fi نفسها. لا توجد Wi-Fi؟ شغّل نقطة الاتصال على أحد الهاتفين وصِل الآخر بها؛ لا حاجة للإنترنت.</string>
+    <string name="help_phones_3_title">اتصل مرة واحدة</string>
+    <string name="help_phones_3_body">على أي هاتف، انقر الآخر ضمن أجهزة جديدة قريبة. تحقق أن الشاشتين تعرضان الأشكال الثلاثة نفسها، ثم انقر الوثوق على الهاتف الثاني.</string>
+    <string name="help_phones_4_title">هذا كل شيء</string>
+    <string name="help_phones_4_body">شارك الصور والملفات بينهما من أي تطبيق، وألصق الهاتفين ظهرًا لظهر لتبادل بطاقات الاتصال.</string>
+
+    <string name="help_pcs_1_title">ثبّت Relay لسطح المكتب على الاثنين</string>
+    <string name="help_pcs_1_body">نزّله من GitHub لويندوز أو لينكس وشغّله على كل كمبيوتر. يبقى في علبة النظام.</string>
+    <string name="help_pcs_2_title">الشبكة نفسها</string>
+    <string name="help_pcs_2_body">الكمبيوتران على شبكة Wi-Fi نفسها أو الشبكة السلكية نفسها. اسمح لـ Relay عبر جدار الحماية على الشبكات الخاصة.</string>
+    <string name="help_pcs_3_title">اتصل مرة واحدة</string>
+    <string name="help_pcs_3_body">على أحد الكمبيوترين، انقر الآخر ضمن أجهزة جديدة قريبة. تحقق أن الشاشتين تعرضان الأشكال الثلاثة نفسها، ثم اختر الوثوق على الكمبيوتر الثاني.</string>
+    <string name="help_pcs_4_title">هذا كل شيء</string>
+    <string name="help_pcs_4_body">انسخ على كمبيوتر والصق على الآخر، أو اسحب الملفات إلى رف الإفلات على الحافة اليسرى للشاشة.</string>
+
+    <string name="settings_ecosystem">المنظومة</string>
+    <string name="settings_ecosystem_title">أجهزتك تعمل كجهاز واحد</string>
+    <string name="settings_ecosystem_body">كل ما ترسله أجهزتك الموثوقة أو تفلته هنا يصل فورًا، دون زر قبول، وجاهز للصق.</string>
+    <string name="settings_privacy">الخصوصية</string>
+    <string name="settings_analytics_title">ساعد في تحسين Relay</string>
+    <string name="settings_analytics_body">يرسل أعدادًا مجهولة مثل «اكتمل نقل»، ولا يرسل أبدًا أسماء الملفات أو النصوص أو هوية أجهزتك. متوقف افتراضيًا.</string>
+    <string name="settings_shelf_title">رف الإفلات</string>
+    <string name="settings_shelf_body">لسان رفيع على الحافة اليسرى للشاشة. اسحب إليه أي ملف أو نص، ثم أفلته على جهاز.</string>
+
+    <string name="shelf_title">أفلت على جهاز</string>
+    <string name="shelf_click_title">إرسال إلى</string>
+    <string name="shelf_ready">أفلت للإرسال</string>
+    <string name="shelf_click">انقر لاختيار ملفات</string>
+    <string name="shelf_away">بعيد</string>
+    <string name="shelf_sent">أُرسل</string>
+    <string name="shelf_empty">اقرن جهازًا لإفلات الملفات عليه.</string>
+    <string name="help_ecosystem_title">اسحب وأفلت إلى هاتفك</string>
+    <string name="help_ecosystem_body">اسحب ملفًا إلى الحافة اليسرى للشاشة. يُفتح رف الإفلات مع أجهزتك: أفلته على هاتفك فيصل إليه جاهزًا للصق. الأجهزة الموثوقة لا تطلب القبول أبدًا.</string>
+
+    <string name="tray_open">فتح Relay</string>
+    <string name="tray_add_device">إضافة جهاز…</string>
+    <string name="tray_send_file">إرسال ملف إلى %1$s…</string>
+    <string name="tray_send_clipboard">إرسال الحافظة</string>
+    <string name="tray_quit">إنهاء Relay</string>
+    <string name="tray_clipboard_sent">أُرسلت الحافظة إلى %1$d من الأجهزة</string>
+    <string name="tray_nothing_to_send">لا شيء للإرسال. انسخ نصًا وأبقِ جهازًا موثوقًا بالقرب.</string>
+    <string name="already_running">Relay يعمل بالفعل. ابحث عنه في علبة النظام.</string>
+
+    <string name="settings_menu_title">الإرسال عبر Relay من ملفاتك</string>
+    <string name="settings_menu_body_windows">انقر بزر الماوس الأيمن على أي ملف أو مجلد في مستكشف الملفات واختر الإرسال عبر Relay. في Windows 11 تجده ضمن إظهار مزيد من الخيارات.</string>
+    <string name="settings_menu_body_linux">انقر بزر الماوس الأيمن على أي ملف أو مجلد في Dolphin أو الملفات واختر الإرسال عبر Relay.</string>
+    <plurals name="send_picker_title">
+        <item quantity="zero">إرسال %1$d ملف</item>
+        <item quantity="one">إرسال ملف واحد</item>
+        <item quantity="two">إرسال ملفين</item>
+        <item quantity="few">إرسال %1$d ملفات</item>
+        <item quantity="many">إرسال %1$d ملفًا</item>
+        <item quantity="other">إرسال %1$d ملف</item>
+    </plurals>
+    <string name="send_picker_devices">إلى</string>
+    <string name="send_picker_none">لا توجد أجهزة مقترنة بعد. افتح Relay واقرن جهازًا أولًا.</string>
+    <string name="send_picker_away">ليس قريبًا</string>
+    <string name="send_picker_cancel">إلغاء</string>
+    <string name="send_picker_send">إرسال</string>
+
+    <string name="settings_updates_title">التحقق من التحديثات</string>
+    <string name="settings_updates_body">مرة يوميًا، يسأل Relay موقع GitHub، حيث يُنشر، عن وجود إصدار أحدث. لا يُرسل أي شيء عنك أو عن أجهزتك.</string>
+    <string name="update_banner_title">Relay %1$s متاح</string>
+    <string name="update_banner_body">نزّله وثبّته فوق هذا الإصدار. تبقى أجهزتك وإعداداتك كما هي.</string>
+    <string name="update_banner_action">الحصول على التحديث</string>
+
+    <string name="settings_telegram_title">انضم إلينا على Telegram</string>
+    <string name="settings_telegram_body">أخبار ومساعدة وأفكار حول Relay من صانعيه.</string>
+
+    <string name="inbox_search">البحث في الأسماء والأجهزة والنصوص</string>
+    <string name="inbox_kind_all">الكل</string>
+    <string name="inbox_kind_photos">صور وفيديوهات</string>
+    <string name="inbox_kind_files">ملفات</string>
+    <string name="inbox_kind_links">روابط</string>
+    <string name="inbox_kind_text">نص</string>
+    <string name="inbox_from_device">من %1$s</string>
+    <string name="inbox_no_match_title">لا توجد نتائج</string>
+    <string name="inbox_no_match_body">جرّب كلمة أخرى، أو امسح عوامل التصفية.</string>
+
+    <string name="device_folder_title">حفظ ملفات هذا الجهاز في</string>
+    <string name="device_folder_usual">مجلد Relay المعتاد</string>
+    <string name="device_folder_choose">اختيار مجلد</string>
+    <string name="device_folder_reset">استخدام المجلد المعتاد</string>
+
+    <string name="tools_mirror">عرض الإشعارات الجديدة هنا</string>
+    <string name="tools_mirror_hint">فعّل الوصول إلى الإشعارات على الهاتف. تبقى الإشعارات الحالية صامتة، وتظهر هنا الإشعارات الجديدة أو المعدّلة.</string>
+    <string name="tools_shared_folder">المجلد المشترك: %1$s</string>
+    <string name="tools_choose_folder">اختيار المجلد المشترك</string>
+    <string name="tools_edit_command">إضافة أمر أو إزالته</string>
+    <string name="tools_commands">الأوامر: %1$s</string>
+    <string name="tools_commands_none">لا شيء</string>
+    <string name="tools_command_title">أمر على هذا الكمبيوتر</string>
+    <string name="tools_command_body">لا يمكن لجهاز مقترن مسموح له تشغيل إلا الأوامر المحفوظة هنا. اترك الأمر فارغًا لإزالة اسمه.</string>
+    <string name="tools_command_name">الاسم</string>
+    <string name="tools_command_shell">أمر الطرفية</string>
+    <string name="tools_folder_set">تم اختيار المجلد المشترك</string>
+    <string name="tools_folder_failed">تعذّر اختيار هذا المجلد</string>
+    <string name="tools_command_saved">تم حفظ الأمر</string>
+    <string name="tools_command_failed">تعذّر حفظ الأمر</string>
+</resources>

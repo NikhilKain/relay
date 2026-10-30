@@ -46,7 +46,7 @@ import java.util.concurrent.ConcurrentHashMap
 internal class TransferCoordinator(
     private val scope: CoroutineScope,
     /** Where each kind of transfer is received. Clipboard transfers go to a private cache, not the user's files. */
-    private val storageFor: (TransferKind) -> IncomingStorage,
+    private val storageFor: (DeviceId, TransferKind) -> IncomingStorage,
     /** Whether copied files from trusted devices may land on this device's clipboard right now. */
     private val acceptsClipboard: () -> Boolean,
     /** Ecosystem mode: every trusted device sends without asking, as if it were this device. */
@@ -119,7 +119,7 @@ internal class TransferCoordinator(
             // Clipboard sync is off here. A clipboard is not something to ask about.
             return connection.send(RelayMessage.TransferDecline(request.transferId, DeclineReason.USER_DECLINED))
         }
-        val transfer = IncomingTransfer(request, peerId, storageFor(request.kind), clock)
+        val transfer = IncomingTransfer(request, peerId, storageFor(peerId, request.kind), clock)
         if (!transfer.isWellFormed || runCatching { UUID.fromString(request.transferId) }.isFailure) {
             return connection.send(RelayMessage.TransferDecline(request.transferId, DeclineReason.UNKNOWN))
         }

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_devices">Устройства</string>
+    <string name="nav_inbox">Входящие</string>
+    <string name="nav_settings">Настройки</string>
+    <string name="nav_help">Справка</string>
+    <string name="action_send">Отправить</string>
+
+    <string name="home_title">Ваши устройства</string>
+    <string name="home_nearby">Рядом: %1$d</string>
+    <string name="home_looking">Ищем ваши устройства</string>
+    <string name="home_new">Новые рядом</string>
+    <string name="home_tap_to_connect">Нажмите, чтобы подключить</string>
+    <string name="home_empty_title">Рядом ничего нет</string>
+    <string name="home_empty_body">Откройте Relay на телефоне в той же сети Wi-Fi. Он появится здесь сам.</string>
+    <string name="home_empty_action">Как подключить</string>
+    <string name="home_pick">Выберите устройство</string>
+    <string name="home_add_device">Добавить устройство</string>
+
+    <string name="qr_title">Подключить новое устройство</string>
+    <string name="qr_body">На телефоне откройте Relay, нажмите кнопку сканирования и наведите на этот код. Оба устройства должны быть в одной сети Wi-Fi.</string>
+    <string name="qr_caption">%1$s · Обновляется сам</string>
+    <string name="qr_read_image">Считать QR-код с изображения</string>
+    <string name="qr_change_network">Другая сеть</string>
+    <string name="qr_network_title">Какая сеть?</string>
+    <string name="qr_network_body">Этот компьютер подключён к нескольким сетям. Выберите ту, в которой ваш телефон.</string>
+    <string name="qr_no_network">Этот компьютер не подключён к сети. Подключитесь к Wi-Fi, и код появится здесь.</string>
+    <string name="qr_reading">Считываем QR-код…</string>
+    <string name="qr_unreadable">На изображении нет QR-кода Relay. Используйте чёткий снимок кода, созданного менее пяти минут назад.</string>
+    <string name="qr_confirm_title">Подключиться к этому устройству?</string>
+    <string name="qr_confirm_body">Relay подключится, а затем попросит оба устройства показать одинаковые фигуры, прежде чем доверять им.</string>
+    <string name="qr_connecting">Подключение…</string>
+    <string name="qr_connected">Подключено. Чтобы завершить, проверьте, что фигуры совпадают на обоих устройствах.</string>
+    <string name="qr_failed">Не удалось подключиться. Проверьте, что оба устройства в одной сети Wi-Fi, и попробуйте новый код.</string>
+
+    <string name="device_drop_title">Перетащите файлы сюда</string>
+    <string name="device_drop_body">Фото, документы, целые папки. Они сразу отправятся на %1$s.</string>
+    <string name="device_drop_release">Отпустите, чтобы отправить на %1$s</string>
+    <string name="device_choose_files">Выбрать файлы</string>
+    <string name="device_folder">Папка</string>
+    <string name="device_folder_hint">Сохраняет структуру</string>
+    <string name="device_clipboard">Буфер обмена</string>
+    <string name="device_clipboard_hint">Отправить скопированное</string>
+    <string name="device_text">Текст</string>
+    <string name="device_text_hint">Напишите заметку</string>
+    <string name="device_continue">Продолжить</string>
+    <string name="device_continue_hint">Открыть ссылку на %1$s</string>
+    <string name="device_recent">С этим устройством</string>
+    <string name="device_nothing_yet">Пока ничего не отправлено</string>
+    <string name="device_auto_accept">Всегда разрешать передачи от %1$s</string>
+    <string name="device_forget">Забыть это устройство</string>
+    <string name="device_connect">Подключить</string>
+    <string name="device_connect_body">Подключитесь один раз, чтобы отправлять на %1$s. Нужно будет проверить, что на обоих экранах одинаковые фигуры.</string>
+    <string name="device_away_body">%1$s не рядом. То, что вы отправите сейчас, придёт, когда устройство вернётся.</string>
+    <string name="device_incompatible">Обновите Relay на %1$s, чтобы подключиться.</string>
+
+    <string name="compose_text_title">Отправить текст на %1$s</string>
+    <string name="compose_link_title">Открыть ссылку на %1$s</string>
+    <string name="compose_text_hint">Напишите что-нибудь</string>
+    <string name="compose_link_hint">Вставьте ссылку</string>
+    <string name="compose_send">Отправить</string>
+    <string name="compose_open">Открыть там</string>
+    <string name="cancel">Отмена</string>
+
+    <string name="pair_incoming_title">%1$s хочет подключиться</string>
+    <string name="pair_incoming_body">Проверьте, что %1$s показывает те же фигуры. Продолжайте, только если это ваше устройство.</string>
+    <string name="pair_trust">Доверять устройству</string>
+    <string name="pair_not_now">Не сейчас</string>
+    <string name="pair_always_allow">Всегда разрешать передачи с этого устройства</string>
+    <string name="pair_outgoing_connecting">Подключение к %1$s</string>
+    <string name="pair_outgoing_title">Подтвердите на %1$s</string>
+    <string name="pair_outgoing_body">Убедитесь, что %1$s показывает те же фигуры, и примите там.</string>
+    <string name="pair_mismatch">Фигуры не совпадают</string>
+    <string name="pair_done_title">%1$s подключено</string>
+    <string name="pair_done_body">Теперь всё работает само. В следующий раз коды не нужны.</string>
+    <string name="pair_failed_title">Не подключено</string>
+    <string name="pair_failed_body">%1$s не подключилось. Убедитесь, что на нём открыт Relay и оба устройства в одной сети Wi-Fi.</string>
+    <string name="ok">ОК</string>
+
+    <string name="offer_title">%1$s хочет что-то отправить</string>
+    <string name="offer_receive">Принять</string>
+    <string name="offer_decline">Отклонить</string>
+
+    <string name="failure_generic">%1$s: не получилось. Попробуйте ещё раз.</string>
+    <string name="failure_away">%1$s не рядом. Отправим, когда устройство вернётся.</string>
+    <string name="failure_lost">Соединение потеряно. Продолжим, когда %1$s вернётся.</string>
+    <string name="failure_damaged">Файл пришёл повреждённым, поэтому не сохранён. Попробуйте ещё раз.</string>
+    <string name="failure_space">Недостаточно места на %1$s.</string>
+    <string name="failure_declined">%1$s отклонило.</string>
+    <string name="failure_you_declined">Отклонено</string>
+    <string name="failure_cancelled">Отменено</string>
+    <string name="remaining_seconds">Осталось %1$d с</string>
+    <string name="remaining_minutes">Осталось %1$d мин</string>
+    <string name="almost_done">Почти готово</string>
+
+    <string name="inbox_title">Входящие</string>
+    <string name="inbox_subtitle">Всё, что ваши устройства отправили на этот компьютер</string>
+    <string name="inbox_empty_title">Здесь пока пусто</string>
+    <string name="inbox_empty_body">Файлы, ссылки и заметки, которые ваши устройства отправляют сюда, хранятся в этом списке.</string>
+    <string name="inbox_open">Открыть</string>
+    <string name="inbox_show">Показать в папке</string>
+    <string name="inbox_copy">Копировать</string>
+    <string name="inbox_remove">Убрать</string>
+    <string name="this_computer">Этот компьютер</string>
+    <string name="just_now">Только что</string>
+    <string name="minutes_ago">%1$d мин</string>
+    <string name="hours_ago">%1$d ч</string>
+    <string name="days_ago">%1$d д</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="settings_device">Этот компьютер</string>
+    <string name="settings_rename">Переименовать</string>
+    <string name="settings_save">Сохранить</string>
+    <string name="settings_save_to">Сохранять полученные файлы в</string>
+    <string name="settings_choose_folder">Выбрать папку</string>
+    <string name="settings_use_default">Использовать Загрузки/Relay</string>
+    <string name="settings_clipboard">Общий буфер обмена</string>
+    <string name="settings_clipboard_body">Копируйте на одном устройстве, вставляйте на другом: текст, изображения и файлы, с доверенными устройствами в той же сети Wi-Fi.</string>
+    <string name="settings_start">Запускать Relay при входе в систему</string>
+    <string name="settings_start_body">Relay ждёт в области уведомлений, чтобы телефон всегда мог связаться с этим компьютером.</string>
+    <string name="settings_start_unavailable">Доступно в установленном приложении.</string>
+    <string name="settings_start_temporary">Сначала установите Relay. Эта копия запущена из временной папки, поэтому запускать постоянно нечего.</string>
+
+    <string name="install_banner_title">Relay запущен из временной папки</string>
+    <string name="install_banner_body">Его открыли прямо из zip-архива, поэтому Windows распаковала его туда, где позже всё удалит. Установите Relay, чтобы сохранить его, запускать вместе с компьютером и оставаться на связи с устройствами.</string>
+    <string name="install_banner_body_mac">Он запущен с образа диска, который исчезнет после извлечения. Перетащите Relay в Программы, чтобы сохранить его и запускать при входе.</string>
+    <string name="install_banner_action">Скачать установщик</string>
+    <string name="install_banner_action_mac">Как установить</string>
+
+    <string name="settings_spread">Relay и вы</string>
+    <string name="settings_share_title">Поделиться Relay</string>
+    <string name="settings_share_body">Скопируйте ссылку для друга</string>
+    <string name="settings_share_copied">Скопировано. Вставьте в сообщение</string>
+    <string name="settings_share_message">Я использую Relay, чтобы передавать файлы и буфер обмена между телефоном и компьютером. Без аккаунта, ничего не проходит через облако. Бесплатно для Android, Windows, Mac и Linux: %1$s</string>
+    <string name="settings_rate_title">Оценить Relay</string>
+    <string name="settings_rate_body">В Google Play. Так его найдут другие</string>
+    <string name="settings_feedback_title">Отправить отзыв</string>
+    <string name="settings_feedback_body">Идеи, проблемы, что угодно: %1$s</string>
+    <string name="settings_about">О приложении</string>
+    <string name="settings_about_body">Relay %1$s · Протокол v1. Соединения между вашими устройствами зашифрованы. Без аккаунта и облака; статистика выключена, пока вы её не включите.</string>
+
+    <string name="help_title">Подключите свои устройства</string>
+    <string name="help_subtitle">Несколько шагов, один раз. Дальше они находят друг друга сами.</string>
+    <string name="help_step1_title">Установите Relay на каждое устройство</string>
+    <string name="help_step1_body">Android: Relay в Google Play. Windows, Mac и Linux: это приложение. iPhone и iPad: в разработке.</string>
+    <string name="help_step2_title">Подключитесь к одной сети Wi-Fi</string>
+    <string name="help_step2_body">Домашний Wi-Fi или точка доступа телефона. Интернет не нужен: устройства общаются напрямую.</string>
+    <string name="help_step3_title">Нажмите на устройство и сверьте фигуры</string>
+    <string name="help_step3_body">Оно появится в разделе «Новые рядом». Убедитесь, что на обоих экранах три одинаковые фигуры, и выберите «Доверять» на другом устройстве. Только один раз.</string>
+    <string name="help_firewall_title">Windows спросила про брандмауэр?</string>
+    <string name="help_firewall_body">Выберите «Разрешить в частных сетях». Так телефон сможет связаться с этим компьютером по Wi-Fi. Если пропустили: Безопасность Windows › Брандмауэр › Разрешить работу с приложением через брандмауэр › отметьте Relay.</string>
+    <string name="help_clipboard_title">Копируйте здесь, вставляйте там</string>
+    <string name="help_clipboard_body">Всё, что вы копируете здесь, текст, снимок экрана или файлы, готово для вставки на телефоне. Файлы, скопированные на телефоне, попадают в этот буфер обмена.</string>
+
+    <string name="help_get_title">Установите Relay на другие устройства</string>
+    <string name="help_get_android">Телефон или планшет на Android</string>
+    <string name="help_get_android_where">Relay в Google Play</string>
+    <string name="help_get_desktop">Windows, Mac и Linux</string>
+    <string name="help_get_desktop_where">Скачать с GitHub</string>
+    <string name="help_get_apple">iPhone и iPad</string>
+    <string name="help_get_apple_where">В разработке</string>
+
+    <string name="help_guide_title">Пошагово</string>
+    <string name="help_guide_pick">Какие два устройства?</string>
+    <string name="help_guide_phone_pc">Телефон и ПК</string>
+    <string name="help_guide_two_phones">Два телефона</string>
+    <string name="help_guide_two_pcs">Два ПК</string>
+
+    <string name="help_pc_1_title">Установите оба приложения</string>
+    <string name="help_pc_1_body">Relay для компьютера на этот компьютер и Relay для Android на телефон из Google Play.</string>
+    <string name="help_pc_2_title">Одна сеть Wi-Fi</string>
+    <string name="help_pc_2_body">Подключите компьютер и телефон к одной сети. Если Windows спросит про брандмауэр, выберите «Разрешить в частных сетях».</string>
+    <string name="help_pc_3_title">Подключите один раз</string>
+    <string name="help_pc_3_body">Телефон появится здесь в разделе «Новые рядом». Нажмите на него, проверьте, что на обоих экранах три одинаковые фигуры, и нажмите «Доверять» на телефоне.</string>
+    <string name="help_pc_4_title">Готово</string>
+    <string name="help_pc_4_body">Копируйте на одном, вставляйте на другом. Перетащите файл на полку у левого края экрана и отпустите на телефон или поделитесь с телефона на этот компьютер.</string>
+
+    <string name="help_phones_1_title">Установите Relay на оба телефона</string>
+    <string name="help_phones_1_body">Обоим телефонам нужно приложение из Google Play. Подключение может начать любой из них.</string>
+    <string name="help_phones_2_title">Одна сеть Wi-Fi или точка доступа</string>
+    <string name="help_phones_2_body">Подключите оба телефона к одной сети Wi-Fi. Нет Wi-Fi? Включите точку доступа на одном телефоне и подключите к ней другой; интернет не нужен.</string>
+    <string name="help_phones_3_title">Подключите один раз</string>
+    <string name="help_phones_3_body">На любом телефоне нажмите на другой в разделе «Новые рядом». Проверьте, что на обоих экранах три одинаковые фигуры, и нажмите «Доверять» на втором телефоне.</string>
+    <string name="help_phones_4_title">Готово</string>
+    <string name="help_phones_4_body">Делитесь фото и файлами между ними из любого приложения, а чтобы обменяться визитками, приложите телефоны задними сторонами.</string>
+
+    <string name="help_pcs_1_title">Установите Relay для компьютера на оба</string>
+    <string name="help_pcs_1_body">Скачайте его с GitHub для Windows или Linux и запустите на каждом компьютере. Он работает в области уведомлений.</string>
+    <string name="help_pcs_2_title">Одна сеть</string>
+    <string name="help_pcs_2_body">Оба компьютера в одной сети Wi-Fi или одной проводной сети. Разрешите Relay в брандмауэре для частных сетей.</string>
+    <string name="help_pcs_3_title">Подключите один раз</string>
+    <string name="help_pcs_3_body">На одном компьютере нажмите на другой в разделе «Новые рядом». Проверьте, что на обоих экранах три одинаковые фигуры, и выберите «Доверять» на втором компьютере.</string>
+    <string name="help_pcs_4_title">Готово</string>
+    <string name="help_pcs_4_body">Копируйте на одном компьютере и вставляйте на другом или перетаскивайте файлы на полку у левого края экрана.</string>
+
+    <string name="settings_ecosystem">Экосистема</string>
+    <string name="settings_ecosystem_title">Ваши устройства как одно целое</string>
+    <string name="settings_ecosystem_body">Всё, что доверенные устройства отправляют или бросают сюда, приходит сразу, без кнопки «Принять», и готово к вставке.</string>
+    <string name="settings_privacy">Конфиденциальность</string>
+    <string name="settings_analytics_title">Помочь улучшить Relay</string>
+    <string name="settings_analytics_body">Отправляет анонимные счётчики вроде «передача завершена», но никогда не имена файлов, текст или сведения о ваших устройствах. По умолчанию выключено.</string>
+    <string name="settings_shelf_title">Полка для файлов</string>
+    <string name="settings_shelf_body">Тонкая вкладка у левого края экрана. Перетащите на неё файл или текст и отпустите на устройство.</string>
+
+    <string name="shelf_title">Отпустите на устройство</string>
+    <string name="shelf_click_title">Отправить на</string>
+    <string name="shelf_ready">Отпустите, чтобы отправить</string>
+    <string name="shelf_click">Нажмите, чтобы выбрать файлы</string>
+    <string name="shelf_away">Не рядом</string>
+    <string name="shelf_sent">Отправлено</string>
+    <string name="shelf_empty">Подключите устройство, чтобы бросать на него файлы.</string>
+    <string name="help_ecosystem_title">Перетаскивайте на телефон</string>
+    <string name="help_ecosystem_body">Перетащите файл к левому краю экрана. Откроется полка с вашими устройствами: отпустите файл на телефон, и он придёт туда, готовый к вставке. Доверенные устройства никогда не просят подтверждения.</string>
+
+    <string name="tray_open">Открыть Relay</string>
+    <string name="tray_add_device">Добавить устройство…</string>
+    <string name="tray_send_file">Отправить файл на %1$s…</string>
+    <string name="tray_send_clipboard">Отправить буфер обмена</string>
+    <string name="tray_quit">Выйти из Relay</string>
+    <string name="tray_clipboard_sent">Буфер обмена отправлен на устройства: %1$d</string>
+    <string name="tray_nothing_to_send">Нечего отправить. Скопируйте текст и держите доверенное устройство рядом.</string>
+    <string name="already_running">Relay уже запущен. Найдите его в области уведомлений.</string>
+
+    <string name="settings_menu_title">Отправка через Relay из файлов</string>
+    <string name="settings_menu_body_windows">Щёлкните правой кнопкой по файлу или папке в Проводнике и выберите «Отправить через Relay». В Windows 11 это в «Показать дополнительные параметры».</string>
+    <string name="settings_menu_body_linux">Щёлкните правой кнопкой по файлу или папке в Dolphin или Файлах и выберите «Отправить через Relay».</string>
+    <plurals name="send_picker_title">
+        <item quantity="one">Отправить %1$d файл</item>
+        <item quantity="few">Отправить %1$d файла</item>
+        <item quantity="many">Отправить %1$d файлов</item>
+        <item quantity="other">Отправить %1$d файла</item>
+    </plurals>
+    <string name="send_picker_devices">Кому</string>
+    <string name="send_picker_none">Пока нет сопряжённых устройств. Откройте Relay и сначала подключите одно.</string>
+    <string name="send_picker_away">Не рядом</string>
+    <string name="send_picker_cancel">Отмена</string>
+    <string name="send_picker_send">Отправить</string>
+
+    <string name="settings_updates_title">Проверять обновления</string>
+    <string name="settings_updates_body">Раз в день Relay спрашивает GitHub, где он публикуется, вышла ли новая версия. Никаких данных о вас или ваших устройствах не передаётся.</string>
+    <string name="update_banner_title">Доступен Relay %1$s</string>
+    <string name="update_banner_body">Скачайте и установите поверх этой версии. Устройства и настройки сохранятся.</string>
+    <string name="update_banner_action">Получить обновление</string>
+
+    <string name="settings_telegram_title">Присоединяйтесь в Telegram</string>
+    <string name="settings_telegram_body">Новости, помощь и идеи по Relay от его создателей.</string>
+
+    <string name="inbox_search">Поиск по именам, устройствам и тексту</string>
+    <string name="inbox_kind_all">Все</string>
+    <string name="inbox_kind_photos">Фото и видео</string>
+    <string name="inbox_kind_files">Файлы</string>
+    <string name="inbox_kind_links">Ссылки</string>
+    <string name="inbox_kind_text">Текст</string>
+    <string name="inbox_from_device">От %1$s</string>
+    <string name="inbox_no_match_title">Ничего не найдено</string>
+    <string name="inbox_no_match_body">Попробуйте другое слово или сбросьте фильтры.</string>
+
+    <string name="device_folder_title">Сохранять файлы с этого устройства в</string>
+    <string name="device_folder_usual">Обычная папка Relay</string>
+    <string name="device_folder_choose">Выбрать папку</string>
+    <string name="device_folder_reset">Использовать обычную папку</string>
+
+    <string name="tools_mirror">Показывать здесь новые уведомления</string>
+    <string name="tools_mirror_hint">Включите доступ к уведомлениям на телефоне. Существующие уведомления не появятся; новые или изменённые будут показаны здесь.</string>
+    <string name="tools_shared_folder">Общая папка: %1$s</string>
+    <string name="tools_choose_folder">Выбрать общую папку</string>
+    <string name="tools_edit_command">Добавить или удалить команду</string>
+    <string name="tools_commands">Команды: %1$s</string>
+    <string name="tools_commands_none">Нет</string>
+    <string name="tools_command_title">Команда на этом компьютере</string>
+    <string name="tools_command_body">Запускать можно только сохранённые здесь команды и только с разрешённого сопряжённого устройства. Оставьте команду пустой, чтобы удалить её имя.</string>
+    <string name="tools_command_name">Название</string>
+    <string name="tools_command_shell">Команда оболочки</string>
+    <string name="tools_folder_set">Общая папка выбрана</string>
+    <string name="tools_folder_failed">Не удалось выбрать эту папку</string>
+    <string name="tools_command_saved">Команда сохранена</string>
+    <string name="tools_command_failed">Не удалось сохранить команду</string>
+</resources>

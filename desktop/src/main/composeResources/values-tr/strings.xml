@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_devices">Cihazlar</string>
+    <string name="nav_inbox">Gelen Kutusu</string>
+    <string name="nav_settings">Ayarlar</string>
+    <string name="nav_help">Yardım</string>
+    <string name="action_send">Gönder</string>
+
+    <string name="home_title">Cihazların</string>
+    <string name="home_nearby">Yakında %1$d</string>
+    <string name="home_looking">Cihazların aranıyor</string>
+    <string name="home_new">Yakındaki yeni cihazlar</string>
+    <string name="home_tap_to_connect">Bağlanmak için tıkla</string>
+    <string name="home_empty_title">Yakında bir şey yok</string>
+    <string name="home_empty_body">Telefonunda, aynı Wi-Fi ağında Relay’i aç. Burada kendiliğinden görünür.</string>
+    <string name="home_empty_action">Nasıl bağlanılır</string>
+    <string name="home_pick">Bir cihaz seç</string>
+    <string name="home_add_device">Cihaz ekle</string>
+
+    <string name="qr_title">Yeni bir cihaz bağla</string>
+    <string name="qr_body">Telefonunda Relay’i aç, tarama düğmesine dokun ve bu koda doğrult. İki cihaz da aynı Wi-Fi ağında olmalı.</string>
+    <string name="qr_caption">%1$s · Kendiliğinden yenilenir</string>
+    <string name="qr_read_image">Görüntüden QR oku</string>
+    <string name="qr_change_network">Başka bir ağ kullan</string>
+    <string name="qr_network_title">Hangi ağ?</string>
+    <string name="qr_network_body">Bu bilgisayar birden fazla ağda. Telefonunun bulunduğu ağı seç.</string>
+    <string name="qr_no_network">Bu bilgisayar bir ağa bağlı değil. Wi-Fi’ye bağlan, kod burada görünür.</string>
+    <string name="qr_reading">QR okunuyor…</string>
+    <string name="qr_unreadable">Bu görüntüde Relay QR’ı yok. Beş dakikadan eski olmayan bir kodun net bir resmini kullan.</string>
+    <string name="qr_confirm_title">Bu cihaza bağlanılsın mı?</string>
+    <string name="qr_confirm_body">Relay bağlanacak, sonra güvenmeden önce iki cihazdan da aynı şekilleri göstermesini isteyecek.</string>
+    <string name="qr_connecting">Bağlanıyor…</string>
+    <string name="qr_connected">Bağlandı. Bitirmek için iki cihazda da şekillerin eşleştiğini kontrol et.</string>
+    <string name="qr_failed">Bağlanılamadı. İki cihazın da aynı Wi-Fi ağında olduğunu kontrol et, sonra yeni bir kod dene.</string>
+
+    <string name="device_drop_title">Dosyaları buraya bırak</string>
+    <string name="device_drop_body">Fotoğraflar, belgeler, tüm klasörler. Doğrudan %1$s cihazına gider.</string>
+    <string name="device_drop_release">%1$s cihazına göndermek için bırak</string>
+    <string name="device_choose_files">Dosya seç</string>
+    <string name="device_folder">Klasör</string>
+    <string name="device_folder_hint">Yapısını korur</string>
+    <string name="device_clipboard">Pano</string>
+    <string name="device_clipboard_hint">Kopyaladığını gönder</string>
+    <string name="device_text">Metin</string>
+    <string name="device_text_hint">Not yaz</string>
+    <string name="device_continue">Devam et</string>
+    <string name="device_continue_hint">%1$s üzerinde bağlantı aç</string>
+    <string name="device_recent">Bu cihazla</string>
+    <string name="device_nothing_yet">Henüz bir şey gönderilmedi</string>
+    <string name="device_auto_accept">%1$s cihazından aktarımlara her zaman izin ver</string>
+    <string name="device_forget">Bu cihazı unut</string>
+    <string name="device_connect">Bağlan</string>
+    <string name="device_connect_body">%1$s cihazına bir şeyler göndermek için bir kez bağlan. İki ekranın da aynı şekilleri gösterdiğini kontrol edeceksin.</string>
+    <string name="device_away_body">%1$s yakında değil. Şimdi gönderdiklerin, döndüğünde ulaşır.</string>
+    <string name="device_incompatible">Bağlanmak için %1$s üzerindeki Relay’i güncelle.</string>
+
+    <string name="compose_text_title">%1$s cihazına metin gönder</string>
+    <string name="compose_link_title">%1$s üzerinde bağlantı aç</string>
+    <string name="compose_text_hint">Bir şeyler yaz</string>
+    <string name="compose_link_hint">Bağlantı yapıştır</string>
+    <string name="compose_send">Gönder</string>
+    <string name="compose_open">Orada aç</string>
+    <string name="cancel">İptal</string>
+
+    <string name="pair_incoming_title">%1$s bağlanmak istiyor</string>
+    <string name="pair_incoming_body">%1$s cihazının aynı şekilleri gösterdiğini kontrol et. Yalnızca sana aitse devam et.</string>
+    <string name="pair_trust">Cihaza güven</string>
+    <string name="pair_not_now">Şimdi değil</string>
+    <string name="pair_always_allow">Bu cihazdan aktarımlara her zaman izin ver</string>
+    <string name="pair_outgoing_connecting">%1$s cihazına bağlanıyor</string>
+    <string name="pair_outgoing_title">%1$s üzerinde onayla</string>
+    <string name="pair_outgoing_body">%1$s cihazının bu şekillerin aynısını gösterdiğinden emin ol, sonra orada kabul et.</string>
+    <string name="pair_mismatch">Şekiller eşleşmiyor</string>
+    <string name="pair_done_title">%1$s bağlandı</string>
+    <string name="pair_done_body">Bundan sonra kendiliğinden çalışır. Bir dahaki sefere kod yok.</string>
+    <string name="pair_failed_title">Bağlanmadı</string>
+    <string name="pair_failed_body">%1$s bağlanmadı. Üzerinde Relay’in açık olduğundan ve ikisinin de aynı Wi-Fi ağında olduğundan emin ol.</string>
+    <string name="ok">Tamam</string>
+
+    <string name="offer_title">%1$s bir şey göndermek istiyor</string>
+    <string name="offer_receive">Al</string>
+    <string name="offer_decline">Reddet</string>
+
+    <string name="failure_generic">%1$s: gerçekleşmedi. Tekrar dene.</string>
+    <string name="failure_away">%1$s yakında değil. Döndüğünde gönderilecek.</string>
+    <string name="failure_lost">Bağlantı koptu. %1$s döndüğünde devam edeceğiz.</string>
+    <string name="failure_damaged">Dosya hasarlı geldi, bu yüzden saklanmadı. Tekrar dene.</string>
+    <string name="failure_space">%1$s üzerinde yeterli alan yok.</string>
+    <string name="failure_declined">%1$s reddetti.</string>
+    <string name="failure_you_declined">Reddedildi</string>
+    <string name="failure_cancelled">İptal edildi</string>
+    <string name="remaining_seconds">%1$d saniye kaldı</string>
+    <string name="remaining_minutes">%1$d dk kaldı</string>
+    <string name="almost_done">Neredeyse bitti</string>
+
+    <string name="inbox_title">Gelen Kutusu</string>
+    <string name="inbox_subtitle">Cihazlarının bu bilgisayara gönderdiği her şey</string>
+    <string name="inbox_empty_title">Burada henüz bir şey yok</string>
+    <string name="inbox_empty_body">Cihazlarının buraya gönderdiği dosyalar, bağlantılar ve notlar bu listede saklanır.</string>
+    <string name="inbox_open">Aç</string>
+    <string name="inbox_show">Klasörde göster</string>
+    <string name="inbox_copy">Kopyala</string>
+    <string name="inbox_remove">Kaldır</string>
+    <string name="this_computer">Bu bilgisayar</string>
+    <string name="just_now">Az önce</string>
+    <string name="minutes_ago">%1$d dk</string>
+    <string name="hours_ago">%1$d sa</string>
+    <string name="days_ago">%1$d g</string>
+
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_device">Bu bilgisayar</string>
+    <string name="settings_rename">Yeniden adlandır</string>
+    <string name="settings_save">Kaydet</string>
+    <string name="settings_save_to">Alınan dosyaları şuraya kaydet</string>
+    <string name="settings_choose_folder">Klasör seç</string>
+    <string name="settings_use_default">İndirilenler/Relay kullan</string>
+    <string name="settings_clipboard">Evrensel pano</string>
+    <string name="settings_clipboard_body">Bir cihazda kopyala, diğerinde yapıştır: metin, görseller ve dosyalar, aynı Wi-Fi ağındaki güvenilir cihazlarınla.</string>
+    <string name="settings_start">Oturum açınca Relay’i başlat</string>
+    <string name="settings_start_body">Relay sistem tepsisinde bekler, böylece telefonun bu bilgisayara her zaman ulaşabilir.</string>
+    <string name="settings_start_unavailable">Yüklü uygulamada kullanılabilir.</string>
+    <string name="settings_start_temporary">Önce Relay’i yükle. Bu kopya geçici bir klasörden çalışıyor, bu yüzden kalıcı olarak başlatılacak bir şey yok.</string>
+
+    <string name="install_banner_title">Relay geçici bir klasörden çalışıyor</string>
+    <string name="install_banner_body">Zip dosyasının içinden açıldı, bu yüzden Windows onu daha sonra temizlediği bir yere çıkardı. Saklamak, bilgisayarla birlikte başlatmak ve cihazlarına bağlı kalmak için Relay’i yükle.</string>
+    <string name="install_banner_body_mac">Disk görüntüsünden çalışıyor ve çıkardığında kaybolur. Saklamak ve oturum açınca başlatmak için Relay’i Uygulamalar’a sürükle.</string>
+    <string name="install_banner_action">Yükleyiciyi indir</string>
+    <string name="install_banner_action_mac">Nasıl yüklenir</string>
+
+    <string name="settings_spread">Relay ve sen</string>
+    <string name="settings_share_title">Relay’i paylaş</string>
+    <string name="settings_share_body">Bir arkadaşına vermek için bağlantıyı kopyala</string>
+    <string name="settings_share_copied">Kopyalandı. Bir mesaja yapıştır</string>
+    <string name="settings_share_message">Telefonumla bilgisayarım arasında dosya ve pano aktarmak için Relay kullanıyorum. Hesap yok, hiçbir şey buluttan geçmiyor. Android, Windows, Mac ve Linux için ücretsiz: %1$s</string>
+    <string name="settings_rate_title">Relay’i puanla</string>
+    <string name="settings_rate_body">Google Play’de. Başkalarının bulmasına yardımcı olur</string>
+    <string name="settings_feedback_title">Geri bildirim gönder</string>
+    <string name="settings_feedback_body">Fikirler, sorunlar, her şey: %1$s</string>
+    <string name="settings_about">Hakkında</string>
+    <string name="settings_about_body">Relay %1$s · Protokol v1. Cihazların arasındaki bağlantılar şifrelidir. Hesap yok, bulut yok; istatistikler sen açmadıkça kapalıdır.</string>
+
+    <string name="help_title">Cihazlarını bağla</string>
+    <string name="help_subtitle">Birkaç adım, bir kez. Sonra birbirlerini kendileri bulurlar.</string>
+    <string name="help_step1_title">Her cihaza Relay yükle</string>
+    <string name="help_step1_body">Android: Google Play’deki Relay. Windows, Mac ve Linux: bu uygulama. iPhone ve iPad: hazırlanıyor.</string>
+    <string name="help_step2_title">Aynı Wi-Fi ağına katıl</string>
+    <string name="help_step2_body">Ev Wi-Fi’si veya telefonunun erişim noktası. İnternet gerekmez: cihazlar doğrudan konuşur.</string>
+    <string name="help_step3_title">Cihaza tıkla ve şekilleri kontrol et</string>
+    <string name="help_step3_body">Yakındaki yeni cihazlar altında görünür. İki ekranın da aynı üç şekli gösterdiğinden emin ol ve diğer cihazda Güven’i seç. Yalnızca bir kez.</string>
+    <string name="help_firewall_title">Windows güvenlik duvarını mı sordu?</string>
+    <string name="help_firewall_body">Özel ağlarda izin ver’i seç. Böylece telefonun Wi-Fi üzerinden bu bilgisayara ulaşabilir. Kaçırdıysan: Windows Güvenliği › Güvenlik duvarı › Uygulamaya güvenlik duvarından izin ver › Relay’i işaretle.</string>
+    <string name="help_clipboard_title">Burada kopyala, orada yapıştır</string>
+    <string name="help_clipboard_body">Burada kopyaladığın her şey, metin, ekran görüntüsü veya dosyalar, telefonunda yapıştırılmaya hazırdır. Telefonda kopyalanan dosyalar bu panoya gelir.</string>
+
+    <string name="help_get_title">Diğer cihazlarına Relay yükle</string>
+    <string name="help_get_android">Android telefon veya tablet</string>
+    <string name="help_get_android_where">Google Play’de Relay</string>
+    <string name="help_get_desktop">Windows, Mac ve Linux</string>
+    <string name="help_get_desktop_where">GitHub’dan indir</string>
+    <string name="help_get_apple">iPhone ve iPad</string>
+    <string name="help_get_apple_where">Hazırlanıyor</string>
+
+    <string name="help_guide_title">Adım adım</string>
+    <string name="help_guide_pick">Hangi iki cihaz?</string>
+    <string name="help_guide_phone_pc">Telefon ve bilgisayar</string>
+    <string name="help_guide_two_phones">İki telefon</string>
+    <string name="help_guide_two_pcs">İki bilgisayar</string>
+
+    <string name="help_pc_1_title">İki uygulamayı da yükle</string>
+    <string name="help_pc_1_body">Bu bilgisayara masaüstü için Relay, telefona Google Play’den Android için Relay.</string>
+    <string name="help_pc_2_title">Aynı Wi-Fi</string>
+    <string name="help_pc_2_body">Bilgisayarı ve telefonu aynı ağa bağla. Windows güvenlik duvarını sorarsa Özel ağlarda izin ver’i seç.</string>
+    <string name="help_pc_3_title">Bir kez bağla</string>
+    <string name="help_pc_3_body">Telefon burada Yakındaki yeni cihazlar altında görünür. Ona tıkla, iki ekranın da aynı üç şekli gösterdiğini kontrol et ve telefonda Güven’e dokun.</string>
+    <string name="help_pc_4_title">Bu kadar</string>
+    <string name="help_pc_4_body">Birinde kopyala, diğerinde yapıştır. Bir dosyayı ekranın sol kenarındaki bırakma rafına sürükleyip telefonun üzerine bırak ya da telefondan bu bilgisayara paylaş.</string>
+
+    <string name="help_phones_1_title">İki telefona da Relay yükle</string>
+    <string name="help_phones_1_body">İki telefonun da Google Play’deki uygulamaya ihtiyacı var. Bağlantıyı herhangi biri başlatabilir.</string>
+    <string name="help_phones_2_title">Aynı Wi-Fi veya erişim noktası</string>
+    <string name="help_phones_2_body">İki telefonu da aynı Wi-Fi’ye bağla. Yakında Wi-Fi yok mu? Bir telefonun erişim noktasını aç ve diğerini ona bağla; internet gerekmez.</string>
+    <string name="help_phones_3_title">Bir kez bağla</string>
+    <string name="help_phones_3_body">Telefonlardan birinde, Yakındaki yeni cihazlar altındaki diğerine dokun. İki ekranın da aynı üç şekli gösterdiğini kontrol et, sonra ikinci telefonda Güven’e dokun.</string>
+    <string name="help_phones_4_title">Bu kadar</string>
+    <string name="help_phones_4_body">Herhangi bir uygulamadan aralarında fotoğraf ve dosya paylaş; kartvizit değiş tokuşu için iki telefonu sırt sırta tut.</string>
+
+    <string name="help_pcs_1_title">İkisine de masaüstü için Relay yükle</string>
+    <string name="help_pcs_1_body">Windows veya Linux için GitHub’dan indir ve her bilgisayarda çalıştır. Sistem tepsisinde durur.</string>
+    <string name="help_pcs_2_title">Aynı ağ</string>
+    <string name="help_pcs_2_body">İki bilgisayar da aynı Wi-Fi’de veya aynı kablolu ağda. Özel ağlarda Relay’e güvenlik duvarından izin ver.</string>
+    <string name="help_pcs_3_title">Bir kez bağla</string>
+    <string name="help_pcs_3_body">Bir bilgisayarda, Yakındaki yeni cihazlar altındaki diğerine tıkla. İki ekranın da aynı üç şekli gösterdiğini kontrol et, sonra ikinci bilgisayarda Güven’i seç.</string>
+    <string name="help_pcs_4_title">Bu kadar</string>
+    <string name="help_pcs_4_body">Bir bilgisayarda kopyala, diğerinde yapıştır ya da dosyaları ekranın sol kenarındaki bırakma rafına sürükle.</string>
+
+    <string name="settings_ecosystem">Ekosistem</string>
+    <string name="settings_ecosystem_title">Cihazların tek bir cihaz gibi çalışır</string>
+    <string name="settings_ecosystem_body">Güvenilir cihazlarının buraya gönderdiği veya bıraktığı her şey Kabul et düğmesi olmadan hemen gelir ve yapıştırılmaya hazırdır.</string>
+    <string name="settings_privacy">Gizlilik</string>
+    <string name="settings_analytics_title">Relay’i geliştirmeye yardım et</string>
+    <string name="settings_analytics_body">“Bir aktarım tamamlandı” gibi anonim sayımlar gönderir; dosya adlarını, metni veya cihazlarının kim olduğunu asla göndermez. Varsayılan olarak kapalı.</string>
+    <string name="settings_shelf_title">Bırakma rafı</string>
+    <string name="settings_shelf_body">Ekranın sol kenarında ince bir sekme. Üzerine bir dosya veya metin sürükle, sonra bir cihazın üzerine bırak.</string>
+
+    <string name="shelf_title">Bir cihazın üzerine bırak</string>
+    <string name="shelf_click_title">Gönder:</string>
+    <string name="shelf_ready">Göndermek için bırak</string>
+    <string name="shelf_click">Dosya seçmek için tıkla</string>
+    <string name="shelf_away">Yakında değil</string>
+    <string name="shelf_sent">Gönderildi</string>
+    <string name="shelf_empty">Üzerine dosya bırakmak için bir cihaz eşle.</string>
+    <string name="help_ecosystem_title">Telefonuna sürükle ve bırak</string>
+    <string name="help_ecosystem_body">Bir dosyayı ekranın sol kenarına sürükle. Bırakma rafı cihazlarınla açılır: telefonunun üzerine bırak, yapıştırılmaya hazır şekilde oraya ulaşır. Güvenilir cihazlar asla kabul etmeni istemez.</string>
+
+    <string name="tray_open">Relay’i aç</string>
+    <string name="tray_add_device">Cihaz ekle…</string>
+    <string name="tray_send_file">%1$s cihazına dosya gönder…</string>
+    <string name="tray_send_clipboard">Panoyu gönder</string>
+    <string name="tray_quit">Relay’den çık</string>
+    <string name="tray_clipboard_sent">Pano %1$d cihaza gönderildi</string>
+    <string name="tray_nothing_to_send">Gönderilecek bir şey yok. Bir metin kopyala ve güvenilir bir cihazı yakında tut.</string>
+    <string name="already_running">Relay zaten çalışıyor. Sistem tepsisinde ara.</string>
+
+    <string name="settings_menu_title">Dosyalarından Relay ile gönder</string>
+    <string name="settings_menu_body_windows">Dosya Gezgini’nde herhangi bir dosya veya klasöre sağ tıkla ve Relay ile gönder’i seç. Windows 11’de Daha fazla seçenek göster altındadır.</string>
+    <string name="settings_menu_body_linux">Dolphin veya Dosyalar’da herhangi bir dosya veya klasöre sağ tıkla ve Relay ile gönder’i seç.</string>
+    <plurals name="send_picker_title">
+        <item quantity="one">%1$d dosya gönder</item>
+        <item quantity="other">%1$d dosya gönder</item>
+    </plurals>
+    <string name="send_picker_devices">Alıcı</string>
+    <string name="send_picker_none">Henüz eşlenmiş cihaz yok. Relay’i aç ve önce bir cihaz eşle.</string>
+    <string name="send_picker_away">Yakında değil</string>
+    <string name="send_picker_cancel">İptal</string>
+    <string name="send_picker_send">Gönder</string>
+
+    <string name="settings_updates_title">Güncellemeleri denetle</string>
+    <string name="settings_updates_body">Relay günde bir kez, yayımlandığı GitHub’a daha yeni bir sürüm olup olmadığını sorar. Sen veya cihazların hakkında hiçbir şey gönderilmez.</string>
+    <string name="update_banner_title">Relay %1$s kullanılabilir</string>
+    <string name="update_banner_body">İndir ve bunun üzerine yükle. Cihazların ve ayarların olduğu gibi kalır.</string>
+    <string name="update_banner_action">Güncellemeyi al</string>
+
+    <string name="settings_telegram_title">Telegram’da bize katıl</string>
+    <string name="settings_telegram_body">Relay’i yapanlardan haberler, yardım ve fikirler.</string>
+
+    <string name="inbox_search">Ad, cihaz ve metin ara</string>
+    <string name="inbox_kind_all">Tümü</string>
+    <string name="inbox_kind_photos">Fotoğraf ve videolar</string>
+    <string name="inbox_kind_files">Dosyalar</string>
+    <string name="inbox_kind_links">Bağlantılar</string>
+    <string name="inbox_kind_text">Metin</string>
+    <string name="inbox_from_device">Gönderen: %1$s</string>
+    <string name="inbox_no_match_title">Eşleşen bir şey yok</string>
+    <string name="inbox_no_match_body">Başka bir kelime dene veya filtreleri temizle.</string>
+
+    <string name="device_folder_title">Bu cihazdan gelen dosyaları şuraya kaydet</string>
+    <string name="device_folder_usual">Her zamanki Relay klasörü</string>
+    <string name="device_folder_choose">Klasör seç</string>
+    <string name="device_folder_reset">Her zamanki klasörü kullan</string>
+
+    <string name="tools_mirror">Yeni bildirimleri burada göster</string>
+    <string name="tools_mirror_hint">Telefonda bildirim erişimini aç. Mevcut bildirimler sessiz kalır; yeni veya değişen bildirimler burada görünür.</string>
+    <string name="tools_shared_folder">Paylaşılan klasör: %1$s</string>
+    <string name="tools_choose_folder">Paylaşılan klasörü seç</string>
+    <string name="tools_edit_command">Komut ekle veya kaldır</string>
+    <string name="tools_commands">Komutlar: %1$s</string>
+    <string name="tools_commands_none">Yok</string>
+    <string name="tools_command_title">Bu bilgisayardaki komut</string>
+    <string name="tools_command_body">Yalnızca burada kaydedilen komutlar, izin verilen eşlenmiş bir cihaz tarafından çalıştırılabilir. Adını kaldırmak için komutu boş bırak.</string>
+    <string name="tools_command_name">Ad</string>
+    <string name="tools_command_shell">Kabuk komutu</string>
+    <string name="tools_folder_set">Paylaşılan klasör seçildi</string>
+    <string name="tools_folder_failed">Bu klasör seçilemedi</string>
+    <string name="tools_command_saved">Komut kaydedildi</string>
+    <string name="tools_command_failed">Komut kaydedilemedi</string>
+</resources>

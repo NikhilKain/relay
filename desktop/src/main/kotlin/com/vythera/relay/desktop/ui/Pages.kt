@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ButtonGroupDefaults
@@ -82,15 +83,69 @@ private fun PageTitle(title: String, subtitle: String? = null) {
 @Composable
 fun InboxPage(relay: DesktopRelay, history: List<HistoryEntry>) {
     val received = history.filter { it.incoming && it.outcome in setOf("completed", "opened") }
+    var query by remember { mutableStateOf("") }
+    var kind by remember { mutableStateOf(InboxKind.All) }
+    var sender by remember { mutableStateOf<String?>(null) }
+    val senders = remember(received) { received.distinctBy { it.peerId }.map { it.peerId to it.peerName } }
+    val shown = received.filter { entry ->
+        kind.matches(entry.category) &&
+            (sender == null || entry.peerId == sender) &&
+            (query.isBlank() || listOfNotNull(entry.title, entry.peerName, entry.detail).any { it.contains(query.trim(), ignoreCase = true) })
+    }
     PageColumn {
         PageTitle(stringResource(Res.string.inbox_title), stringResource(Res.string.inbox_subtitle))
-        if (received.isEmpty()) {
-            RelayEmptyState(stringResource(Res.string.inbox_empty_title), stringResource(Res.string.inbox_empty_body))
+        if (received.isNotEmpty()) {
+            androidx.compose.material3.OutlinedTextField(
+                value = query,
+                onValueChange = { query = it.take(80) },
+                placeholder = { Text(stringResource(Res.string.inbox_search)) },
+                leadingIcon = { androidx.compose.material3.Icon(androidx.compose.material.icons.Icons.Rounded.Search, null) },
+                singleLine = true,
+                shape = RelayShapes.Pill,
+                modifier = Modifier.widthIn(max = 520.dp).fillMaxWidth(),
+            )
+            Spacer(Modifier.height(12.dp))
+            androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                InboxKind.entries.forEach { option ->
+                    androidx.compose.material3.FilterChip(
+                        selected = kind == option,
+                        onClick = { kind = option },
+                        label = { Text(stringResource(option.label)) },
+                        shape = RelayShapes.Pill,
+                    )
+                }
+                if (senders.size > 1) {
+                    senders.forEach { (id, name) ->
+                        androidx.compose.material3.FilterChip(
+                            selected = sender == id,
+                            onClick = { sender = if (sender == id) null else id },
+                            label = { Text(stringResource(Res.string.inbox_from_device, name)) },
+                            shape = RelayShapes.Pill,
+                        )
+                    }
+                }
+            }
+            Spacer(Modifier.height(16.dp))
+        }
+        when {
+            received.isEmpty() -> RelayEmptyState(stringResource(Res.string.inbox_empty_title), stringResource(Res.string.inbox_empty_body))
+            shown.isEmpty() -> RelayEmptyState(stringResource(Res.string.inbox_no_match_title), stringResource(Res.string.inbox_no_match_body))
         }
         Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
-            received.forEach { entry -> InboxRow(relay, entry) }
+            shown.forEach { entry -> InboxRow(relay, entry) }
         }
     }
+}
+
+/** The kinds of things the Inbox can be narrowed to. */
+private enum class InboxKind(val label: org.jetbrains.compose.resources.StringResource, val categories: Set<String>?) {
+    All(Res.string.inbox_kind_all, null),
+    Photos(Res.string.inbox_kind_photos, setOf("photos", "videos")),
+    Files(Res.string.inbox_kind_files, setOf("files", "folder")),
+    Links(Res.string.inbox_kind_links, setOf("link")),
+    Text(Res.string.inbox_kind_text, setOf("text", "clipboard"));
+
+    fun matches(category: String) = categories?.contains(category) ?: true
 }
 
 @Composable
@@ -106,7 +161,15 @@ private fun InboxRow(relay: DesktopRelay, entry: HistoryEntry) {
             )
         }
     } ?: Modifier
-    Surface(shape = RelayShapes.Small, color = colors.surfaceContainerLow, modifier = Modifier.fillMaxWidth().then(draggable)) {
+    // Clicking the row shows the file in its folder; the buttons still open or copy it.
+    val located = relay.locationOf(entry)
+    Surface(
+        onClick = { relay.revealEntry(entry) },
+        enabled = located != null,
+        shape = RelayShapes.Small,
+        color = colors.surfaceContainerLow,
+        modifier = Modifier.fillMaxWidth().then(draggable),
+    ) {
         Row(Modifier.padding(horizontal = 20.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(44.dp).background(colors.secondaryContainer, contentKind(entry.category).silhouette.toShape()), contentAlignment = Alignment.Center) {
                 androidx.compose.material3.Icon(contentKind(entry.category).icon, null, tint = colors.onSecondaryContainer, modifier = Modifier.size(20.dp))
@@ -121,7 +184,7 @@ private fun InboxRow(relay: DesktopRelay, entry: HistoryEntry) {
                 when {
                     file != null && file.exists() -> {
                         Button(onClick = { relay.open(file) }, shapes = pill) { Text(stringResource(Res.string.inbox_open)) }
-                        FilledTonalButton(onClick = { relay.reveal(file) }, shapes = pill) { Text(stringResource(Res.string.inbox_show)) }
+                        FilledTonalButton(onClick = { relay.revealEntry(entry) }, shapes = pill) { Text(stringResource(Res.string.inbox_show)) }
                     }
                     entry.category == "link" && entry.detail != null -> {
                         Button(onClick = { runCatching { java.awt.Desktop.getDesktop().browse(java.net.URI(entry.detail)) } }, shapes = pill) { Text(stringResource(Res.string.inbox_open)) }

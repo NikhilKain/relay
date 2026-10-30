@@ -114,6 +114,8 @@ data class DesktopSettings(
     val fileManagerMenu: Boolean = true,
     /** Look on GitHub once a day for a newer Relay. */
     val checkForUpdates: Boolean = true,
+    /** Paired devices that save into their own folder: device id to an absolute path. */
+    val deviceFolders: Map<String, String> = emptyMap(),
     /** Optional, anonymous usage statistics. Off unless the user turns it on. */
     val analytics: Boolean = false,
     /** A random id for this installation, made when statistics are first turned on. */

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_devices">डिवाइस</string>
+    <string name="nav_inbox">इनबॉक्स</string>
+    <string name="nav_settings">सेटिंग्स</string>
+    <string name="nav_help">सहायता</string>
+    <string name="action_send">भेजें</string>
+
+    <string name="home_title">आपके डिवाइस</string>
+    <string name="home_nearby">%1$d आस-पास</string>
+    <string name="home_looking">आपके डिवाइस खोजे जा रहे हैं</string>
+    <string name="home_new">आस-पास नए</string>
+    <string name="home_tap_to_connect">कनेक्ट करने के लिए क्लिक करें</string>
+    <string name="home_empty_title">आस-पास कुछ नहीं</string>
+    <string name="home_empty_body">अपने फ़ोन पर, उसी Wi-Fi पर, Relay खोलें। वह अपने आप यहाँ दिखेगा।</string>
+    <string name="home_empty_action">कनेक्ट कैसे करें</string>
+    <string name="home_pick">एक डिवाइस चुनें</string>
+    <string name="home_add_device">डिवाइस जोड़ें</string>
+
+    <string name="qr_title">नया डिवाइस कनेक्ट करें</string>
+    <string name="qr_body">अपने फ़ोन पर Relay खोलें, स्कैन बटन पर टैप करें और इस कोड की ओर करें। दोनों डिवाइस एक ही Wi-Fi पर होने चाहिए।</string>
+    <string name="qr_caption">%1$s · अपने आप रीफ़्रेश होता है</string>
+    <string name="qr_read_image">इमेज से QR पढ़ें</string>
+    <string name="qr_change_network">दूसरा नेटवर्क इस्तेमाल करें</string>
+    <string name="qr_network_title">कौन-सा नेटवर्क?</string>
+    <string name="qr_network_body">यह कंप्यूटर एक से ज़्यादा नेटवर्क पर है। वह चुनें जिस पर आपका फ़ोन है।</string>
+    <string name="qr_no_network">यह कंप्यूटर किसी नेटवर्क पर नहीं है। Wi-Fi से कनेक्ट करें, कोड यहाँ दिखेगा।</string>
+    <string name="qr_reading">QR पढ़ा जा रहा है…</string>
+    <string name="qr_unreadable">इस इमेज में Relay का QR नहीं है। पाँच मिनट से कम पुराने कोड की साफ़ तस्वीर इस्तेमाल करें।</string>
+    <string name="qr_confirm_title">इस डिवाइस से कनेक्ट करें?</string>
+    <string name="qr_confirm_body">Relay कनेक्ट होगा, फिर भरोसा करने से पहले दोनों डिवाइस से एक जैसी आकृतियाँ दिखाने को कहेगा।</string>
+    <string name="qr_connecting">कनेक्ट हो रहा है…</string>
+    <string name="qr_connected">कनेक्ट हो गया। पूरा करने के लिए जाँचें कि दोनों डिवाइस पर आकृतियाँ मेल खाती हैं।</string>
+    <string name="qr_failed">कनेक्ट नहीं हो सका। जाँचें कि दोनों डिवाइस एक ही Wi-Fi पर हैं, फिर नया कोड आज़माएँ।</string>
+
+    <string name="device_drop_title">फ़ाइलें यहाँ छोड़ें</string>
+    <string name="device_drop_body">फ़ोटो, दस्तावेज़, पूरे फ़ोल्डर। सीधे %1$s पर जाते हैं।</string>
+    <string name="device_drop_release">%1$s पर भेजने के लिए छोड़ें</string>
+    <string name="device_choose_files">फ़ाइलें चुनें</string>
+    <string name="device_folder">फ़ोल्डर</string>
+    <string name="device_folder_hint">उसकी संरचना बनी रहती है</string>
+    <string name="device_clipboard">क्लिपबोर्ड</string>
+    <string name="device_clipboard_hint">जो कॉपी किया वह भेजें</string>
+    <string name="device_text">टेक्स्ट</string>
+    <string name="device_text_hint">नोट लिखें</string>
+    <string name="device_continue">जारी रखें</string>
+    <string name="device_continue_hint">%1$s पर लिंक खोलें</string>
+    <string name="device_recent">इस डिवाइस के साथ</string>
+    <string name="device_nothing_yet">अभी तक कुछ नहीं भेजा गया</string>
+    <string name="device_auto_accept">%1$s से ट्रांसफ़र हमेशा अनुमति दें</string>
+    <string name="device_forget">यह डिवाइस भूल जाएँ</string>
+    <string name="device_connect">कनेक्ट करें</string>
+    <string name="device_connect_body">%1$s पर चीज़ें भेजने के लिए एक बार कनेक्ट करें। आप जाँचेंगे कि दोनों स्क्रीन पर एक जैसी आकृतियाँ हैं।</string>
+    <string name="device_away_body">%1$s आस-पास नहीं है। अभी जो भेजेंगे, वह उसके लौटने पर पहुँचेगा।</string>
+    <string name="device_incompatible">कनेक्ट करने के लिए %1$s पर Relay अपडेट करें।</string>
+
+    <string name="compose_text_title">%1$s पर टेक्स्ट भेजें</string>
+    <string name="compose_link_title">%1$s पर लिंक खोलें</string>
+    <string name="compose_text_hint">कुछ लिखें</string>
+    <string name="compose_link_hint">लिंक पेस्ट करें</string>
+    <string name="compose_send">भेजें</string>
+    <string name="compose_open">वहाँ खोलें</string>
+    <string name="cancel">रद्द करें</string>
+
+    <string name="pair_incoming_title">%1$s कनेक्ट होना चाहता है</string>
+    <string name="pair_incoming_body">जाँचें कि %1$s पर वही आकृतियाँ हैं। तभी आगे बढ़ें जब यह आपका हो।</string>
+    <string name="pair_trust">डिवाइस पर भरोसा करें</string>
+    <string name="pair_not_now">अभी नहीं</string>
+    <string name="pair_always_allow">इस डिवाइस से ट्रांसफ़र हमेशा अनुमति दें</string>
+    <string name="pair_outgoing_connecting">%1$s से कनेक्ट हो रहा है</string>
+    <string name="pair_outgoing_title">%1$s पर पुष्टि करें</string>
+    <string name="pair_outgoing_body">पक्का करें कि %1$s पर यही आकृतियाँ हैं, फिर वहाँ स्वीकार करें।</string>
+    <string name="pair_mismatch">आकृतियाँ मेल नहीं खातीं</string>
+    <string name="pair_done_title">%1$s कनेक्ट हो गया</string>
+    <string name="pair_done_body">अब से यह अपने आप काम करेगा। अगली बार कोई कोड नहीं।</string>
+    <string name="pair_failed_title">कनेक्ट नहीं हुआ</string>
+    <string name="pair_failed_body">%1$s कनेक्ट नहीं हुआ। पक्का करें कि उस पर Relay खुला है और दोनों एक ही Wi-Fi पर हैं।</string>
+    <string name="ok">ठीक है</string>
+
+    <string name="offer_title">%1$s कुछ भेजना चाहता है</string>
+    <string name="offer_receive">पाएँ</string>
+    <string name="offer_decline">अस्वीकार करें</string>
+
+    <string name="failure_generic">%1$s: यह नहीं हो पाया। फिर से कोशिश करें।</string>
+    <string name="failure_away">%1$s आस-पास नहीं है। लौटने पर भेजा जाएगा।</string>
+    <string name="failure_lost">कनेक्शन टूट गया। %1$s के लौटने पर जारी रखेंगे।</string>
+    <string name="failure_damaged">फ़ाइल खराब होकर पहुँची, इसलिए रखी नहीं गई। फिर से कोशिश करें।</string>
+    <string name="failure_space">%1$s पर पर्याप्त जगह नहीं है।</string>
+    <string name="failure_declined">%1$s ने अस्वीकार किया।</string>
+    <string name="failure_you_declined">अस्वीकार किया</string>
+    <string name="failure_cancelled">रद्द किया गया</string>
+    <string name="remaining_seconds">%1$d सेकंड बाकी</string>
+    <string name="remaining_minutes">%1$d मिनट बाकी</string>
+    <string name="almost_done">लगभग पूरा</string>
+
+    <string name="inbox_title">इनबॉक्स</string>
+    <string name="inbox_subtitle">आपके डिवाइस ने इस कंप्यूटर पर जो कुछ भेजा</string>
+    <string name="inbox_empty_title">अभी यहाँ कुछ नहीं</string>
+    <string name="inbox_empty_body">आपके डिवाइस यहाँ जो फ़ाइलें, लिंक और नोट भेजते हैं, वे इस सूची में रखे जाते हैं।</string>
+    <string name="inbox_open">खोलें</string>
+    <string name="inbox_show">फ़ोल्डर में दिखाएँ</string>
+    <string name="inbox_copy">कॉपी करें</string>
+    <string name="inbox_remove">हटाएँ</string>
+    <string name="this_computer">यह कंप्यूटर</string>
+    <string name="just_now">अभी-अभी</string>
+    <string name="minutes_ago">%1$d मि॰</string>
+    <string name="hours_ago">%1$d घं॰</string>
+    <string name="days_ago">%1$d दिन</string>
+
+    <string name="settings_title">सेटिंग्स</string>
+    <string name="settings_device">यह कंप्यूटर</string>
+    <string name="settings_rename">नाम बदलें</string>
+    <string name="settings_save">सेव करें</string>
+    <string name="settings_save_to">मिली फ़ाइलें यहाँ सेव करें</string>
+    <string name="settings_choose_folder">फ़ोल्डर चुनें</string>
+    <string name="settings_use_default">Downloads/Relay इस्तेमाल करें</string>
+    <string name="settings_clipboard">यूनिवर्सल क्लिपबोर्ड</string>
+    <string name="settings_clipboard_body">एक डिवाइस पर कॉपी करें, दूसरे पर पेस्ट करें: टेक्स्ट, इमेज और फ़ाइलें, उसी Wi-Fi पर अपने भरोसेमंद डिवाइस के साथ।</string>
+    <string name="settings_start">साइन इन करने पर Relay शुरू करें</string>
+    <string name="settings_start_body">Relay सिस्टम ट्रे में इंतज़ार करता है, ताकि आपका फ़ोन हमेशा इस कंप्यूटर तक पहुँच सके।</string>
+    <string name="settings_start_unavailable">इंस्टॉल किए गए ऐप में उपलब्ध।</string>
+    <string name="settings_start_temporary">पहले Relay इंस्टॉल करें। यह कॉपी एक अस्थायी फ़ोल्डर से चल रही है, इसलिए शुरू करने को कुछ स्थायी नहीं है।</string>
+
+    <string name="install_banner_title">Relay एक अस्थायी फ़ोल्डर से चल रहा है</string>
+    <string name="install_banner_body">इसे zip के अंदर से खोला गया, इसलिए Windows ने इसे ऐसी जगह खोला जिसे वह बाद में साफ़ कर देता है। इसे रखने, कंप्यूटर के साथ शुरू करने और अपने डिवाइस से जुड़े रहने के लिए Relay इंस्टॉल करें।</string>
+    <string name="install_banner_body_mac">यह डिस्क इमेज से चल रहा है, जो इजेक्ट करने पर गायब हो जाती है। इसे रखने और लॉग इन पर शुरू करने के लिए Relay को Applications में खींचें।</string>
+    <string name="install_banner_action">इंस्टॉलर पाएँ</string>
+    <string name="install_banner_action_mac">इंस्टॉल कैसे करें</string>
+
+    <string name="settings_spread">Relay और आप</string>
+    <string name="settings_share_title">Relay शेयर करें</string>
+    <string name="settings_share_body">किसी दोस्त को देने के लिए लिंक कॉपी करें</string>
+    <string name="settings_share_copied">कॉपी हो गया। इसे किसी मैसेज में पेस्ट करें</string>
+    <string name="settings_share_message">मैं अपने फ़ोन और कंप्यूटर के बीच फ़ाइलें और क्लिपबोर्ड भेजने के लिए Relay इस्तेमाल करता/करती हूँ। कोई अकाउंट नहीं, कुछ भी क्लाउड से नहीं जाता। Android, Windows, Mac और Linux के लिए मुफ़्त: %1$s</string>
+    <string name="settings_rate_title">Relay को रेट करें</string>
+    <string name="settings_rate_body">Google Play पर। इससे दूसरों को इसे ढूँढने में मदद मिलती है</string>
+    <string name="settings_feedback_title">फ़ीडबैक भेजें</string>
+    <string name="settings_feedback_body">आइडिया, समस्याएँ, कुछ भी: %1$s</string>
+    <string name="settings_about">परिचय</string>
+    <string name="settings_about_body">Relay %1$s · प्रोटोकॉल v1. आपके डिवाइस के बीच कनेक्शन एन्क्रिप्टेड हैं। कोई अकाउंट नहीं, कोई क्लाउड नहीं; आँकड़े तब तक बंद हैं जब तक आप चालू न करें।</string>
+
+    <string name="help_title">अपने डिवाइस कनेक्ट करें</string>
+    <string name="help_subtitle">कुछ कदम, सिर्फ़ एक बार। उसके बाद वे एक-दूसरे को अपने आप ढूँढ लेते हैं।</string>
+    <string name="help_step1_title">हर डिवाइस पर Relay इंस्टॉल करें</string>
+    <string name="help_step1_body">Android: Google Play पर Relay. Windows, Mac और Linux: यह ऐप। iPhone और iPad: तैयार हो रहा है।</string>
+    <string name="help_step2_title">एक ही Wi-Fi से जुड़ें</string>
+    <string name="help_step2_body">घर का Wi-Fi या आपके फ़ोन का हॉटस्पॉट। इंटरनेट की ज़रूरत नहीं: डिवाइस सीधे एक-दूसरे से बात करते हैं।</string>
+    <string name="help_step3_title">डिवाइस पर क्लिक करें और आकृतियाँ जाँचें</string>
+    <string name="help_step3_body">यह आस-पास नए में दिखता है। पक्का करें कि दोनों स्क्रीन पर वही तीन आकृतियाँ हैं, और दूसरे डिवाइस पर भरोसा करें चुनें। सिर्फ़ एक बार।</string>
+    <string name="help_firewall_title">Windows ने फ़ायरवॉल के बारे में पूछा?</string>
+    <string name="help_firewall_body">निजी नेटवर्क पर अनुमति दें चुनें। इससे आपका फ़ोन आपके Wi-Fi पर इस कंप्यूटर तक पहुँच पाता है। अगर छूट गया: Windows सुरक्षा › फ़ायरवॉल › फ़ायरवॉल से ऐप को अनुमति दें › Relay पर टिक करें।</string>
+    <string name="help_clipboard_title">यहाँ कॉपी करें, वहाँ पेस्ट करें</string>
+    <string name="help_clipboard_body">यहाँ जो कुछ कॉपी करें, टेक्स्ट, स्क्रीनशॉट या फ़ाइलें, वह आपके फ़ोन पर पेस्ट करने को तैयार है। फ़ोन पर कॉपी की गई फ़ाइलें इस क्लिपबोर्ड पर आती हैं।</string>
+
+    <string name="help_get_title">अपने दूसरे डिवाइस पर Relay पाएँ</string>
+    <string name="help_get_android">Android फ़ोन या टैबलेट</string>
+    <string name="help_get_android_where">Google Play पर Relay</string>
+    <string name="help_get_desktop">Windows, Mac और Linux</string>
+    <string name="help_get_desktop_where">GitHub से डाउनलोड करें</string>
+    <string name="help_get_apple">iPhone और iPad</string>
+    <string name="help_get_apple_where">तैयार हो रहा है</string>
+
+    <string name="help_guide_title">कदम-दर-कदम</string>
+    <string name="help_guide_pick">कौन-से दो डिवाइस?</string>
+    <string name="help_guide_phone_pc">फ़ोन और PC</string>
+    <string name="help_guide_two_phones">दो फ़ोन</string>
+    <string name="help_guide_two_pcs">दो PC</string>
+
+    <string name="help_pc_1_title">दोनों ऐप इंस्टॉल करें</string>
+    <string name="help_pc_1_body">इस कंप्यूटर पर डेस्कटॉप के लिए Relay, और फ़ोन पर Google Play से Android के लिए Relay।</string>
+    <string name="help_pc_2_title">एक ही Wi-Fi</string>
+    <string name="help_pc_2_body">कंप्यूटर और फ़ोन को एक ही नेटवर्क पर रखें। अगर Windows फ़ायरवॉल के बारे में पूछे, तो निजी नेटवर्क पर अनुमति दें चुनें।</string>
+    <string name="help_pc_3_title">एक बार कनेक्ट करें</string>
+    <string name="help_pc_3_body">फ़ोन यहाँ आस-पास नए में दिखेगा। उस पर क्लिक करें, जाँचें कि दोनों स्क्रीन पर वही तीन आकृतियाँ हैं, और फ़ोन पर भरोसा करें पर टैप करें।</string>
+    <string name="help_pc_4_title">बस इतना ही</string>
+    <string name="help_pc_4_body">एक पर कॉपी करें, दूसरे पर पेस्ट करें। किसी फ़ाइल को इस स्क्रीन के बाएँ किनारे की ड्रॉप शेल्फ़ पर खींचें और फ़ोन पर छोड़ें, या फ़ोन से इस कंप्यूटर पर शेयर करें।</string>
+
+    <string name="help_phones_1_title">दोनों फ़ोन पर Relay इंस्टॉल करें</string>
+    <string name="help_phones_1_body">दोनों फ़ोन को Google Play से ऐप चाहिए। कोई भी कनेक्शन शुरू कर सकता है।</string>
+    <string name="help_phones_2_title">एक ही Wi-Fi, या हॉटस्पॉट</string>
+    <string name="help_phones_2_body">दोनों फ़ोन को एक ही Wi-Fi से जोड़ें। आस-पास Wi-Fi नहीं? एक फ़ोन का हॉटस्पॉट चालू करें और दूसरे को उससे जोड़ें; इंटरनेट की ज़रूरत नहीं।</string>
+    <string name="help_phones_3_title">एक बार कनेक्ट करें</string>
+    <string name="help_phones_3_body">किसी भी फ़ोन पर, आस-पास नए में दूसरे पर टैप करें। जाँचें कि दोनों स्क्रीन पर वही तीन आकृतियाँ हैं, फिर दूसरे फ़ोन पर भरोसा करें पर टैप करें।</string>
+    <string name="help_phones_4_title">बस इतना ही</string>
+    <string name="help_phones_4_body">किसी भी ऐप से उनके बीच फ़ोटो और फ़ाइलें शेयर करें, और संपर्क कार्ड बदलने के लिए दोनों फ़ोन की पीठ मिलाएँ।</string>
+
+    <string name="help_pcs_1_title">दोनों पर डेस्कटॉप के लिए Relay इंस्टॉल करें</string>
+    <string name="help_pcs_1_body">Windows या Linux के लिए GitHub से डाउनलोड करें और हर कंप्यूटर पर चलाएँ। यह सिस्टम ट्रे में रहता है।</string>
+    <string name="help_pcs_2_title">एक ही नेटवर्क</string>
+    <string name="help_pcs_2_body">दोनों कंप्यूटर एक ही Wi-Fi या एक ही वायर्ड नेटवर्क पर। निजी नेटवर्क पर फ़ायरवॉल से Relay को अनुमति दें।</string>
+    <string name="help_pcs_3_title">एक बार कनेक्ट करें</string>
+    <string name="help_pcs_3_body">एक कंप्यूटर पर, आस-पास नए में दूसरे पर क्लिक करें। जाँचें कि दोनों स्क्रीन पर वही तीन आकृतियाँ हैं, फिर दूसरे कंप्यूटर पर भरोसा करें चुनें।</string>
+    <string name="help_pcs_4_title">बस इतना ही</string>
+    <string name="help_pcs_4_body">एक कंप्यूटर पर कॉपी करें और दूसरे पर पेस्ट करें, या फ़ाइलों को स्क्रीन के बाएँ किनारे की ड्रॉप शेल्फ़ पर खींचें।</string>
+
+    <string name="settings_ecosystem">इकोसिस्टम</string>
+    <string name="settings_ecosystem_title">आपके डिवाइस एक जैसे काम करते हैं</string>
+    <string name="settings_ecosystem_body">आपके भरोसेमंद डिवाइस यहाँ जो कुछ भेजते या छोड़ते हैं, वह स्वीकार बटन के बिना तुरंत आता है और पेस्ट करने को तैयार होता है।</string>
+    <string name="settings_privacy">गोपनीयता</string>
+    <string name="settings_analytics_title">Relay को बेहतर बनाने में मदद करें</string>
+    <string name="settings_analytics_body">“एक ट्रांसफ़र पूरा हुआ” जैसी गुमनाम गिनतियाँ भेजता है, कभी फ़ाइल के नाम, टेक्स्ट या आपके डिवाइस कौन हैं, यह नहीं। डिफ़ॉल्ट रूप से बंद।</string>
+    <string name="settings_shelf_title">ड्रॉप शेल्फ़</string>
+    <string name="settings_shelf_body">स्क्रीन के बाएँ किनारे पर एक पतला टैब। कोई भी फ़ाइल या टेक्स्ट उस पर खींचें, फिर किसी डिवाइस पर छोड़ें।</string>
+
+    <string name="shelf_title">किसी डिवाइस पर छोड़ें</string>
+    <string name="shelf_click_title">इसे भेजें</string>
+    <string name="shelf_ready">भेजने के लिए छोड़ें</string>
+    <string name="shelf_click">फ़ाइलें चुनने के लिए क्लिक करें</string>
+    <string name="shelf_away">दूर</string>
+    <string name="shelf_sent">भेजा गया</string>
+    <string name="shelf_empty">फ़ाइलें छोड़ने के लिए कोई डिवाइस पेयर करें।</string>
+    <string name="help_ecosystem_title">अपने फ़ोन पर खींचें और छोड़ें</string>
+    <string name="help_ecosystem_body">किसी फ़ाइल को स्क्रीन के बाएँ किनारे पर खींचें। आपके डिवाइस के साथ ड्रॉप शेल्फ़ खुलेगी: उसे अपने फ़ोन पर छोड़ें और वह वहाँ पहुँचेगी, पेस्ट करने को तैयार। भरोसेमंद डिवाइस कभी स्वीकार करने को नहीं कहते।</string>
+
+    <string name="tray_open">Relay खोलें</string>
+    <string name="tray_add_device">डिवाइस जोड़ें…</string>
+    <string name="tray_send_file">%1$s पर फ़ाइल भेजें…</string>
+    <string name="tray_send_clipboard">क्लिपबोर्ड भेजें</string>
+    <string name="tray_quit">Relay बंद करें</string>
+    <string name="tray_clipboard_sent">क्लिपबोर्ड %1$d डिवाइस पर भेजा गया</string>
+    <string name="tray_nothing_to_send">भेजने को कुछ नहीं। कुछ टेक्स्ट कॉपी करें और कोई भरोसेमंद डिवाइस पास रखें।</string>
+    <string name="already_running">Relay पहले से चल रहा है। इसे सिस्टम ट्रे में देखें।</string>
+
+    <string name="settings_menu_title">अपनी फ़ाइलों से Relay के साथ भेजें</string>
+    <string name="settings_menu_body_windows">File Explorer में किसी भी फ़ाइल या फ़ोल्डर पर राइट-क्लिक करें और Relay से भेजें चुनें। Windows 11 पर यह और विकल्प दिखाएँ में है।</string>
+    <string name="settings_menu_body_linux">Dolphin या Files में किसी भी फ़ाइल या फ़ोल्डर पर राइट-क्लिक करें और Relay से भेजें चुनें।</string>
+    <plurals name="send_picker_title">
+        <item quantity="one">%1$d फ़ाइल भेजें</item>
+        <item quantity="other">%1$d फ़ाइलें भेजें</item>
+    </plurals>
+    <string name="send_picker_devices">इसे</string>
+    <string name="send_picker_none">अभी कोई पेयर किया हुआ डिवाइस नहीं। Relay खोलें और पहले एक पेयर करें।</string>
+    <string name="send_picker_away">आस-पास नहीं</string>
+    <string name="send_picker_cancel">रद्द करें</string>
+    <string name="send_picker_send">भेजें</string>
+
+    <string name="settings_updates_title">अपडेट जाँचें</string>
+    <string name="settings_updates_body">दिन में एक बार Relay, GitHub से, जहाँ यह प्रकाशित होता है, पूछता है कि क्या नया वर्शन आया है। आपके या आपके डिवाइस के बारे में कुछ नहीं भेजा जाता।</string>
+    <string name="update_banner_title">Relay %1$s उपलब्ध है</string>
+    <string name="update_banner_body">इसे डाउनलोड करें और इसी के ऊपर इंस्टॉल करें। आपके डिवाइस और सेटिंग्स वैसे ही रहेंगे।</string>
+    <string name="update_banner_action">अपडेट पाएँ</string>
+
+    <string name="settings_telegram_title">Telegram पर हमसे जुड़ें</string>
+    <string name="settings_telegram_body">Relay बनाने वालों से खबरें, मदद और आइडिया।</string>
+
+    <string name="inbox_search">नाम, डिवाइस और टेक्स्ट खोजें</string>
+    <string name="inbox_kind_all">सभी</string>
+    <string name="inbox_kind_photos">फ़ोटो और वीडियो</string>
+    <string name="inbox_kind_files">फ़ाइलें</string>
+    <string name="inbox_kind_links">लिंक</string>
+    <string name="inbox_kind_text">टेक्स्ट</string>
+    <string name="inbox_from_device">%1$s से</string>
+    <string name="inbox_no_match_title">कुछ मेल नहीं खाता</string>
+    <string name="inbox_no_match_body">कोई दूसरा शब्द आज़माएँ, या फ़िल्टर हटाएँ।</string>
+
+    <string name="device_folder_title">इस डिवाइस की फ़ाइलें यहाँ सेव करें</string>
+    <string name="device_folder_usual">Relay का सामान्य फ़ोल्डर</string>
+    <string name="device_folder_choose">फ़ोल्डर चुनें</string>
+    <string name="device_folder_reset">सामान्य फ़ोल्डर इस्तेमाल करें</string>
+
+    <string name="tools_mirror">नई सूचनाएँ यहाँ दिखाएँ</string>
+    <string name="tools_mirror_hint">फ़ोन पर सूचना ऐक्सेस चालू करें। मौजूदा सूचनाएँ नहीं दिखेंगी; नई या बदली हुई सूचनाएँ यहाँ दिखेंगी।</string>
+    <string name="tools_shared_folder">शेयर फ़ोल्डर: %1$s</string>
+    <string name="tools_choose_folder">शेयर फ़ोल्डर चुनें</string>
+    <string name="tools_edit_command">कमांड जोड़ें या हटाएँ</string>
+    <string name="tools_commands">कमांड: %1$s</string>
+    <string name="tools_commands_none">कोई नहीं</string>
+    <string name="tools_command_title">इस कंप्यूटर पर कमांड</string>
+    <string name="tools_command_body">सिर्फ़ यहाँ सेव किए गए कमांड ही अनुमति वाला पेयर किया गया डिवाइस चला सकता है। नाम हटाने के लिए कमांड खाली छोड़ें।</string>
+    <string name="tools_command_name">नाम</string>
+    <string name="tools_command_shell">शेल कमांड</string>
+    <string name="tools_folder_set">शेयर फ़ोल्डर चुना गया</string>
+    <string name="tools_folder_failed">वह फ़ोल्डर नहीं चुना जा सका</string>
+    <string name="tools_command_saved">कमांड सेव हुआ</string>
+    <string name="tools_command_failed">कमांड सेव नहीं हो सका</string>
+</resources>

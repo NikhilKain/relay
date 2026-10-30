@@ -11,7 +11,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
+import com.vythera.relay.designsystem.resources.*
 import com.vythera.relay.designsystem.theme.RelayShapes
+import org.jetbrains.compose.resources.stringResource
 
 data class RelayToolEntry(val id: String, val title: String, val subtitle: String, val kind: String)
 
@@ -49,13 +51,13 @@ fun RelayToolsPanel(
     }
     fun send(action: String, vararg args: Pair<String, String>) = onRequest(action, mapOf(*args))
 
-    RelaySectionHeader("Device tools", Modifier.padding(top = 24.dp))
+    RelaySectionHeader(stringResource(Res.string.relay_tools_header), Modifier.padding(top = 24.dp))
     Surface(shape = RelayShapes.Small, color = colors.surfaceContainerLow, modifier = Modifier.fillMaxWidth()) {
         Column(Modifier.padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-            if (!reachable) Text("Device is away. Tools will be available when it reconnects.", style = MaterialTheme.typography.bodyMedium)
+            if (!reachable) Text(stringResource(Res.string.relay_tools_away), style = MaterialTheme.typography.bodyMedium)
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FilledTonalButton(onClick = { send("discover") }, enabled = enabled) { Text(if (available.isEmpty()) "Load tools" else "Refresh tools") }
-                if ("status" in available) TextButton(onClick = { send("status.get") }, enabled = enabled) { Text("Status") }
+                FilledTonalButton(onClick = { send("discover") }, enabled = enabled) { Text(if (available.isEmpty()) stringResource(Res.string.relay_tools_load) else stringResource(Res.string.relay_tools_refresh_tools)) }
+                if ("status" in available) TextButton(onClick = { send("status.get") }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_status)) }
             }
             if (busy) LinearProgressIndicator(Modifier.fillMaxWidth())
             if (reachable && liveStatus.isNotEmpty()) {
@@ -71,10 +73,10 @@ fun RelayToolsPanel(
                 }
             }
             if ("ring" in available) Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FilledTonalButton(onClick = { send("ring.start") }, enabled = enabled) { Icon(Icons.Rounded.NotificationsActive, null); Spacer(Modifier.width(8.dp)); Text("Find device") }
-                TextButton(onClick = { send("ring.stop") }, enabled = enabled) { Text("Stop ringing") }
+                FilledTonalButton(onClick = { send("ring.start") }, enabled = enabled) { Icon(Icons.Rounded.NotificationsActive, null); Spacer(Modifier.width(8.dp)); Text(stringResource(Res.string.relay_tools_find)) }
+                TextButton(onClick = { send("ring.stop") }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_stop_ring)) }
             }
-            if ("ping" in available) TextButton(onClick = { send("ping.send") }, enabled = enabled) { Text("Send a ping") }
+            if ("ping" in available) TextButton(onClick = { send("ping.send") }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_ping)) }
             if (available.isNotEmpty()) {
                 val sections = listOf("media", "volume", "input", "presentation", "keepawake", "notifications", "calls", "files", "commands", "contacts", "lock")
                 sections.filter { it in available }.chunked(2).forEach { row ->
@@ -108,28 +110,28 @@ fun RelayToolsPanel(
                 }
             }
             when (section) {
-                "keepawake" -> ToolButtons(listOf("Keep awake for 30 min" to "start", "Allow sleep" to "stop"), enabled) { send("keepawake.$it") }
+                "keepawake" -> ToolButtons(listOf(stringResource(Res.string.relay_tools_keep_awake_30) to "start", stringResource(Res.string.relay_tools_allow_sleep) to "stop"), enabled) { send("keepawake.$it") }
                 "calls" -> {
-                    TextButton(onClick = { send("calls.status") }, enabled = enabled) { Text("Refresh call state") }
+                    TextButton(onClick = { send("calls.status") }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_refresh_calls)) }
                     if (action == "calls.status") values.forEach { (key, value) -> Text("$key: $value") }
-                    TextButton(onClick = { send("calls.silence") }, enabled = enabled) { Text("Silence phone ringer") }
+                    TextButton(onClick = { send("calls.silence") }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_silence)) }
                 }
                 "media" -> {
-                    if (player.isNotBlank()) TextButton(onClick = { player = ""; send("media.status") }, enabled = enabled) { Text("Use active player") }
-                    TextButton(onClick = { send("media.status", "player" to player) }, enabled = enabled) { Text("Players & playback details") }
-                    ToolButtons(listOf("Previous" to "previous", "Play / pause" to "playpause", "Next" to "next", "Stop" to "stop"), enabled) { send("media.control", "action" to it, "player" to player) }
+                    if (player.isNotBlank()) TextButton(onClick = { player = ""; send("media.status") }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_active_player)) }
+                    TextButton(onClick = { send("media.status", "player" to player) }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_players)) }
+                    ToolButtons(listOf(stringResource(Res.string.relay_tools_previous) to "previous", stringResource(Res.string.relay_tools_play_pause) to "playpause", stringResource(Res.string.relay_tools_next) to "next", stringResource(Res.string.relay_tools_stop) to "stop"), enabled) { send("media.control", "action" to it, "player" to player) }
                     if (action.startsWith("media.") && success) {
                         values.filterKeys { it != "canSeek" }.forEach { (key, value) -> if (value.isNotBlank()) Text("$key: $value", style = MaterialTheme.typography.bodyMedium) }
-                        if (values["canSeek"] == "true") ToolButtons(listOf("Back 10 seconds" to "-10", "Forward 10 seconds" to "10"), enabled) {
+                        if (values["canSeek"] == "true") ToolButtons(listOf(stringResource(Res.string.relay_tools_back10) to "-10", stringResource(Res.string.relay_tools_forward10) to "10"), enabled) {
                             send("media.seek", "seconds" to it, "player" to player)
                         }
                     }
                 }
-                "volume" -> ToolButtons(listOf("Quieter" to "down", "Louder" to "up", "Mute / unmute" to "mute"), enabled) { send("volume.control", "action" to it) }
-                "presentation" -> ToolButtons(listOf("Start slides" to "start", "Previous" to "previous", "Next" to "next", "Black screen" to "black", "End" to "escape"), enabled) { send("presentation.key", "key" to it) }
-                "lock" -> Button(onClick = { send("lock.now") }, enabled = enabled) { Text("Lock the other device now") }
+                "volume" -> ToolButtons(listOf(stringResource(Res.string.relay_tools_quieter) to "down", stringResource(Res.string.relay_tools_louder) to "up", stringResource(Res.string.relay_tools_mute) to "mute"), enabled) { send("volume.control", "action" to it) }
+                "presentation" -> ToolButtons(listOf(stringResource(Res.string.relay_tools_start_slides) to "start", stringResource(Res.string.relay_tools_previous) to "previous", stringResource(Res.string.relay_tools_next) to "next", stringResource(Res.string.relay_tools_black) to "black", stringResource(Res.string.relay_tools_end) to "escape"), enabled) { send("presentation.key", "key" to it) }
+                "lock" -> Button(onClick = { send("lock.now") }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_lock_now)) }
                 "input" -> {
-                    Text("Drag to move the pointer. Uses a basic Latin keyboard layout.", style = MaterialTheme.typography.bodySmall)
+                    Text(stringResource(Res.string.relay_tools_input_hint), style = MaterialTheme.typography.bodySmall)
                     // Batch each gesture into one bounded request; avoids flooding the socket.
                     var dx by remember(peerKey) { mutableStateOf(0f) }
                     var dy by remember(peerKey) { mutableStateOf(0f) }
@@ -138,22 +140,22 @@ fun RelayToolsPanel(
                             onDragStart = { dx = 0f; dy = 0f },
                             onDragEnd = { send("input.move", "x" to dx.toInt().toString(), "y" to dy.toInt().toString()) },
                             onDrag = { change, amount -> change.consume(); dx += amount.x; dy += amount.y },
-                        ) }, contentAlignment = Alignment.Center) { Text("Trackpad", color = colors.onSurfaceVariant) }
-                    ToolButtons(listOf("Click" to "left", "Right click" to "right"), enabled) { send("input.click", "button" to it) }
-                    ToolButtons(listOf("Scroll up" to "-3", "Scroll down" to "3"), enabled) { send("input.scroll", "amount" to it) }
-                    OutlinedTextField(text, { text = it.take(500) }, label = { Text("Type on this device") }, modifier = Modifier.fillMaxWidth())
-                    TextButton(onClick = { send("input.text", "text" to text); text = "" }, enabled = enabled && text.isNotEmpty()) { Text("Type text") }
-                    ToolButtons(listOf("Enter" to "enter", "Backspace" to "backspace", "Tab" to "tab", "Escape" to "escape"), enabled) { send("input.key", "key" to it) }
+                        ) }, contentAlignment = Alignment.Center) { Text(stringResource(Res.string.relay_tools_trackpad), color = colors.onSurfaceVariant) }
+                    ToolButtons(listOf(stringResource(Res.string.relay_tools_click) to "left", stringResource(Res.string.relay_tools_right_click) to "right"), enabled) { send("input.click", "button" to it) }
+                    ToolButtons(listOf(stringResource(Res.string.relay_tools_scroll_up) to "-3", stringResource(Res.string.relay_tools_scroll_down) to "3"), enabled) { send("input.scroll", "amount" to it) }
+                    OutlinedTextField(text, { text = it.take(500) }, label = { Text(stringResource(Res.string.relay_tools_type_label)) }, modifier = Modifier.fillMaxWidth())
+                    TextButton(onClick = { send("input.text", "text" to text); text = "" }, enabled = enabled && text.isNotEmpty()) { Text(stringResource(Res.string.relay_tools_type_text)) }
+                    ToolButtons(listOf(stringResource(Res.string.relay_tools_key_enter) to "enter", stringResource(Res.string.relay_tools_key_backspace) to "backspace", stringResource(Res.string.relay_tools_key_tab) to "tab", stringResource(Res.string.relay_tools_key_escape) to "escape"), enabled) { send("input.key", "key" to it) }
                 }
                 "contacts" -> {
-                    OutlinedTextField(text, { text = it.take(100) }, label = { Text("Search contacts") }, modifier = Modifier.fillMaxWidth())
-                    TextButton(onClick = { send("contacts.list", "query" to text) }, enabled = enabled) { Text("Search") }
+                    OutlinedTextField(text, { text = it.take(100) }, label = { Text(stringResource(Res.string.relay_tools_search_contacts)) }, modifier = Modifier.fillMaxWidth())
+                    TextButton(onClick = { send("contacts.list", "query" to text) }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_search)) }
                 }
                 "files" -> Row {
-                    TextButton(onClick = { folders = listOf(""); send("files.list") }, enabled = enabled) { Text("Shared folder") }
-                    TextButton(onClick = { folders = folders.dropLast(1); send("files.list", "path" to folders.last()) }, enabled = enabled && folders.size > 1) { Text("Back") }
+                    TextButton(onClick = { folders = listOf(""); send("files.list") }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_shared_folder)) }
+                    TextButton(onClick = { folders = folders.dropLast(1); send("files.list", "path" to folders.last()) }, enabled = enabled && folders.size > 1) { Text(stringResource(Res.string.relay_tools_back)) }
                 }
-                "notifications", "commands" -> TextButton(onClick = { send("$section.list") }, enabled = enabled) { Text("Refresh") }
+                "notifications", "commands" -> TextButton(onClick = { send("$section.list") }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_refresh)) }
             }
             if (message.isNotBlank()) Text(message, color = if (success) colors.onSurfaceVariant else colors.error, style = MaterialTheme.typography.bodyMedium)
             if (action == "status.get" && success) values.forEach { (key, value) -> Text("$key: $value", style = MaterialTheme.typography.bodyLarge) }
@@ -164,25 +166,25 @@ fun RelayToolsPanel(
                             Text(entry.title, style = MaterialTheme.typography.titleSmall)
                             if (entry.subtitle.isNotBlank()) Text(entry.subtitle, style = MaterialTheme.typography.bodySmall)
                             when (entry.kind) {
-                                "player" -> TextButton(onClick = { player = entry.id; send("media.status", "player" to player) }, enabled = enabled) { Text(if (player == entry.id) "Selected" else "Use player") }
-                                "folder" -> TextButton(onClick = { folders = folders + entry.id; send("files.list", "path" to entry.id) }, enabled = enabled) { Text("Open") }
-                                "file" -> TextButton(onClick = { send("files.get", "path" to entry.id) }, enabled = enabled) { Text("Download") }
-                                "command" -> TextButton(onClick = { command = entry }, enabled = enabled) { Text("Run") }
+                                "player" -> TextButton(onClick = { player = entry.id; send("media.status", "player" to player) }, enabled = enabled) { Text(if (player == entry.id) stringResource(Res.string.relay_tools_selected) else stringResource(Res.string.relay_tools_use_player)) }
+                                "folder" -> TextButton(onClick = { folders = folders + entry.id; send("files.list", "path" to entry.id) }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_open)) }
+                                "file" -> TextButton(onClick = { send("files.get", "path" to entry.id) }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_download)) }
+                                "command" -> TextButton(onClick = { command = entry }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_run)) }
                                 "notification", "reply" -> Row {
-                                    if (entry.kind == "reply") TextButton(onClick = { reply = entry; text = "" }, enabled = enabled) { Text("Reply") }
-                                    TextButton(onClick = { send("notifications.dismiss", "id" to entry.id) }, enabled = enabled) { Text("Dismiss") }
+                                    if (entry.kind == "reply") TextButton(onClick = { reply = entry; text = "" }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_reply)) }
+                                    TextButton(onClick = { send("notifications.dismiss", "id" to entry.id) }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_dismiss)) }
                                 }
                             }
                         }
                     }
                 }
-                if (section == "files" && values["next"] != null) TextButton(onClick = { send("files.list", "path" to values["path"].orEmpty(), "offset" to values.getValue("next")) }, enabled = enabled) { Text("Next page") }
+                if (section == "files" && values["next"] != null) TextButton(onClick = { send("files.list", "path" to values["path"].orEmpty(), "offset" to values.getValue("next")) }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_next_page)) }
             }
             HorizontalDivider()
-            TextButton(onClick = { showAccess = !showAccess }) { Icon(Icons.Rounded.Security, null); Spacer(Modifier.width(8.dp)); Text("Permissions & setup") }
+            TextButton(onClick = { showAccess = !showAccess }) { Icon(Icons.Rounded.Security, null); Spacer(Modifier.width(8.dp)); Text(stringResource(Res.string.relay_tools_permissions)) }
             if (showAccess) {
                 remoteSetup()
-                Text("Choose what this paired device can access here. Status, finding this device, and pings are available after pairing.", style = MaterialTheme.typography.bodySmall)
+                Text(stringResource(Res.string.relay_tools_access_body), style = MaterialTheme.typography.bodySmall)
                 localGroups.filter { it !in setOf("status", "ring", "ping") }.sorted().forEach { group ->
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(toolGroupLabel(group), Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium)
@@ -194,15 +196,15 @@ fun RelayToolsPanel(
         }
     }
     reply?.let { notification -> AlertDialog(
-        onDismissRequest = { reply = null }, title = { Text("Reply to ${notification.title}") },
-        text = { OutlinedTextField(text, { text = it.take(4096) }, label = { Text("Message") }) },
-        confirmButton = { TextButton(onClick = { send("notifications.reply", "id" to notification.id, "text" to text); reply = null }, enabled = enabled && text.isNotBlank()) { Text("Send reply") } },
-        dismissButton = { TextButton(onClick = { reply = null }) { Text("Cancel") } },
+        onDismissRequest = { reply = null }, title = { Text(stringResource(Res.string.relay_tools_reply_to, notification.title)) },
+        text = { OutlinedTextField(text, { text = it.take(4096) }, label = { Text(stringResource(Res.string.relay_tools_message)) }) },
+        confirmButton = { TextButton(onClick = { send("notifications.reply", "id" to notification.id, "text" to text); reply = null }, enabled = enabled && text.isNotBlank()) { Text(stringResource(Res.string.relay_tools_send_reply)) } },
+        dismissButton = { TextButton(onClick = { reply = null }) { Text(stringResource(Res.string.relay_tools_cancel)) } },
     ) }
     command?.let { item -> AlertDialog(
-        onDismissRequest = { command = null }, title = { Text("Run ${item.title}?") }, text = { Text("This runs the command configured on the other computer.") },
-        confirmButton = { TextButton(onClick = { send("commands.run", "id" to item.id); command = null }, enabled = enabled) { Text("Run") } },
-        dismissButton = { TextButton(onClick = { command = null }) { Text("Cancel") } },
+        onDismissRequest = { command = null }, title = { Text(stringResource(Res.string.relay_tools_run_title, item.title)) }, text = { Text(stringResource(Res.string.relay_tools_run_body)) },
+        confirmButton = { TextButton(onClick = { send("commands.run", "id" to item.id); command = null }, enabled = enabled) { Text(stringResource(Res.string.relay_tools_run)) } },
+        dismissButton = { TextButton(onClick = { command = null }) { Text(stringResource(Res.string.relay_tools_cancel)) } },
     ) }
 }
 
@@ -220,11 +222,19 @@ private fun toolGroupIcon(group: String) = when (group) {
     else -> Icons.Rounded.Lock
 }
 
+@Composable
 fun toolGroupLabel(group: String): String = when (group) {
-    "media" -> "Media remote"; "volume" -> "Volume"; "input" -> "Mouse & keyboard"; "presentation" -> "Presentation"
-    "notifications" -> "Notifications"; "files" -> "Shared files"; "commands" -> "Run commands"; "contacts" -> "Contacts"; "lock" -> "Lock device"
-    "calls" -> "Call controls"
-    "keepawake" -> "Keep awake"
+    "media" -> stringResource(Res.string.relay_tools_group_media)
+    "volume" -> stringResource(Res.string.relay_tools_group_volume)
+    "input" -> stringResource(Res.string.relay_tools_group_input)
+    "presentation" -> stringResource(Res.string.relay_tools_group_presentation)
+    "notifications" -> stringResource(Res.string.relay_tools_group_notifications)
+    "files" -> stringResource(Res.string.relay_tools_group_files)
+    "commands" -> stringResource(Res.string.relay_tools_group_commands)
+    "contacts" -> stringResource(Res.string.relay_tools_group_contacts)
+    "lock" -> stringResource(Res.string.relay_tools_group_lock)
+    "calls" -> stringResource(Res.string.relay_tools_group_calls)
+    "keepawake" -> stringResource(Res.string.relay_tools_group_keepawake)
     else -> group
 }
 

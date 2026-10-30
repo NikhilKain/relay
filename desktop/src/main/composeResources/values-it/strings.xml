@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_devices">Dispositivi</string>
+    <string name="nav_inbox">Ricevuti</string>
+    <string name="nav_settings">Impostazioni</string>
+    <string name="nav_help">Aiuto</string>
+    <string name="action_send">Invia</string>
+
+    <string name="home_title">I tuoi dispositivi</string>
+    <string name="home_nearby">%1$d nelle vicinanze</string>
+    <string name="home_looking">Ricerca dei tuoi dispositivi</string>
+    <string name="home_new">Nuovi nelle vicinanze</string>
+    <string name="home_tap_to_connect">Fai clic per connettere</string>
+    <string name="home_empty_title">Niente nelle vicinanze</string>
+    <string name="home_empty_body">Apri Relay sul telefono, sulla stessa Wi-Fi. Comparirà qui da solo.</string>
+    <string name="home_empty_action">Come connettersi</string>
+    <string name="home_pick">Scegli un dispositivo</string>
+    <string name="home_add_device">Aggiungi un dispositivo</string>
+
+    <string name="qr_title">Connetti un nuovo dispositivo</string>
+    <string name="qr_body">Sul telefono apri Relay, tocca il pulsante di scansione e inquadra questo codice. Entrambi i dispositivi devono essere sulla stessa Wi-Fi.</string>
+    <string name="qr_caption">%1$s · Si aggiorna da solo</string>
+    <string name="qr_read_image">Leggi un QR da un’immagine</string>
+    <string name="qr_change_network">Usa un’altra rete</string>
+    <string name="qr_network_title">Quale rete?</string>
+    <string name="qr_network_body">Questo computer è su più reti. Scegli quella del tuo telefono.</string>
+    <string name="qr_no_network">Questo computer non è su nessuna rete. Connettiti a una Wi-Fi e il codice comparirà qui.</string>
+    <string name="qr_reading">Lettura del QR…</string>
+    <string name="qr_unreadable">Nessun QR di Relay in questa immagine. Usa un’immagine nitida di un codice di meno di cinque minuti.</string>
+    <string name="qr_confirm_title">Connettersi a questo dispositivo?</string>
+    <string name="qr_confirm_body">Relay si connetterà e chiederà a entrambi i dispositivi di mostrare le stesse forme prima di fidarsi.</string>
+    <string name="qr_connecting">Connessione…</string>
+    <string name="qr_connected">Connesso. Controlla che le forme corrispondano su entrambi i dispositivi per finire.</string>
+    <string name="qr_failed">Impossibile connettersi. Controlla che entrambi i dispositivi siano sulla stessa Wi-Fi, poi prova un codice nuovo.</string>
+
+    <string name="device_drop_title">Trascina qui i file</string>
+    <string name="device_drop_body">Foto, documenti, cartelle intere. Vanno dritti a %1$s.</string>
+    <string name="device_drop_release">Rilascia per inviare a %1$s</string>
+    <string name="device_choose_files">Scegli file</string>
+    <string name="device_folder">Cartella</string>
+    <string name="device_folder_hint">Mantiene la struttura</string>
+    <string name="device_clipboard">Appunti</string>
+    <string name="device_clipboard_hint">Invia ciò che hai copiato</string>
+    <string name="device_text">Testo</string>
+    <string name="device_text_hint">Scrivi una nota</string>
+    <string name="device_continue">Continua</string>
+    <string name="device_continue_hint">Apri un link su %1$s</string>
+    <string name="device_recent">Con questo dispositivo</string>
+    <string name="device_nothing_yet">Ancora niente di inviato</string>
+    <string name="device_auto_accept">Consenti sempre i trasferimenti da %1$s</string>
+    <string name="device_forget">Dimentica questo dispositivo</string>
+    <string name="device_connect">Connetti</string>
+    <string name="device_connect_body">Connettiti una volta per inviare cose a %1$s. Verificherai che entrambi gli schermi mostrino le stesse forme.</string>
+    <string name="device_away_body">%1$s non è vicino. Ciò che invii ora arriverà quando tornerà.</string>
+    <string name="device_incompatible">Aggiorna Relay su %1$s per connetterti.</string>
+
+    <string name="compose_text_title">Invia testo a %1$s</string>
+    <string name="compose_link_title">Apri un link su %1$s</string>
+    <string name="compose_text_hint">Scrivi qualcosa</string>
+    <string name="compose_link_hint">Incolla un link</string>
+    <string name="compose_send">Invia</string>
+    <string name="compose_open">Apri lì</string>
+    <string name="cancel">Annulla</string>
+
+    <string name="pair_incoming_title">%1$s vuole connettersi</string>
+    <string name="pair_incoming_body">Controlla che %1$s mostri le stesse forme. Continua solo se è tuo.</string>
+    <string name="pair_trust">Considera attendibile</string>
+    <string name="pair_not_now">Non ora</string>
+    <string name="pair_always_allow">Consenti sempre i trasferimenti da questo dispositivo</string>
+    <string name="pair_outgoing_connecting">Connessione a %1$s</string>
+    <string name="pair_outgoing_title">Conferma su %1$s</string>
+    <string name="pair_outgoing_body">Assicurati che %1$s mostri le stesse forme, poi accetta lì.</string>
+    <string name="pair_mismatch">Le forme non corrispondono</string>
+    <string name="pair_done_title">%1$s è connesso</string>
+    <string name="pair_done_body">Da ora in poi funziona da solo. Niente codici la prossima volta.</string>
+    <string name="pair_failed_title">Non connesso</string>
+    <string name="pair_failed_body">%1$s non si è connesso. Assicurati che Relay sia aperto e che entrambi siano sulla stessa Wi-Fi.</string>
+    <string name="ok">OK</string>
+
+    <string name="offer_title">%1$s vuole inviare qualcosa</string>
+    <string name="offer_receive">Ricevi</string>
+    <string name="offer_decline">Rifiuta</string>
+
+    <string name="failure_generic">%1$s: non è andato a buon fine. Riprova.</string>
+    <string name="failure_away">%1$s non è vicino. Sarà inviato quando tornerà.</string>
+    <string name="failure_lost">Connessione persa. Continueremo quando %1$s tornerà.</string>
+    <string name="failure_damaged">Il file è arrivato danneggiato, quindi non è stato tenuto. Riprova.</string>
+    <string name="failure_space">Spazio insufficiente su %1$s.</string>
+    <string name="failure_declined">%1$s ha rifiutato.</string>
+    <string name="failure_you_declined">Rifiutato</string>
+    <string name="failure_cancelled">Annullato</string>
+    <string name="remaining_seconds">%1$d secondi rimanenti</string>
+    <string name="remaining_minutes">%1$d min rimanenti</string>
+    <string name="almost_done">Quasi fatto</string>
+
+    <string name="inbox_title">Ricevuti</string>
+    <string name="inbox_subtitle">Tutto ciò che i tuoi dispositivi hanno inviato a questo computer</string>
+    <string name="inbox_empty_title">Ancora niente qui</string>
+    <string name="inbox_empty_body">File, link e note inviati qui dai tuoi dispositivi restano in questo elenco.</string>
+    <string name="inbox_open">Apri</string>
+    <string name="inbox_show">Mostra nella cartella</string>
+    <string name="inbox_copy">Copia</string>
+    <string name="inbox_remove">Rimuovi</string>
+    <string name="this_computer">Questo computer</string>
+    <string name="just_now">Proprio ora</string>
+    <string name="minutes_ago">%1$d min</string>
+    <string name="hours_ago">%1$d h</string>
+    <string name="days_ago">%1$d g</string>
+
+    <string name="settings_title">Impostazioni</string>
+    <string name="settings_device">Questo computer</string>
+    <string name="settings_rename">Rinomina</string>
+    <string name="settings_save">Salva</string>
+    <string name="settings_save_to">Salva i file ricevuti in</string>
+    <string name="settings_choose_folder">Scegli cartella</string>
+    <string name="settings_use_default">Usa Download/Relay</string>
+    <string name="settings_clipboard">Appunti universali</string>
+    <string name="settings_clipboard_body">Copia su un dispositivo, incolla su un altro: testo, immagini e file, con i tuoi dispositivi attendibili sulla stessa Wi-Fi.</string>
+    <string name="settings_start">Avvia Relay all’accesso</string>
+    <string name="settings_start_body">Relay aspetta nell’area di notifica, così il telefono può sempre raggiungere questo computer.</string>
+    <string name="settings_start_unavailable">Disponibile nell’app installata.</string>
+    <string name="settings_start_temporary">Installa prima Relay. Questa copia gira da una cartella temporanea, quindi non c’è niente di permanente da avviare.</string>
+
+    <string name="install_banner_title">Relay è in esecuzione da una cartella temporanea</string>
+    <string name="install_banner_body">È stato aperto dall’interno dello zip, quindi Windows l’ha estratto in un posto che pulisce più tardi. Installa Relay per tenerlo, avviarlo con il computer e restare connesso ai tuoi dispositivi.</string>
+    <string name="install_banner_body_mac">È in esecuzione dall’immagine disco, che scompare quando la espelli. Trascina Relay in Applicazioni per tenerlo e avviarlo all’accesso.</string>
+    <string name="install_banner_action">Scarica il programma di installazione</string>
+    <string name="install_banner_action_mac">Come installare</string>
+
+    <string name="settings_spread">Relay e te</string>
+    <string name="settings_share_title">Condividi Relay</string>
+    <string name="settings_share_body">Copia un link da dare a un amico</string>
+    <string name="settings_share_copied">Copiato. Incollalo in un messaggio</string>
+    <string name="settings_share_message">Uso Relay per spostare file e appunti tra telefono e computer. Nessun account, niente passa dal cloud. Gratis per Android, Windows, Mac e Linux: %1$s</string>
+    <string name="settings_rate_title">Valuta Relay</string>
+    <string name="settings_rate_body">Su Google Play. Aiuta altre persone a trovarlo</string>
+    <string name="settings_feedback_title">Invia feedback</string>
+    <string name="settings_feedback_body">Idee, problemi, qualsiasi cosa: %1$s</string>
+    <string name="settings_about">Informazioni</string>
+    <string name="settings_about_body">Relay %1$s · Protocollo v1. Le connessioni tra i tuoi dispositivi sono crittografate. Nessun account, nessun cloud; le statistiche sono disattivate a meno che non le attivi.</string>
+
+    <string name="help_title">Connetti i tuoi dispositivi</string>
+    <string name="help_subtitle">Pochi passaggi, una volta sola. Poi si trovano da soli.</string>
+    <string name="help_step1_title">Installa Relay su ogni dispositivo</string>
+    <string name="help_step1_body">Android: Relay su Google Play. Windows, Mac e Linux: questa app. iPhone e iPad: in arrivo.</string>
+    <string name="help_step2_title">Usa la stessa Wi-Fi</string>
+    <string name="help_step2_body">La Wi-Fi di casa o l’hotspot del telefono. Internet non serve: i dispositivi parlano direttamente tra loro.</string>
+    <string name="help_step3_title">Fai clic sul dispositivo e controlla le forme</string>
+    <string name="help_step3_body">Compare in Nuovi nelle vicinanze. Assicurati che entrambi gli schermi mostrino le stesse tre forme e scegli Considera attendibile sull’altro dispositivo. Solo una volta.</string>
+    <string name="help_firewall_title">Windows ha chiesto del firewall?</string>
+    <string name="help_firewall_body">Scegli Consenti sulle reti private. Così il telefono può raggiungere questo computer sulla tua Wi-Fi. Se l’hai saltato: Sicurezza di Windows › Firewall › Consenti app attraverso il firewall › spunta Relay.</string>
+    <string name="help_clipboard_title">Copia qui, incolla lì</string>
+    <string name="help_clipboard_body">Tutto ciò che copi qui, testo, uno screenshot o file, è pronto da incollare sul telefono. I file copiati sul telefono arrivano in questi appunti.</string>
+
+    <string name="help_get_title">Installa Relay sugli altri dispositivi</string>
+    <string name="help_get_android">Telefono o tablet Android</string>
+    <string name="help_get_android_where">Relay su Google Play</string>
+    <string name="help_get_desktop">Windows, Mac e Linux</string>
+    <string name="help_get_desktop_where">Scarica da GitHub</string>
+    <string name="help_get_apple">iPhone e iPad</string>
+    <string name="help_get_apple_where">In arrivo</string>
+
+    <string name="help_guide_title">Passo dopo passo</string>
+    <string name="help_guide_pick">Quali due dispositivi?</string>
+    <string name="help_guide_phone_pc">Telefono e PC</string>
+    <string name="help_guide_two_phones">Due telefoni</string>
+    <string name="help_guide_two_pcs">Due PC</string>
+
+    <string name="help_pc_1_title">Installa entrambe le app</string>
+    <string name="help_pc_1_body">Relay per desktop su questo computer e Relay per Android sul telefono, da Google Play.</string>
+    <string name="help_pc_2_title">Stessa Wi-Fi</string>
+    <string name="help_pc_2_body">Metti computer e telefono sulla stessa rete. Se Windows chiede del firewall, scegli Consenti sulle reti private.</string>
+    <string name="help_pc_3_title">Connettili una volta</string>
+    <string name="help_pc_3_body">Il telefono compare qui in Nuovi nelle vicinanze. Fai clic, controlla che entrambi gli schermi mostrino le stesse tre forme e tocca Considera attendibile sul telefono.</string>
+    <string name="help_pc_4_title">Fatto</string>
+    <string name="help_pc_4_body">Copia su uno, incolla sull’altro. Trascina un file sul ripiano al bordo sinistro dello schermo e rilascialo sul telefono, oppure condividi verso questo computer dal telefono.</string>
+
+    <string name="help_phones_1_title">Installa Relay su entrambi i telefoni</string>
+    <string name="help_phones_1_body">Entrambi i telefoni hanno bisogno dell’app da Google Play. Uno qualsiasi può avviare la connessione.</string>
+    <string name="help_phones_2_title">Stessa Wi-Fi, o un hotspot</string>
+    <string name="help_phones_2_body">Collega entrambi i telefoni alla stessa Wi-Fi. Niente Wi-Fi? Attiva l’hotspot di un telefono e collega l’altro; internet non serve.</string>
+    <string name="help_phones_3_title">Connettili una volta</string>
+    <string name="help_phones_3_body">Su uno dei telefoni, tocca l’altro in Nuovi nelle vicinanze. Controlla che entrambi gli schermi mostrino le stesse tre forme, poi tocca Considera attendibile sul secondo.</string>
+    <string name="help_phones_4_title">Fatto</string>
+    <string name="help_phones_4_body">Condividi foto e file tra loro da qualsiasi app, e accosta i telefoni dorso a dorso per scambiare biglietti da visita.</string>
+
+    <string name="help_pcs_1_title">Installa Relay per desktop su entrambi</string>
+    <string name="help_pcs_1_body">Scaricalo da GitHub per Windows o Linux ed eseguilo su ogni computer. Resta nell’area di notifica.</string>
+    <string name="help_pcs_2_title">Stessa rete</string>
+    <string name="help_pcs_2_body">Entrambi i computer sulla stessa Wi-Fi o sulla stessa rete cablata. Consenti Relay nel firewall sulle reti private.</string>
+    <string name="help_pcs_3_title">Connettili una volta</string>
+    <string name="help_pcs_3_body">Su un computer, fai clic sull’altro in Nuovi nelle vicinanze. Controlla che entrambi gli schermi mostrino le stesse tre forme, poi scegli Considera attendibile sul secondo.</string>
+    <string name="help_pcs_4_title">Fatto</string>
+    <string name="help_pcs_4_body">Copia su un computer e incolla sull’altro, oppure trascina i file sul ripiano al bordo sinistro dello schermo.</string>
+
+    <string name="settings_ecosystem">Ecosistema</string>
+    <string name="settings_ecosystem_title">I tuoi dispositivi come uno solo</string>
+    <string name="settings_ecosystem_body">Tutto ciò che i dispositivi attendibili inviano o rilasciano qui arriva subito, senza pulsante Accetta, ed è pronto da incollare.</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_analytics_title">Aiuta a migliorare Relay</string>
+    <string name="settings_analytics_body">Invia conteggi anonimi come «un trasferimento completato», mai nomi di file, testo o chi sono i tuoi dispositivi. Disattivato per impostazione predefinita.</string>
+    <string name="settings_shelf_title">Ripiano di rilascio</string>
+    <string name="settings_shelf_body">Una sottile linguetta sul bordo sinistro dello schermo. Trascinaci un file o del testo, poi rilascialo su un dispositivo.</string>
+
+    <string name="shelf_title">Rilascia su un dispositivo</string>
+    <string name="shelf_click_title">Invia a</string>
+    <string name="shelf_ready">Rilascia per inviare</string>
+    <string name="shelf_click">Fai clic per scegliere i file</string>
+    <string name="shelf_away">Non vicino</string>
+    <string name="shelf_sent">Inviato</string>
+    <string name="shelf_empty">Associa un dispositivo per rilasciarci sopra i file.</string>
+    <string name="help_ecosystem_title">Trascina e rilascia sul telefono</string>
+    <string name="help_ecosystem_body">Trascina un file sul bordo sinistro dello schermo. Il ripiano si apre con i tuoi dispositivi: rilascialo sul telefono e arriva lì, pronto da incollare. I dispositivi attendibili non chiedono mai di accettare.</string>
+
+    <string name="tray_open">Apri Relay</string>
+    <string name="tray_add_device">Aggiungi un dispositivo…</string>
+    <string name="tray_send_file">Invia file a %1$s…</string>
+    <string name="tray_send_clipboard">Invia appunti</string>
+    <string name="tray_quit">Esci da Relay</string>
+    <string name="tray_clipboard_sent">Appunti inviati a %1$d dispositivo/i</string>
+    <string name="tray_nothing_to_send">Niente da inviare. Copia del testo e tieni vicino un dispositivo attendibile.</string>
+    <string name="already_running">Relay è già in esecuzione. Cercalo nell’area di notifica.</string>
+
+    <string name="settings_menu_title">Invia con Relay dai tuoi file</string>
+    <string name="settings_menu_body_windows">Fai clic destro su un file o una cartella in Esplora file e scegli Invia con Relay. Su Windows 11 è in Mostra altre opzioni.</string>
+    <string name="settings_menu_body_linux">Fai clic destro su un file o una cartella in Dolphin o File e scegli Invia con Relay.</string>
+    <plurals name="send_picker_title">
+        <item quantity="one">Invia %1$d file</item>
+        <item quantity="many">Invia %1$d file</item>
+        <item quantity="other">Invia %1$d file</item>
+    </plurals>
+    <string name="send_picker_devices">A</string>
+    <string name="send_picker_none">Ancora nessun dispositivo associato. Apri Relay e associane uno.</string>
+    <string name="send_picker_away">Non vicino</string>
+    <string name="send_picker_cancel">Annulla</string>
+    <string name="send_picker_send">Invia</string>
+
+    <string name="settings_updates_title">Controlla aggiornamenti</string>
+    <string name="settings_updates_body">Una volta al giorno Relay chiede a GitHub, dove è pubblicato, se c’è una versione più recente. Non viene inviato nulla su di te o sui tuoi dispositivi.</string>
+    <string name="update_banner_title">Relay %1$s è disponibile</string>
+    <string name="update_banner_body">Scaricalo e installalo sopra questo. Dispositivi e impostazioni restano come sono.</string>
+    <string name="update_banner_action">Scarica l’aggiornamento</string>
+
+    <string name="settings_telegram_title">Unisciti a noi su Telegram</string>
+    <string name="settings_telegram_body">Novità, aiuto e idee per Relay, da chi lo crea.</string>
+
+    <string name="inbox_search">Cerca nomi, dispositivi e testo</string>
+    <string name="inbox_kind_all">Tutto</string>
+    <string name="inbox_kind_photos">Foto e video</string>
+    <string name="inbox_kind_files">File</string>
+    <string name="inbox_kind_links">Link</string>
+    <string name="inbox_kind_text">Testo</string>
+    <string name="inbox_from_device">Da %1$s</string>
+    <string name="inbox_no_match_title">Nessun risultato</string>
+    <string name="inbox_no_match_body">Prova un’altra parola o cancella i filtri.</string>
+
+    <string name="device_folder_title">Salva i file di questo dispositivo in</string>
+    <string name="device_folder_usual">La solita cartella di Relay</string>
+    <string name="device_folder_choose">Scegli cartella</string>
+    <string name="device_folder_reset">Usa la solita cartella</string>
+
+    <string name="tools_mirror">Mostra qui le nuove notifiche</string>
+    <string name="tools_mirror_hint">Attiva l’accesso alle notifiche sul telefono. Le notifiche esistenti restano silenziose; quelle nuove o modificate appaiono qui.</string>
+    <string name="tools_shared_folder">Cartella condivisa: %1$s</string>
+    <string name="tools_choose_folder">Scegli cartella condivisa</string>
+    <string name="tools_edit_command">Aggiungi o rimuovi un comando</string>
+    <string name="tools_commands">Comandi: %1$s</string>
+    <string name="tools_commands_none">Nessuno</string>
+    <string name="tools_command_title">Comando su questo computer</string>
+    <string name="tools_command_body">Solo i comandi salvati qui possono essere eseguiti da un dispositivo associato autorizzato. Lascia vuoto il comando per rimuoverne il nome.</string>
+    <string name="tools_command_name">Nome</string>
+    <string name="tools_command_shell">Comando shell</string>
+    <string name="tools_folder_set">Cartella condivisa selezionata</string>
+    <string name="tools_folder_failed">Impossibile selezionare quella cartella</string>
+    <string name="tools_command_saved">Comando salvato</string>
+    <string name="tools_command_failed">Impossibile salvare il comando</string>
+</resources>

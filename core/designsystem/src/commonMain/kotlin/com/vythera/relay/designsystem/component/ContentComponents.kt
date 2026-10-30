@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -220,6 +221,8 @@ fun RelayActivityItem(
     position: RelayListPosition = RelayListPosition.Single,
     statusLabel: String? = null,
     onClick: (() -> Unit)? = null,
+    /** Small trailing buttons, such as Open and Show in folder. */
+    actions: (@Composable RowScope.() -> Unit)? = null,
 ) {
     val colors = MaterialTheme.colorScheme
     val routeDescription = "$fromName to $toName"
@@ -244,6 +247,10 @@ fun RelayActivityItem(
                 if (statusLabel != null) {
                     Text(statusLabel, style = MaterialTheme.typography.labelSmall, color = colors.primary)
                 }
+            }
+            if (actions != null) {
+                Spacer(Modifier.width(4.dp))
+                Row(verticalAlignment = Alignment.CenterVertically, content = actions)
             }
         }
     }

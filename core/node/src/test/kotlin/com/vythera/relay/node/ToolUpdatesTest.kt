@@ -30,4 +30,17 @@ class ToolUpdatesTest {
         assertFalse(warning.update(10, true))
         assertTrue(warning.update(9, false))
     }
+
+    @Test
+    fun `an incoming call is announced once per ring`() {
+        val alert = IncomingCallAlert()
+        assertFalse(alert.update("Idle"))
+        assertTrue(alert.update("Ringing"))
+        assertFalse(alert.update("Ringing"))
+        assertFalse(alert.update("In a call"))
+        assertFalse(alert.update("Idle"))
+        assertTrue(alert.update("Ringing"))
+        // A phone that does not share its call state never rings here.
+        assertFalse(alert.update(null))
+    }
 }

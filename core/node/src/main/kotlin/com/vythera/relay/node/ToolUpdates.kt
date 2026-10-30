@@ -23,3 +23,13 @@ class LowBatteryWarning {
         return true
     }
 }
+
+/** Says once when a phone starts ringing, from the call state it reports ("Ringing", "In a call", "Idle"). */
+class IncomingCallAlert {
+    private var last: String? = null
+    fun update(state: String?): Boolean {
+        val startedRinging = state == "Ringing" && last != "Ringing"
+        last = state
+        return startedRinging
+    }
+}

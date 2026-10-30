@@ -248,4 +248,37 @@
     <!-- Support channel -->
     <string name="settings_telegram_title">Join us on Telegram</string>
     <string name="settings_telegram_body">News, help and ideas for Relay, from the people who make it.</string>
+
+    <!-- Inbox search and filters -->
+    <string name="inbox_search">Search names, devices and text</string>
+    <string name="inbox_kind_all">All</string>
+    <string name="inbox_kind_photos">Photos and videos</string>
+    <string name="inbox_kind_files">Files</string>
+    <string name="inbox_kind_links">Links</string>
+    <string name="inbox_kind_text">Text</string>
+    <string name="inbox_from_device">From %1$s</string>
+    <string name="inbox_no_match_title">Nothing matches</string>
+    <string name="inbox_no_match_body">Try another word, or clear the filters.</string>
+
+    <!-- Save folder for one device -->
+    <string name="device_folder_title">Save files from this device to</string>
+    <string name="device_folder_usual">The usual Relay folder</string>
+    <string name="device_folder_choose">Choose folder</string>
+    <string name="device_folder_reset">Use the usual folder</string>
+
+    <string name="tools_mirror">Mirror new notifications here</string>
+    <string name="tools_mirror_hint">Enable notification access on the phone. Existing notifications stay quiet; new or changed notifications appear here.</string>
+    <string name="tools_shared_folder">Shared folder: %1$s</string>
+    <string name="tools_choose_folder">Choose shared folder</string>
+    <string name="tools_edit_command">Add or remove a command</string>
+    <string name="tools_commands">Commands: %1$s</string>
+    <string name="tools_commands_none">None</string>
+    <string name="tools_command_title">Command on this computer</string>
+    <string name="tools_command_body">Only commands saved here can be run by an allowed paired device. Leave the command empty to remove its name.</string>
+    <string name="tools_command_name">Name</string>
+    <string name="tools_command_shell">Shell command</string>
+    <string name="tools_folder_set">Shared folder selected</string>
+    <string name="tools_folder_failed">Couldn’t select that folder</string>
+    <string name="tools_command_saved">Command saved</string>
+    <string name="tools_command_failed">Couldn’t save the command</string>
 </resources>
