@@ -12,7 +12,7 @@ import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 import java.io.File
 
-/** A manually selected address, not a discovery announcement or an authentication identity. */
+/** A remembered authenticated direct address, not an authentication identity. */
 @Serializable
 data class DirectEndpoint(val host: String, val port: Int) {
     init {
@@ -21,7 +21,7 @@ data class DirectEndpoint(val host: String, val port: Int) {
     }
 }
 
-/** Remembers explicit addresses independently of expiring LAN discovery. */
+/** Remembers trusted direct addresses independently of expiring LAN discovery. */
 interface DirectEndpointStore {
     val endpoints: StateFlow<Map<DeviceId, DirectEndpoint>>
     suspend fun put(id: DeviceId, endpoint: DirectEndpoint)
@@ -71,4 +71,15 @@ class JsonFileDirectEndpointStore(private val file: File) : InMemoryDirectEndpoi
                 json.decodeFromString(serializer, file.readText()).associate { it.id to DirectEndpoint(it.host, it.port) }
             }.getOrDefault(emptyMap())
     }
+}
+
+
+/** Tailnet IP ranges; never auto-pin arbitrary LAN or Internet addresses from inbound sockets. */
+internal fun isTailnetAddress(host: String): Boolean {
+    val octets = host.split('.')
+    if (octets.size == 4) {
+        val values = octets.map { it.toIntOrNull()?.takeIf { value -> value in 0..255 } ?: return false }
+        return values[0] == 100 && values[1] in 64..127
+    }
+    return host.substringBefore('%').lowercase().startsWith("fd7a:115c:a1e0:")
 }

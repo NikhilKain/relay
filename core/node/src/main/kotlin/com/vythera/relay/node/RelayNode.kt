@@ -84,6 +84,8 @@ class RelayNode(
     /** Where one device's files go when they should not go to [storage]; null for the usual place. */
     private val storageForDevice: (DeviceId) -> IncomingStorage? = { null },
     private val directEndpointStore: DirectEndpointStore = InMemoryDirectEndpointStore(),
+    /** Address classifier; injected in tests to simulate a VPN on loopback. */
+    private val isPersistentInboundHost: (String) -> Boolean = ::isTailnetAddress,
 ) {
     private val scope = CoroutineScope(parentScope.coroutineContext + SupervisorJob(parentScope.coroutineContext[Job]) + Dispatchers.Default)
     private val tls = RelayTls(identity)
@@ -425,6 +427,37 @@ class RelayNode(
         } catch (error: Exception) { connection.close(); throw error }
     }
 
+    /**
+     * Save the reachable VPN endpoint from an authenticated TCP session, even when the
+     * remote peer initiated the connection. For inbound sockets use Hello's advertised
+     * listener port, not the transient TCP source port; outbound sockets already target
+     * the peer's listener port. Nothing is persisted without matching pairing trust.
+     */
+    private suspend fun rememberVpnAddress(connection: PeerConnection) {
+        val host = connection.remoteHost
+        if (!isPersistentInboundHost(host)) return
+        val port = if (connection.isInbound) connection.peerListenPort else connection.remotePort
+        if (port == null) {
+            log("Cannot remember authenticated VPN peer: listener port not advertised")
+            return
+        }
+        val id = connection.peer.id
+        val fingerprint = connection.fingerprint.hex
+        val endpoint = DirectEndpoint(host, port)
+        val trusted = trustStore.devices.value[id]
+        when {
+            trusted?.fingerprint == fingerprint -> {
+                // Preserve manually selected endpoints, which take precedence over inferred ones.
+                if (directEndpointStore.endpoints.value[id] == null) {
+                    directEndpointStore.put(id, endpoint)
+                    log("Remembered authenticated VPN endpoint for ${connection.peer.name}")
+                }
+            }
+            trusted == null -> pendingDirect.putIfAbsent(id, PendingDirect(endpoint, fingerprint))
+            // A mismatching TLS identity never becomes a remembered reconnect target.
+        }
+    }
+
     /** Returns an open, handshaken connection to [deviceId], dialing if needed. */
     internal suspend fun connectionTo(deviceId: DeviceId): PeerConnection {
         connections[deviceId]?.takeIf { it.isOpen }?.let { return it }
@@ -576,6 +609,7 @@ class RelayNode(
         if (trustStore.devices.value.containsKey(peerId)) {
             trustStore.update(peerId) { it.copy(name = connection.peer.name, lastConnectedMillis = clock()) }
         }
+        rememberVpnAddress(connection)
         val runtimeScope = runtime?.let { CoroutineScope(scope.coroutineContext + it) } ?: scope
         runtimeScope.launch { serve(connection) }
         runtimeScope.launch { keepAlive(connection) }

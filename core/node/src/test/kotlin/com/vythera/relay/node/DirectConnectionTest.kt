@@ -34,6 +34,17 @@ class DirectEndpointStoreTest {
         assertFalse(JsonFileDirectEndpointStore(file).endpoints.value.containsKey(id))
     }
 
+    @Test fun `only likely Tailnet IPs qualify for automatic inbound pinning`() {
+        assertTrue(isTailnetAddress("100.64.0.1"))
+        assertTrue(isTailnetAddress("100.127.255.254"))
+        assertTrue(isTailnetAddress("fd7a:115c:a1e0::1"))
+        assertFalse(isTailnetAddress("100.63.255.255"))
+        assertFalse(isTailnetAddress("100.128.0.1"))
+        assertFalse(isTailnetAddress("192.168.1.20"))
+        assertFalse(isTailnetAddress("127.0.0.1"))
+        assertFalse(isTailnetAddress("100.70.bad.4"))
+    }
+
     @Test fun `bad persistence data is safely ignored`() {
         val file = temp.newFile("direct-endpoints.json")
         file.writeText("not json")

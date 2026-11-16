@@ -63,7 +63,7 @@ class RelayNodeTest {
     private fun freeTcpPort() = ServerSocket(0).use { it.localPort }
 
     /** Creates devices that discover each other over loopback instead of the LAN. */
-    private fun devices(vararg names: String, discoveryEnabled: Boolean = true, fixedListenPort: Boolean = false, protocol: (Int) -> VersionRange = { VersionRange(1, 1) }): List<TestDevice> {
+    private fun devices(vararg names: String, discoveryEnabled: Boolean = true, fixedListenPort: Boolean = false, simulateVpn: Boolean = false, protocol: (Int) -> VersionRange = { VersionRange(1, 1) }): List<TestDevice> {
         val ports = names.map { freeUdpPort() }
         val loopback = InetAddress.getLoopbackAddress()
         return names.mapIndexed { i, name ->
@@ -81,7 +81,7 @@ class RelayNodeTest {
             )
             val clipboard = temp.newFolder(name.replace(' ', '_') + "-clipboard")
             val direct = InMemoryDirectEndpointStore()
-            val node = RelayNode(config, RelayIdentity.generate(), trust, DirectoryStorage(inbox), scope, clipboardStorage = DirectoryStorage(clipboard), directEndpointStore = direct)
+            val node = RelayNode(config, RelayIdentity.generate(), trust, DirectoryStorage(inbox), scope, clipboardStorage = DirectoryStorage(clipboard), directEndpointStore = direct, isPersistentInboundHost = { host -> simulateVpn && (host == "127.0.0.1" || host == "0:0:0:0:0:0:0:1") })
             val events = MutableStateFlow<List<NodeEvent>>(emptyList())
             scope.launch { node.events.collect { event -> events.update { it + event } } }
             TestDevice(node, trust, direct, inbox, clipboard, events)
@@ -219,6 +219,34 @@ class RelayNodeTest {
                 list.any { it.id == pc.node.localId && it.presence == Presence.CONNECTED }
             }
             assertEquals(SendResult.Sent, phone.node.sendText(pc.node.localId, "Recovered automatically"))
+        }
+    }
+
+    @Test
+    fun `trusted incoming VPN session is pinned and reconnects after both apps restart`() = runBlocking {
+        withTimeout(30_000) {
+            val (phone, mac) = devices("VPN cellphone", "VPN desktop",
+                discoveryEnabled = false, fixedListenPort = true, simulateVpn = true)
+            assertEquals(mac.node.localId, phone.node.connectAddress("127.0.0.1", mac.node.listeningPort))
+            assertTrue(mac.direct.endpoints.value.isEmpty(), "Unpaired inbound VPN IP must not be saved")
+            pair(phone, mac)
+
+            mac.direct.endpoints.first { it.containsKey(phone.node.localId) }
+            assertEquals(DirectEndpoint("127.0.0.1", phone.node.listeningPort),
+                mac.direct.endpoints.value[phone.node.localId])
+            // The phone must not be the initiator of recovery; only Mac has a target.
+            phone.direct.remove(mac.node.localId)
+            mac.node.stop()
+            phone.node.stop()
+            phone.node.start()
+            mac.node.start()
+
+            mac.node.devices.first { devices ->
+                devices.any { it.id == phone.node.localId && it.presence == Presence.CONNECTED }
+            }
+            assertEquals(SendResult.Sent, mac.node.sendText(phone.node.localId, "Mac initiated after cold restart"))
+            mac.node.forget(phone.node.localId)
+            assertTrue(mac.direct.endpoints.value.isEmpty())
         }
     }
 

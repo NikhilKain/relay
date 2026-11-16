@@ -118,8 +118,11 @@ forwarded across a VPN. Connect to a reachable device by its direct-address/QR f
 on the desktop you can select the VPN interface address when displaying the connection QR.
 
 After **both devices confirm pairing**, the desktop app remembers the explicitly connected
-host and port in `direct-endpoints.json` and tries to restore the connection automatically
-after a network interruption or Relay restart. Retries use backoff (up to about a minute),
+host and port in `direct-endpoints.json`. It can also remember the VPN IP and
+advertised listener port when a previously trusted peer **initiates** a VPN connection.
+This is limited to Tailnet IP ranges and TLS-confirmed identities, not ordinary LAN
+connections. Relay then tries to restore the connection after a network interruption
+or app restart. Retries use backoff (up to about a minute),
 not a tight loop. The saved address is never treated as proof of identity: every connection
 must pass the existing TLS fingerprint check. Unpairing removes the remembered address.
 
