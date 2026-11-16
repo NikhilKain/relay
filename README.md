@@ -111,6 +111,24 @@ to send them to your devices.
 3. Pick the other device, check that both screens show the same three shapes, and
    confirm. They find each other by themselves from then on.
 
+## Direct connections over VPN (including Tailscale)
+
+Relay's UDP multicast discovery is designed for a local network and is not automatically
+forwarded across a VPN. Connect to a reachable device by its direct-address/QR flow instead;
+on the desktop you can select the VPN interface address when displaying the connection QR.
+
+After **both devices confirm pairing**, the desktop app remembers the explicitly connected
+host and port in `direct-endpoints.json` and tries to restore the connection automatically
+after a network interruption or Relay restart. Retries use backoff (up to about a minute),
+not a tight loop. The saved address is never treated as proof of identity: every connection
+must pass the existing TLS fingerprint check. Unpairing removes the remembered address.
+
+For reliable reconnection, the destination needs a stable listening port (normally TCP
+47800). If that port is occupied, Relay currently falls back to a random port; an old saved
+address may then stop working until you connect again. Firewalls and VPN policies must allow
+that TCP port. Desktop builds persist explicit addresses; Android integrations must provide
+a persistent `DirectEndpointStore` to retain them across Android process restarts.
+
 ## Privacy
 
 Relay sends everything directly between your devices, encrypted with TLS. Nothing goes

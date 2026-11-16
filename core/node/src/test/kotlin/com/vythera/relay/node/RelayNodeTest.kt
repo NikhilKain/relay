@@ -30,6 +30,7 @@ import java.io.InputStream
 import java.net.DatagramSocket
 import java.net.InetAddress
 import java.net.InetSocketAddress
+import java.net.ServerSocket
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
@@ -50,7 +51,7 @@ class RelayNodeTest {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private val runningNodes = mutableListOf<RelayNode>()
 
-    private class TestDevice(val node: RelayNode, val trust: TrustStore, val inbox: File, val clipboard: File, val events: MutableStateFlow<List<NodeEvent>>)
+    private class TestDevice(val node: RelayNode, val trust: TrustStore, val direct: DirectEndpointStore, val inbox: File, val clipboard: File, val events: MutableStateFlow<List<NodeEvent>>)
 
     @After
     fun tearDown() {
@@ -59,9 +60,10 @@ class RelayNodeTest {
     }
 
     private fun freeUdpPort() = DatagramSocket(0).use { it.localPort }
+    private fun freeTcpPort() = ServerSocket(0).use { it.localPort }
 
     /** Creates devices that discover each other over loopback instead of the LAN. */
-    private fun devices(vararg names: String, protocol: (Int) -> VersionRange = { VersionRange(1, 1) }): List<TestDevice> {
+    private fun devices(vararg names: String, discoveryEnabled: Boolean = true, fixedListenPort: Boolean = false, protocol: (Int) -> VersionRange = { VersionRange(1, 1) }): List<TestDevice> {
         val ports = names.map { freeUdpPort() }
         val loopback = InetAddress.getLoopbackAddress()
         return names.mapIndexed { i, name ->
@@ -72,16 +74,17 @@ class RelayNodeTest {
                 deviceType = DeviceType.PHONE,
                 platform = Platform.ANDROID,
                 appVersion = "test",
-                listenPort = 0,
+                listenPort = if (fixedListenPort) freeTcpPort() else 0,
                 discoveryPort = ports[i],
-                discoveryTargets = ports.filterIndexed { j, _ -> j != i }.map { InetSocketAddress(loopback, it) },
+                discoveryTargets = if (discoveryEnabled) ports.filterIndexed { j, _ -> j != i }.map { InetSocketAddress(loopback, it) } else emptyList(),
                 protocol = protocol(i),
             )
             val clipboard = temp.newFolder(name.replace(' ', '_') + "-clipboard")
-            val node = RelayNode(config, RelayIdentity.generate(), trust, DirectoryStorage(inbox), scope, clipboardStorage = DirectoryStorage(clipboard))
+            val direct = InMemoryDirectEndpointStore()
+            val node = RelayNode(config, RelayIdentity.generate(), trust, DirectoryStorage(inbox), scope, clipboardStorage = DirectoryStorage(clipboard), directEndpointStore = direct)
             val events = MutableStateFlow<List<NodeEvent>>(emptyList())
             scope.launch { node.events.collect { event -> events.update { it + event } } }
-            TestDevice(node, trust, inbox, clipboard, events)
+            TestDevice(node, trust, direct, inbox, clipboard, events)
         }.onEach { runningNodes += it.node; it.node.start() }
     }
 
@@ -168,9 +171,54 @@ class RelayNodeTest {
         withTimeout(20_000) {
             val (phone, pc) = devices("Direct phone", "Direct pc")
             assertEquals(pc.node.localId, phone.node.connectAddress("127.0.0.1", pc.node.listeningPort))
+            assertTrue(phone.direct.endpoints.value.isEmpty(), "Unpaired addresses must not be remembered")
             assertFalse(phone.node.requestTool(pc.node.localId, "status.get").success)
             pair(phone, pc)
+            phone.direct.endpoints.first { it.containsKey(pc.node.localId) }
             assertEquals(SendResult.Sent, phone.node.sendText(pc.node.localId, "Direct connection test"))
+        }
+    }
+
+    @Test
+    fun `trusted direct peer reconnects after restart without multicast discovery`() = runBlocking {
+        withTimeout(25_000) {
+            val (phone, pc) = devices("VPN phone", "VPN pc", discoveryEnabled = false)
+            assertEquals(pc.node.localId, phone.node.connectAddress("127.0.0.1", pc.node.listeningPort))
+            pair(phone, pc)
+            phone.direct.endpoints.first { it.containsKey(pc.node.localId) }
+            assertEquals(DirectEndpoint("127.0.0.1", pc.node.listeningPort),
+                phone.direct.endpoints.value[pc.node.localId])
+
+            phone.node.stop() // stop() clears LAN discovery; only the saved endpoint remains
+            phone.node.start()
+            phone.node.devices.first { it.any { d -> d.id == pc.node.localId && d.presence == Presence.CONNECTED } }
+            assertEquals(SendResult.Sent, phone.node.sendText(pc.node.localId, "Reconnected across VPN"))
+            phone.node.forget(pc.node.localId)
+            assertFalse(phone.direct.endpoints.value.containsKey(pc.node.localId))
+        }
+    }
+
+    @Test
+    fun `trusted direct peer automatically reconnects after remote server restart`() = runBlocking {
+        withTimeout(30_000) {
+            val (phone, pc) = devices("VPN initiator", "VPN receiver",
+                discoveryEnabled = false, fixedListenPort = true)
+            val pcPort = pc.node.listeningPort
+            assertEquals(pc.node.localId, phone.node.connectAddress("127.0.0.1", pcPort))
+            pair(phone, pc)
+            phone.direct.endpoints.first { it.containsKey(pc.node.localId) }
+
+            pc.node.stop()
+            phone.node.devices.first { list ->
+                list.any { it.id == pc.node.localId && it.presence != Presence.CONNECTED }
+            }
+            pc.node.start()
+            assertEquals(pcPort, pc.node.listeningPort)
+            // No send(), pair() or manual connect() call should be necessary.
+            phone.node.devices.first { list ->
+                list.any { it.id == pc.node.localId && it.presence == Presence.CONNECTED }
+            }
+            assertEquals(SendResult.Sent, phone.node.sendText(pc.node.localId, "Recovered automatically"))
         }
     }
 

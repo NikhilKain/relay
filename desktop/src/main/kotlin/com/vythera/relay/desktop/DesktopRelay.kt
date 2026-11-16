@@ -1,5 +1,6 @@
 package com.vythera.relay.desktop
 
+import com.vythera.relay.node.JsonFileDirectEndpointStore
 import com.vythera.relay.node.JsonFileTrustStore
 import com.vythera.relay.node.NodeConfig
 import com.vythera.relay.node.NodeEvent
@@ -88,6 +89,7 @@ class DesktopRelay {
         clipboardStorage = DirectoryStorage(File(DesktopPaths.cache, "clipboard")),
         log = { DesktopLog.write("relay: $it") },
         storageForDevice = { device -> settings.value.deviceFolders[device.value]?.let(::deviceStorage) },
+        directEndpointStore = JsonFileDirectEndpointStore(File(DesktopPaths.data, "direct-endpoints.json")),
     )
 
     /** One storage per chosen folder, kept so partial files survive between transfers. */
