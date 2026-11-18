@@ -14,6 +14,25 @@ class ConnectionInviteTest {
         val pixels = IntArray(side * side) { i -> if (matrix[i / side / 4][i % side / 4]) 0xff000000.toInt() else 0xffffffff.toInt() }
         assertEquals(invite.encode(), ConnectionQr.decode(side, side, pixels))
     }
+    @Test fun vpnEndpointIsVisibleBeforeLanAndContainerAddresses() {
+        fun ipv4(s: String) = java.net.InetAddress.getByName(s) as java.net.Inet4Address
+        val candidates = listOf(
+            "br-a1" to ipv4("172.19.0.1"),
+            "wlp2s0" to ipv4("192.168.31.107"),
+            "docker0" to ipv4("172.17.0.1"),
+            "enp1s0f0" to ipv4("192.168.31.43"),
+            "tailnet0" to ipv4("100.73.43.22"),
+        )
+        assertEquals(
+            listOf("100.73.43.22", "192.168.31.107", "192.168.31.43"),
+            ConnectionInvite.prioritizeAddresses(candidates),
+        )
+        assertEquals(
+            listOf("172.19.0.1"),
+            ConnectionInvite.prioritizeAddresses(listOf("br-a1" to ipv4("172.19.0.1"))),
+        )
+    }
+
     @Test fun rejectsExpiredAndUnrelatedCodes() {
         listOf("https://example.com", invite.encode() + "?extra=true", invite.copy(host = "127.0.0.1").encode(),
             invite.copy(host = "example.com").encode(), invite.copy(port = 0).encode(),
