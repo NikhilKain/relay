@@ -135,7 +135,7 @@
     <string name="settings_rate_title">Valuta Relay</string>
     <string name="settings_rate_body">Su Google Play. Aiuta altre persone a trovarlo</string>
     <string name="settings_feedback_title">Invia feedback</string>
-    <string name="settings_feedback_body">Idee, problemi, qualsiasi cosa: %1$s</string>
+    <string name="settings_feedback_body">Segnala un bug, chiedi una funzione o semplicemente saluta</string>
     <string name="settings_about">Informazioni</string>
     <string name="settings_about_body">Relay %1$s · Protocollo v1. Le connessioni tra i tuoi dispositivi sono crittografate. Nessun account, nessun cloud; le statistiche sono disattivate a meno che non le attivi.</string>
 
@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">Tutto ciò che i dispositivi attendibili inviano o rilasciano qui arriva subito, senza pulsante Accetta, ed è pronto da incollare.</string>
     <string name="settings_privacy">Privacy</string>
     <string name="settings_analytics_title">Aiuta a migliorare Relay</string>
-    <string name="settings_analytics_body">Invia conteggi anonimi come «un trasferimento completato», mai nomi di file, testo o chi sono i tuoi dispositivi. Disattivato per impostazione predefinita.</string>
+    <string name="settings_analytics_body">Invia conteggi anonimi come «un trasferimento completato», oltre al modello del computer, al sistema e alla versione di Relay, mai nomi di file, testo o chi sono i tuoi dispositivi. Disattivato per impostazione predefinita.</string>
     <string name="settings_shelf_title">Ripiano di rilascio</string>
     <string name="settings_shelf_body">Una sottile linguetta sul bordo sinistro dello schermo. Trascinaci un file o del testo, poi rilascialo su un dispositivo.</string>
 
@@ -279,4 +279,19 @@
     <string name="support_body">Relay è un progetto indipendente, creato e curato da una sola persona. È gratuito, senza pubblicità, account o tracciamento, e resterà così. Se Relay ti fa risparmiare tempo, un pagamento unico Supporter lo mantiene vivo e aiuta a portarlo su iPhone.</string>
     <string name="support_button">Diventa Supporter</string>
     <string name="support_footnote">Un pagamento unico tramite Polar, nel browser. Paga quanto vuoi; ogni funzione resta gratuita per tutti.</string>
+    <string name="feedback_bug_title">Segnala un bug</string>
+    <string name="feedback_bug_body">Qualcosa non funziona o non si vede bene</string>
+    <string name="feedback_feature_title">Richiedi una funzione</string>
+    <string name="feedback_feature_body">Un’idea che renderebbe Relay migliore</string>
+    <string name="feedback_message_title">Invia un messaggio</string>
+    <string name="feedback_message_body">Una domanda, un grazie, qualsiasi altra cosa</string>
+    <string name="feedback_rate_title">Valuta Relay</string>
+    <string name="feedback_rate_body">Su Google Play, o con una stella su GitHub</string>
+    <string name="feedback_close">Chiudi</string>
+    <string name="crash_title">Relay si è chiuso inaspettatamente</string>
+    <string name="crash_body">Un rapporto sull’arresto è stato salvato in %1$s. Segnala il bug e allegalo per aiutare a risolverlo. Non viene inviato nulla se non lo fai tu.</string>
+    <string name="crash_report">Segnala questo bug</string>
+    <string name="settings_crash_logs_title">Salva i log degli arresti</string>
+    <string name="feedback_note">Si apre nel browser, con la versione di Relay e il sistema operativo già compilati.</string>
+    <string name="settings_crash_logs_body">Se Relay si chiude inaspettatamente, un rapporto viene salvato in %1$s. Resta su questo computer, a meno che tu non lo condivida.</string>
 </resources>

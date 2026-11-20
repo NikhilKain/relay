@@ -135,7 +135,7 @@
     <string name="settings_rate_title">Relay’i puanla</string>
     <string name="settings_rate_body">Google Play’de. Başkalarının bulmasına yardımcı olur</string>
     <string name="settings_feedback_title">Geri bildirim gönder</string>
-    <string name="settings_feedback_body">Fikirler, sorunlar, her şey: %1$s</string>
+    <string name="settings_feedback_body">Hata bildirin, özellik isteyin ya da sadece merhaba deyin</string>
     <string name="settings_about">Hakkında</string>
     <string name="settings_about_body">Relay %1$s · Protokol v1. Cihazların arasındaki bağlantılar şifrelidir. Hesap yok, bulut yok; istatistikler sen açmadıkça kapalıdır.</string>
 
@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">Güvenilir cihazlarının buraya gönderdiği veya bıraktığı her şey Kabul et düğmesi olmadan hemen gelir ve yapıştırılmaya hazırdır.</string>
     <string name="settings_privacy">Gizlilik</string>
     <string name="settings_analytics_title">Relay’i geliştirmeye yardım et</string>
-    <string name="settings_analytics_body">“Bir aktarım tamamlandı” gibi anonim sayımlar gönderir; dosya adlarını, metni veya cihazlarının kim olduğunu asla göndermez. Varsayılan olarak kapalı.</string>
+    <string name="settings_analytics_body">“Bir aktarım tamamlandı” gibi anonim sayımları, ayrıca bilgisayar modelini, sistemi ve Relay sürümünü gönderir; dosya adlarını, metni veya cihazlarının kim olduğunu asla göndermez. Varsayılan olarak kapalı.</string>
     <string name="settings_shelf_title">Bırakma rafı</string>
     <string name="settings_shelf_body">Ekranın sol kenarında ince bir sekme. Üzerine bir dosya veya metin sürükle, sonra bir cihazın üzerine bırak.</string>
 
@@ -278,4 +278,19 @@
     <string name="support_body">Relay, tek bir kişinin geliştirip sürdürdüğü bağımsız bir proje. Ücretsiz; reklam, hesap ve takip yok, ve hep böyle kalacak. Relay sana zaman kazandırıyorsa, tek seferlik Supporter ödemesi onu yaşatır ve iPhone’a gelmesine yardım eder.</string>
     <string name="support_button">Supporter ol</string>
     <string name="support_footnote">Tarayıcında Polar üzerinden tek seferlik ödeme. İstediğin kadar öde; tüm özellikler herkes için ücretsiz kalır.</string>
+    <string name="feedback_bug_title">Hata bildir</string>
+    <string name="feedback_bug_body">Bir şey çalışmıyor ya da yanlış görünüyor</string>
+    <string name="feedback_feature_title">Özellik iste</string>
+    <string name="feedback_feature_body">Relay’i daha iyi yapacak bir fikir</string>
+    <string name="feedback_message_title">Mesaj gönder</string>
+    <string name="feedback_message_body">Bir soru, bir teşekkür, başka bir şey</string>
+    <string name="feedback_rate_title">Relay’i puanla</string>
+    <string name="feedback_rate_body">Google Play’de ya da GitHub’da yıldız vererek</string>
+    <string name="feedback_close">Kapat</string>
+    <string name="crash_title">Relay beklenmedik şekilde kapandı</string>
+    <string name="crash_body">Bir çökme raporu %1$s konumuna kaydedildi. Düzeltilmesine yardım etmek için hatayı bildirip raporu ekleyin. Siz göndermedikçe hiçbir şey gönderilmez.</string>
+    <string name="crash_report">Bu hatayı bildir</string>
+    <string name="settings_crash_logs_title">Çökme kayıtlarını kaydet</string>
+    <string name="feedback_note">Tarayıcınızda açılır; Relay sürümü ve işletim sisteminiz önceden doldurulur.</string>
+    <string name="settings_crash_logs_body">Relay beklenmedik şekilde kapanırsa %1$s konumuna bir rapor kaydedilir. Siz paylaşmadıkça bu bilgisayarda kalır.</string>
 </resources>

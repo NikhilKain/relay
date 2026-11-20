@@ -1,6 +1,10 @@
 package com.vythera.relay.desktop.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.unit.dp
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -98,11 +102,13 @@ fun DesktopConnectionQr(node: RelayNode, modifier: Modifier = Modifier) {
         onDismissRequest = { choosingNetwork = false },
         title = { Text(stringResource(Res.string.qr_network_title)) },
         text = {
-            Column {
+            Column(modifier = Modifier.heightIn(max = 360.dp).verticalScroll(rememberScrollState())) {
                 Text(stringResource(Res.string.qr_network_body))
                 addresses.forEach { address ->
                     TextButton(onClick = { chosen = address; choosingNetwork = false }) {
-                        Text(if (address == host) "$address  ✓" else address)
+                        val vpn = address.startsWith("100.") && address.split('.').getOrNull(1)?.toIntOrNull() in 64..127
+                        val label = if (vpn) stringResource(Res.string.qr_network_vpn, address) else address
+                        Text(if (address == host) "$label  ✓" else label)
                     }
                 }
             }

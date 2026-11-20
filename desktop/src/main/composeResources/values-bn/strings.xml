@@ -135,7 +135,7 @@
     <string name="settings_rate_title">Relay-কে রেট দিন</string>
     <string name="settings_rate_body">Google Play-তে। এতে অন্যরা এটি খুঁজে পায়</string>
     <string name="settings_feedback_title">মতামত পাঠান</string>
-    <string name="settings_feedback_body">আইডিয়া, সমস্যা, যেকোনো কিছু: %1$s</string>
+    <string name="settings_feedback_body">বাগ জানান, ফিচার চান, বা শুধু হাই বলুন</string>
     <string name="settings_about">সম্পর্কে</string>
     <string name="settings_about_body">Relay %1$s · প্রোটোকল v1। আপনার ডিভাইসগুলোর মধ্যে সংযোগ এনক্রিপ্টেড। কোনো অ্যাকাউন্ট নেই, ক্লাউড নেই; আপনি চালু না করলে পরিসংখ্যান বন্ধ থাকে।</string>
 
@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">আপনার বিশ্বস্ত ডিভাইস এখানে যা পাঠায় বা ছাড়ে, তা গ্রহণ বোতাম ছাড়াই সঙ্গে সঙ্গে আসে এবং পেস্ট করার জন্য তৈরি থাকে।</string>
     <string name="settings_privacy">গোপনীয়তা</string>
     <string name="settings_analytics_title">Relay উন্নত করতে সাহায্য করুন</string>
-    <string name="settings_analytics_body">“একটি ট্রান্সফার শেষ হয়েছে” ধরনের বেনামি গণনা পাঠায়, কখনও ফাইলের নাম, টেক্সট বা আপনার ডিভাইস কারা তা নয়। ডিফল্টে বন্ধ।</string>
+    <string name="settings_analytics_body">“একটি ট্রান্সফার শেষ হয়েছে” ধরনের বেনামি গণনা, সঙ্গে কম্পিউটারের মডেল, সিস্টেম ও Relay-এর ভার্সন পাঠায়, কখনও ফাইলের নাম, টেক্সট বা আপনার ডিভাইস কারা তা নয়। ডিফল্টে বন্ধ।</string>
     <string name="settings_shelf_title">ড্রপ শেল্ফ</string>
     <string name="settings_shelf_body">স্ক্রিনের বাঁ প্রান্তে একটি সরু ট্যাব। যেকোনো ফাইল বা টেক্সট এতে টেনে আনুন, তারপর কোনো ডিভাইসের ওপর ছাড়ুন।</string>
 
@@ -278,4 +278,19 @@
     <string name="support_body">Relay একটি ইন্ডি প্রজেক্ট, যা একজন মানুষ বানান ও দেখাশোনা করেন। এটি বিনামূল্যে, বিজ্ঞাপন, অ্যাকাউন্ট বা ট্র্যাকিং ছাড়াই, এবং তেমনই থাকবে। Relay যদি আপনার সময় বাঁচায়, একবারের Supporter পেমেন্ট এটিকে চালু রাখে এবং iPhone-এ আনতে সাহায্য করে।</string>
     <string name="support_button">Supporter হোন</string>
     <string name="support_footnote">আপনার ব্রাউজারে Polar-এর মাধ্যমে একবারের পেমেন্ট। যত খুশি দিন; সব ফিচার সবার জন্য বিনামূল্যে থাকে।</string>
+    <string name="feedback_bug_title">বাগ রিপোর্ট করুন</string>
+    <string name="feedback_bug_body">কিছু কাজ করছে না বা ভুল দেখাচ্ছে</string>
+    <string name="feedback_feature_title">ফিচারের অনুরোধ করুন</string>
+    <string name="feedback_feature_body">এমন একটি আইডিয়া যা Relay-কে আরও ভালো করবে</string>
+    <string name="feedback_message_title">বার্তা পাঠান</string>
+    <string name="feedback_message_body">কোনো প্রশ্ন, ধন্যবাদ, বা অন্য কিছু</string>
+    <string name="feedback_rate_title">Relay-কে রেট দিন</string>
+    <string name="feedback_rate_body">Google Play-তে, বা GitHub-এ একটি স্টার দিয়ে</string>
+    <string name="feedback_close">বন্ধ করুন</string>
+    <string name="crash_title">Relay হঠাৎ বন্ধ হয়ে গেছে</string>
+    <string name="crash_body">একটি ক্র্যাশ রিপোর্ট %1$s-এ সেভ করা হয়েছে। এটি ঠিক করতে সাহায্য করতে বাগ রিপোর্ট করুন এবং ফাইলটি যুক্ত করুন। আপনি না পাঠালে কিছুই পাঠানো হয় না।</string>
+    <string name="crash_report">এই বাগ রিপোর্ট করুন</string>
+    <string name="settings_crash_logs_title">ক্র্যাশ লগ সেভ করুন</string>
+    <string name="feedback_note">আপনার ব্রাউজারে খোলে, Relay-এর ভার্সন ও আপনার অপারেটিং সিস্টেম আগে থেকেই পূরণ করা থাকে।</string>
+    <string name="settings_crash_logs_body">Relay হঠাৎ বন্ধ হয়ে গেলে একটি রিপোর্ট %1$s-এ সেভ হয়। আপনি শেয়ার না করলে এটি এই কম্পিউটারেই থাকে।</string>
 </resources>

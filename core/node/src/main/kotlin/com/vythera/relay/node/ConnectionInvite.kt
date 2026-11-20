@@ -24,9 +24,34 @@ data class ConnectionInvite(val host: String, val port: Int, val fingerprint: Fi
             return ConnectionInvite(parts[1], port, Fingerprint.fromHex(parts[3]), expires)
         }
 
-        fun localAddresses(): List<String> = NetworkInterface.getNetworkInterfaces().toList()
-            .filter { it.isUp && !it.isLoopback }.flatMap { it.inetAddresses.toList() }
-            .filterIsInstance<Inet4Address>().filter { !it.isLoopbackAddress && !it.isLinkLocalAddress }
-            .sortedByDescending { it.isSiteLocalAddress }.mapNotNull { it.hostAddress }.distinct()
+        /** Useful local endpoints for QR invites: routed VPN first, real LAN next. */
+        fun localAddresses(): List<String> {
+            val interfaces = NetworkInterface.getNetworkInterfaces()?.toList().orEmpty()
+            val candidates = interfaces.filter { it.isUp && !it.isLoopback }.flatMap { network ->
+                network.inetAddresses.toList().filterIsInstance<Inet4Address>()
+                    .filter { !it.isLoopbackAddress && !it.isLinkLocalAddress && !it.isAnyLocalAddress }
+                    .map { network.name to it }
+            }
+            return prioritizeAddresses(candidates)
+        }
+
+        /**
+         * Container bridge addresses cannot be reached by another host and overwhelm
+         * the network picker on machines hosting many containers. Keep a fallback
+         * if a device only has virtual networking, and preserve other VPN interfaces.
+         */
+        internal fun prioritizeAddresses(candidates: List<Pair<String, Inet4Address>>): List<String> {
+            val useful = candidates.filterNot { (name, _) ->
+                val lower = name.lowercase()
+                lower.startsWith("br-") || lower.startsWith("docker") ||
+                    lower.startsWith("veth") || lower.startsWith("virbr") ||
+                    lower.startsWith("podman") || lower.startsWith("cni")
+            }.ifEmpty { candidates }
+            return useful.sortedWith(
+                compareByDescending<Pair<String, Inet4Address>> { (_, address) ->
+                    isTailnetAddress(address.hostAddress)
+                }.thenByDescending { (_, address) -> address.isSiteLocalAddress }
+            ).map { (_, address) -> address.hostAddress }.distinct()
+        }
     }
 }

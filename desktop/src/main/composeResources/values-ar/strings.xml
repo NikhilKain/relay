@@ -135,7 +135,7 @@
     <string name="settings_rate_title">قيّم Relay</string>
     <string name="settings_rate_body">على Google Play. يساعد ذلك الآخرين في العثور عليه</string>
     <string name="settings_feedback_title">إرسال ملاحظات</string>
-    <string name="settings_feedback_body">أفكار، مشكلات، أي شيء: %1$s</string>
+    <string name="settings_feedback_body">أبلغ عن خطأ، أو اطلب ميزة، أو قل مرحبًا فقط</string>
     <string name="settings_about">حول</string>
     <string name="settings_about_body">Relay %1$s · البروتوكول v1. الاتصالات بين أجهزتك مشفّرة. بلا حساب وبلا سحابة؛ الإحصاءات متوقفة ما لم تفعّلها.</string>
 
@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">كل ما ترسله أجهزتك الموثوقة أو تفلته هنا يصل فورًا، دون زر قبول، وجاهز للصق.</string>
     <string name="settings_privacy">الخصوصية</string>
     <string name="settings_analytics_title">ساعد في تحسين Relay</string>
-    <string name="settings_analytics_body">يرسل أعدادًا مجهولة مثل «اكتمل نقل»، ولا يرسل أبدًا أسماء الملفات أو النصوص أو هوية أجهزتك. متوقف افتراضيًا.</string>
+    <string name="settings_analytics_body">يرسل أعدادًا مجهولة مثل «اكتمل نقل»، إضافة إلى طراز الكمبيوتر ونظامه وإصدار Relay، ولا يرسل أبدًا أسماء الملفات أو النصوص أو هوية أجهزتك. متوقف افتراضيًا.</string>
     <string name="settings_shelf_title">رف الإفلات</string>
     <string name="settings_shelf_body">لسان رفيع على الحافة اليسرى للشاشة. اسحب إليه أي ملف أو نص، ثم أفلته على جهاز.</string>
 
@@ -282,4 +282,19 @@
     <string name="support_body">Relay مشروع مستقل يبنيه ويعتني به شخص واحد. إنه مجاني، بلا إعلانات ولا حسابات ولا تتبع، وسيبقى كذلك. إن كان Relay يوفّر وقتك، فإن دفعة Supporter لمرة واحدة تبقيه حيًا وتساعد في وصوله إلى iPhone.</string>
     <string name="support_button">كن Supporter</string>
     <string name="support_footnote">دفعة لمرة واحدة عبر Polar في متصفحك. ادفع ما تشاء؛ تبقى كل الميزات مجانية للجميع.</string>
+    <string name="feedback_bug_title">الإبلاغ عن خطأ</string>
+    <string name="feedback_bug_body">شيء لا يعمل أو يبدو غير صحيح</string>
+    <string name="feedback_feature_title">طلب ميزة</string>
+    <string name="feedback_feature_body">فكرة تجعل Relay أفضل</string>
+    <string name="feedback_message_title">إرسال رسالة</string>
+    <string name="feedback_message_body">سؤال، أو شكر، أو أي شيء آخر</string>
+    <string name="feedback_rate_title">تقييم Relay</string>
+    <string name="feedback_rate_body">على Google Play، أو بنجمة على GitHub</string>
+    <string name="feedback_close">إغلاق</string>
+    <string name="crash_title">أُغلق Relay بشكل غير متوقع</string>
+    <string name="crash_body">حُفظ تقرير عن العطل في %1$s. أبلغ عن الخطأ وأرفق التقرير للمساعدة في إصلاحه. لا يُرسل أي شيء ما لم تفعل ذلك بنفسك.</string>
+    <string name="crash_report">الإبلاغ عن هذا الخطأ</string>
+    <string name="settings_crash_logs_title">حفظ سجلات الأعطال</string>
+    <string name="feedback_note">يُفتح في متصفحك، مع ملء إصدار Relay ونظام التشغيل لديك مسبقًا.</string>
+    <string name="settings_crash_logs_body">إذا أُغلق Relay بشكل غير متوقع، يُحفظ تقرير في %1$s. يبقى على هذا الكمبيوتر ما لم تشاركه.</string>
 </resources>

@@ -135,7 +135,7 @@
     <string name="settings_rate_title">為 Relay 評分</string>
     <string name="settings_rate_body">在 Google Play 上。這能幫助更多人找到它</string>
     <string name="settings_feedback_title">傳送意見回饋</string>
-    <string name="settings_feedback_body">想法、問題，什麼都行：%1$s</string>
+    <string name="settings_feedback_body">回報錯誤、建議功能，或只是打聲招呼</string>
     <string name="settings_about">關於</string>
     <string name="settings_about_body">Relay %1$s · 通訊協定 v1。裝置之間的連線經過加密。不需要帳號，沒有雲端；除非你開啟，否則不收集統計資料。</string>
 
@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">受信任裝置傳送或放置到這裡的任何內容都會立即送達，不必按下接受，而且可以直接貼上。</string>
     <string name="settings_privacy">隱私權</string>
     <string name="settings_analytics_title">協助改善 Relay</string>
-    <string name="settings_analytics_body">傳送「完成了一次傳輸」之類的匿名計數，絕不傳送檔案名稱、文字或你的裝置身分。預設為關閉。</string>
+    <string name="settings_analytics_body">傳送「完成了一次傳輸」之類的匿名計數，以及電腦型號、系統和 Relay 版本，絕不傳送檔案名稱、文字或你的裝置身分。預設為關閉。</string>
     <string name="settings_shelf_title">放置架</string>
     <string name="settings_shelf_body">螢幕左邊緣的一個細長分頁。把任何檔案或文字拖到上面，再放到某部裝置上。</string>
 
@@ -277,4 +277,19 @@
     <string name="support_body">Relay 是一個獨立專案，由一個人開發和維護。它免費，沒有廣告、沒有帳號、沒有追蹤，而且會一直如此。如果 Relay 幫你節省了時間，一次性的 Supporter 支持能讓它持續下去，並幫助它登上 iPhone。</string>
     <string name="support_button">成為 Supporter</string>
     <string name="support_footnote">在瀏覽器中透過 Polar 一次性付款，金額隨意。所有功能對所有人始終免費。</string>
+    <string name="feedback_bug_title">回報錯誤</string>
+    <string name="feedback_bug_body">有功能無法運作或顯示不對</string>
+    <string name="feedback_feature_title">建議功能</string>
+    <string name="feedback_feature_body">能讓 Relay 更好的點子</string>
+    <string name="feedback_message_title">傳送訊息</string>
+    <string name="feedback_message_body">提問、道謝或其他任何事</string>
+    <string name="feedback_rate_title">為 Relay 評分</string>
+    <string name="feedback_rate_body">在 Google Play 評分，或在 GitHub 按顆星</string>
+    <string name="feedback_close">關閉</string>
+    <string name="crash_title">Relay 意外關閉</string>
+    <string name="crash_body">當機報告已儲存到 %1$s。回報錯誤並附上這份報告，有助於修正問題。除非你自己傳送，否則不會傳送任何內容。</string>
+    <string name="crash_report">回報這個錯誤</string>
+    <string name="settings_crash_logs_title">儲存當機記錄</string>
+    <string name="feedback_note">會在瀏覽器中開啟，並自動填好 Relay 版本和你的作業系統。</string>
+    <string name="settings_crash_logs_body">如果 Relay 意外關閉，報告會儲存到 %1$s。除非你分享，否則只會留在這台電腦上。</string>
 </resources>

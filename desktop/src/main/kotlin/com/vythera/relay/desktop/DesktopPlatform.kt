@@ -71,9 +71,16 @@ object DesktopLog {
         write("$message: ${error.stackTraceToString()}")
     }
 
+    /** The last [lines] lines, for a crash report. */
+    @Synchronized
+    fun recent(lines: Int): String = runCatching { file.readLines().takeLast(lines).joinToString("\n", postfix = "\n") }.getOrDefault("")
+
     /** Catches anything that would otherwise end a thread, or the app, in silence. */
     fun installCrashHandler() {
-        Thread.setDefaultUncaughtExceptionHandler { thread, error -> write("uncaught on ${thread.name}", error) }
+        Thread.setDefaultUncaughtExceptionHandler { thread, error ->
+            write("uncaught on ${thread.name}", error)
+            DesktopCrashLogs.record(thread, error)
+        }
         Runtime.getRuntime().addShutdownHook(Thread { write("relay: stopping") })
     }
 
@@ -120,6 +127,8 @@ data class DesktopSettings(
     val analytics: Boolean = false,
     /** A random id for this installation, made when statistics are first turned on. */
     val analyticsClientId: String = "",
+    /** Write a report to Downloads/Relay/Crash logs when something goes wrong. */
+    val crashLogs: Boolean = true,
 )
 
 /** Settings as a small JSON file next to the identity. Written atomically. */

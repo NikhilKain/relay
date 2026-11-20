@@ -135,7 +135,7 @@
     <string name="settings_rate_title">Оценить Relay</string>
     <string name="settings_rate_body">В Google Play. Так его найдут другие</string>
     <string name="settings_feedback_title">Отправить отзыв</string>
-    <string name="settings_feedback_body">Идеи, проблемы, что угодно: %1$s</string>
+    <string name="settings_feedback_body">Сообщите об ошибке, предложите функцию или просто передайте привет</string>
     <string name="settings_about">О приложении</string>
     <string name="settings_about_body">Relay %1$s · Протокол v1. Соединения между вашими устройствами зашифрованы. Без аккаунта и облака; статистика выключена, пока вы её не включите.</string>
 
@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">Всё, что доверенные устройства отправляют или бросают сюда, приходит сразу, без кнопки «Принять», и готово к вставке.</string>
     <string name="settings_privacy">Конфиденциальность</string>
     <string name="settings_analytics_title">Помочь улучшить Relay</string>
-    <string name="settings_analytics_body">Отправляет анонимные счётчики вроде «передача завершена», но никогда не имена файлов, текст или сведения о ваших устройствах. По умолчанию выключено.</string>
+    <string name="settings_analytics_body">Отправляет анонимные счётчики вроде «передача завершена», а также модель компьютера, систему и версию Relay, но никогда не имена файлов, текст или сведения о ваших устройствах. По умолчанию выключено.</string>
     <string name="settings_shelf_title">Полка для файлов</string>
     <string name="settings_shelf_body">Тонкая вкладка у левого края экрана. Перетащите на неё файл или текст и отпустите на устройство.</string>
 
@@ -280,4 +280,19 @@
     <string name="support_body">Relay — независимый проект, который создаёт и развивает один человек. Он бесплатный, без рекламы, аккаунтов и слежки, и таким останется. Если Relay экономит вам время, разовый платёж Supporter помогает ему жить и выйти на iPhone.</string>
     <string name="support_button">Стать Supporter</string>
     <string name="support_footnote">Разовый платёж через Polar в браузере. Платите сколько хотите; все функции остаются бесплатными для всех.</string>
+    <string name="feedback_bug_title">Сообщить об ошибке</string>
+    <string name="feedback_bug_body">Что-то не работает или выглядит неправильно</string>
+    <string name="feedback_feature_title">Предложить функцию</string>
+    <string name="feedback_feature_body">Идея, которая сделает Relay лучше</string>
+    <string name="feedback_message_title">Написать сообщение</string>
+    <string name="feedback_message_body">Вопрос, благодарность или что-то ещё</string>
+    <string name="feedback_rate_title">Оценить Relay</string>
+    <string name="feedback_rate_body">В Google Play или звёздочкой на GitHub</string>
+    <string name="feedback_close">Закрыть</string>
+    <string name="crash_title">Relay неожиданно закрылся</string>
+    <string name="crash_body">Отчёт о сбое сохранён в %1$s. Сообщите об ошибке и приложите его, чтобы помочь её исправить. Ничего не отправляется, пока вы сами этого не сделаете.</string>
+    <string name="crash_report">Сообщить об этой ошибке</string>
+    <string name="settings_crash_logs_title">Сохранять отчёты о сбоях</string>
+    <string name="feedback_note">Откроется в браузере, версия Relay и операционная система уже будут заполнены.</string>
+    <string name="settings_crash_logs_body">Если Relay неожиданно закроется, отчёт сохранится в %1$s. Он остаётся на этом компьютере, пока вы им не поделитесь.</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.vythera.relay.desktop
 
+import com.vythera.relay.node.JsonFileDirectEndpointStore
 import com.vythera.relay.node.JsonFileTrustStore
 import com.vythera.relay.node.NodeConfig
 import com.vythera.relay.node.NodeEvent
@@ -88,6 +89,7 @@ class DesktopRelay {
         clipboardStorage = DirectoryStorage(File(DesktopPaths.cache, "clipboard")),
         log = { DesktopLog.write("relay: $it") },
         storageForDevice = { device -> settings.value.deviceFolders[device.value]?.let(::deviceStorage) },
+        directEndpointStore = JsonFileDirectEndpointStore(File(DesktopPaths.data, "direct-endpoints.json")),
     )
 
     /** One storage per chosen folder, kept so partial files survive between transfers. */
@@ -104,6 +106,8 @@ class DesktopRelay {
     private val analytics = DesktopAnalytics(scope, clientId = { settings.value.analyticsClientId }, log = { DesktopLog.write(it) })
     val updates = DesktopUpdates(VERSION, log = { DesktopLog.write(it) })
     val analyticsAvailable: Boolean get() = analytics.isAvailable
+    /** Lists this computer in the developer's panel, as part of "Help improve Relay". */
+    val checkIn = DesktopCheckIn(scope) { DesktopLog.write(it) }
 
     val devices: StateFlow<List<RelayDevice>> = node.devices
     val transfers: StateFlow<List<TransferSnapshot>> = node.transfers
@@ -136,6 +140,10 @@ class DesktopRelay {
         clipboard.enabled = settings.value.clipboard == DesktopClipboardMode.AUTOMATIC
         applyEcosystem(settings.value.ecosystem)
         analytics.enabled = settings.value.analytics
+        DesktopCrashLogs.enabled = settings.value.crashLogs
+        // Asking the system for the computer's model can take a moment; done now, off the window.
+        scope.launch(Dispatchers.IO) { DesktopSystem.model }
+        checkIn.enabled = settings.value.analytics
         clipboard.start()
         scope.launch { node.events.collect(::onEvent) }
         // Re-applied every start, so the entry follows Relay if it is reinstalled elsewhere.
@@ -263,6 +271,12 @@ class DesktopRelay {
             )
         }
         analytics.enabled = enabled
+        checkIn.enabled = enabled
+    }
+
+    fun setCrashLogs(enabled: Boolean) {
+        updateSettings { it.copy(crashLogs = enabled) }
+        DesktopCrashLogs.enabled = enabled
     }
 
     fun setStartWithComputer(enabled: Boolean) {
@@ -435,7 +449,7 @@ class DesktopRelay {
     companion object {
         // Keep in step with packageVersion in desktop/build.gradle.kts: this is what About
         // shows and what paired devices are told.
-        const val VERSION = "1.0.5"
+        const val VERSION = "1.0.6"
         private const val MAX_HISTORY = 200
 
         fun isLink(text: String) = Regex("""^https?://\S+$""", RegexOption.IGNORE_CASE).matches(text.trim())

@@ -338,9 +338,9 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
                 copied = true
             }
             LinkRow(stringResource(Res.string.settings_rate_title), stringResource(Res.string.settings_rate_body)) { Outreach.rate() }
-            LinkRow(stringResource(Res.string.settings_feedback_title), stringResource(Res.string.settings_feedback_body, RelayLinks.FEEDBACK_EMAIL)) {
-                Outreach.feedback(DesktopRelay.VERSION)
-            }
+            var feedback by remember { mutableStateOf(false) }
+            LinkRow(stringResource(Res.string.settings_feedback_title), stringResource(Res.string.settings_feedback_body)) { feedback = true }
+            if (feedback) FeedbackDialog(onDismiss = { feedback = false })
         }
 
         RelaySectionHeader(stringResource(Res.string.settings_about), Modifier.padding(top = RelaySpacing.xxl))
@@ -354,6 +354,12 @@ fun SettingsPage(relay: DesktopRelay, settings: DesktopSettings, onChooseFolder:
         Spacer(Modifier.height(8.dp))
         Group {
             SwitchRow(stringResource(Res.string.settings_updates_title), stringResource(Res.string.settings_updates_body), settings.checkForUpdates, relay::setCheckForUpdates)
+            SwitchRow(
+                stringResource(Res.string.settings_crash_logs_title),
+                stringResource(Res.string.settings_crash_logs_body, com.vythera.relay.desktop.DesktopCrashLogs.folder.path),
+                settings.crashLogs,
+                relay::setCrashLogs,
+            )
         }
     }
 }
@@ -517,7 +523,6 @@ object RelayLinks {
     const val MAC_INSTALL_GUIDE = "https://github.com/NikhilKain/relay#macos"
     /** Every platform on one page: the link worth passing to a friend. */
     const val WEBSITE = "https://nikhilkain.github.io/relay-site/"
-    const val FEEDBACK_EMAIL = "narzo9990@gmail.com"
     /** Support and news channel. */
     const val TELEGRAM = "https://t.me/vythera_apps"
     /** The one-time Supporter payment, checked out on Polar. */
@@ -535,14 +540,6 @@ private object Outreach {
     fun telegram() = browse(RelayLinks.TELEGRAM)
 
     fun support() = browse(RelayLinks.SUPPORT)
-
-    fun feedback(version: String) {
-        val os = "${System.getProperty("os.name")} ${System.getProperty("os.version")}"
-        val subject = java.net.URLEncoder.encode("Relay $version feedback ($os)", Charsets.UTF_8).replace("+", "%20")
-        val uri = java.net.URI("mailto:${RelayLinks.FEEDBACK_EMAIL}?subject=$subject")
-        // Not every desktop has a mail handler registered; the browser usually does.
-        runCatching { java.awt.Desktop.getDesktop().mail(uri) }.onFailure { browse(uri.toString()) }
-    }
 
     private fun browse(url: String) {
         runCatching { java.awt.Desktop.getDesktop().browse(java.net.URI(url)) }

@@ -79,6 +79,9 @@ fun DesktopApp(relay: DesktopRelay, navigation: DesktopNavigation, window: Frame
     val settings by relay.settings.collectAsState()
     val scope = rememberCoroutineScope()
     var compose by remember { mutableStateOf<Pair<DeviceId, Boolean>?>(null) }
+    // Something went wrong last time and a report was saved: say where, once.
+    var crashReport by remember { mutableStateOf(com.vythera.relay.desktop.DesktopCrashLogs.takePending()) }
+    crashReport?.let { CrashReportDialog(it) { crashReport = null } }
 
     val devices = remember(rawDevices, transfers) { rawDevices.map { it.toView(transfers) }.byRelevance() }
     val selected = devices.firstOrNull { it.id == navigation.selected } ?: devices.firstOrNull()

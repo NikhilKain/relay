@@ -18,6 +18,7 @@ import com.vythera.relay.protocol.MessageCodec
 import com.vythera.relay.protocol.ProtocolVersion
 import com.vythera.relay.protocol.RelayMessage
 import com.vythera.relay.protocol.TransferKind
+import com.vythera.relay.security.Fingerprint
 import com.vythera.relay.security.RelayIdentity
 import com.vythera.relay.security.RelayTls
 import com.vythera.relay.transfer.IncomingStorage
@@ -39,6 +40,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -81,6 +83,9 @@ class RelayNode(
     private val log: (String) -> Unit = {},
     /** Where one device's files go when they should not go to [storage]; null for the usual place. */
     private val storageForDevice: (DeviceId) -> IncomingStorage? = { null },
+    private val directEndpointStore: DirectEndpointStore = InMemoryDirectEndpointStore(),
+    /** Address classifier; injected in tests to simulate a VPN on loopback. */
+    private val isPersistentInboundHost: (String) -> Boolean = ::isTailnetAddress,
 ) {
     private val scope = CoroutineScope(parentScope.coroutineContext + SupervisorJob(parentScope.coroutineContext[Job]) + Dispatchers.Default)
     private val tls = RelayTls(identity)
@@ -126,6 +131,14 @@ class RelayNode(
     private val connectedPeers = MutableStateFlow<Map<DeviceId, DeviceInfo>>(emptyMap())
     private val incompatiblePeers = MutableStateFlow<Set<DeviceId>>(emptySet())
     private val dialLocks = ConcurrentHashMap<DeviceId, Mutex>()
+    private data class PendingDirect(val endpoint: DirectEndpoint, val fingerprint: String)
+    private val pendingDirect = ConcurrentHashMap<DeviceId, PendingDirect>()
+    private val directReconnect = DirectConnectionSupervisor(
+        directEndpointStore, trustStore,
+        connected = { id -> connections[id]?.isOpen == true },
+        dial = { id -> connectionTo(id) },
+        log = log,
+    )
 
     private val _events = MutableSharedFlow<NodeEvent>(extraBufferCapacity = 64)
     val events: SharedFlow<NodeEvent> = _events.asSharedFlow()
@@ -225,6 +238,20 @@ class RelayNode(
         }
 
         runtimeScope.launch { watchForAppearingDevices() }
+        runtimeScope.launch {
+            trustStore.devices.collect { trusted ->
+                pendingDirect.toMap().forEach { (id, pending) ->
+                    if (trusted[id]?.fingerprint == pending.fingerprint && pendingDirect.remove(id, pending)) {
+                        directEndpointStore.put(id, pending.endpoint)
+                    }
+                }
+                // Never keep reconnecting a device the user has unpaired.
+                directEndpointStore.endpoints.value.keys.filter { it !in trusted }.forEach {
+                    directEndpointStore.remove(it)
+                }
+            }
+        }
+        directReconnect.start(runtimeScope)
         _isRunning.value = true
     }
 
@@ -233,6 +260,8 @@ class RelayNode(
         val job = runtime ?: return
         runtime = null
         _isRunning.value = false
+        directReconnect.stop()
+        pendingDirect.clear()
         // Do not launch cleanup in the scope close() is about to cancel. Blocking socket
         // readers would otherwise retain IO workers until their 45-second timeout.
         connections.values.toList().forEach { it.abort() }
@@ -252,6 +281,7 @@ class RelayNode(
     /** Ask devices to announce themselves now, e.g. when the app returns to the foreground or Wi-Fi changes. */
     fun refresh() {
         discovery?.refresh()
+        directReconnect.signalAll()
     }
 
     fun rename(name: String) {
@@ -288,6 +318,8 @@ class RelayNode(
     suspend fun forget(deviceId: DeviceId) {
         connections[deviceId]?.let { runCatching { it.send(RelayMessage.Unpair) } }
         trustStore.remove(deviceId)
+        pendingDirect.remove(deviceId)
+        directEndpointStore.remove(deviceId)
         _events.emit(NodeEvent.DeviceForgotten(deviceId, byPeer = false))
     }
 
@@ -383,8 +415,47 @@ class RelayNode(
             require(peer.id != localId) { "Cannot connect to this device itself" }
             registry.onDirectContact(peer.id, peer.name, peer.type, peer.platform, connection.fingerprint, peer.protocol, Endpoint(host, port))
             register(connection)
+            // Persist only a successfully authenticated, explicitly entered address, and
+            // only after the user has confirmed pairing with that exact TLS fingerprint.
+            val pending = PendingDirect(DirectEndpoint(host, port), connection.fingerprint.hex)
+            pendingDirect[peer.id] = pending
+            if (trustStore.devices.value[peer.id]?.fingerprint == pending.fingerprint &&
+                pendingDirect.remove(peer.id, pending)) {
+                directEndpointStore.put(peer.id, pending.endpoint)
+            }
             return peer.id
         } catch (error: Exception) { connection.close(); throw error }
+    }
+
+    /**
+     * Save the reachable VPN endpoint from an authenticated TCP session, even when the
+     * remote peer initiated the connection. For inbound sockets use Hello's advertised
+     * listener port, not the transient TCP source port; outbound sockets already target
+     * the peer's listener port. Nothing is persisted without matching pairing trust.
+     */
+    private suspend fun rememberVpnAddress(connection: PeerConnection) {
+        val host = connection.remoteHost
+        if (!isPersistentInboundHost(host)) return
+        val port = if (connection.isInbound) connection.peerListenPort else connection.remotePort
+        if (port == null) {
+            log("Cannot remember authenticated VPN peer: listener port not advertised")
+            return
+        }
+        val id = connection.peer.id
+        val fingerprint = connection.fingerprint.hex
+        val endpoint = DirectEndpoint(host, port)
+        val trusted = trustStore.devices.value[id]
+        when {
+            trusted?.fingerprint == fingerprint -> {
+                // Preserve manually selected endpoints, which take precedence over inferred ones.
+                if (directEndpointStore.endpoints.value[id] == null) {
+                    directEndpointStore.put(id, endpoint)
+                    log("Remembered authenticated VPN endpoint for ${connection.peer.name}")
+                }
+            }
+            trusted == null -> pendingDirect.putIfAbsent(id, PendingDirect(endpoint, fingerprint))
+            // A mismatching TLS identity never becomes a remembered reconnect target.
+        }
     }
 
     /** Returns an open, handshaken connection to [deviceId], dialing if needed. */
@@ -393,8 +464,26 @@ class RelayNode(
         return dialLocks.getOrPut(deviceId) { Mutex() }.withLock {
             connections[deviceId]?.takeIf { it.isOpen }?.let { return@withLock it }
             if (runtime == null) throw UnreachableException("Relay is not running")
-            val device = registry.devices.value[deviceId] ?: throw UnreachableException()
+            val discovered = registry.devices.value[deviceId]
+            val remembered = directEndpointStore.endpoints.value[deviceId]
+            val trusted = trustStore.devices.value[deviceId]
+            val device = if (remembered != null && trusted != null) {
+                // Never accept a changed key simply because an old address is reachable.
+                val fingerprint = Fingerprint.fromHex(trusted.fingerprint)
+                val endpoints = (listOf(Endpoint(remembered.host, remembered.port)) +
+                    discovered?.endpoints.orEmpty()).distinct().take(4)
+                DiscoveredDevice(deviceId, discovered?.name ?: trusted.name, discovered?.type ?: trusted.type,
+                    discovered?.platform ?: trusted.platform, fingerprint,
+                    discovered?.protocol ?: config.protocol, endpoints, discovered?.lastSeenMillis ?: clock())
+            } else discovered ?: throw UnreachableException()
             val connection = raceConnections(device)
+            // Unpair may race an in-flight reconnect. Never publish a session based on
+            // a remembered address if its original trusted identity was just removed.
+            if (remembered != null && trusted != null &&
+                trustStore.devices.value[deviceId]?.fingerprint != trusted.fingerprint) {
+                connection.close()
+                throw UnreachableException("Device trust changed during direct reconnect")
+            }
             registry.onDirectContact(device.id, device.name, device.type, device.platform, connection.fingerprint,
                 device.protocol, Endpoint(connection.remoteHost, connection.remotePort))
             register(connection)
@@ -520,6 +609,7 @@ class RelayNode(
         if (trustStore.devices.value.containsKey(peerId)) {
             trustStore.update(peerId) { it.copy(name = connection.peer.name, lastConnectedMillis = clock()) }
         }
+        rememberVpnAddress(connection)
         val runtimeScope = runtime?.let { CoroutineScope(scope.coroutineContext + it) } ?: scope
         runtimeScope.launch { serve(connection) }
         runtimeScope.launch { keepAlive(connection) }
@@ -554,7 +644,10 @@ class RelayNode(
         val peerId = connection.peer.id
         val wasActive = connections.remove(peerId, connection)
         log("Connection to ${connection.peer.name} closed (active=$wasActive)")
-        if (wasActive) connectedPeers.update { it - peerId }
+        if (wasActive) {
+            connectedPeers.update { it - peerId }
+            directReconnect.signal(peerId)
+        }
         pairing.onConnectionClosed(connection)
         transfersCoordinator.onConnectionClosed(connection)
     }
@@ -565,13 +658,21 @@ class RelayNode(
             if (!connection.isOpen) return
             val busy = transfers.value.any { it.peerId == connection.peer.id && !it.status.isFinished } ||
                 pairingSessions.value.any { it.peerId == connection.peer.id && !it.stage.isFinished }
-            if (!busy && clock() - connection.lastActivityMillis > idleTimeoutMillis) {
+            if (!busy && directEndpointStore.endpoints.value[connection.peer.id] == null &&
+                clock() - connection.lastActivityMillis > idleTimeoutMillis) {
                 log("Closing idle connection to ${connection.peer.name}")
                 runCatching { connection.send(RelayMessage.Goodbye(GoodbyeReason.IDLE)) }
                 connection.close()
                 return
             }
             try {
+                // An explicit persistent peer should not be closed as idle by the OTHER
+                // endpoint, which may not have saved our address. Capabilities are a
+                // lightweight non-keepalive message understood by existing Relay clients.
+                if (directEndpointStore.endpoints.value[connection.peer.id] != null &&
+                    clock() - connection.lastActivityMillis >= 30_000L) {
+                    connection.send(RelayMessage.Capabilities(config.capabilities))
+                }
                 connection.send(RelayMessage.Ping(clock()))
             } catch (e: IOException) {
                 return
@@ -647,6 +748,8 @@ class RelayNode(
             }
             is RelayMessage.Unpair -> {
                 trustStore.remove(peerId)
+                pendingDirect.remove(peerId)
+                directEndpointStore.remove(peerId)
                 _events.emit(NodeEvent.DeviceForgotten(peerId, byPeer = true))
             }
             is RelayMessage.TransferRequest -> transfersCoordinator.onRequest(connection, message)

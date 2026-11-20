@@ -135,7 +135,7 @@
     <string name="settings_rate_title">Relay を評価</string>
     <string name="settings_rate_body">Google Play で。ほかの人が見つけやすくなります</string>
     <string name="settings_feedback_title">フィードバックを送信</string>
-    <string name="settings_feedback_body">アイデア、問題、なんでも: %1$s</string>
+    <string name="settings_feedback_body">バグの報告、機能のリクエスト、ひとことでもどうぞ</string>
     <string name="settings_about">情報</string>
     <string name="settings_about_body">Relay %1$s · プロトコル v1。デバイス間の接続は暗号化されています。アカウントもクラウドもなし。統計はオンにしない限りオフです。</string>
 
@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">信頼済みデバイスがここに送ったりドロップしたりしたものは、承認ボタンなしですぐに届き、そのまま貼り付けられます。</string>
     <string name="settings_privacy">プライバシー</string>
     <string name="settings_analytics_title">Relay の改善に協力</string>
-    <string name="settings_analytics_body">「転送が完了した」などの匿名の件数を送信します。ファイル名、テキスト、デバイスの情報は決して送りません。初期設定はオフです。</string>
+    <string name="settings_analytics_body">「転送が完了した」などの匿名の件数と、コンピューターの機種、OS、Relay のバージョンを送信します。ファイル名、テキスト、デバイスの情報は決して送りません。初期設定はオフです。</string>
     <string name="settings_shelf_title">ドロップシェルフ</string>
     <string name="settings_shelf_body">画面左端の細いタブ。ファイルやテキストをそこにドラッグし、デバイスの上にドロップします。</string>
 
@@ -277,4 +277,19 @@
     <string name="support_body">Relay は、ひとりで開発・運営しているインディープロジェクトです。無料で、広告もアカウントもトラッキングもなく、これからも変わりません。Relay が役に立っているなら、1 回限りの Supporter 支援が開発を支え、iPhone 版への後押しになります。</string>
     <string name="support_button">Supporter になる</string>
     <string name="support_footnote">ブラウザーで Polar から 1 回限りのお支払い。金額は自由です。すべての機能はこれからも全員無料です。</string>
+    <string name="feedback_bug_title">バグを報告</string>
+    <string name="feedback_bug_body">動かない、または表示がおかしい</string>
+    <string name="feedback_feature_title">機能をリクエスト</string>
+    <string name="feedback_feature_body">Relay をもっと良くするアイデア</string>
+    <string name="feedback_message_title">メッセージを送る</string>
+    <string name="feedback_message_body">質問、お礼、その他なんでも</string>
+    <string name="feedback_rate_title">Relay を評価</string>
+    <string name="feedback_rate_body">Google Play で評価、または GitHub でスター</string>
+    <string name="feedback_close">閉じる</string>
+    <string name="crash_title">Relay が予期せず終了しました</string>
+    <string name="crash_body">クラッシュレポートを %1$s に保存しました。修正のため、バグを報告してこのファイルを添付してください。あなたが送信しない限り、何も送られません。</string>
+    <string name="crash_report">このバグを報告</string>
+    <string name="settings_crash_logs_title">クラッシュログを保存</string>
+    <string name="feedback_note">ブラウザで開きます。Relay のバージョンと OS は入力済みです。</string>
+    <string name="settings_crash_logs_body">Relay が予期せず終了したとき、レポートを %1$s に保存します。共有しない限り、このコンピューターの外には出ません。</string>
 </resources>

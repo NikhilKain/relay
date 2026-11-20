@@ -111,10 +111,38 @@ to send them to your devices.
 3. Pick the other device, check that both screens show the same three shapes, and
    confirm. They find each other by themselves from then on.
 
+## Direct connections over VPN (including Tailscale)
+
+Relay's UDP multicast discovery is designed for a local network and is not automatically
+forwarded across a VPN. Connect to a reachable device by its direct-address/QR flow instead;
+on the desktop you can select the VPN interface address when displaying the connection QR.
+
+After **both devices confirm pairing**, Relay remembers the explicitly connected host and
+port in `direct-endpoints.json`. It can also remember the VPN IP and advertised listener
+port when a previously trusted peer **initiates** a VPN connection. This is limited to
+Tailnet IP ranges and TLS-confirmed identities, not ordinary LAN connections. Relay then
+tries to restore the connection after a network interruption or app restart. Retries use
+backoff (up to about a minute), not a tight loop. The saved address is never treated as
+proof of identity: every connection must pass the existing TLS fingerprint check.
+Unpairing removes the remembered address.
+
+For reliable reconnection, the destination needs a stable listening port (normally TCP
+47800). If that port is occupied, Relay currently falls back to a random port; an old saved
+address may then stop working until you connect again. Firewalls and VPN policies must allow
+that TCP port. The desktop and Android apps both keep remembered addresses across restarts.
+
+Thanks to [@Highwall2016](https://github.com/Highwall2016) for this work ([pull request 4](https://github.com/NikhilKain/relay/pull/4)).
+
 ## Privacy
 
 Relay sends everything directly between your devices, encrypted with TLS. Nothing goes
 through a server. See the [privacy policy](https://nikhilkain.github.io/relay-site/privacy.html).
+
+Settings › Send feedback opens the Vythera feedback website in your browser; nothing is sent
+until you submit the form there. If Relay closes unexpectedly it saves a report in
+Downloads/Relay/Crash logs, which stays on your computer unless you attach it to a report
+(you can turn this off). The optional "Help improve Relay" switch, off by default, sends
+anonymous counts plus the computer model, system and Relay version.
 
 ## Building the desktop app
 

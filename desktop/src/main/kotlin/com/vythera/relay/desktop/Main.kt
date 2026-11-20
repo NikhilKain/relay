@@ -60,14 +60,20 @@ fun main(args: Array<String>) {
         DesktopRelay().apply { start() }
     } catch (error: Throwable) {
         DesktopLog.write("relay: could not start", error)
-        JOptionPane.showMessageDialog(
+        DesktopCrashLogs.record(Thread.currentThread(), error)
+        val choice = JOptionPane.showOptionDialog(
             null,
             "Relay could not start: ${error.message ?: error.javaClass.simpleName}\n\n" +
-                "Details are in ${File(DesktopPaths.data, "relay.log").path}.\n" +
-                "If this keeps happening, please send that file to ${com.vythera.relay.desktop.ui.RelayLinks.FEEDBACK_EMAIL}.",
+                "A report is in ${DesktopCrashLogs.folder.path}.\n" +
+                "If this keeps happening, please report the bug and attach it.",
             "Relay",
+            JOptionPane.DEFAULT_OPTION,
             JOptionPane.ERROR_MESSAGE,
+            null,
+            arrayOf("Report this bug", "Close"),
+            "Report this bug",
         )
+        if (choice == 0) DesktopFeedback.open(FeedbackType.Bug)
         exitProcess(1)
     }
     SendInbox.add(toSend)
@@ -103,6 +109,8 @@ fun main(args: Array<String>) {
             if (updateMessage != null) trayState.sendNotification(Notification("Relay", updateMessage))
         }
 
+        // The window being open is a session for the panel check-in (when it is turned on).
+        LaunchedEffect(windowVisible) { relay.checkIn.windowVisible(windowVisible) }
         LaunchedEffect(Unit) {
             listenForOtherCopies(onShow = { windowVisible = true }, onSend = SendInbox::add)
         }

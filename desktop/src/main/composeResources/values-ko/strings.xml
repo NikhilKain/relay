@@ -135,7 +135,7 @@
     <string name="settings_rate_title">Relay 평가하기</string>
     <string name="settings_rate_body">Google Play에서. 다른 사람들이 찾는 데 도움이 됩니다</string>
     <string name="settings_feedback_title">의견 보내기</string>
-    <string name="settings_feedback_body">아이디어, 문제, 무엇이든: %1$s</string>
+    <string name="settings_feedback_body">버그 신고, 기능 요청, 간단한 인사도 좋습니다</string>
     <string name="settings_about">정보</string>
     <string name="settings_about_body">Relay %1$s · 프로토콜 v1. 기기 간 연결은 암호화됩니다. 계정도 클라우드도 없으며, 통계는 직접 켜지 않으면 꺼져 있습니다.</string>
 
@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">신뢰하는 기기가 이곳으로 보내거나 놓은 항목은 수락 버튼 없이 바로 도착하고 바로 붙여넣을 수 있습니다.</string>
     <string name="settings_privacy">개인정보 보호</string>
     <string name="settings_analytics_title">Relay 개선에 참여</string>
-    <string name="settings_analytics_body">“전송 완료” 같은 항목의 익명 집계만 보내며, 파일 이름, 텍스트, 기기 정보는 절대 보내지 않습니다. 기본적으로 꺼져 있습니다.</string>
+    <string name="settings_analytics_body">“전송 완료” 같은 항목의 익명 집계와 컴퓨터 모델, 시스템, Relay 버전을 보내며, 파일 이름, 텍스트, 기기 정보는 절대 보내지 않습니다. 기본적으로 꺼져 있습니다.</string>
     <string name="settings_shelf_title">드롭 선반</string>
     <string name="settings_shelf_body">화면 왼쪽 가장자리의 얇은 탭입니다. 파일이나 텍스트를 끌어다 놓은 다음 기기 위에 놓으세요.</string>
 
@@ -277,4 +277,19 @@
     <string name="support_body">Relay는 한 사람이 만들고 가꾸는 인디 프로젝트입니다. 무료이고 광고도, 계정도, 추적도 없으며 앞으로도 그렇습니다. Relay가 시간을 아껴 준다면, 한 번의 Supporter 후원이 Relay를 계속 이어 가게 하고 iPhone 버전에도 힘이 됩니다.</string>
     <string name="support_button">Supporter 되기</string>
     <string name="support_footnote">브라우저에서 Polar를 통한 1회 결제입니다. 원하는 만큼 내세요. 모든 기능은 누구에게나 계속 무료입니다.</string>
+    <string name="feedback_bug_title">버그 신고</string>
+    <string name="feedback_bug_body">작동하지 않거나 이상하게 보이는 부분</string>
+    <string name="feedback_feature_title">기능 요청</string>
+    <string name="feedback_feature_body">Relay를 더 좋게 만들 아이디어</string>
+    <string name="feedback_message_title">메시지 보내기</string>
+    <string name="feedback_message_body">질문, 감사 인사, 그 밖의 무엇이든</string>
+    <string name="feedback_rate_title">Relay 평가하기</string>
+    <string name="feedback_rate_body">Google Play에서 평가하거나 GitHub에서 별표 누르기</string>
+    <string name="feedback_close">닫기</string>
+    <string name="crash_title">Relay가 예기치 않게 종료되었습니다</string>
+    <string name="crash_body">충돌 보고서를 %1$s에 저장했습니다. 문제 해결을 도우려면 버그를 신고하고 이 파일을 첨부해 주세요. 직접 보내지 않으면 아무것도 전송되지 않습니다.</string>
+    <string name="crash_report">이 버그 신고하기</string>
+    <string name="settings_crash_logs_title">충돌 로그 저장</string>
+    <string name="feedback_note">브라우저에서 열리며 Relay 버전과 운영체제가 미리 입력됩니다.</string>
+    <string name="settings_crash_logs_body">Relay가 예기치 않게 종료되면 %1$s에 보고서를 저장합니다. 공유하지 않는 한 이 컴퓨터에만 남습니다.</string>
 </resources>

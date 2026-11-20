@@ -135,7 +135,7 @@
     <string name="settings_rate_title">给 Relay 评分</string>
     <string name="settings_rate_body">在 Google Play 上。这能帮助更多人找到它</string>
     <string name="settings_feedback_title">发送反馈</string>
-    <string name="settings_feedback_body">想法、问题，什么都行：%1$s</string>
+    <string name="settings_feedback_body">报告问题、建议新功能，或者打个招呼</string>
     <string name="settings_about">关于</string>
     <string name="settings_about_body">Relay %1$s · 协议 v1。设备之间的连接经过加密。无需账号，没有云端；除非你开启，否则不收集统计信息。</string>
 
@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">受信任设备发送或投放到这里的任何内容都会立即送达，无需点击接受，并且可以直接粘贴。</string>
     <string name="settings_privacy">隐私</string>
     <string name="settings_analytics_title">帮助改进 Relay</string>
-    <string name="settings_analytics_body">发送“完成了一次传输”之类的匿名计数，绝不发送文件名、文字或你的设备身份。默认关闭。</string>
+    <string name="settings_analytics_body">发送“完成了一次传输”之类的匿名计数，以及电脑型号、系统和 Relay 版本，绝不发送文件名、文字或你的设备身份。默认关闭。</string>
     <string name="settings_shelf_title">投放架</string>
     <string name="settings_shelf_body">屏幕左边缘的一个细长标签。把任何文件或文字拖到上面，再放到某台设备上。</string>
 
@@ -277,4 +277,19 @@
     <string name="support_body">Relay 是一个独立项目，由一个人开发和维护。它免费，没有广告、没有账号、没有追踪，而且会一直如此。如果 Relay 帮你节省了时间，一次性的 Supporter 支持能让它继续下去，并帮助它登上 iPhone。</string>
     <string name="support_button">成为 Supporter</string>
     <string name="support_footnote">在浏览器中通过 Polar 一次性付款，金额随意。所有功能对所有人始终免费。</string>
+    <string name="feedback_bug_title">报告问题</string>
+    <string name="feedback_bug_body">有功能无法使用或显示不对</string>
+    <string name="feedback_feature_title">建议新功能</string>
+    <string name="feedback_feature_body">能让 Relay 更好的想法</string>
+    <string name="feedback_message_title">发送消息</string>
+    <string name="feedback_message_body">提问、致谢或其他任何事</string>
+    <string name="feedback_rate_title">给 Relay 评分</string>
+    <string name="feedback_rate_body">在 Google Play 评分，或在 GitHub 点个星</string>
+    <string name="feedback_close">关闭</string>
+    <string name="crash_title">Relay 意外关闭</string>
+    <string name="crash_body">崩溃报告已保存到 %1$s。报告问题并附上这份报告，可以帮助修复它。除非你自己发送，否则不会发送任何内容。</string>
+    <string name="crash_report">报告此问题</string>
+    <string name="settings_crash_logs_title">保存崩溃日志</string>
+    <string name="feedback_note">将在浏览器中打开，并自动填好 Relay 版本和你的操作系统。</string>
+    <string name="settings_crash_logs_body">如果 Relay 意外关闭，报告会保存到 %1$s。除非你分享，否则它只留在这台电脑上。</string>
 </resources>

@@ -26,6 +26,7 @@
     <string name="qr_change_network">Use another network</string>
     <string name="qr_network_title">Which network?</string>
     <string name="qr_network_body">This computer is on more than one network. Pick the one your phone is on.</string>
+    <string name="qr_network_vpn">VPN · %1$s</string>
     <string name="qr_no_network">This computer isn’t on a network. Connect to Wi-Fi and the code appears here.</string>
     <string name="qr_reading">Reading the QR…</string>
     <string name="qr_unreadable">No Relay QR in that image. Use a clear picture of a code that is less than five minutes old.</string>
@@ -138,7 +139,7 @@
     <string name="settings_rate_title">Rate Relay</string>
     <string name="settings_rate_body">On Google Play. It helps other people find it</string>
     <string name="settings_feedback_title">Send feedback</string>
-    <string name="settings_feedback_body">Ideas, problems, anything: %1$s</string>
+    <string name="settings_feedback_body">Report a bug, ask for a feature, or just say hi</string>
     <string name="settings_about">About</string>
     <string name="settings_about_body">Relay %1$s · Protocol v1. Connections are encrypted between your devices. No account, no cloud; statistics are off unless you turn them on.</string>
 
@@ -201,7 +202,7 @@
     <string name="settings_ecosystem_body">Anything your trusted devices send or drop here arrives straight away, with no Accept button, and is ready to paste.</string>
     <string name="settings_privacy">Privacy</string>
     <string name="settings_analytics_title">Help improve Relay</string>
-    <string name="settings_analytics_body">Sends anonymous counts of things like “a transfer finished”, never file names, text or who your devices are. Off by default.</string>
+    <string name="settings_analytics_body">Sends anonymous counts of things like “a transfer finished”, plus the computer model, system and Relay version, never file names, text or who your devices are. Off by default.</string>
     <string name="settings_shelf_title">Drop shelf</string>
     <string name="settings_shelf_body">A slim tab on the left edge of the screen. Drag any file or text onto it, then drop it on a device.</string>
 
@@ -286,4 +287,19 @@
     <string name="support_body">Relay is an indie project, built and looked after by one person. It’s free, with no ads, no accounts and no tracking, and it will stay that way. If Relay saves you time, a one-time Supporter payment keeps it alive and helps bring it to iPhone.</string>
     <string name="support_button">Become a Supporter</string>
     <string name="support_footnote">A one-time payment through Polar, in your browser. Pay what you like; every feature stays free for everyone.</string>
+    <string name="feedback_bug_title">Report a bug</string>
+    <string name="feedback_bug_body">Something isn’t working or looks wrong</string>
+    <string name="feedback_feature_title">Request a feature</string>
+    <string name="feedback_feature_body">An idea that would make Relay better</string>
+    <string name="feedback_message_title">Send a message</string>
+    <string name="feedback_message_body">A question, a thank-you, anything else</string>
+    <string name="feedback_rate_title">Rate Relay</string>
+    <string name="feedback_rate_body">On Google Play, or with a star on GitHub</string>
+    <string name="feedback_close">Close</string>
+    <string name="crash_title">Relay closed unexpectedly</string>
+    <string name="crash_body">A crash report was saved in %1$s. Report the bug and attach it to help get it fixed. Nothing is sent unless you do.</string>
+    <string name="crash_report">Report this bug</string>
+    <string name="settings_crash_logs_title">Save crash logs</string>
+    <string name="feedback_note">Opens in your browser, with Relay’s version and your operating system filled in.</string>
+    <string name="settings_crash_logs_body">If Relay closes unexpectedly, a report is saved in %1$s. It stays on this computer unless you share it.</string>
 </resources>
