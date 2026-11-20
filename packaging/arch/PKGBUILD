@@ -6,7 +6,7 @@
 # Maintainer: Vythera <narzo9990@gmail.com>
 
 pkgname=relay-bin
-pkgver=1.0.3
+pkgver=1.0.6
 pkgrel=1
 pkgdesc="Files, clipboard and links between your phone and your computer, over your own Wi-Fi"
 arch=('x86_64')
@@ -22,7 +22,7 @@ provides=('relay')
 conflicts=('relay')
 options=('!strip' '!debug')
 source=("${url}/releases/download/v${pkgver}/relay_${pkgver}-1_amd64.deb")
-sha256sums=('376e998d0702f7897340f691dd19a81e8bf725738968917a2dc71a5e45cfb2fa')
+sha256sums=('d807a99a5ea4c633220e6dd75b306c328b9822f9c9213afeaf3f4d90300d0aa0')
 
 package() {
   bsdtar -xf data.tar.* -C "${pkgdir}"
