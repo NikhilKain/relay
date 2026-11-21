@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Relay privacy</title><link rel="icon" href="images/icon.png"><style>body{background:#1A0E07;color:#F6E3D8;font:16px/1.7 "Segoe UI",system-ui,sans-serif;margin:0} .wrap{max-width:760px;margin:0 auto;padding:60px 20px} h1{color:#FFB692;letter-spacing:-1px} h2{margin-top:36px;font-size:22px} h3{margin-top:24px;font-size:18px} p,li{color:#C8A894} li{margin-bottom:8px} a{color:#73D5E2} .muted{font-size:14px} table{width:100%;border-collapse:collapse} td,th{border-bottom:1px solid #3B2419;padding:8px;text-align:left;vertical-align:top}</style></head><body><div class="wrap"><p><a href="index.html">← Relay</a></p><h1>Relay privacy policy</h1>
 
-<p class="muted">Last updated: 20 November 2026</p>
+<p class="muted">Last updated: 21 November 2026</p>
 
 <p>Relay is made by Vythera. This policy explains what Relay does with your information.
 The short version: everything Relay handles goes directly between your own devices, and we
@@ -85,15 +85,19 @@ notifications, contacts, device names, network addresses, or anything identifyin
 devices you pair with. Firebase also collects an app-instance identifier and general
 technical information such as the app version and country; see Google's
 <a href="https://firebase.google.com/support/privacy">Firebase privacy page</a>.</p>
-<p>The same switch (on a computer: Settings › Privacy, “Help improve Relay”) also lets
-Relay check in with the developer’s own device counter, so we can see how many phones and
-computers use Relay. It sends a scrambled (SHA-256) form of the device’s system identifier,
-so the identifier itself never leaves the device; a random installation and session
-identifier; how long Relay was open; the device maker and model; the operating system; and
-the Relay version. The counter keeps the country of the connection, not the IP address,
-city or region. It never receives anything you send, your files, text, device names or
-anything about the devices you pair with.</p>
-<p>You can turn it off again at any time in the same place, which stops both.</p>
+<p>You can turn it off again at any time in the same place, which stops collection.</p>
+
+<h2>Anonymous device count</h2>
+<p>So we can see how many phones and computers use Relay, and on which systems, Relay
+checks in with the developer’s own device counter when it opens and every few minutes
+while it is open (on a computer: when its window is open, and once a day while it runs in
+the tray). This is part of how Relay works and has no switch. It sends a scrambled
+(SHA-256) form of the device’s system identifier, so the identifier itself never leaves
+the device; a random installation and session identifier; how long Relay was open; the
+device maker and model; the operating system; and the Relay version. The counter keeps the
+country of the connection, not the IP address, city or region. It never receives anything
+you send, your files, text, clipboard, device names or anything about the devices you pair
+with.</p>
 
 <h2>Feedback</h2>
 <p>Settings › Send feedback opens the Vythera feedback website in your browser. That website

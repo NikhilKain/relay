@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">受信任裝置傳送或放置到這裡的任何內容都會立即送達，不必按下接受，而且可以直接貼上。</string>
     <string name="settings_privacy">隱私權</string>
     <string name="settings_analytics_title">協助改善 Relay</string>
-    <string name="settings_analytics_body">傳送「完成了一次傳輸」之類的匿名計數，以及電腦型號、系統和 Relay 版本，絕不傳送檔案名稱、文字或你的裝置身分。預設為關閉。</string>
+    <string name="settings_analytics_body">傳送「完成了一次傳輸」之類的匿名計數，絕不傳送檔案名稱、文字或你的裝置身分。預設為關閉。</string>
     <string name="settings_shelf_title">放置架</string>
     <string name="settings_shelf_body">螢幕左邊緣的一個細長分頁。把任何檔案或文字拖到上面，再放到某部裝置上。</string>
 

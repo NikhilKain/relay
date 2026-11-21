@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">আপনার বিশ্বস্ত ডিভাইস এখানে যা পাঠায় বা ছাড়ে, তা গ্রহণ বোতাম ছাড়াই সঙ্গে সঙ্গে আসে এবং পেস্ট করার জন্য তৈরি থাকে।</string>
     <string name="settings_privacy">গোপনীয়তা</string>
     <string name="settings_analytics_title">Relay উন্নত করতে সাহায্য করুন</string>
-    <string name="settings_analytics_body">“একটি ট্রান্সফার শেষ হয়েছে” ধরনের বেনামি গণনা, সঙ্গে কম্পিউটারের মডেল, সিস্টেম ও Relay-এর ভার্সন পাঠায়, কখনও ফাইলের নাম, টেক্সট বা আপনার ডিভাইস কারা তা নয়। ডিফল্টে বন্ধ।</string>
+    <string name="settings_analytics_body">“একটি ট্রান্সফার শেষ হয়েছে” ধরনের বেনামি গণনা পাঠায়, কখনও ফাইলের নাম, টেক্সট বা আপনার ডিভাইস কারা তা নয়। ডিফল্টে বন্ধ।</string>
     <string name="settings_shelf_title">ড্রপ শেল্ফ</string>
     <string name="settings_shelf_body">স্ক্রিনের বাঁ প্রান্তে একটি সরু ট্যাব। যেকোনো ফাইল বা টেক্সট এতে টেনে আনুন, তারপর কোনো ডিভাইসের ওপর ছাড়ুন।</string>
 

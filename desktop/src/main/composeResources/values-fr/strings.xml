@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">Tout ce que vos appareils de confiance envoient ou déposent ici arrive aussitôt, sans bouton Accepter, et est prêt à coller.</string>
     <string name="settings_privacy">Confidentialité</string>
     <string name="settings_analytics_title">Aider à améliorer Relay</string>
-    <string name="settings_analytics_body">Envoie des comptages anonymes comme « un transfert terminé », ainsi que le modèle de l’ordinateur, le système et la version de Relay, jamais de noms de fichiers, de texte ni l’identité de vos appareils. Désactivé par défaut.</string>
+    <string name="settings_analytics_body">Envoie des comptages anonymes comme « un transfert terminé », jamais de noms de fichiers, de texte ni l’identité de vos appareils. Désactivé par défaut.</string>
     <string name="settings_shelf_title">Tablette de dépôt</string>
     <string name="settings_shelf_body">Un fin onglet au bord gauche de l’écran. Glissez-y un fichier ou du texte, puis déposez-le sur un appareil.</string>
 

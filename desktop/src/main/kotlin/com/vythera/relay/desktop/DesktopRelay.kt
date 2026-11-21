@@ -106,7 +106,7 @@ class DesktopRelay {
     private val analytics = DesktopAnalytics(scope, clientId = { settings.value.analyticsClientId }, log = { DesktopLog.write(it) })
     val updates = DesktopUpdates(VERSION, log = { DesktopLog.write(it) })
     val analyticsAvailable: Boolean get() = analytics.isAvailable
-    /** Lists this computer in the developer's panel, as part of "Help improve Relay". */
+    /** Lists this computer in the developer's panel: an anonymous device count, always on. */
     val checkIn = DesktopCheckIn(scope) { DesktopLog.write(it) }
 
     val devices: StateFlow<List<RelayDevice>> = node.devices
@@ -143,7 +143,8 @@ class DesktopRelay {
         DesktopCrashLogs.enabled = settings.value.crashLogs
         // Asking the system for the computer's model can take a moment; done now, off the window.
         scope.launch(Dispatchers.IO) { DesktopSystem.model }
-        checkIn.enabled = settings.value.analytics
+        // The anonymous device count runs for every install; it has no switch.
+        checkIn.enabled = true
         clipboard.start()
         scope.launch { node.events.collect(::onEvent) }
         // Re-applied every start, so the entry follows Relay if it is reinstalled elsewhere.
@@ -271,7 +272,6 @@ class DesktopRelay {
             )
         }
         analytics.enabled = enabled
-        checkIn.enabled = enabled
     }
 
     fun setCrashLogs(enabled: Boolean) {
@@ -449,7 +449,7 @@ class DesktopRelay {
     companion object {
         // Keep in step with packageVersion in desktop/build.gradle.kts: this is what About
         // shows and what paired devices are told.
-        const val VERSION = "1.0.6"
+        const val VERSION = "1.0.7"
         private const val MAX_HISTORY = 200
 
         fun isLink(text: String) = Regex("""^https?://\S+$""", RegexOption.IGNORE_CASE).matches(text.trim())

@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">كل ما ترسله أجهزتك الموثوقة أو تفلته هنا يصل فورًا، دون زر قبول، وجاهز للصق.</string>
     <string name="settings_privacy">الخصوصية</string>
     <string name="settings_analytics_title">ساعد في تحسين Relay</string>
-    <string name="settings_analytics_body">يرسل أعدادًا مجهولة مثل «اكتمل نقل»، إضافة إلى طراز الكمبيوتر ونظامه وإصدار Relay، ولا يرسل أبدًا أسماء الملفات أو النصوص أو هوية أجهزتك. متوقف افتراضيًا.</string>
+    <string name="settings_analytics_body">يرسل أعدادًا مجهولة مثل «اكتمل نقل»، ولا يرسل أبدًا أسماء الملفات أو النصوص أو هوية أجهزتك. متوقف افتراضيًا.</string>
     <string name="settings_shelf_title">رف الإفلات</string>
     <string name="settings_shelf_body">لسان رفيع على الحافة اليسرى للشاشة. اسحب إليه أي ملف أو نص، ثم أفلته على جهاز.</string>
 

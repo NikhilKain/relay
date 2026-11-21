@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">信頼済みデバイスがここに送ったりドロップしたりしたものは、承認ボタンなしですぐに届き、そのまま貼り付けられます。</string>
     <string name="settings_privacy">プライバシー</string>
     <string name="settings_analytics_title">Relay の改善に協力</string>
-    <string name="settings_analytics_body">「転送が完了した」などの匿名の件数と、コンピューターの機種、OS、Relay のバージョンを送信します。ファイル名、テキスト、デバイスの情報は決して送りません。初期設定はオフです。</string>
+    <string name="settings_analytics_body">「転送が完了した」などの匿名の件数を送信します。ファイル名、テキスト、デバイスの情報は決して送りません。初期設定はオフです。</string>
     <string name="settings_shelf_title">ドロップシェルフ</string>
     <string name="settings_shelf_body">画面左端の細いタブ。ファイルやテキストをそこにドラッグし、デバイスの上にドロップします。</string>
 

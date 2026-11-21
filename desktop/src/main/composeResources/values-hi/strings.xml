@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">आपके भरोसेमंद डिवाइस यहाँ जो कुछ भेजते या छोड़ते हैं, वह स्वीकार बटन के बिना तुरंत आता है और पेस्ट करने को तैयार होता है।</string>
     <string name="settings_privacy">गोपनीयता</string>
     <string name="settings_analytics_title">Relay को बेहतर बनाने में मदद करें</string>
-    <string name="settings_analytics_body">“एक ट्रांसफ़र पूरा हुआ” जैसी गुमनाम गिनतियाँ, साथ में कंप्यूटर का मॉडल, सिस्टम और Relay का वर्ज़न भेजता है, कभी फ़ाइल के नाम, टेक्स्ट या आपके डिवाइस कौन हैं, यह नहीं। डिफ़ॉल्ट रूप से बंद।</string>
+    <string name="settings_analytics_body">“एक ट्रांसफ़र पूरा हुआ” जैसी गुमनाम गिनतियाँ भेजता है, कभी फ़ाइल के नाम, टेक्स्ट या आपके डिवाइस कौन हैं, यह नहीं। डिफ़ॉल्ट रूप से बंद।</string>
     <string name="settings_shelf_title">ड्रॉप शेल्फ़</string>
     <string name="settings_shelf_body">स्क्रीन के बाएँ किनारे पर एक पतला टैब। कोई भी फ़ाइल या टेक्स्ट उस पर खींचें, फिर किसी डिवाइस पर छोड़ें।</string>
 

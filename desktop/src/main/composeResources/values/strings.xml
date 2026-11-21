@@ -202,7 +202,7 @@
     <string name="settings_ecosystem_body">Anything your trusted devices send or drop here arrives straight away, with no Accept button, and is ready to paste.</string>
     <string name="settings_privacy">Privacy</string>
     <string name="settings_analytics_title">Help improve Relay</string>
-    <string name="settings_analytics_body">Sends anonymous counts of things like “a transfer finished”, plus the computer model, system and Relay version, never file names, text or who your devices are. Off by default.</string>
+    <string name="settings_analytics_body">Sends anonymous counts of things like “a transfer finished”, never file names, text or who your devices are. Off by default.</string>
     <string name="settings_shelf_title">Drop shelf</string>
     <string name="settings_shelf_body">A slim tab on the left edge of the screen. Drag any file or text onto it, then drop it on a device.</string>
 

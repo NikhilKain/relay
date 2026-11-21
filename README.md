@@ -141,8 +141,9 @@ through a server. See the [privacy policy](https://nikhilkain.github.io/relay-si
 Settings › Send feedback opens the Vythera feedback website in your browser; nothing is sent
 until you submit the form there. If Relay closes unexpectedly it saves a report in
 Downloads/Relay/Crash logs, which stays on your computer unless you attach it to a report
-(you can turn this off). The optional "Help improve Relay" switch, off by default, sends
-anonymous counts plus the computer model, system and Relay version.
+(you can turn this off). Relay also sends an anonymous device count (a scrambled machine id,
+the computer model, system and Relay version) so we can see where it runs; it never includes
+anything you send.
 
 ## Building the desktop app
 

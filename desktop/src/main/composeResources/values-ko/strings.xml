@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">신뢰하는 기기가 이곳으로 보내거나 놓은 항목은 수락 버튼 없이 바로 도착하고 바로 붙여넣을 수 있습니다.</string>
     <string name="settings_privacy">개인정보 보호</string>
     <string name="settings_analytics_title">Relay 개선에 참여</string>
-    <string name="settings_analytics_body">“전송 완료” 같은 항목의 익명 집계와 컴퓨터 모델, 시스템, Relay 버전을 보내며, 파일 이름, 텍스트, 기기 정보는 절대 보내지 않습니다. 기본적으로 꺼져 있습니다.</string>
+    <string name="settings_analytics_body">“전송 완료” 같은 항목의 익명 집계만 보내며, 파일 이름, 텍스트, 기기 정보는 절대 보내지 않습니다. 기본적으로 꺼져 있습니다.</string>
     <string name="settings_shelf_title">드롭 선반</string>
     <string name="settings_shelf_body">화면 왼쪽 가장자리의 얇은 탭입니다. 파일이나 텍스트를 끌어다 놓은 다음 기기 위에 놓으세요.</string>
 

@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">Güvenilir cihazlarının buraya gönderdiği veya bıraktığı her şey Kabul et düğmesi olmadan hemen gelir ve yapıştırılmaya hazırdır.</string>
     <string name="settings_privacy">Gizlilik</string>
     <string name="settings_analytics_title">Relay’i geliştirmeye yardım et</string>
-    <string name="settings_analytics_body">“Bir aktarım tamamlandı” gibi anonim sayımları, ayrıca bilgisayar modelini, sistemi ve Relay sürümünü gönderir; dosya adlarını, metni veya cihazlarının kim olduğunu asla göndermez. Varsayılan olarak kapalı.</string>
+    <string name="settings_analytics_body">“Bir aktarım tamamlandı” gibi anonim sayımlar gönderir; dosya adlarını, metni veya cihazlarının kim olduğunu asla göndermez. Varsayılan olarak kapalı.</string>
     <string name="settings_shelf_title">Bırakma rafı</string>
     <string name="settings_shelf_body">Ekranın sol kenarında ince bir sekme. Üzerine bir dosya veya metin sürükle, sonra bir cihazın üzerine bırak.</string>
 

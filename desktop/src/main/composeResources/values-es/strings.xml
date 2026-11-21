@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">Todo lo que tus dispositivos de confianza envían o sueltan aquí llega al instante, sin botón de aceptar, y está listo para pegar.</string>
     <string name="settings_privacy">Privacidad</string>
     <string name="settings_analytics_title">Ayudar a mejorar Relay</string>
-    <string name="settings_analytics_body">Envía recuentos anónimos de cosas como «una transferencia terminó», además del modelo del ordenador, el sistema y la versión de Relay, nunca nombres de archivo, texto ni quiénes son tus dispositivos. Desactivado por defecto.</string>
+    <string name="settings_analytics_body">Envía recuentos anónimos de cosas como «una transferencia terminó», nunca nombres de archivo, texto ni quiénes son tus dispositivos. Desactivado por defecto.</string>
     <string name="settings_shelf_title">Bandeja para soltar</string>
     <string name="settings_shelf_body">Una pestaña fina en el borde izquierdo de la pantalla. Arrastra cualquier archivo o texto hasta ella y suéltalo sobre un dispositivo.</string>
 

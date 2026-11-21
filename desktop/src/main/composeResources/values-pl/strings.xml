@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">Wszystko, co zaufane urządzenia wysyłają lub upuszczają tutaj, dociera od razu, bez przycisku Akceptuj, i jest gotowe do wklejenia.</string>
     <string name="settings_privacy">Prywatność</string>
     <string name="settings_analytics_title">Pomóż ulepszać Relay</string>
-    <string name="settings_analytics_body">Wysyła anonimowe liczniki, np. „przesyłanie zakończone”, a także model komputera, system i wersję Relay, nigdy nazw plików, tekstu ani tego, jakie masz urządzenia. Domyślnie wyłączone.</string>
+    <string name="settings_analytics_body">Wysyła anonimowe liczniki, np. „przesyłanie zakończone”, nigdy nazw plików, tekstu ani tego, jakie masz urządzenia. Domyślnie wyłączone.</string>
     <string name="settings_shelf_title">Półka do upuszczania</string>
     <string name="settings_shelf_body">Wąska karta przy lewej krawędzi ekranu. Przeciągnij na nią plik lub tekst, a potem upuść na urządzenie.</string>
 

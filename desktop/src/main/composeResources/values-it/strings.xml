@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">Tutto ciò che i dispositivi attendibili inviano o rilasciano qui arriva subito, senza pulsante Accetta, ed è pronto da incollare.</string>
     <string name="settings_privacy">Privacy</string>
     <string name="settings_analytics_title">Aiuta a migliorare Relay</string>
-    <string name="settings_analytics_body">Invia conteggi anonimi come «un trasferimento completato», oltre al modello del computer, al sistema e alla versione di Relay, mai nomi di file, testo o chi sono i tuoi dispositivi. Disattivato per impostazione predefinita.</string>
+    <string name="settings_analytics_body">Invia conteggi anonimi come «un trasferimento completato», mai nomi di file, testo o chi sono i tuoi dispositivi. Disattivato per impostazione predefinita.</string>
     <string name="settings_shelf_title">Ripiano di rilascio</string>
     <string name="settings_shelf_body">Una sottile linguetta sul bordo sinistro dello schermo. Trascinaci un file o del testo, poi rilascialo su un dispositivo.</string>
 

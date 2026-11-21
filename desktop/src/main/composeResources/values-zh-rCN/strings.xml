@@ -198,7 +198,7 @@
     <string name="settings_ecosystem_body">受信任设备发送或投放到这里的任何内容都会立即送达，无需点击接受，并且可以直接粘贴。</string>
     <string name="settings_privacy">隐私</string>
     <string name="settings_analytics_title">帮助改进 Relay</string>
-    <string name="settings_analytics_body">发送“完成了一次传输”之类的匿名计数，以及电脑型号、系统和 Relay 版本，绝不发送文件名、文字或你的设备身份。默认关闭。</string>
+    <string name="settings_analytics_body">发送“完成了一次传输”之类的匿名计数，绝不发送文件名、文字或你的设备身份。默认关闭。</string>
     <string name="settings_shelf_title">投放架</string>
     <string name="settings_shelf_body">屏幕左边缘的一个细长标签。把任何文件或文字拖到上面，再放到某台设备上。</string>
 

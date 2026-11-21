@@ -160,9 +160,9 @@ object DesktopCrashLogs {
 
 /**
  * An anonymous count of the computers using Relay, for the developer's admin panel (the Vyxel
- * panel, app "relay", where each computer is listed under Windows, macOS or Linux). Part of
- * "Help improve Relay": nothing is sent unless that is on, and it stops when it is turned off.
- * It only reports; the panel's answer is ignored.
+ * panel, app "relay", where each computer is listed under Windows, macOS or Linux). It runs
+ * for every install, with no switch, and is described in the privacy policy. It only
+ * reports; the panel's answer is ignored.
  *
  * Sent: a SHA-256 of the system's machine id and Relay's name (the id itself never leaves the
  * computer), a random installation id, a random session id and how long Relay's window has been
